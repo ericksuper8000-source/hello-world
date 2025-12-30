@@ -30,6 +30,63 @@ C:\\Users\\XPC\\Desktop\\'''
 Hagamos dos Dataframes, Data_Frame1, Data_Frame2 y con la funcion pd.concat([Data_Frame1, Data_Frame2]) concatenemos ambos
 
 
+
+
+
+Como acceder a la primera fila del dataframe? DataFrame1.head(1)  solo muestra la primera fila
+
+Como acceder a las primeras 3 filas del dataframe? DataFrame1.head(3)
+
+Como acceder a las ultimas 3 filas del Dataframe? DataFrame1.tail(3)
+
+--------
+
+Como saber cuantas filas y cuantas columnas tiene un DataFrame?
+Con desempaquetado de variables
+
+Filas_Totales, Columnas_Totales = DataFrame1.shape
+
+print (f'Las columnnas totales son: {Filas_Totales}')
+print (f'Las filas totales son: {Columnas_Totales}')
+
+
+---------
+
+Como acceder a un elemento especifico del DataFrame?
+
+Elemento_Especifico_loc = DataFrame1.loc[3, "edad"]  '''Aqui mostramos la edad de la fila 3 nada mas'''
+
+Busque el nombre de la fila 0
+Busque la cabina de la fila 1
+Busque la clase de la fila 2
+
+
+Ahora vamos a ingresar a los mismos valores pero con la funcion iloc
+
+Elemento_Especifico_loc = DataFrame1.iloc[3, 5]  // el primero es la fila, el segundo es la columna numerica no por nombre
+
+Busque el nombre de la fila 0
+Busque la cabina de la fila 1
+Busque la clase de la fila 2
+
+
+
+Como acceder a todas las filas de una unica columna con iloc ?
+
+DataFrame1.iloc[:, 2]  // Esto tomara todas las filas unicamente de la columna 2
+
+
+
+Como acceder a todas las columnas de una unica fila con iloc ?
+
+DataFrame1.iloc[3, :]  // Esto tomara todas las columnas unicamente de la fila 3
+
+
+---------
+
+
+
+
 Vamos a exportar un documento excel para mostrarlo en consola
 1 - Primero creemos un excel doc con extension .xlsx
 1 - Segundo importamos en pycharm import openpyxl
@@ -73,8 +130,8 @@ Cargar_HTML = pd.read_html(Response.text)
 print (f'{Cargar_HTML[2].head()}')
 
 '''
-    
-    
+
+
 '''
 *********************************************** [NUMPY]
 
@@ -289,11 +346,11 @@ imprimimos el nombre completo en la funcion interna
 
 def Agregue_Numero_Externa():
     Lista = []
-    
+   
     def Agregue_Numero_Interna(x):
         Lista.append(x)
         print (f'{Lista}')
-        
+       
     return Agregue_Numero_Interna
 
 variable = Agregue_Numero_Externa()
@@ -307,7 +364,7 @@ variable(3)
 def crear_Multiplicador(x):
     def Multiplicar(n):
         return x * n
-    
+   
     return Multiplicar
 
 num1 = crear_Multiplicador(2)
@@ -316,7 +373,7 @@ num2 = crear_Multiplicador(3)
 print (f'El primer resultado es {num1(10)}')
 print (f'El primer resultado es {num2(10)}')
 
-# Creamos una funcion que reciba un set o tupla de numeros y filtre para mostrar unicamente los numeros pares 
+# Creamos una funcion que reciba un set o tupla de numeros y filtre para mostrar unicamente los numeros pares
 Pares = [num for num in Lista if num % 2 == 0]
 
 '''
@@ -594,3 +651,25 @@ def Colegio(Lista):
 
 
 Colegio(Alumnos)
+
+
+---------------------------
+
+
+
+
+[Excepciones]
+Una excepcion es un bloque de codigo que se mostrara en caso de que el codigo se rompa. Por ejemplo digamos que tenemos un codigo que pide un numero pero ingresamos una cadena de texto. Entonces el codigo se detendra y mostrara un mensaje de error hasta que agreguemos el numero.
+
+def Ejemplo():
+    while True:
+        Numero1 = input(f'Ingrese un numero: ')
+        try:
+            Numerito = int(Numero1)
+            break
+        except:
+            print (f'Error, eso no es un numero')
+
+    return Numerito
+
+print (f'{Ejemplo()}')
