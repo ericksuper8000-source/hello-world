@@ -1,11 +1,12 @@
-Rosa
-Girasol
-Margarita
+Nutria
+Conejo
+Tortuga
 Fresa Sabrosa
 Fresa Sabrosa
 Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Graveler - Pikachu - Vaporeon
-Su contrasena temporal es dfa290
+Vaporeon - Graveler - Pikachu
+Su contrasena temporal es cej172
+La lista de alumnos es ['erick']
