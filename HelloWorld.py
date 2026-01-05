@@ -1314,3 +1314,16 @@ PEPE2.Saludar5()
 import Paquete.Sub_Paquete.Segundo as PEPE3
 
 Variable_PEPE3 = PEPE3
+
+def Ejemplo():
+    while True:
+        Numero = input(f'Ingrese un numero cualquiera: ')
+        try:
+            Numerito = int(Numero)
+            break
+        except:
+            print (f'Error, debe ser un numero')
+
+    return Numerito
+
+print (f'El numerito ingresado es {Ejemplo()}')
