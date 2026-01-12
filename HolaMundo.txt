@@ -1,6 +1,6 @@
-Nutria
-Conejo
-Tortuga
+Melocoton
+Manzana
+Uvas
 Fresa Sabrosa
 Fresa Sabrosa
 Fresa Sabrosa
@@ -8,5 +8,5 @@ Pikachu
 Graveler
 Vaporeon
 Vaporeon - Graveler - Pikachu
-Su contrasena temporal es cej172
-La lista de alumnos es ['erick']
+Su contrasena temporal es ach44
+La lista de estudiantes que asistieron hoy es ['erick', 'josue']
