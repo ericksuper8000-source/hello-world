@@ -1,12 +1,11 @@
-Melocoton
-Manzana
-Uvas
-Fresa Sabrosa
-Fresa Sabrosa
-Fresa Sabrosa
+Elefante
+Serpiente
+Tigre
+Sapo Salvaje
+Sapo Salvaje
+Sapo Salvaje
 Pikachu
 Graveler
 Vaporeon
-Vaporeon - Graveler - Pikachu
-Su contrasena temporal es ach44
-La lista de estudiantes que asistieron hoy es ['erick', 'josue']
+Pikachu - Vaporeon - Graveler
+Su contrasena temporal es ach54
