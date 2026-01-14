@@ -127,3 +127,18 @@ class Pokemon:
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
+
+Division_Flotante = 14/7
+
+Lista1 = ["Erick", "Josue", "Perez", "Gutierrez"]
+Lista2 = [36, Division_Flotante, Diccionario_Poke["Poke2"], True]
+Lista3 = list([1, 2, 3, 4, 5])
+Lista4 = [4000, 15, 95, 200]
+
+Tupla_Poke = ('Ash', 'Brooke', 'Misty')
+
+Flotante1 = int(input(f'Ingrese un numero: '))
+
+Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
+
+Flotante3 = input(f'Ingrese una cadena de texto: ')

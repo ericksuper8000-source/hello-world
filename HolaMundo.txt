@@ -7,5 +7,6 @@ Sapo Salvaje
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Vaporeon - Graveler
+Graveler - Pikachu - Vaporeon
 Su contrasena temporal es ach54
+La lista de estudiantes es ['erick']
