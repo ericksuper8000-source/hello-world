@@ -2,4 +2,4 @@ image: python:3.11
 
 run:
   script:
-    - python --version
+    - python HelloWorld.py
