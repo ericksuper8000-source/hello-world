@@ -5,5 +5,5 @@ run:
   # Nombre del job
   script:
     # Comandos que ejecuta GitLab
-    - python HelloWorld.py
-    # Ejecuta el archivo HelloWorld.py, Python lee el archivo de arriba a abajo, Si todo va bien pipeline verde, si no pipeline rojo
+    - python git_practica.py
+    # Ejecuta el archivo git_practica.py, Python lee el archivo de arriba a abajo, Si todo va bien pipeline verde, si no pipeline rojo
