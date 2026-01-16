@@ -1,12 +1,11 @@
-Elefante
-Serpiente
-Tigre
-Sapo Salvaje
-Sapo Salvaje
-Sapo Salvaje
+Durazno
+Manzana
+Uvas
+Fresa Sabrosa
+Fresa Sabrosa
+Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Graveler - Pikachu - Vaporeon
-Su contrasena temporal es ach54
-La lista de estudiantes es ['erick']
+Vaporeon - Graveler - Pikachu
+Su contrasena temporal es hje891
