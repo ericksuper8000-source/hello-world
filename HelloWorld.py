@@ -951,7 +951,7 @@ Diccionario2 = {
     'Votante' : [True, True, False]
 }
 
-Diccionario3 = dict({'Ingresos' : 500, 'Gastos' : 200, 'Vacio' : ""})
+Diccionario3 = dict({'Ingresos' : 501, 'Gastos' : 199, 'Vacio' : "q"})
 
 print (f'{Diccionario1}')
 print (f'{Diccionario1.keys()}')
@@ -963,199 +963,325 @@ print (f'{Diccionario2.keys()}')
 print (f'{Diccionario2["Nombre"][1]}')
 print (f'{Diccionario2.get("Edad")[2]}')
 
-# Cambie un elemento del diccionario
-# Elimine un elemento del diccionario con el metodo pop()
-# Muestre el diccionario con los nuevos elementos
-# Reconstruya el diccionario con nuevos valores, ojo las llaves ahora seran numeros - Cree un Diccionario con la funcion dict
-# Haga un diccionario2 pero con varios elementos por indice, varios nombres, varias edades, etc
-# Imprima en consola una concatenacion de dos elementos del diccionario
-# Muestre cada una de las llaves de un diccionario con el metodo keys
-# Haga una operacion matematica con un elemento de una lista o tupla y uno del diccionario
-# Concatene un elemento de una lista con una tupla
-# Concatene un elemento de una lista con el diccionario
-# Creamos un diccionario vacio, solo con los keys pero sin valores por medio de la funcion dict.fromkeys([])
-# Ahora creamos un diccionario en el que todos los keys tengan el mismo valor Diccionario_Vacio = dict.fromkeys('ABCD', "Carmelo")
+Diccionario1["Nombre"] = Lista_Uno_Copia[0]
 
-# Declare una variable y asignele una division flotante
-# Declare una variable y asignele una potenciacion o exponente **
-# Declare una variable y asignele una division baja //
-# Declare una variable y asignele un resto o modulo %
-# Muestre en consola el tipo de dato de una variable float, un string, una lista, una tupla, un conjunto y un diccionario
-# Despliegue el resultado de la division flotante y de la division baja
+print (f'{Diccionario1}')
 
-# ***********************  Condicionales   **********************
+del Diccionario1["Nombre"]
+Diccionario1.pop("Edad")
 
-# Crea una llave condicional con if simple - Contar la cantidad de caracteres de una cadena de texto con len, haga un if condition
-# Crea una llave condicional con if y else simple
-# Ahora crea un condicional con if, elif y else
-# Ahora crea un condicional con multiples elif
-# Ahora un ejercicio con varios if anidados - declaras dos variables, ingresos y gastos, si los ingresos son mayores a x y los gastos menores a x, entonces estas bien, etc
+print (f'{Diccionario1}')
 
-# ***********************  Metodos / Funciones mas utilizadas   **********************
+Diccionario1.clear()
 
-# Declare una variable string, con un print y dir muestre todos los métodos y atributos disponibles para una variable u objeto
-# use help para ver que hace un metodo
+print (f'{Diccionario1}')
 
-#**********
+Diccionario1 = dict({1 : Diccionario2["Nombre"][2], 2 : PEPE.Lista2[1], 3 : variable7})
 
-# Declare una clase Persona, cree un objeto y defina un metodo
-# Metodos magicos vs metodos normales
-# dunder methods porque empiezan y terminan con __)
-# x = 'Ejemplo'
-# len(x) o tambien
-# x.__len__()
-# Metodos normales x.upper()
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1[1]}')
+print (f'{Diccionario1.get(2)}')
 
-#**********
+print (f'{Diccionario2["Nombre"][2]} no puede votar, ya que solo tiene {Diccionario1.get(2)} añitos')
 
-# abs(x) → Escribe un programa que reciba un número negativo y devuelva su valor absoluto.
-# any(iterable) → Comprueba si al menos un número de una lista es par.
-# bin(x) → Convierte un número entero dado por el usuario a binario.
-# bool(x) → Determina si una cadena ingresada por el usuario está vacía o no.
-# divmod(a, b) → Pide dos números y muestra el cociente y el residuo de su división.
-# Haz un ciclo for enumerate con un unico elemento, ese unico elemento mostrara el indice con elemento[0] y el valor con elemento[1]
-# enumerate(iterable) → Crea una lista de frutas y muestra cada una con su posición en la lista.
-# Haga el texto de una variable todo minuscula con el metodo lower
-# Haga el texto de una variable todo mayuscula con el metodo upper
-# Haga la primera letra de una variable mayuscula con el metodo capitalize
-# Busque una letra en especifico en una cadena de texto con el metodo find e index
-# Cuantas veces esta la letra a en una cadena con el metodo count
-# Verifiquemos si una cadena comienza con x letra con el metodo startswith
-# Verifiquemos si una cadena termina con x letra con el metodo endswith
-# Reemplace una parte de una cadena con el metodo replace(Este tiene dos parametros, lo que se quiere cambiar y lo nuevo)
-# Tome una variable de texto y separe cada elemento de la variable en una lista separada por ',' utilizando el metodo split()
+print (f'{PEPE.Tupla_Poke[2]} tiene {PEPE.Lista3[1]} o {Objeto1.Cantidad} o incluso {Sumatoria2(Anonima2(52))} {Objeto3.Nombre}s')
 
-# Busque un elemento en una lista o tupla con index, ojo find no es un metodo para listas
-# Declare una variable y asignele una copia de una lista con el metodo copy()
-# Borrar todos los elementos de un diccionario con clear()
-# Eliminar un elemento del diccinario con pop()
-# Recorra todos los elementos de un diccionario con un ciclo for normal
-# Recorramos tdos los elementos de un diccionario con la funcio .items()
+Diccionario_Vacio1 = dict.fromkeys('ABCD', Saludar_Dos())
+Diccionario_Vacio2 = dict.fromkeys(["Uno", "Dos", "Tres"])
+Diccionario_Vacio2["Dos"] = Objeto1.Nombre
 
-#### VARIABLES 2.0
+print (f'{Diccionario_Vacio1}')
+print (f'{Diccionario_Vacio2}')
 
-# Vamos a usar la tecnica de desempaquetado de variables creando una tupla de 3 elementos y agregando cada elemento de la tupla a 3 variables, ojo, no usar indices
+Division_Baja = 14//7
+Exponente = 4**3
+Modulo = 20%6
 
-### CICLOS WHILE
+print (f'El resultado de la operacion es {PEPE.Division_Flotante}')
+print (f'El resultado de la operacion es {int(abs(Division_Baja))}')
+print (f'El resultado de la operacion es {Exponente}')
+print (f'El resultado de la operacion es {Modulo}')
 
-# Creamos una lista con los numeros 1, 2, 3, 4, 5, hagamos un ciclo for que multiple cada uno de estos numeros y los muestre en consola
-# Creamos ahora una lista con 3 animales, los recorremos con un ciclo for, inmediatamente se evalua con un if si la variable es igual al segundo animal, lo muestra y se detiene el ciclo. Ojo, usar el break y el continue
-# Hagamos un for anidado con la funcion zip(), creamos dos listas del mismo tamaño
-# Hagamos un ciclo for con la funcion range de 0 a 5 con un unico parametro
-# Hagamos un ciclo for con la funcion range de 1 a 10 con dos parametros
-# Creamos una lista con 4 numeros, ahora creamos otra listsa Lista_Multiplicado y agregamos cada numero de la primera lista a la segunda x 10
+print (f'{type(variable1)}')
+print (f'{type(variable4)}')
+print (f'{type(PEPE.Division_Flotante)}')
+print (f'{type(Objeto1.Catched)}')
+print (f'{type(Lista_Uno_Copia)}')
+print (f'{type(Tupla3)}')
+print (f'{type(Set_Conjunto_Menu1)}')
+print (f'{type(Set_Conjunto_Menu2)}')
+print (f'{type(Diccionario_Vacio1)}')
+print (f'{type(Funcion_Tupla)}')
+print (f'{type(PEPE)}')
+print (f'{type(Array5)}')
+print (f'{type(Data_Frame_Concatenate)}')
 
-#### Ciclo WHILE
-# Creamo un ciclo while simple con un contador que se ejecutara mientras contador sea menor a 10
+if (Diccionario3["Ingresos"] > 500):
+    if (Diccionario3["Gastos"] < 200):
+        print (f'Ingresos Altos, Gastos Bajos')
+    elif (Diccionario3["Gastos"] == 200):
+        print (f'Ingresos Altos, Gastos Al Limite')
+    elif (Diccionario3["Gastos"] > 200):
+        print (f'Ingresos Altos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3["Ingresos"] == 500):
+    if (Diccionario3["Gastos"] < 200):
+        print (f'Ingresos Minimos, Gastos Bajos')
+    elif (Diccionario3["Gastos"] == 200):
+        print (f'Ingresos Minimos, Gastos Al Limite')
+    elif (Diccionario3["Gastos"] > 200):
+        print (f'Ingresos Minimos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3["Ingresos"] < 500):
+    if (Diccionario3["Gastos"] < 200):
+        print (f'Ingresos Bajos, Gastos Bajos')
+    elif (Diccionario3["Gastos"] == 200):
+        print (f'Ingresos Bajos, Gastos Al Limite')
+    elif (Diccionario3["Gastos"] > 200):
+        print (f'Ingresos Bajos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+else:
+    print (f'Error de codigo')
 
+print (f'{dir(variable1)}')
 
-#### Funciones creadas directamente por python (Funciones Build-In)
+class Entrenador:
+    def __init__(self, Trainer, City, Favorite):
+        self.Trainer = Trainer
+        self.City = City
+        self.Favorite = Favorite
+        self.Pokedex = Sumatoria2(1, 2, 3, 4)
+        self.Classified = True
 
-# Encontrar el numero mayor de una lista con la funcion max()
-# Encontrar el numero menor de una lista con la funcion min()
-# Redondear el numero 14.458795 a dos decimales con la funcion round() con dos parametros
-# Retornemos False con la funcion bool() usando False, 0, "", None
-# Retornemos un False agregando varios elementos a una variable con la funcion all() pero al menos uno debe ser False, 0, "", None
-# Cree una variable y sumele todos los elementos de una Tupla, Lista, Set con la funcion sum()
+    def Desplegar(self):
+        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
 
-# Imprime en pantalla    print()    
-# Solicita datos al usuario     input()
-# Devuelve la longitud de una secuencia    len()
-# Devuelve el tipo de un objeto    type()
-# Convierte un número a texto y viceversa  str(), int(), float()
-# Despliegue los numeros de 90 a 100 con range()
-# Imprime los elementos de una lista con su posición.     enumerate()
-# Combina dos listas y muéstralas juntas    zip()
-# Ordena una lista de números con sort, sort(reverse = True) reverse()
+Objeto4 = Entrenador(PEPE.Tupla_Poke[0], 'Kanto', Objeto1.Nombre)
+Objeto5 = Entrenador(PEPE.Tupla_Poke[1], 'Alola', Objeto2.Nombre)
+Objeto6 = Entrenador(PEPE.Tupla_Poke[2], 'Paldea', Objeto3.Nombre)
 
-# Verifique si un elemento de una tupla es par con any()
-# Cree una list(), tuple(), set(), dict()
-# Cree una lista de 4 palabras por ejemplo mi nombre completo y unalas con la funcion print ("-".join(Lista))
+Objeto5.Desplegar()
 
-# Divide un texto por espacios con split()
+Negativo = -5
 
-# ***********************  Data Inputs   **********************
+print (f'{int(abs(Negativo))}')
 
-# Input lo que nos devuelve siempre es texto, aunque se ingresen numeros
-# Declare una variable y asignele un input, pida que ingrese un numero
-# Esa variable debe convertirse en integer con la funcion int
-# Haga una operacion matematica con esta variable y muestrela
+Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+Anonima_Iterable = filter(lambda num : num % 2 == 0, PEPE.Lista_Numeros)
 
-# eval(expression) → Permite al usuario ingresar una operación matemática como texto y muestra el resultado.
+print (f'{Any_Iterable}')
+print (f'{Lista_Iterable}')
+print (f'{list(Anonima_Iterable)}')
 
-# Vamos a crear un programa en el que por medio de un input le pidamos a un usuario ingresar una cadena de texto
-# Esta cadena de texto sera guardada en una variable matriz con la funcion split separando cada palabra por un espacio
-# Ahora vamos a usar la funcion dunder len para contar cuantas palabras ingreso el usuario
+print (f'El binario del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
 
-# Creamos una lista vacia, Ahora creamos un programa que pida la cantidad de alumnos
-# Luego con un for range, se recorre el ciclo y se pide el nombre de la cantidad de alumnos
-# Por medio de un append agregamos cada nombre a la lista vacia
-# Mostramos los elementos del filtro, cada nombre digitado
+if (bool(Diccionario3["Vacio"]) == True):
+    print (f'Gracias por la informacion')
+else:
+    print (f'Error, ingrese una cadena de texto')
 
-# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
-# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+Cociente, Residuo = divmod(Objeto3.Cantidad, Sumatoria2(1, 2, 3, 1))
 
-# Usemos elementos de un modulo por medio de un import
-# Renombremos un modulo con la instrucion "as" Saludar as OtroNombre
+print (f'El cociente de la operacion es {Cociente} y el residuo es {Residuo}')
 
+for elemento in enumerate(Lista_Uno_Copia):
+    print (f'{elemento[0]} -- {elemento[1]}')
 
+for indice, elemento in enumerate(Tupla1, start=1):
+    print (f'El elemento en la posicion {indice} es {elemento}')
 
-##############################     ENRUTAMIENTO DE MODULOS     ######################################
+variable8 = 'eSteBAN'
+letra8 = variable8[0]
 
-''' Hay un modulo llamado Modulo_Propio2 dentro de una carpeta alternativa, importemos esta carpeta alternativa
-por medio del nombre de la carpeta Nueva.Modulo_Propio2, y despleguemos algun elemento de Modulo Propio2,
-Como el nombre del import se vuelve grandisimo, usemos "as" para renombrarlo y que sea mas facil manejarlo'''
+print (f'{variable8}')
+print (f'{variable8.lower()}')
+print (f'{variable8.upper()}')
+print (f'{variable8.capitalize()}')
 
+print (f'{variable8.lower().find("t")}')
+print (f'{variable8.lower().index("b")}')
 
-##############################     PAQUETES (Es una carpeta con muchos archivos python)     ######################################
+print (f'La letra {letra8} aparece un total de {variable8.lower().count(letra8)} veces')
 
-''''''Un paquete es una carpeta con muchos archivos, lo mas importante es que esta carpeta para ser
-Considerara un paquete debe tener un archivo llamado __init__.py, esto lo convierte en paquete
-Si dentro de esta carpeta paquete agregamos una sub carpeta con __init__.py, esto se vuelve un sub paquete.'''
+print (f'{variable8.lower().startswith(letra8)}')
+print (f'{variable8.lower().endswith("n")}')
 
+print (f'{variable8.lower().replace("ban", "POPOTAMO")}')
 
+variable9 = 'este es un ejemplo cualquiera de lo que yo quisiera'
 
+Lista_variable9 = variable9.split(' ')
 
-Alumnos = []
+for elemento in Lista_variable9:
+    print (f'{elemento}')
 
-Cantidad = int(input(f'Ingrese la cantidad de alumnos: '))
+print (f'La cantidad de palabras digitadas son {Lista_variable9.__len__()}')
 
-def Colegio(Lista):
-    for elemento in range(Cantidad):
+print (f'{PEPE.Tupla_Poke[2]} aparece en la posicion {PEPE.Tupla_Poke.index("Misty")}')
+
+for elemento in Diccionario1:
+    print (f'{Diccionario1[elemento]}')
+
+for elemento in Diccionario2.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'{PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+Contador = 0
+
+Lista_Animales = list([])
+Lista_Animales.append('Cocodrilo')
+Lista_Animales.insert(1, PEPE.Lista2[2])
+Lista_Animales.extend(['Gorila', 'Hipopotamo'])
+
+while (Contador < len(Lista_Animales)):
+    if (Lista_Animales[Contador] == 'Koala'):
+        print (f'Lindo el osito')
+        break
+    else:
+        Contador+= 1
+        continue
+
+Contador = 0
+
+for elemento1, elemento2 in zip(Set_Conjunto1, Set_Conjunto_Menu1):
+    print (f'{elemento2} -- {elemento1}')
+
+for elemento in range(5):
+    print (f'{elemento}')
+
+for elemento in range(995, 1000):
+    print (f'{elemento}')
+
+Contador = 0
+
+print (f'{PEPE.Lista_Numeros}')
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'Contador {PEPE.Lista_Numeros[Contador]}')
+    Contador+= 1
+
+Lista_Numeros_Multiplicados = [num * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Multiplicados}')
+
+Menor = min(Lista_Numeros_Multiplicados)
+Mayor = max(Lista_Numeros_Multiplicados)
+
+Redondeado = round(14.458795, 2)
+
+Sumatoria4 = sum(Lista_Numeros_Multiplicados)
+
+print (f'El numero menor de la lista es {Menor} y el mayor es {Mayor}')
+
+print (f'El numero redondeado de la lista es {Redondeado}')
+
+print (f'El resultado de la sumatoria es {Sumatoria4}')
+
+print (f'{bool(0)}')
+print (f'{bool("")}')
+print (f'{bool(None)}')
+print (f'{bool(False)}')
+
+Todo_All = all([Lista_Uno_Copia, Set_Conjunto_Menu1, Diccionario1, None])
+
+print (f'{Todo_All}')
+
+Uno = str(500)
+Dos = int("500")
+Tres = float(Dos)
+
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
+
+print (f' - '.join(PEPE.Set_Conjunto_Poke))
+
+def Flotante_Uno(Numerito):
+    return Sumatoria2(1, 2, 3, 4, 5) + Variable_Sumatoria * Numerito
+
+print (f'El resultado de la operacion es {Flotante_Uno(PEPE.Flotante1)}')
+
+Resultado2 = eval(PEPE.Flotante2)
+
+print (f'El resultado de la operacion es {Resultado2}')
+
+def Flotante_Tres(Cadenita):
+    Lista_Cadenita = Cadenita.split(' ')
+    print (f'La cantidad de palabras digitadas son {Lista_Cadenita.__len__()}')
+
+    for elemento in enumerate(Lista_Cadenita):
+        print (f'{elemento[0]} -- {elemento[1]}')
+
+Flotante_Tres(PEPE.Flotante3)
+
+Lista_Alumnos = []
+
+Contador = int(input(f'Ingrese la cantidad de alumnos: '))
+
+def Colegio1(Lista):
+    for elemento in range(Contador):
         Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
-        Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
-        Estudiante = [Alumno, Edad]
+        Lista.append(Alumno)
+
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nLa lista de estudiantes que asistieron hoy es {Colegio1(Lista_Alumnos)}')
+    Docu.close()
+
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+Lista_Alumnos2 = []
+
+Contador = int(input(f'Ingrese el numero de alumnos: '))
+
+def Colegio2(Lista):
+    for elemento in range(Contador):
+        Alumno_Nombre = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Alumno_Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
+
         Lista.append(Estudiante)
-        Lista.sort(key = lambda Num : Num[1])
 
-    Estudiante = Lista[0][0]
-    Profesor = Lista[-1][0]
+    Lista.sort(key = lambda num :  num[1])
 
-    print (f'El profesor es {Profesor} y el estudiante menor es {Estudiante}')
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
 
+    print (f'El menor de los alumnos es {Menore} y el mayor de los alumnos es {Mayore}')
 
-Colegio(Alumnos)
+Colegio2(Lista_Alumnos2)
 
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
 
----------------------------
+PEPE2.Saludar5()
 
+import Paquete.Sub_Paquete.Segundo as PEPE3
 
-
-
-[Excepciones]
-Una excepcion es un bloque de codigo que se mostrara en caso de que el codigo se rompa. Por ejemplo digamos que tenemos un codigo que pide un numero pero ingresamos una cadena de texto. Entonces el codigo se detendra y mostrara un mensaje de error hasta que agreguemos el numero.
+Variable_PEPE3 = PEPE3
 
 def Ejemplo():
     while True:
-        Numero1 = input(f'Ingrese un numero: ')
+        Num = input(f'Ingrese un numero entero: ')
         try:
-            Numerito = int(Numero1)
+            Numerito = int(Num)
             break
         except:
-            print (f'Error, eso no es un numero')
+            print (f'Error, necesito un numero entero')
 
     return Numerito
 
-print (f'{Ejemplo()}')
-
-xxx
+print (f'Gracias, el numero digitado es {Ejemplo()}')
