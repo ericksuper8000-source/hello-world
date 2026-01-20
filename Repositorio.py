@@ -312,7 +312,7 @@ Busque 3 numeros entre el 1 y el 10 con Array_Linspace = np.linspace(start=1, st
 
 # Creamos una funcion simple propia que diga hola mundo  en  Modulo_Propio
 # Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio
-# Creamos una funcion que tenga un parametro nombre agregado por el usuario en  Modulo_Propio
+# Creamos una funcion que tenga un parametro nombre agregado por el usuario en  Modulo_Propio, ojo hagamos la funcion type hint mostrando el tipo de dato
 # Creamos una funcion que recibe dos numeros, retorne (return) la suma del num1 y el num2 en  Modulo_Propio
 # Ahora haremos la misma sumatoria pero con funciones anidadas
 # Crear una función que devuelva True si un número es par

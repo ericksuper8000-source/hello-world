@@ -1,12 +1,11 @@
-Durazno
-Manzana
-Uvas
+Hiena
+Cocodrilo
+Ballena
 Fresa Sabrosa
 Fresa Sabrosa
 Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Vaporeon - Pikachu - Graveler
-Su contrasena temporal es hje891
-La lista de estudiantes que asistieron hoy es ['erick']
+Vaporeon - Graveler - Pikachu
+Su contrasena temporal es ach56
