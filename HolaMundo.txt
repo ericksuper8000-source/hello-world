@@ -7,6 +7,6 @@ Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Vaporeon - Graveler
+Pikachu - Graveler - Vaporeon
 Su contrasena temporal es cej168
-La lista de estudiantes que asistieron hoy es ['josue']
+La lista de estudiantes que asistieron hoy es ['erick', 'josue']
