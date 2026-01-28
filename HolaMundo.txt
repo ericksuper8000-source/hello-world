@@ -8,3 +8,5 @@ Pikachu
 Graveler
 Vaporeon
 Graveler - Vaporeon - Pikachu
+Su contrasena temporal es cej168
+La lista de estudiantes que asistieron hoy es ['erick']
