@@ -1,16 +1,16 @@
-Diccionario_Poke = dict.fromkeys(["Poke1", "Poke2", "Poke3"])
+Diccionario_Poke = dict.fromkeys(['Poke1', 'Poke2', 'Poke3'])
 
-Set_Conjunto_Poke = set({"Pikachu"})
+Set_Conjunto_Poke = set({'Pikachu'})
 Set_Conjunto_Poke.add('Graveler')
 Set_Conjunto_Poke.add('Vaporeon')
 
 for indice, elemento in enumerate(Set_Conjunto_Poke, start=1):
-    if (elemento == "Pikachu"):
-        Diccionario_Poke["Poke1"] = elemento
-    elif (elemento == "Graveler"):
-        Diccionario_Poke["Poke2"] = elemento
-    elif (elemento == "Vaporeon"):
-        Diccionario_Poke["Poke3"] = elemento
+    if (elemento == 'Pikachu'):
+        Diccionario_Poke['Poke1'] = elemento
+    elif (elemento == 'Graveler'):
+        Diccionario_Poke['Poke2'] = elemento
+    elif (elemento == 'Vaporeon'):
+        Diccionario_Poke['Poke3'] = elemento
     else:
         continue
 
@@ -47,7 +47,7 @@ def Primera(Segunda):
     return Tercera
 
 @Primera
-def Sumatoria1(Num1, Num2:int) -> int:
+def Sumatoria1(Num1:int, Num2:int) -> int:
     return Num1 + Num2
 
 def Primera(Segunda):
@@ -81,12 +81,12 @@ def Usuario(Nombre, Sexo):
 
 def Primera(Segunda):
     def Tercera(*args):
-        return Segunda(42)
+        return Segunda(32)
 
     return Tercera
 
 @Primera
-def Contrasena(Numero):
+def Contrasena(Numero:int) -> int:
     chars = 'abcdefghij'
     Numero_Str = str(Numero)
     Numero_Int = int(Numero_Str[0])
@@ -96,7 +96,11 @@ def Contrasena(Numero):
     Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
     return Password
 
-Lista_Numeros = list([1, 2, 3, 4, 5])
+Lista_Numeros = list([])
+
+Lista_Numeros.extend([1, 2, 3, 4, 5])
+
+print (f'{Lista_Numeros}')
 
 Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
 Variable_Funcion_Anonima2 = lambda Num : Num * 2
@@ -120,8 +124,8 @@ class Pokemon:
 Division_Flotante = 14/7
 
 Lista1 = ["Erick", "Josue", "Perez", "Gutierrez"]
-Lista2 = [Variable_Funcion_Anonima2(15), Division_Flotante, 'Koala', True]
-Lista3 = list([1, 2, 3])
+Lista2 = [Variable_Funcion_Anonima1(150, 2), Division_Flotante, 'Koala', False]
+Lista3 = list([1, 2, 3, 4, 5])
 Lista4 = [4000, 97, 15, 200]
 
 Tupla_Poke = ('Ash', 'Brooke', 'Misty')
