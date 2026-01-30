@@ -1,3 +1,21 @@
+# Hagamos una exception ValueError, sera una funcio con un input que pida ingresar un numero, try int(Numero) si no entonces except mostrar mensaje de error.
+# Hagamos una exception TypeError, sera una funcion que reciba como parametro 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
+# Hagamos una exception ZeroDivisionError, sera una funcion que reciba como parametros 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
+
+# Hagamos una exception IndexError, primero haremos una lista con 3 elementos, luego una funcion que pida como parametro el indice, try mostrar un mensaje el elemento en el indice x es x
+# Si no es posible except mostrar un mensaje de error, indice fuera de rango
+
+# Hagamos una exception KeyError, haremos un diccionario con dos elementos nombre y edad, luego una funcion que recibe como parametro el key, en try mostrar un mensaje el elemento en la llave x es x
+# Si no se puede except mostrar mensaje de error, esa llave no es parte del diccionario.
+
+# Hagamos una exception FileNotFoundError, aqui no usaremos funciones, solo hacer un try y dentro del try hacemos un with open para mostrar con un read el archivo txt HolaMundo.txt
+# Si no es posible mostrarlo con un except mostrar un mensaje de error
+
+# Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
+# En caso de que de error, entonces con except mostraremos un mensaje de error
+
+
+
 # Abrir e importar el modulo Modulo_Propio “import”
 # Vamos a cambiarle el nombre al modulo que vamos a usar a PEPE con “as”
 
