@@ -49,6 +49,31 @@ Hagamos dos Dataframes, Data_Frame1, Data_Frame2 y con la funcion pd.concat([Dat
 
 
 
+# Hacer un grafico lineal con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
+Cargar_Csv = pd.read_csv(Ruta_Csv)
+print (f'{Cargar_Csv}')
+sns.lineplot(x='Nombre', y='Edad', data=Cargar_Csv)
+plt.show()
+
+
+# Hacer un grafico de barras con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
+Cargar_Csv = pd.read_csv(Ruta_Csv)
+print (f'{Cargar_Csv}')
+sns.barplot(x='Nombre', y='Edad', data=Cargar_Csv)
+plt.show()
+
+
+
 
 
 Como acceder a la primera fila del dataframe? DataFrame1.head(1)  solo muestra la primera fila
@@ -324,7 +349,90 @@ Con la instruccion replace = False, vamos a asegurarnos que ningun numero del re
 Busque 3 numeros entre el 1 y el 10 con Array_Linspace = np.linspace(start=1, stop=10, num=3)
 '''
 
+
+
+Hagamos una funcion Generadora.
+Las funciones generadoras me permiten ejecutar un codigo de manera pausada y controlada para ver el comportamiento.
+
+Hagamos una funcion generadora, donde por medio de un range se muestren 10 numeros, pero con los parametros de la funcion generadora, ir de uno en uno para analizar su ejecucion.
+
+def Ejemplo():
+    for elemento in range(0, 10):
+        yield elemento
+
+Rango = Ejemplo()
+
+print (f'{next(Rango)}')
+
+
+Ahora hagamos una funcion donde por medio de un range se evalue si el elemento es un numero par o impar, vamos a ir evaluando cada uno con un if % 2 == 0 y yield, quiero que me muestre cada resultado de manera individual. La idea es con el next mostrar par, impar, par, etc….
+
+def Ejemplo2():
+    for elemento in range(5):
+        if (elemento % 2 == 0):
+            yield f'par'
+        else:
+            yield f'impar'
+
+Rango2 = Ejemplo2()
+
+print (f'{next(Rango2)}')
+
+
+
+# Ahora vamos a hacer un ejercicio mas donde por medio de una funcion que recorra un ciclo range, con yield y next se muestre cada uno por separado
+# Pero en este caso cuando lleguemos al final mostraremos un mensaje El ejercicio termino. Esto lo manejaremos con una exception StopIteration
+def Ejemplo():
+    for elemento in range(3):
+        yield elemento
+
+Rango = Ejemplo()
+
+try:
+    print (f'{next(Rango)}')
+    print(f'{next(Rango)}')
+    print(f'{next(Rango)}')
+    print(f'{next(Rango)}')
+except StopIteration:
+    print (f'El ejercicio termino')
 '''
+
+#*******************************************************************************************
+
+'''Expresiones regulares en Python
+Son un buscador con superpoderes para texto. Siempre hay que comenzar exportando import re
+
+1 - Buscar si una palabra existe en un texto con search
+re.search(‘hola’, cadena_texto)
+2 - findall() → dame todos, busquemos todos los elementos iguales
+re.findall(‘a’, cadena_texto)
+
+3 - fullmatch() → ¿cumple TODA la regla?
+Variable = ‘hola mundo’
+re.full_match(‘hola mundo’, Variable)
+
+[PATRONES MAS COMUNES]
+Ahora vamos a buscar un numero en la cadena de texto \d → un número 
+re.search(‘\d’, ‘Este texto tiene el numero 8 o el 9’)
+re.search(‘\d+’, ‘Este texto tiene el numero 8 o el 9’)  // Encuentra uno o mas numeros
+re.search(‘h.la’, ‘hola’)    // la . puede ser cualquier cosa 
+
+Ejemplo 
+re.findall("\d+", "Tengo 2 perros y 15 gatos") // “Encuentra uno o más números”
+
+re.fullmatch("\d+", "1234")   # válido
+re.fullmatch("\d+", "12a4")   # inválido
+
+Solo debe tener letras 
+re.fullmatch("[a-zA-Z]+", "Hola")  # válido
+
+El texto comienza con la palabra Hola?
+re.search("^Hola", "Hola mundo")
+
+El texto termina con la palabra mundo?
+re.search("mundo$", "Hola mundo")'''
+
+#*******************************************************************************************
 
 ####### CREANDO MIS PROPIAS FUNCIONES
 

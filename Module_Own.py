@@ -1,0 +1,118 @@
+Diccionario_Poke = dict.fromkeys(['Poke1', 'Poke2', 'Poke3'])
+
+Set_Conjunto_Poke = set({'Pikachu'})
+Set_Conjunto_Poke.add('Graveler')
+Set_Conjunto_Poke.add('Vaporeon')
+
+for elemento in enumerate(Set_Conjunto_Poke):
+    if (elemento[1] == 'Pikachu'):
+        Diccionario_Poke['Poke1'] = elemento[1]
+    elif (elemento[1] == 'Graveler'):
+        Diccionario_Poke['Poke2'] = elemento[1]
+    elif (elemento[1] == 'Vaporeon'):
+        Diccionario_Poke['Poke3'] = elemento[1]
+    else:
+        continue
+
+print (f'{Diccionario_Poke}')
+
+def Primera(Segunda):
+    def Tercera():
+        print (f'ANTES')
+        Segunda()
+
+    return Tercera
+
+@Primera
+def Saludar1():
+    print (f'Hola Mundo')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda('Carmelo')
+
+    return Tercera
+
+@Primera
+def Saludar2(Nombre = 'Juanita'):
+    return Nombre
+
+def Saludar3(Nombre:str) -> str:
+    return Nombre
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) + 1
+
+    return Tercera
+
+@Primera
+def Sumatoria1(Num1:int, Num2:int) -> int:
+    return Num1 + Num2
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(2)
+
+    return Tercera
+
+@Primera
+def Par(Numero:int) -> int:
+    if (Numero % 2 == 0):
+        print (f'El numero es par')
+    else:
+        print (f'El numero es impar')
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'Juanita La Cubanita'
+        Sexo = 'FEMENINO'
+        return Segunda(Nombre, Sexo)
+
+    return Tercera
+
+@Primera
+def Usuario(Nombre, Sexo):
+    Genero = Sexo.lower()
+    if (Genero == 'masculino'):
+        print (f'{Nombre}, eres un hombre')
+    else:
+        print (f'{Nombre}, eres una mujer')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(37)
+
+    return Tercera
+
+@Primera
+def Contrasena(Numero:int) -> int:
+    chars = 'abcdefghij'
+    Numero_Str = str(Numero)
+    Numero_Int = int(Numero_Str[0])
+    c1 = Numero_Int - 2
+    c2 = Numero_Int
+    c3 = Numero_Int - 5
+    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
+    return Password
+
+Lista_Numeros = [1, 2, 3, 4, 5]
+
+Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
+Variable_Funcion_Anonima2 = lambda Num : Num * 2
+Variable_Funcion_Anonima3 = filter(lambda Num : Num % 2 == 0, Lista_Numeros)
+
+Global = 30
+
+class Pokemon:
+    def __init__(self, Nombre, Tipo, Ataque):
+        self.Nombre = Nombre
+        self.Tipo = Tipo
+        self.Ataque = Ataque
+        self.Cantidad = 36
+        self.Catched = False
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Tipo: {self.Tipo}')
+        print (f'Ataque: {self.Ataque}')
