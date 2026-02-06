@@ -4,13 +4,13 @@ Set_Conjunto_Poke = set({'Pikachu'})
 Set_Conjunto_Poke.add('Graveler')
 Set_Conjunto_Poke.add('Vaporeon')
 
-for elemento in enumerate(Set_Conjunto_Poke):
-    if (elemento[1] == 'Pikachu'):
-        Diccionario_Poke['Poke1'] = elemento[1]
-    elif (elemento[1] == 'Graveler'):
-        Diccionario_Poke['Poke2'] = elemento[1]
-    elif (elemento[1] == 'Vaporeon'):
-        Diccionario_Poke['Poke3'] = elemento[1]
+for indice, elemento in enumerate(Set_Conjunto_Poke, start=1):
+    if (elemento == 'Pikachu'):
+        Diccionario_Poke['Poke1'] = elemento
+    elif (elemento == 'Graveler'):
+        Diccionario_Poke['Poke2'] = elemento
+    elif (elemento == 'Vaporeon'):
+        Diccionario_Poke['Poke3'] = elemento
     else:
         continue
 
@@ -57,16 +57,16 @@ def Primera(Segunda):
     return Tercera
 
 @Primera
-def Par(Numero:int) -> int:
+def Par(Numero):
     if (Numero % 2 == 0):
-        print (f'El numero es par')
+        return True
     else:
-        print (f'El numero es impar')
+        return False
 
 def Primera(Segunda):
     def Tercera(*args, **kwargs):
         Nombre = 'Juanita La Cubanita'
-        Sexo = 'FEMENINO'
+        Sexo = 'FEMENIno'
         return Segunda(Nombre, Sexo)
 
     return Tercera
@@ -81,19 +81,19 @@ def Usuario(Nombre, Sexo):
 
 def Primera(Segunda):
     def Tercera(*args):
-        return Segunda(37)
+        return Segunda(42)
 
     return Tercera
 
 @Primera
-def Contrasena(Numero:int) -> int:
+def Contrasena(Numero):
     chars = 'abcdefghij'
     Numero_Str = str(Numero)
     Numero_Int = int(Numero_Str[0])
     c1 = Numero_Int - 2
     c2 = Numero_Int
     c3 = Numero_Int - 5
-    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
+    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero))}'
     return Password
 
 Lista_Numeros = [1, 2, 3, 4, 5]
@@ -125,9 +125,3 @@ Lista3 = list([1, 2, 3, 4, 5])
 Lista4 = [4000, 97, 15, 200]
 
 Tupla_Poke = ('Ash', 'Brooke', 'Misty')
-
-Flotante1 = int(input(f'Ingrese un numero: '))
-
-Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
-
-Flotante3 = input(f'Ingrese una cadena de texto: ')

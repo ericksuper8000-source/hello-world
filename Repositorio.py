@@ -47,6 +47,8 @@ C:\\Users\\XPC\\Desktop\\'''
 
 Hagamos dos Dataframes, Data_Frame1, Data_Frame2 y con la funcion pd.concat([Data_Frame1, Data_Frame2]) concatenemos ambos
 
+Recorramos el dataframe concatenate con un for indice, elemento y iterrows() y muestre los nombres
+
 
 
 # Hacer un grafico lineal con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
