@@ -1,12 +1,11 @@
-Leon
-Ballena
-Cocodrilo
+Durazno
+Manzana
+Uvas
 Fresas Sabrosas
 Fresas Sabrosas
 Fresas Sabrosas
 Pikachu
 Graveler
 Vaporeon
-Graveler - Pikachu - Vaporeon
-Su contrasena temporal es cej42
-La lista de estudiantes es ['erick']
+Vaporeon - Pikachu - Graveler
+Su contrasena temporal es bdi111
