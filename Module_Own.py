@@ -15,3 +15,14 @@ for indice, elemento in enumerate(Set_Conjunto_Poke, start=1):
         continue
 
 print (f'{Diccionario_Poke}')
+
+def Primera(Segunda):
+    def Tercera():
+        print (f'ANTES')
+        Segunda()
+
+    return Tercera
+
+@Primera
+def Saludar1():
+    print (f'Hola Mundo')
