@@ -95,3 +95,35 @@ def Contrasena(Numero):
     c3 = Numero_Int - 5
     Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
     return Password
+
+Lista_Numeros = list([])
+Lista_Numeros.append(1)
+Lista_Numeros.insert(1, 2)
+Lista_Numeros.extend([3, 4, 5])
+
+print (f'{Lista_Numeros}')
+
+Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
+Variable_Funcion_Anonima2 = lambda Num : Num * 2
+Variable_Funcion_Anonima3 = filter(lambda Num : Num % 2 == 0, Lista_Numeros)
+
+Any_Par = any(num % 2 == 0 for num in Lista_Numeros)
+Lista_Par = [num for num in Lista_Numeros if num % 2 == 0]
+
+print (f'{Any_Par}')
+print (f'{Lista_Par}')
+
+Global = 30
+
+class Pokemon:
+    def __init__(self, Nombre, Tipo, Ataque):
+        self.Nombre = Nombre
+        self.Tipo = Tipo
+        self.Ataque = Ataque
+        self.Cantidad = 18 * 2
+        self.Catched = not True
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Tipo: {self.Tipo}')
+        print (f'Ataque: {self.Ataque}')
