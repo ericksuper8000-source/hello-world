@@ -75,7 +75,16 @@ sns.barplot(x='Nombre', y='Edad', data=Cargar_Csv)
 plt.show()
 
 
+# Hacer un grafico de dispersion con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
+Cargar_Csv = pd.read_csv(Ruta_Csv)
+print (f'{Cargar_Csv}')
+sns.scatterplot(x='Nombre', y='Edad', data=Cargar_Csv)
+plt.show()
 
 
 Como acceder a la primera fila del dataframe? DataFrame1.head(1)  solo muestra la primera fila
@@ -634,6 +643,8 @@ Pares = [num for num in Lista if num % 2 == 0]
 # Ahora crea un condicional con if, elif y else
 # Ahora crea un condicional con multiples elif
 # Ahora un ejercicio con varios if anidados - declaras dos variables, ingresos y gastos, si los ingresos son mayores a x y los gastos menores a x, entonces estas bien, etc
+# Ahora vamos a hacer un if con un and
+# Ahora vamos a hacer un if con un or
 
 # ***********************  Metodos / Funciones mas utilizadas   **********************
 
@@ -824,3 +835,23 @@ Cargar_Html = pd.read_html(texto_html)
 
 # 4. Mostramos la primera tabla encontrada
 print(Cargar_Html[0].head())
+
+
+# Validar si el correo electronico tiene el formato correcto por medio de expresiones regulares
+
+'''
+
+import re
+
+email = 'example@example.com'
+
+pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+
+result = re.match(pattern, email)
+
+if result:
+	print (f'Valido')
+else:
+	print (f'Invalido')
+
+'''
