@@ -1156,3 +1156,337 @@ Objeto2 = Poke(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo')
 Objeto3 = Poke(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro')
 
 Objeto2.Mostrar()
+
+from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
+
+variable1 = Lista_Uno[0]
+variable2 = 'Perez'
+variable3 = '''Esto
+Es
+Un
+Long
+String'''
+
+variable4 = Objeto1.Cantidad
+variable5 = PEPE.Division_Flotante
+variable6, variable7 = not False, Objeto3.Catched
+
+# Esto es un comentario simple
+
+'''Esto
+Es
+Un
+Comentario
+Compuesto'''
+
+print (f'Concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'Mi nombre es {Lista_Uno[0]} {variable2}')
+
+print (f'{PEPE.Tupla_Poke[2]} tiene {Variable_Sumatoria} {Sumatoria2(1, 2, 3, 4)} o incluso {Objeto3.Cantidad} pokemones')
+
+del variable5
+
+print (f'melo' in Saludar_Dos())
+print (f'Long' not in variable3)
+
+Snake_Case1, Snake_Case2, Snake_Case3 = PEPE.Tupla_Poke
+
+print (f'Esto es un desempaquetado de variables {Snake_Case2}')
+
+print (f'La lista 1 tiene {Lista_Uno.__len__()} elementos')
+
+Lista_Uno.append('Coco Rayado')
+Lista_Uno.insert(1, 'Juana La Cubana')
+Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Cociente, Residuo = divmod(Objeto2.Cantidad, Sumatoria2(1, 2, 3, 1))
+
+print (f'El cociente de la operacion es {Cociente} y su residuo es {Residuo}')
+
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:4]}')
+
+print (f'{Lista_Uno[1]}, eso es un {PEPE.Lista2[2]}?')
+
+print (f'{Lista_Cuatro}')
+
+Lista_Cuatro[0] = Sumatoria2(Anonima2(250), 150, 50, 200, 100)
+
+print (f'{Lista_Cuatro}')
+
+del Lista_Uno[1]
+Lista_Uno.remove('Coco Rayado')
+Lista_Uno.pop(-2)
+Lista_Uno.pop(-1)
+Lista_Uno.pop(-1)
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Lista_Uno_Copia = Lista_Uno.copy()
+
+Lista_Uno.clear()
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort()
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort(reverse = True)
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.reverse()
+print (f'{Lista_Cuatro}')
+
+print (f'{PEPE.__dir__()}')
+
+print (f'-----------')
+
+print (f'{help(PEPE)}')
+
+print (f'-----------')
+
+Tupla1 = ('Uno', 'Dos', 'Dos', 'Dos', 'Dos', 'Dos')
+
+print (f'{Tupla1}')
+
+Tupla1 = tuple(('One', 'Two', 'Three'))
+
+print (f'{Tupla1}')
+
+Tupla2 = 'Uno', 'Dos', 'Tres',
+Tupla3 = 'Uno',
+
+print (f'{type(Tupla1)}')
+print (f'{type(Tupla2)}')
+print (f'{type(Tupla3)}')
+
+Set_Conjunto1 = {'Roca', 'Roca', 'Roca', 'Roca', 'Roca'}
+Set_Conjunto1.add(Objeto1.Tipo)
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto1 = set({'Rock', 'Electricity', 'Water'})
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto2 = {1, 2, 3, 4, 5}
+Set_Conjunto3 = {4, 5}
+Set_Conjunto4 = set({8})
+
+print (f'{Set_Conjunto2.issuperset(Set_Conjunto3)}')
+print (f'{Set_Conjunto3.issubset(Set_Conjunto2)}')
+print (f'{Set_Conjunto2.isdisjoint(Set_Conjunto4)}')
+
+Set_Conjunto_Menu1 = {'Chocolate', 'Vainilla'}
+Set_Conjunto_Menu1.add('Fresa')
+
+Set_Conjunto_Menu2 = frozenset({'Caramelo'})
+
+Set_Conjunto_Menu3 = set({Set_Conjunto_Menu2, Objeto1.Tipo})
+
+print (f'{Set_Conjunto_Menu1}')
+print (f'{Set_Conjunto_Menu2}')
+print (f'{Set_Conjunto_Menu3}')
+
+Diccionario1 = {
+    'Nombre' : Saludar_Dos(),
+    'Edad' : Variable_Sumatoria,
+    'Votante' : variable6
+}
+
+Diccionario2 = {
+    'Nombre' : ["Erick", "Josue", "Karlita"],
+    'Edad' : [37, 20, 6],
+    'Votante' : [True, True, False]
+}
+
+Diccionario3 = dict({'Ingresos' : 501, 'Gastos' : 199, 'Vacio' : "q"})
+
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1["Nombre"]}')
+print (f'{Diccionario1.get("Edad")}')
+
+Diccionario1["Nombre"] = Lista_Uno_Copia[0]
+
+print (f'{Diccionario1}')
+
+del Diccionario1["Nombre"]
+Diccionario1.pop("Edad")
+
+print (f'{Diccionario1}')
+
+Diccionario1.clear()
+
+print (f'{Diccionario1}')
+
+Diccionario1 = dict({1 : "Karlita", 2 : Variable_Sumatoria, 3 : not True})
+
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1[1]}')
+print (f'{Diccionario1.get(2)}')
+
+print (f'{Diccionario2.get("Nombre")[2]} no puede votar, ya que solo tiene {Diccionario1[2]} añitos')
+
+Diccionario_Vacio1 = dict.fromkeys('ABC', PEPE.Lista2[2])
+Diccionario_Vacio2 = dict.fromkeys(['Uno', 'Dos', 'Tres'])
+Diccionario_Vacio2['Dos'] = Saludar_Dos()
+
+print (f'{Diccionario_Vacio1}')
+print (f'{Diccionario_Vacio2}')
+
+Division_Baja = 14//7
+Exponente = 4**3
+Modulo = 20%6
+
+print (f'El resultado de la operacion es {PEPE.Division_Flotante}')
+print (f'El resultado de la operacion es {int(abs(Division_Baja))}')
+print (f'El resultado de la operacion es {Exponente}')
+print (f'El resultado de la operacion es {Modulo}')
+
+print (f'El tipo de dato de la variable es {type(variable1)}')
+print (f'El tipo de dato de la variable es {type(variable4)}')
+print (f'El tipo de dato de la variable es {type(PEPE.Division_Flotante)}')
+print (f'El tipo de dato de la variable es {type(variable7)}')
+print (f'El tipo de dato de la variable es {type(Lista_Uno_Copia)}')
+print (f'El tipo de dato de la variable es {type(Variable_Funcion_Tupla)}')
+print (f'El tipo de dato de la variable es {type(Set_Conjunto_Menu1)}')
+print (f'El tipo de dato de la variable es {type(Set_Conjunto_Menu2)}')
+print (f'El tipo de dato de la variable es {type(Diccionario_Vacio1)}')
+print (f'El tipo de dato de la variable es {type(Funcion_Tupla)}')
+print (f'El tipo de dato de la variable es {type(PEPE)}')
+print (f'El tipo de dato de la variable es {type(Objeto3)}')
+print (f'El tipo de dato de la variable es {type(Array_Concatenate)}')
+print (f'El tipo de dato de la variable es {type(Data_Frame1_Age)}')
+
+if (Diccionario3['Ingresos'] > 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Altos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Altos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Altos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] == 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Minimos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Minimos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Minimos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] < 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Bajos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Bajos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Bajos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+else:
+    print (f'Error de codigo')
+
+if (Variable_Sumatoria < 100 and Saludar_Dos() == 'Carmelo'):
+    print (f'Ambas condiciones son correctas')
+else:
+    print (f'Error, al menos una de las condiones no se cumple')
+
+if (Diccionario1.get(2) == 'Karlita' or Saludar_Dos() == 'Carmlo'):
+    print (f'Al menos una de las dos condiciones es correcta')
+else:
+    print (f'Ninguna de las condiciones se cumple')
+
+print (f'{dir(variable1)}')
+
+class Entrenador:
+    def __init__(self, Trainer, City, Favorite):
+        self.Trainer = Trainer
+        self.City = City
+        self.Favorite = Favorite
+        self.Pokedex = 15
+        self.Classified  = Objeto3.Catched
+
+    def Desplegar(self):
+        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
+
+Objeto4 = Entrenador(PEPE.Tupla_Poke[0], 'Kanto', Objeto1.Nombre)
+Objeto5 = Entrenador(PEPE.Tupla_Poke[1], 'Alolah', Objeto2.Nombre)
+Objeto6 = Entrenador(PEPE.Tupla_Poke[2], 'Paldea', Objeto3.Nombre)
+
+Objeto6.Desplegar()
+
+Negativo = -5
+
+print (f'{int(abs(Negativo))}')
+
+Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+Anonima5 = filter(lambda Num : Num % 2 == 0, PEPE.Lista_Numeros)
+
+print (f'{Any_Iterable}')
+print (f'{Lista_Iterable}')
+print (f'{list(Anonima5)}')
+
+print (f'El binario del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
+
+if (bool(Diccionario3['Vacio']) == True):
+    print (f'Gracias por la informacion')
+else:
+    print (f'Error, ingrese una cadena de texto')
+
+for elemento in Lista_Uno_Copia:
+    print (f'{elemento}')
+
+print (f'----------')
+
+for elemento in enumerate(Lista_Uno_Copia):
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+print (f'----------')
+
+for indice, elemento in enumerate(Lista_Uno_Copia, start=1):
+    print (f'El elemento en la posicion {indice} es {elemento}')
+
+print(f'----------')
+
+for indice, elemento in Cargar_Csv.iterrows():
+    Identificador = elemento['Nombre']
+
+    print (f'Mi nombre es {Identificador}')
+
+print(f'----------')
+
+variable8 = 'eSteBAN'
+letra8 = variable8[0]
+
+print (f'{variable8}')
+print (f'{variable8.lower()}')
+print (f'{variable8.upper()}')
+print (f'{variable8.capitalize()}')
+
+print (f'{variable8.lower().find("t")}')
+print (f'{variable8.lower().index("b")}')
+
+print (f'La letra {letra8} aparece un total de {variable8.lower().count(letra8)} veces')
+
+print (f'{variable8.lower().startswith(letra8)}')
+print (f'{variable8.lower().endswith("n")}')
+
+print (f'{variable8.lower().replace("ban", "POPOTAMO")}')
+
+variable9 = 'esto es una cadena de texto de practica'
+Lista_variable9 = variable9.split(' ')
+
+for elemento in Lista_variable9:
+    print (f'{elemento}')
+
+print (f'La cantidad de palabras digitadas son {len(Lista_variable9)}')
+
