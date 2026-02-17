@@ -7,4 +7,5 @@ Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Graveler - Vaporeon
+Vaporeon - Graveler - Pikachu
+Su contrasena temporal es dfa295

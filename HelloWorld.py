@@ -961,3 +961,67 @@ if (Buscador20):
     print (f'EL texto termina con la palabra texto')
 else:
     print (f'Error en la expresion regular')
+
+PEPE.Saludar1()
+
+from Module_Own import Saludar2 as Saludar_Dos
+
+print (f'Hola {Saludar_Dos()}')
+
+print (f'Hola nuevamente {PEPE.Saludar3(Saludar_Dos())}')
+
+print (f'El resultado de la sumatoria es {PEPE.Sumatoria1(12, 7)}')
+
+def Sumatoria_Externa(Num1):
+    def Sumatoria_Interna(Num2):
+        return Num1 + Num2
+
+    return Sumatoria_Interna(4)
+
+Variable_Sumatoria = Sumatoria_Externa(3)
+
+print (f'El resultado de la sumatoria es {Variable_Sumatoria}')
+
+if (PEPE.Par(Variable_Sumatoria) == True):
+    print (f'El numero es par')
+else:
+    print (f'El numero es impar')
+
+PEPE.Usuario(Saludar_Dos(), 'MASCULINO')
+
+def Usuario_Externo():
+    def Usuario_Interno(Sexo):
+        Genero = Sexo.lower()
+        if (Genero == 'masculino'):
+            return True
+        else:
+            return False
+
+    return Usuario_Interno('MASCULINO')
+
+Variable_Usuario = Usuario_Externo()
+
+if (Variable_Usuario == True):
+    print (f'YOU ARE A MAN')
+else:
+    print (f'YOU ARE A WOMAN')
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding = 'UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nSu contrasena temporal es {PEPE.Contrasena(37)}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+def Funcion_Tupla(*args):
+    return args
+
+Variable_Funcion_Tupla = Funcion_Tupla("Perro", 36, 3.5, not True)
+
+print (f'{Funcion_Tupla("Perro", 36, 3.5, not True)}')
+print (f'{Funcion_Tupla("Perro", 36, 3.5, not True)[2]}')
+print (f'{Variable_Funcion_Tupla[3]}')
+print (f'{type(Funcion_Tupla("Perro", 36, 3.5, not True))}')
+
