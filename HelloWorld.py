@@ -1490,3 +1490,182 @@ for elemento in Lista_variable9:
 
 print (f'La cantidad de palabras digitadas son {len(Lista_variable9)}')
 
+print (f'{PEPE.Tupla_Poke[2]} se encuentra en la posicion {PEPE.Tupla_Poke.index("Misty")}')
+
+for elemento in Diccionario1:
+    print (f'{Diccionario1[elemento]}')
+
+print(f'----------')
+
+for elemento in Diccionario2.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'El resultado {Contador} es {PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+Lista_Animales = ['Ave', 'Lagarto', 'Tortuga']
+Lista_Animales.append('Leon')
+
+Contador = 0
+
+while (Contador < len(Lista_Animales)):
+    if (Lista_Animales[Contador] == 'Lagarto'):
+        print (f'Este reptil es terrorifico')
+        break
+    else:
+        Contador+= 1
+        continue
+
+for elemento1, elemento2 in zip(Tupla1, Set_Conjunto_Menu1):
+    print (f'{elemento1} -- {elemento2}')
+
+for elemento in range(5):
+    print (f'{elemento}')
+
+for elemento in range(995, 1000):
+    print (f'{elemento}')
+
+print(f'----------')
+
+Lista_Numeros_Mult = [num * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Mult}')
+
+Contador = 0
+
+while (Contador <= 5):
+    print (f'El contador es {Contador}')
+    Contador+= 1
+
+print(f'----------')
+
+Menor = min(Lista_Numeros_Mult)
+Mayor = max(Lista_Numeros_Mult)
+Redondeo = round(14.458795, 2)
+Sumatoria4 = sum(Lista_Numeros_Mult)
+
+print (f'El numero menor de la lista es {Menor} y el mayor es {Mayor}')
+print (f'El redondeo de 14.458795 es {Redondeo}')
+print (f'El resultado de la sumatoria es {Sumatoria4}')
+
+print (f'{bool(None)}')
+print (f'{bool("")}')
+print (f'{bool(False)}')
+print (f'{bool(0)}')
+
+Todo_All = all([Lista_variable9, Tupla2, Set_Conjunto_Menu1, None])
+
+print (f'{Todo_All}')
+
+Uno = int("500")
+Dos = str(500)
+Tres = float(Dos)
+
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
+
+print (f' - '.join(Set_Conjunto_Menu1))
+
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
+
+PEPE2.Saludar5()
+
+import Paquete.Sub_Paquete.Segundo as PEPE3
+
+Variable_PEPE3 = PEPE3
+
+def Ejemplo1(Numero):
+    return Variable_Sumatoria * Objeto2.Cantidad + Numero
+
+print (f'El resultado de la sumatoria es {Ejemplo1(PEPE.Flotante1)}')
+
+Resultado2 = eval(PEPE.Flotante2)
+
+print (f'El resultado de la operacion es {Resultado2}')
+
+def Cadena(Floto):
+    Cade = Floto
+    while True:
+        try:
+            Cadenita = str(Cade)
+            Lista_Cadenita = Cadenita.split(' ')
+
+            for elemento in enumerate(Lista_Cadenita):
+                print (f'El elemento en la posicion {elemento[0]} es {elemento[1]}')
+
+            print (f'La cantidad de palabras digitadas son {len(Lista_Cadenita)}')
+            break
+        except:
+            print (f'Error, necesito que ingreses una cadena')
+
+Cadena(PEPE.Flotante3)
+
+Lista_Alumnos = []
+
+Contador = int(input(f'Ingrese la cantidad de alumnos: '))
+
+def Colegio1(Lista):
+    for elemento in range(Contador):
+        Alumno = input(f'Ingrese el nombre del estudiante {elemento}: ')
+        Lista.append(Alumno)
+
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio1(Lista_Alumnos)}'])
+    Docu.close()
+
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+Lista_Alumnos2 = []
+
+Contador = int(input(f'Ingrese la cantidad de estudiantes: '))
+
+def Colegio2(Lista):
+    for elemento in range(Contador):
+        Alumno_Nombre = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Alumno_Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
+        Lista.append(Estudiante)
+
+    Lista.sort(key = lambda Num : Num[1])
+
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
+
+    print (f'El menor de los estudiantes es {Menore} y el mayor de los estudiantes es {Mayore}')
+
+Colegio2(Lista_Alumnos2)
+
+def Exception_Final():
+    while True:
+        Numero = input(f'Ingrese un numero entero: ')
+        try:
+            Numerito = int(Numero)
+            break
+        except:
+            print (f'Error, necesito que ingreses un numero entero')
+
+    return Numerito
+
+print (f'Gracias, el numero ingresado es {Exception_Final()}')
+
+import re
+
+email = 'ericksuper80@gmail.com'
+
+pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+
+resultado = re.match(pattern, email)
+
+if (resultado):
+    print (f'Formato correcto')
+else:
+    print (f'Error, el formato es incorrecto')
