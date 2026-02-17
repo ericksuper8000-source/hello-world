@@ -769,3 +769,195 @@ Array_Linspace = np.linspace(start=1, stop=10, num=3)
 print (f'{Array_Linspace}')
 
 print (f'--------------')
+
+def Generadora1():
+    for elemento in range(5):
+        yield elemento
+
+Gen1 = Generadora1()
+
+try:
+    print (f'El elemento es {next(Gen1)}')
+    print (f'El elemento es {next(Gen1)}')
+    print (f'El elemento es {next(Gen1)}')
+    print (f'El elemento es {next(Gen1)}')
+    print (f'El elemento es {next(Gen1)}')
+    print (f'El elemento es {next(Gen1)}')
+except StopIteration:
+    print (f'El experimento termina aqui')
+
+print (f'--------------')
+
+def Generadora2():
+    for elemento in range(5):
+        if (elemento % 2 == 0):
+            yield f'PAR'
+        else:
+            yield f'IMPAR'
+
+Gen2 = Generadora2()
+
+try:
+    print (f'El elemento es {next(Gen2)}')
+    print (f'El elemento es {next(Gen2)}')
+    print (f'El elemento es {next(Gen2)}')
+    print (f'El elemento es {next(Gen2)}')
+    print (f'El elemento es {next(Gen2)}')
+    print (f'El elemento es {next(Gen2)}')
+except StopIteration:
+    print (f'El experimento termina aqui')
+
+print (f'--------------')
+
+def Generadora3():
+    for elemento in range(5):
+        if (elemento == 0):
+            yield f'El numero es {elemento}'
+        elif (elemento == 1):
+            yield f'El numero es {elemento}'
+        elif (elemento == 2):
+            yield f'El numero es {elemento}'
+        elif (elemento == 3):
+            yield f'El numero es {elemento}'
+        elif (elemento == 4):
+            yield f'El numero es {elemento}'
+        else:
+            yield f'Error de codigo'
+
+Gen3 = Generadora3()
+
+try:
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+except StopIteration:
+    print (f'El experimento termina aqui')
+
+print (f'--------------')
+
+import re
+
+variable0 = 'esto es un texto pero el numero 1 y tambien el numero 45 apareceran durante 260 todo el texto'
+variable0_1 = '123456a784t'
+
+Buscador1 = re.search('tambien', variable0)
+
+print (f'{Buscador1}')
+
+Buscador2 = re.findall('e', variable0)
+
+print (f'{Buscador2}')
+
+Buscador3 = re.fullmatch('esto es un texto pero el numero 1 y tambien el numero 45 apareceran durante todo el texto', variable0)
+
+print (f'{Buscador3}')
+
+# Buscar un numero
+
+Buscador4 = re.search('\d', variable0)
+
+print (f'{Buscador4}')
+
+# Buscar todos los numeros
+
+Buscador5 = re.findall('\d+', variable0)
+
+print (f'{Buscador5}')
+
+# Buscar lo que no es un digito numerico
+
+Buscador6 = re.findall('\D+', variable0_1)
+
+print (f'{Buscador6}')
+
+# Tome unicamente los characteres normales
+
+Buscador7 = re.search(r'\w+', 'Hola123!')
+
+print (f'{Buscador7}')
+
+# Tome unicamente los characteres especiales
+
+Buscador8 = re.search(r'\W+', 'Hola123!')
+
+print (f'{Buscador8}')
+
+# Buscar solo los espacios en la cadena
+
+Buscador9 = re.findall('\s+', variable0)
+
+print (f'{Buscador9}')
+
+# Buscar solo lo que no tiene espacios en la cadena
+
+Buscador10 = re.findall('\S+', variable0)
+
+print (f'{Buscador10}')
+
+# Buscar todos los bloques que tengan h.la
+
+Buscador11 = re.findall(r'H.la', 'vamos a ver si Hola es igual a Hela o incluso podria ser lo mismo que Hila')
+
+print (f'{Buscador11}')
+
+# Buscar la coincidencia una unica vez
+
+Buscador12 = re.search(r'H.la?', 'vamos a ver si Hola es igual a Hela o incluso podria ser lo mismo que Hila')
+
+print (f'{Buscador12}')
+
+# Buscar la coincidencia dos veces
+
+Buscador13 = re.findall(r's{1}a{1}', 'sabor, saber, sabir, sola, sela')
+
+print (f'{Buscador13}')
+
+Buscador14 = re.findall('ho{4,10}', 'h, hoooo, hoooooooooo, ho, hoo')
+
+print (f'{Buscador14}')
+
+variable0_2 = 'este Sera un eSteBAN ejemplo para Saber si esto sive o nO'
+
+# Buscamos todas las palabras minusculas
+
+Buscador15 = re.findall('[a-z]+', variable0_2)
+
+print (f'{Buscador15}')
+
+# Buscamos todas las palabras mayusculas
+
+Buscador16 = re.findall('[A-Z]+', variable0_2)
+
+print (f'{Buscador16}')
+
+# Buscamos todos los numeros del 0 al 9
+
+Buscador17 = re.findall('[0-9]+', variable0)
+
+print (f'{Buscador17}')
+
+# Todo menos eSteBAN
+
+Buscador18 = re.findall('[^eSteBAN]', variable0_2)
+
+print (f'{Buscador18}')
+
+# Inicia con esto?
+
+Buscador19 = re.search('^esto', variable0)
+
+print (f'{Buscador19}')
+
+# Termina con texto?
+
+Buscador20 = re.search('texto$', variable0)
+
+print (f'{Buscador20}')
+
+if (Buscador20):
+    print (f'EL texto termina con la palabra texto')
+else:
+    print (f'Error en la expresion regular')
