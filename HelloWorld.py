@@ -961,3 +961,198 @@ if (Buscador20):
     print (f'EL texto termina con la palabra texto')
 else:
     print (f'Error en la expresion regular')
+
+PEPE.Saludar1()
+
+from Module_Own import Saludar2 as Saludar_Dos
+
+print (f'Hola {Saludar_Dos()}')
+
+print (f'Hola nuevamente {PEPE.Saludar3(Saludar_Dos())}')
+
+print (f'El resultado de la sumatoria es {PEPE.Sumatoria1(12, 7)}')
+
+def Sumatoria_Externa(Num1):
+    def Sumatoria_Interna(Num2):
+        return Num1 + Num2
+
+    return Sumatoria_Interna(4)
+
+Variable_Sumatoria = Sumatoria_Externa(3)
+
+print (f'El resultado de la sumatoria es {Variable_Sumatoria}')
+
+if (PEPE.Par(Variable_Sumatoria) == True):
+    print (f'El numero es par')
+else:
+    print (f'El numero es impar')
+
+PEPE.Usuario(Saludar_Dos(), 'MASCULINO')
+
+def Usuario_Externo():
+    def Usuario_Interno(Sexo):
+        Genero = Sexo.lower()
+        if (Genero == 'masculino'):
+            return True
+        else:
+            return False
+
+    return Usuario_Interno('MASCULINO')
+
+Variable_Usuario = Usuario_Externo()
+
+if (Variable_Usuario == True):
+    print (f'YOU ARE A MAN')
+else:
+    print (f'YOU ARE A WOMAN')
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding = 'UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nSu contrasena temporal es {PEPE.Contrasena(37)}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+def Funcion_Tupla(*args):
+    return args
+
+Variable_Funcion_Tupla = Funcion_Tupla("Perro", 36, 3.5, not True)
+
+print (f'{Funcion_Tupla("Perro", 36, 3.5, not True)}')
+print (f'{Funcion_Tupla("Perro", 36, 3.5, not True)[2]}')
+print (f'{Variable_Funcion_Tupla[3]}')
+print (f'{type(Funcion_Tupla("Perro", 36, 3.5, not True))}')
+
+print (f'--------------')
+
+def Funcion_Diccionario(**kwargs):
+    for elemento in kwargs.items():
+        print (f'{elemento[0]} -- {elemento[1]}')
+
+Funcion_Diccionario(Nombre = Saludar_Dos(), Edad = Variable_Sumatoria, Votante = Variable_Funcion_Tupla[3])
+
+def Sumatoria2(*args):
+    return sum(args)
+
+print (f'El resultado de la sumatoria es {Sumatoria2(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+def Sumatoria_Dos(Nombre, *args):
+    return f'{Nombre}, tu numero favorito es {sum(args)}'
+
+print (f'{Sumatoria_Dos("Erick", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+from Module_Own import Variable_Funcion_Anonima1 as Anonima1, Variable_Funcion_Anonima2 as Anonima2, Variable_Funcion_Anonima3 as Anonima3
+
+print (f'El resultado de la multiplicacion es {Anonima1(150, 3)}')
+print (f'El doble del numero {Variable_Sumatoria} es {Anonima2(Variable_Sumatoria)}')
+print (f'Los numeros pares de la lista son {PEPE.Lista_Par} o incluso podrian ser {list(Anonima3)}')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(*args) - 42
+
+    return Tercera
+
+@Primera
+def Operacion(Numero:int) -> int:
+    Local = Numero
+    return PEPE.Global + Local
+
+print (f'El resultado de la operacion es {Operacion(12)}')
+
+def Externa(Nombre):
+    def Interna(Apellido:str) -> str:
+        print (f'Mi nombre es {Nombre} {Apellido}')
+
+    return Interna('PEREZ GUTIERREZ')
+
+Externa('ERICK JOSUE')
+
+def Closure_Externo():
+    Lista_Closure = list([])
+    def Closure_Interno(x):
+        Lista_Closure.append(x)
+
+        return Lista_Closure
+
+    return Closure_Interno
+
+Variable_Closure = Closure_Externo()
+
+print (f'{Variable_Closure(12)}')
+print (f'{Variable_Closure(24)}')
+print (f'{Variable_Closure(37)}')
+
+def Crear_Multiplicador(x):
+    def Multiplicador(y):
+        return x * y
+
+    return Multiplicador
+
+Variable_Mult1 = Crear_Multiplicador(2)
+Variable_Mult2 = Crear_Multiplicador(3)
+
+print (f'El multiplicador 1 es {Variable_Mult1(10)}')
+print (f'El multiplicador 2 es {Variable_Mult2(10)}')
+
+def Filtrador(Lista):
+    Any_Impar = any(num % 2 != 0 for num in Lista)
+    if (Any_Impar == True):
+        Anonima4 = filter(lambda Num : Num % 2 != 0, Lista)
+        Lista_Impares = [num for num in Lista if num % 2 != 0]
+
+        print (f'Los numeros impares de la lista son {list(Anonima4)} o incluso podrian ser {Lista_Impares}')
+    else:
+        print (f'Error, no hay elementos impares en la lista')
+
+Filtrador(PEPE.Lista_Numeros)
+
+def Primera(Segunda):
+    def Tercera():
+        print (f'ANTES')
+        Segunda()
+        print (f'DESPUES')
+
+    return Tercera
+
+@Primera
+def Saludar4():
+    print (f'Hola Mundo')
+
+Saludar4()
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) + 2
+
+    return Tercera
+
+@Primera
+def Sumatoria3(Num1, Num2):
+    return Num1 + Num2
+
+print (f'El resultado de la sumatoria es {Sumatoria3(7, 1)}')
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'Jonathan'
+        Apellido = 'Smith'
+        return Segunda(Nombre, Apellido)
+
+    return Tercera
+
+@Primera
+def Usuario2(Nombre, Apellido):
+    print (f'Mi nombre es {Nombre} {Apellido}')
+
+Usuario2('Erick', 'Perez')
+
+from Module_Own import Pokemon as Poke
+
+Objeto1 = Poke(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno')
+Objeto2 = Poke(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo')
+Objeto3 = Poke(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro')
+
+Objeto2.Mostrar()
