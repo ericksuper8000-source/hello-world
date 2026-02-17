@@ -1,12 +1,10 @@
-Pantera
-Ballena
-Serpiente
-Fresas Sabrosas
-Fresas Sabrosas
-Fresas Sabrosas
+Pera
+Uvas
+Manzana
+Fresa Sabrosa
+Fresa Sabrosa
+Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Vaporeon - Pikachu - Graveler
-Su contrasena temporal es egb396
-La lista de estudiantes es: ['erick']
+Pikachu - Graveler - Vaporeon
