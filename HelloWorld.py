@@ -1506,3 +1506,11 @@ PEPE2.Saludar5()
 import Paquete.Sub_Paquete.Segundo as PEPE3
 
 Variable_PEPE3 = PEPE3
+
+Condicional1 = 'Hola'
+Condicional2 = 35
+
+if (Condicional1 == 'Hola' and Condicional2 <= 35):
+    print (f'Ambas condiciones se cumplen')
+else:
+    print (f'Error, al menos una de las condiciones no se cumplieron')
