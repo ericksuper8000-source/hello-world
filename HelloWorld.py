@@ -930,7 +930,108 @@ if Search21:
 
     print (f'El numero de peras es {Finale}')
 
+PEPE.Saludar1()
 
+from Module_Own import Saludar2 as Saludar_Dos
 
+print (f'Hola {Saludar_Dos()}')
 
+print (f'Hola nuevamente {PEPE.Saludar3(Saludar_Dos())}')
 
+print (f'El resultado de la sumatoria es {PEPE.Sumatoria1(12, 7)}')
+
+def Sumatoria_Externa(Num1):
+    def Sumatoria_Interna(Num2):
+        return Num1 + Num2
+
+    return Sumatoria_Interna(4)
+
+Variable_Sumatoria = Sumatoria_Externa(3)
+
+print (f'El resultado de la sumatoria es {Variable_Sumatoria}')
+
+if (PEPE.Par(Variable_Sumatoria) == True):
+    print (f'El numero es par')
+else:
+    print (f'El numero es impar')
+
+PEPE.Usuario(Saludar_Dos(), 'MASCULINO')
+
+def Usuario_Externo():
+    def Usuario_Interno(Sexo):
+        Genero = Sexo.lower()
+        if (Genero == 'masculino'):
+            return True
+        else:
+            return False
+
+    return Usuario_Interno('MASCULINO')
+
+Variable_Usuario = Usuario_Externo()
+
+if (Variable_Usuario == True):
+    print (f'YOU ARE A MAN')
+else:
+    print (f'YOU ARE A WOMAN')
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nSu contrasena temporal es {PEPE.Contrasena(31)}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+
+def Funcion_Tupla(*args):
+    return args
+
+Variable_Funcion_Tupla = Funcion_Tupla("Perro", 36, 3.5, not True)
+
+print (f'{Funcion_Tupla("Perro", 36, 3.5, not True)}')
+print (f'{Funcion_Tupla("Perro", 36, 3.5, not True)[2]}')
+print (f'{Variable_Funcion_Tupla[3]}')
+print (f'{type(Funcion_Tupla("Perro", 36, 3.5, not True))}')
+
+def Funcion_Diccionario(**kwargs):
+    for elemento in kwargs.items():
+        print (f'{elemento[0]} -- {elemento[1]}')
+
+Funcion_Diccionario(Nombre = Saludar_Dos(), Edad = Variable_Sumatoria, Votante = Variable_Funcion_Tupla[3])
+
+def Sumatoria2(*args):
+    return sum(args)
+
+print (f'El resultado de la sumatoria es {Sumatoria2(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+def Sumatoria_Dos(Nombre, *args):
+    return f'{Nombre}, tu numero favorito es {sum(args)}'
+
+print (f'{Sumatoria_Dos("Erick", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+from Module_Own import Variable_Funcion_Anonima1 as Anonima1, Variable_Funcion_Anonima2 as Anonima2, Variable_Funcion_Anonima3 as Anonima3
+
+print (f'El resultado de la multiplicacion es {Anonima1(150, 3)}')
+print (f'El doble del numero {Variable_Sumatoria} es {Anonima2(Variable_Sumatoria)}')
+print (f'Los numeros pares de la lista son {PEPE.Lista_Par} o talvez podrian ser {list(Anonima3)}')
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) - 42
+
+    return Tercera
+
+@Primera
+def Operacion(Numero:int) -> int:
+    Local = Numero
+    return PEPE.Global + Local
+
+print (f'El resultado de la operacion es {Operacion(12)}')
+
+def Externa(Nombre):
+    def Interna(Apellido):
+        print (f'Mi nombre es {Nombres} {Apellido}')
+
+    return Interna('PEREZ GUTIERREZ')
+
+Externa('ERICK JOSUE')
