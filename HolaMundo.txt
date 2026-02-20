@@ -1,12 +1,10 @@
-Pera
-Uvas
-Manzana
-Fresa Sabrosa
-Fresa Sabrosa
-Fresa Sabrosa
+Cocodrilo
+Tigre
+Avestruz
+Fresas Sabrosas
+Fresas Sabrosas
+Fresas Sabrosas
 Pikachu
 Graveler
 Vaporeon
-Graveler - Vaporeon - Pikachu
-Su contrasena temporal es dfa295
-La lista de estudiantes es ['erick']
+Vaporeon - Pikachu - Graveler
