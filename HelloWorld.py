@@ -1268,7 +1268,7 @@ Diccionario2 = {
     'Votante' : [True, not False, False]
 }
 
-Diccionario3 = dict({'Ingresos' : 500, 'Gastos' : 200, 'Vacio' : ""})
+Diccionario3 = dict({'Ingresos' : 501, 'Gastos' : 199, 'Vacio' : "q"})
 
 print (f'{Diccionario1}')
 print (f'{Diccionario1.keys()}')
@@ -1327,3 +1327,206 @@ print (f'El tipo de valor de la variable es {type(PEPE)}')
 print (f'El tipo de valor de la variable es {type(Array5)}')
 print (f'El tipo de valor de la variable es {type(DataFrame1)}')
 
+if (Diccionario3['Ingresos'] > 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Altos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Altos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Altos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] == 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Minimos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Minimos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Minimos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] < 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Bajos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Bajos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Bajos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+else:
+    print (f'Error de codigo')
+
+variable8 = 'Casa'
+variable9 = 101
+
+if (variable8 == 'Casa' and variable9 <= 100):
+    print (f'Ambas condiciones se cumplen')
+else:
+    print (f'Error, al menos una de las condiciones no se cumple')
+
+if (variable8 == 'House' or variable9 <= 90):
+    print(f'Al menos una de las condiciones del OR se cumplen')
+else:
+    print(f'Error, ninguna de las condiciones se cumplen')
+
+print (f'{dir(variable1)}')
+
+print (f'------------')
+
+print (f'{help(Objeto1)}')
+
+print (f'------------')
+
+class Entrenador:
+    def __init__(self, Trainer, City, Favorite):
+        self.Trainer = Trainer
+        self.City = City
+        self.Favorite = Favorite
+        self.Pokedex = Variable_Sumatoria
+        self.Classified = Objeto2.Catched
+
+    def Desplegar(self):
+        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
+
+Objeto4 = Entrenador(PEPE.Tupla_Poke[0], 'Kanto', Objeto1.Nombre)
+Objeto5 = Entrenador(PEPE.Tupla_Poke[1], 'Alolah', Objeto2.Nombre)
+Objeto6 = Entrenador(PEPE.Tupla_Poke[2], 'Paldea', Objeto3.Nombre)
+
+Objeto5.Desplegar()
+
+Negativo = -5
+
+print (f'{int(abs(Negativo))}')
+
+Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Anonima5 = filter(lambda Num : Num % 2 == 0, PEPE.Lista_Numeros)
+Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+
+print (f'{Any_Iterable}')
+print (f'{list(Anonima5)}')
+print (f'{Lista_Iterable}')
+
+print (f'El binario del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
+
+if (bool(Diccionario3['Vacio']) == True):
+    print (f'Gracias por la informacion')
+else:
+    print (f'Error, necesito que ingreses una cadena de texto')
+
+for elemento in Lista_Uno_Copia:
+    print (f'{elemento}')
+
+for elemento in enumerate(Lista_Uno_Copia):
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+for indice, elemento in enumerate(Lista_Uno_Copia, start=1):
+    print (f'El elemento en la posicion es {indice} es {elemento}')
+
+for elemento1, elemento2 in zip(Lista_Uno_Copia, Set_Conjunto_Menu1):
+    print (f'{elemento2} -- {elemento1}')
+
+for indice, elemento in DataFrame_Concatenate.iterrows():
+    Nombress = elemento['Nombre']
+
+    print (f'Mi nombre es {Nombress}')
+
+variable10 = 'eSteBAN'
+letra10 = variable10[0]
+
+print (f'{variable10}')
+print (f'{variable10.lower()}')
+print (f'{variable10.upper()}')
+print (f'{variable10.capitalize()}')
+
+print (f'{variable10.lower().find("t")}')
+print (f'{variable10.lower().index("b")}')
+
+print (f'La letra {letra10} aparece un total de {variable10.lower().count(letra10)} veces')
+
+print (f'{variable10.lower().startswith(letra10)}')
+print (f'{variable10.lower().endswith("n")}')
+
+print (f'{variable10.lower().replace("ban", "POPOTAMO")}')
+
+variable11 = 'este es un texto cualquiera solo para practicar'
+Lista_variable11 = variable11.split(' ')
+
+for elemento in enumerate(Lista_variable11):
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+print (f'La cantidad de palabras digitadas es {len(Lista_variable11)}')
+
+print (f'{PEPE.Tupla_Poke[2]} aparece en la posicion {PEPE.Tupla_Poke.index("Misty")}')
+
+for elemento in Diccionario1:
+    print (f'{Diccionario1[elemento]}')
+
+print (f'-------------')
+
+for elemento in Diccionario3.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'El numero es {PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+print (f'-------------')
+
+Contador = 0
+
+while (Contador <= 5):
+    print (f'El contador es {Contador}')
+    Contador+= 1
+
+Lista_Animales = []
+Lista_Animales.append('Mono')
+Lista_Animales.insert(0, 'Tortuga')
+Lista_Animales.extend(['Canguro', 'Delfin'])
+
+print (f'{Lista_Animales}')
+
+Contador = 0
+
+while (Contador < len(Lista_Animales)):
+    if (Lista_Animales[Contador] == 'Tortuga'):
+        print (f'Me encantan las tortugas')
+        break
+    else:
+        Contador+= 1
+        continue
+
+for elemento in range(5):
+    print (f'{elemento}')
+
+for elemento in range(995, 1000):
+    print (f'{elemento}')
+
+Lista_Numeros_Mult = [num * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Mult}')
+
+Menor = min(Lista_Numeros_Mult)
+Mayor = max(Lista_Numeros_Mult)
+Redondo = round(14.458795, 2)
+Sumatoria4 = sum(Lista_Numeros_Mult)
+
+print (f'{bool(False)}')
+print (f'{bool(None)}')
+print (f'{bool("")}')
+print (f'{bool(0)}')
+print (f'{bool(not True)}')
+
+Todo_All = all([Lista_Uno_Copia, Set_Conjunto_Menu1, Objeto3, None])
+
+print (f'{Todo_All}')
+
+Uno = int("500")
+Dos = str(500)
+Tres = float(Uno)
+
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
