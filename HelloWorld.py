@@ -1530,3 +1530,102 @@ Tres = float(Uno)
 print (f'{type(Uno)}')
 print (f'{type(Dos)}')
 print (f'{type(Tres)}')
+
+print (f' - '.join(Set_Conjunto_Menu1))
+
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
+
+PEPE2.Saludar5()
+
+import Paquete.Sub_Paquete.Segundo as PEPE3
+
+Variable_PEPE3 = PEPE3
+
+print (f'-------------')
+
+def Ejemplo1(Numero):
+    return Variable_Sumatoria * Objeto2.Cantidad + Numero
+
+print (f'El resultado de la operacion es {Ejemplo1(PEPE.Flotante1)}')
+
+Resultado2 = eval(PEPE.Flotante2)
+
+print (f'El resultado de la segunda operacion es {Resultado2}')
+
+def Ejemplo3(Cadenita):
+    Lista_Cadenita = Cadenita.split(' ')
+    if (bool(Lista_Cadenita) == True):
+        for elemento in Lista_Cadenita:
+            print (f'{elemento}')
+
+        print (f'La cantidad de palabras digitadas son {len(Lista_Cadenita)}')
+    else:
+        print (f'Error, necesito que ingreses una cadena de texto')
+
+Ejemplo3(PEPE.Flotante3)
+
+Lista_Alumnos = []
+
+Contador = int(input(f'Ingrese la cantidad de alumnos: '))
+
+def Colegio(Lista):
+    for elemento in range(Contador):
+        Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Lista.append(Alumno)
+
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio(Lista_Alumnos)}'])
+    Docu.close()
+
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+Lista_Alumnos2 = list([])
+
+Contador = int(input(f'Ingrese el numero de estudiantes: '))
+
+def Colegio2(Lista):
+    for elemento in range(Contador):
+        Alumno_Nombre = input(f'Ingrese el nombre del estudiante {elemento}: ')
+        Alumno_Edad = int(input(f'Ingrese la edad del estudiante {elemento}: '))
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
+        Lista.append(Estudiante)
+
+    Lista.sort(key = lambda Num : Num[1])
+
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
+
+    print (f'El menor de los estudiantes es {Menore} y el mayor de los estudiantes es {Mayore}')
+
+Colegio2(Lista_Alumnos2)
+
+def Exception6():
+    while True:
+        Numero = input(f'Ingrese un numero: ')
+        try:
+            Numerito = int(Numero)
+            break
+        except:
+            print (f'Error, necesito que ingreses un numero entero')
+
+    return Numerito
+
+print (f'Gracias, tu numero ingresado es {Exception6()}')
+
+import re
+
+email = 'example@example.com'
+
+pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+
+Search22 = re.match(pattern, email)
+
+if (Search22):
+    print (f'El formato del correo esta bien')
+else:
+    print (f'El formato del correo es incorrecto')

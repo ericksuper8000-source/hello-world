@@ -7,5 +7,6 @@ Fresas Sabrosas
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Vaporeon - Graveler
+Pikachu - Graveler - Vaporeon
 Su contrasena temporal es egb390
+La lista de estudiantes es ['erick']
