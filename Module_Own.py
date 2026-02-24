@@ -15,3 +15,100 @@ for indice, elemento in enumerate(Set_Conjunto_Poke, start=1):
         continue
 
 print (f'{Diccionario_Poke}')
+
+def Primera(Segunda):
+    def Tercera():
+        print (f'ANTES')
+        Segunda()
+
+    return Tercera
+
+@Primera
+def Saludar1():
+    print (f'Hola Mundo')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda('Carmelo')
+
+    return Tercera
+
+@Primera
+def Saludar2(Nombre = 'Juanita'):
+    return Nombre
+
+def Saludar3(Nombre:str) -> str:
+    return Nombre
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) + 1
+
+    return Tercera
+
+@Primera
+def Sumatoria1(Num1:int, Num2:int) -> int:
+    return Num1 + Num2
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(2)
+
+    return Tercera
+
+@Primera
+def Par(Numero):
+    if (Numero % 2 == 0):
+        return True
+    else:
+        return False
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'Juana La Cubanita'
+        Sexo = 'FEMENINO'
+        return Segunda(Nombre, Sexo)
+
+    return Tercera
+
+@Primera
+def Usuario(Nombre, Sexo):
+    Genero = Sexo.lower()
+    if (Genero == 'masculino'):
+        print (f'{Nombre}, eres un hombre')
+    else:
+        print (f'{Nombre}, eres una mujer')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(77)
+
+    return Tercera
+
+@Primera
+def Contrasena(Numero:int) -> int:
+    chars = 'abcdefghij'
+    Numero_Str = str(Numero)
+    Numero_Int = int(Numero_Str[0])
+    c1 = Numero_Int - 2
+    c2 = Numero_Int
+    c3 = Numero_Int - 5
+    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
+    return Password
+
+Lista_Numeros = [1, 2, 3, 4]
+Lista_Numeros.append(5)
+
+print (f'{Lista_Numeros}')
+
+Variable_Funcion_Anonima1 = lambda Num1, Num2 :  Num1 * Num2
+Variable_Funcion_Anonima2 = lambda Num : Num * 2
+Variable_Funcion_Anonima3 = filter(lambda Num : Num % 2 == 0, Lista_Numeros)
+
+Any_Pares = any(num % 2 == 0 for num in Lista_Numeros)
+Lista_Pares = [num for num in Lista_Numeros if num % 2 == 0]
+
+print (f'{Any_Pares}')
+print (f'{Lista_Pares}')
+
+Global = 30
