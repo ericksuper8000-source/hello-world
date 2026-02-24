@@ -1,12 +1,11 @@
-Cocodrilo
-Tigre
-Avestruz
-Fresas Sabrosas
-Fresas Sabrosas
-Fresas Sabrosas
+Durazno
+Manzana
+Uvas
+Fresa Sabrosa
+Fresa Sabrosa
+Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Graveler - Vaporeon
-Su contrasena temporal es egb390
-La lista de estudiantes es ['erick']
+Pikachu - Vaporeon - Graveler
+Su contrasena temporal es fhc539
