@@ -112,3 +112,16 @@ print (f'{Any_Pares}')
 print (f'{Lista_Pares}')
 
 Global = 30
+
+class Pokemon:
+    def __init__(self, Nombre, Tipo, Ataque):
+        self.Nombre = Nombre
+        self.Tipo = Tipo
+        self.Ataque = Ataque
+        self.Cantidad = 16 * 2
+        self.Catched = not True
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Tipo: {self.Tipo}')
+        print (f'Ataque: {self.Ataque}')

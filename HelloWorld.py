@@ -1032,3 +1032,50 @@ def Filtrador(Lista):
 
 Filtrador(PEPE.Lista_Numeros)
 
+def Primera(Segunda):
+    def Tercera():
+        print (f'ANTES')
+        Segunda()
+        print (f'DESPUES')
+
+    return Tercera
+
+@Primera
+def Saludar4():
+    print (f'Hola Mundo')
+
+Saludar4()
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) + 1
+
+    return Tercera
+
+@Primera
+def Sumatoria3(Num1, Num2):
+    return Num1 + Num2
+
+print (f'El resultado de la sumatoria es {Sumatoria3(4, 5)}')
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'Jonathan'
+        Apellido = 'Smith'
+        return Segunda(Nombre, Apellido)
+
+    return Tercera
+
+@Primera
+def Usuario2(Nombre, Apellido):
+    print (f'Mi nombre es {Nombre} {Apellido}')
+
+Usuario2('Erick', 'Perez')
+
+from Module_Own import Pokemon as Poke
+
+Objeto1 = Poke(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno')
+Objeto2 = Poke(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo')
+Objeto3 = Poke(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro')
+
+Objeto1.Mostrar()
