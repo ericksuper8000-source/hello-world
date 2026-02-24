@@ -1,12 +1,1 @@
-Cocodrilo
-Tigre
-Avestruz
-Fresas Sabrosas
-Fresas Sabrosas
-Fresas Sabrosas
-Pikachu
-Graveler
-Vaporeon
-Pikachu - Graveler - Vaporeon
-Su contrasena temporal es egb390
-La lista de estudiantes es ['erick']
+Durazno
