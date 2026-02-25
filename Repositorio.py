@@ -1,3 +1,72 @@
+#*******************************************************************************************
+
+'''Expresiones regulares en Python
+Son un buscador con superpoderes para texto. Siempre hay que comenzar exportando import re
+
+1 - Buscar si una palabra existe en un texto con search
+re.search(‘hola’, cadena_texto)
+2 - findall() → dame todos, busquemos todos los elementos iguales
+re.findall(‘a’, cadena_texto)
+
+3 - fullmatch() → ¿cumple TODA la regla?
+Variable = ‘hola mundo’
+re.full_match(‘hola mundo’, Variable)
+
+[PATRONES MAS COMUNES]
+Ahora vamos a buscar un numero en la cadena de texto \d → un número
+re.search(‘\d’, ‘Este texto tiene el numero 8 o el 9’)
+re.search(‘\d+’, ‘Este texto tiene el numero 8 o el 9’)  // Encuentra uno o mas numeros
+re.search(‘h.la’, ‘hola’)    // la . puede ser cualquier cosa
+
+Ejemplo
+re.findall("\d+", "Tengo 2 perros y 15 gatos") // “Encuentra uno o más números”
+
+re.fullmatch("\d+", "1234")   # válido
+re.fullmatch("\d+", "12a4")   # inválido
+
+Solo debe tener letras
+re.fullmatch("[a-zA-Z]+", "Hola")  # válido
+
+El texto comienza con la palabra Hola?
+re.search("^Hola", "Hola mundo")
+
+El texto termina con la palabra mundo?
+re.search("mundo$", "Hola mundo")
+
+
+
+[PARAMETROS PARA EXP REGULARES]
+
+flags=re.IGNORECASE  (Ignorar mayusculas/minusculas)
+flags=re.M  (Hacerlo revision multilineas)
+
+\d{3}\s\W  (Busque 3 numeros juntos seguido de un espacio y que termina con un caracter especial)
+
+(ab){2,4}  (el conjunto ab muestralo como minimo 2 veces y maximo 4)
+
+[ab]{2}  (Devuelve cualquiera de los valores aa, ab, ba, bb)
+
+[  |  ]
+resultado = re.findall(r'\d{2,4}|Hola', texto)  (Encuentra un numero como minimo 2 veces maximo 4 O la palabra Hola)
+
+
+
+'''
+
+text = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
+pattern = r'\d{2}/\d{2}/\d{4}'
+replacement = 'Fecha Oculta'
+New_Text = re.sub(pattern, replacement, text)
+print (f'Texto modificado: {New_Text}')
+
+#*******************************************************************************************
+
+
+
+
+
+
+
 # Hagamos una exception ValueError, sera una funcio con un input que pida ingresar un numero, try int(Numero) si no entonces except mostrar mensaje de error.
 # Hagamos una exception TypeError, sera una funcion que reciba como parametro 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
 # Hagamos una exception ZeroDivisionError, sera una funcion que reciba como parametros 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
@@ -408,42 +477,6 @@ except StopIteration:
     print (f'El ejercicio termino')
 '''
 
-#*******************************************************************************************
-
-'''Expresiones regulares en Python
-Son un buscador con superpoderes para texto. Siempre hay que comenzar exportando import re
-
-1 - Buscar si una palabra existe en un texto con search
-re.search(‘hola’, cadena_texto)
-2 - findall() → dame todos, busquemos todos los elementos iguales
-re.findall(‘a’, cadena_texto)
-
-3 - fullmatch() → ¿cumple TODA la regla?
-Variable = ‘hola mundo’
-re.full_match(‘hola mundo’, Variable)
-
-[PATRONES MAS COMUNES]
-Ahora vamos a buscar un numero en la cadena de texto \d → un número 
-re.search(‘\d’, ‘Este texto tiene el numero 8 o el 9’)
-re.search(‘\d+’, ‘Este texto tiene el numero 8 o el 9’)  // Encuentra uno o mas numeros
-re.search(‘h.la’, ‘hola’)    // la . puede ser cualquier cosa 
-
-Ejemplo 
-re.findall("\d+", "Tengo 2 perros y 15 gatos") // “Encuentra uno o más números”
-
-re.fullmatch("\d+", "1234")   # válido
-re.fullmatch("\d+", "12a4")   # inválido
-
-Solo debe tener letras 
-re.fullmatch("[a-zA-Z]+", "Hola")  # válido
-
-El texto comienza con la palabra Hola?
-re.search("^Hola", "Hola mundo")
-
-El texto termina con la palabra mundo?
-re.search("mundo$", "Hola mundo")'''
-
-#*******************************************************************************************
 
 ####### CREANDO MIS PROPIAS FUNCIONES
 
@@ -853,5 +886,35 @@ if result:
 	print (f'Valido')
 else:
 	print (f'Invalido')
+
+'''
+
+Expresiones regulares en Python
+Excepciones
+Importar modulos
+Escribir en un txt file
+DataFrames de Pandas
+Graficos con Matplotlit
+Trabarjar con archivos excel
+Trabajar con archivos csv
+Trabajar con informacion de una pagina web
+Arreglos con numpy
+Funciones Generadoras
+Funciones
+Funciones anidadas
+Funciones Lambda
+Decoradores de funciones
+Funciones Type hint
+Funciones Closure
+Clases
+Variables
+Listas
+Tuplas
+Conjuntos
+Diccionarios
+Condicionales
+Ciclo For
+Ciclo While
+Data inputs
 
 '''
