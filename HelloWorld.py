@@ -1079,3 +1079,220 @@ Objeto2 = Poke(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo')
 Objeto3 = Poke(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro')
 
 Objeto1.Mostrar()
+
+from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
+
+variable1 = Lista_Uno[0]
+variable2 = 'Perez'
+variable3 = '''Esto
+Es
+Un
+Long
+String'''
+
+variable4 = Objeto1.Cantidad
+variable5 = PEPE.Division_Flotante
+variable6, variable7 = Objeto3.Catched, not False
+
+# Esto es un comentario simple
+
+''''Esto
+Es
+Un
+Comentario
+Compuesto'''
+
+print (f'Concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'Mi nombre es {Lista_Uno[0]} {variable2}')
+
+print (f'{PEPE.Tupla_Poke[2]} tiene {Variable_Sumatoria} {Sumatoria2(1, 2, 3, 4, 5)} o incluso {Objeto2.Cantidad} pokemones')
+
+del variable5
+
+print (f'melo' in Saludar_Dos())
+print (f'Long' not in variable3)
+
+Snake_Case1, Snake_Case2, Snake_Case3 = PEPE.Tupla_Poke
+
+print (f'Esto es un desempaquetado de variables {Snake_Case2}')
+
+print (f'La lista 1 tiene {Lista_Uno.__len__()} elementos')
+
+Lista_Uno.append('Coco Rayado')
+Lista_Uno.insert(1, 'Juana La Cubana')
+Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Cociente, Residuo = divmod(Objeto3.Cantidad, Sumatoria2(1, 2, 3, 1))
+
+print (f'El cociente de la operacion es {Cociente} y el residuo es {Residuo}')
+
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:4]}')
+
+for indice, elemento in Data_Frame_Concatenate.iterrows():
+    Nombre = elemento['Nombre']
+
+    print (f'{Nombre}')
+
+print (f'{Lista_Uno[2]} eso es un {PEPE.Lista2[2]}?')
+
+print (f'{Lista_Cuatro}')
+
+Lista_Cuatro[0] = Sumatoria2(Anonima2(250), 150, 50, 100, 200)
+
+print (f'{Lista_Cuatro}')
+
+del Lista_Uno[1]
+Lista_Uno.remove('Coco Rayado')
+Lista_Uno.pop(-2)
+Lista_Uno.pop(-1)
+Lista_Uno.pop(-1)
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Lista_Uno_Copia = Lista_Uno.copy()
+
+Lista_Uno.clear()
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort()
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort(reverse = True)
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.reverse()
+print (f'{Lista_Cuatro}')
+
+print (f'{PEPE.__dir__()}')
+
+print (f'--------')
+
+print (f'{help(PEPE)}')
+
+print (f'--------')
+
+Tupla1 = ('Uno', 'Dos', 'Dos', 'Dos', 'Dos')
+
+print (f'{Tupla1}')
+
+Tupla1 = tuple(('One', 'Dos', 'Tres'))
+
+print (f'{Tupla1}')
+
+Tupla2 = 'Uno', 'Dos', 'Tres',
+
+Tupla3 = 'Uno',
+
+print (f'{type(Tupla1)}')
+print (f'{type(Tupla2)}')
+print (f'{type(Tupla3)}')
+
+print (f'{Tupla2[1]}')
+
+Set_Conjunto1 = {'Roca', Objeto2.Tipo, Objeto2.Tipo, Objeto2.Tipo, Objeto2.Tipo}
+Set_Conjunto1.add('Agua')
+Set_Conjunto1.add(Objeto1.Tipo)
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto1 = set({'Rock', 'Water', 'Electricity'})
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto2 = {1, 2, 3, 4, 5}
+Set_Conjunto3 = {4, 5}
+Set_Conjunto4 = set({8})
+
+print (f'{Set_Conjunto2.issuperset(Set_Conjunto3)}')
+print (f'{Set_Conjunto3.issubset(Set_Conjunto2)}')
+print (f'{Set_Conjunto2.isdisjoint(Set_Conjunto4)}')
+
+Set_Conjunto_Menu1 = {'Chocolate', 'Vainilla'}
+Set_Conjunto_Menu1.add('Fresa')
+Set_Conjunto_Menu2 = frozenset({'Caramelo'})
+Set_Conjunto_Menu3 = set({Set_Conjunto_Menu2, 'Mora'})
+
+print (f'{Set_Conjunto_Menu1}')
+print (f'{Set_Conjunto_Menu2}')
+print (f'{Set_Conjunto_Menu3}')
+
+Diccionario1 = {
+    'Nombre' : Saludar_Dos(),
+    'Edad' : Variable_Sumatoria,
+    'Votante' : not True
+}
+
+Diccionario2 = {
+    'Nombre' : ["Erick", Lista_Uno_Copia[1], "Karlita"],
+    'Edad' : [Objeto1.Cantidad, Anonima2(10), 6],
+    'Votante' : [variable7, True, not True]
+}
+
+Diccionario3 = dict({'Ingresos' : 500, 'Gastos' : 200, 'Vacio' : ""})
+
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1["Nombre"]}')
+print (f'{Diccionario1.get("Edad")}')
+
+print (f'--------')
+
+print (f'{Diccionario2}')
+print (f'{Diccionario2.keys()}')
+print (f'{Diccionario2["Nombre"][1]}')
+print (f'{Diccionario2.get("Edad")[2]}')
+
+print (f'--------')
+
+print (f'{Diccionario3}')
+print (f'{Diccionario3.keys()}')
+print (f'{Diccionario3["Ingresos"]}')
+print (f'{Diccionario3.get("Gastos")}')
+
+print (f'--------')
+
+Diccionario1["Nombre"] = variable1
+
+print (f'{Diccionario1}')
+
+print (f'--------')
+
+del Diccionario1["Nombre"]
+Diccionario1.pop("Edad")
+
+print (f'{Diccionario1}')
+
+print (f'--------')
+
+Diccionario1.clear()
+
+print (f'{Diccionario1}')
+
+Diccionario1 = dict({1 : "Karlita", 2 : 6, 3 : False})
+
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1[1]}')
+print (f'{Diccionario1.get(2)}')
+
+Diccionario_Vacio1 = dict.fromkeys('ABCD', 'HolaMundo')
+Diccionario_Vacio2 = dict.fromkeys(['Uno', 'Dos', 'Tres'])
+Diccionario_Vacio2['Dos'] = Objeto3.Nombre
+
+print (f'{Diccionario_Vacio1}')
+print (f'{Diccionario_Vacio2}')
+
+Division_Baja = 14//7
+Exponente = 4**3
+Modulo = 20%6
+
+print (f'El resultado de la operacion es {PEPE.Division_Flotante}')
+print (f'El resultado de la operacion es {int(abs(Division_Baja))}')
+print (f'El resultado de la operacion es {Exponente}')
+print (f'El resultado de la operacion es {Modulo}')
