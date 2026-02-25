@@ -9,3 +9,4 @@ Graveler
 Vaporeon
 Pikachu - Vaporeon - Graveler
 Su contrasena temporal es fhc539
+La lista de estudiantes es ['erick']
