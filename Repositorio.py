@@ -86,6 +86,7 @@ print (f'Texto modificado: {New_Text}')
 
 
 # Abrir e importar el modulo Modulo_Propio “import”
+# Abrir e importar el modulo Modulo_Propio “import”
 # Vamos a cambiarle el nombre al modulo que vamos a usar a PEPE con “as”
 
 ARCHIVOS .TXT  \\ 
@@ -662,6 +663,14 @@ Pares = [num for num in Lista if num % 2 == 0]
 # Creamos un diccionario vacio, solo con los keys pero sin valores por medio de la funcion dict.fromkeys([])
 # Ahora creamos un diccionario en el que todos los keys tengan el mismo valor Diccionario_Vacio = dict.fromkeys('ABCD', "Carmelo")
 
+# Hagamos un diccionario vacio con fromkeys, luego una lista de elementos y agregue los elementos de la lista al diccionario con un ciclo    i=0
+
+
+# A partir de los elementos del csv file, vamos a crear primero una lista de llaves, luego vamos a tomar los nombres y agregarlos a una lista
+# finalmente vamos a crear un diccionario y emparejar las llaves creadas y los nombres y mostramos el nuevo diccionario creado
+
+
+
 # Declare una variable y asignele una division flotante
 # Declare una variable y asignele una potenciacion o exponente **
 # Declare una variable y asignele una division baja //
@@ -918,3 +927,35 @@ Ciclo While
 Data inputs
 
 '''
+
+# Estudiemos clases y herencia
+
+class Pokemon:
+    def __init__(self, Nombre, Tipo, Ataque):
+        self.Nombre = Nombre
+        self.Tipo = Tipo
+        self.Ataque = Ataque
+        self.Cantidad = 18 * 2
+        self.Catched = not True
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Tipo: {self.Tipo}')
+        print (f'Ataque: {self.Ataque}')
+
+class Poke2(Pokemon):
+    def __init__(self, Nombre, Tipo, Ataque, City, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.City = City
+        self.Sub_Tipo = Sub_Tipo
+
+    def Desplegar(self):
+        print (f'{self.Nombre} se encuentra en {self.City} y tiene tipos {self.Tipo} / {self.Sub_Tipo}')
+
+Objeto1 = Poke2('Pikachu', 'Electrico', 'Impact Trueno', 'Kanto', 'Acero')
+
+Objeto1.Mostrar()
+
+print (f'-----------')
+
+Objeto1.Desplegar()

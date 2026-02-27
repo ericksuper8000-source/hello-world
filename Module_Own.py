@@ -29,7 +29,8 @@ def Saludar1():
 
 def Primera(Segunda):
     def Tercera(*args):
-        return Segunda('Carmelo')
+        Nombre = 'Carmelo'
+        return Segunda(Nombre)
 
     return Tercera
 
@@ -65,7 +66,7 @@ def Par(Numero):
 
 def Primera(Segunda):
     def Tercera(*args, **kwargs):
-        Nombre = 'Juana La Cubanita'
+        Nombre = 'Juanita La Cubanita'
         Sexo = 'FEMENINO'
         return Segunda(Nombre, Sexo)
 
@@ -88,27 +89,26 @@ def Primera(Segunda):
 @Primera
 def Contrasena(Numero:int) -> int:
     chars = 'abcdefghij'
-    Numero_Str = str(Numero)
-    Numero_Int = int(Numero_Str[0])
-    c1 = Numero_Int - 2
-    c2 = Numero_Int
-    c3 = Numero_Int - 5
-    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
+    Num_Str = str(Numero)
+    Num_Int = int(Num_Str[0])
+    c1 = Num_Int - 2
+    c2 = Num_Int
+    c3 = Num_Int - 5
+    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(c2 * Numero))}'
     return Password
 
-Lista_Numeros = [1, 2, 3, 4]
-Lista_Numeros.append(5)
+Tupla_Poke = ('Ash', 'Brooke', 'Misty')
 
-print (f'{Lista_Numeros}')
+Lista_Numeros = [1, 2, 3, 4, 5]
 
-Variable_Funcion_Anonima1 = lambda Num1, Num2 :  Num1 * Num2
-Variable_Funcion_Anonima2 = lambda Num : Num * 2
+Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
+Variable_Funcion_Anonima2 = lambda Num :  Num * 2
 Variable_Funcion_Anonima3 = filter(lambda Num : Num % 2 == 0, Lista_Numeros)
 
-Any_Pares = any(num % 2 == 0 for num in Lista_Numeros)
+Any_Par = any(num % 2 == 0 for num in Lista_Numeros)
 Lista_Pares = [num for num in Lista_Numeros if num % 2 == 0]
 
-print (f'{Any_Pares}')
+print (f'{Any_Par}')
 print (f'{Lista_Pares}')
 
 Global = 30
@@ -118,7 +118,7 @@ class Pokemon:
         self.Nombre = Nombre
         self.Tipo = Tipo
         self.Ataque = Ataque
-        self.Cantidad = 16 * 2
+        self.Cantidad = 18 * 2
         self.Catched = not True
 
     def Mostrar(self):
@@ -126,17 +126,16 @@ class Pokemon:
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
 
-Division_Flotante = 14/7
 
-Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
-Lista2 = [Division_Flotante, 36, 'Koala', True]
-Lista3 = list([1, 2, 3, 4, 5])
-Lista4 = [4000, 97, 15, 200]
+class Poke2(Pokemon):
+    def __init__(self, Nombre, Tipo, Ataque, Habitat, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.Habitat = Habitat
+        self.Sub_Tipo = Sub_Tipo
 
-Tupla_Poke = tuple(('Ash', 'Brooke', 'Misty'))
+    def Desplegar(self):
+        print (f'{self.Nombre} vive en {self.Habitat} y es de tipos {self.Tipo} / {self.Sub_Tipo}')
 
-Flotante1 = int(input(f'Ingrese un numero: '))
+Objeto4 = Poke2('Gyarados', 'Agua', 'Aliento Dragon', 'Mares', 'Acero')
 
-Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
-
-Flotante3 = input(f'Ingrese una cadena de texto: ')
+Objeto4.Desplegar()
