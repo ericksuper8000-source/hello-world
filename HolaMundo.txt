@@ -7,4 +7,4 @@ Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Graveler - Pikachu - Vaporeon
+Pikachu - Graveler - Vaporeon
