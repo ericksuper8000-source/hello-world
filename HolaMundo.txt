@@ -1,12 +1,11 @@
-Durazno
-Manzana
-Uvas
+Hiena
+Salamandra
+Oso
 Fresa Sabrosa
 Fresa Sabrosa
 Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Vaporeon - Graveler
+Vaporeon - Pikachu - Graveler
 Su contrasena temporal es fhc539
-La lista de estudiantes es ['erick']
