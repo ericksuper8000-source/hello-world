@@ -7,5 +7,6 @@ Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Vaporeon - Graveler
+Graveler - Pikachu - Vaporeon
 Su contrasena temporal es fhc539
+La lista de estudiantes es ['erick', 'josue.']

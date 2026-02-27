@@ -146,3 +146,9 @@ Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
 Lista2 = [Division_Flotante, Objeto4.Cantidad, 'Oso Koala', False]
 Lista3 = list([1, 2, 3, 4, 5])
 Lista4 = [4000, 97, 15, 200]
+
+Flotante1 = int(input(f'Ingrese un numero: '))
+
+Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
+
+Flotante3 = input(f'Ingrese una cadena de texto: ')
