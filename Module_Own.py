@@ -97,8 +97,6 @@ def Contrasena(Numero:int) -> int:
     Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(c2 * Numero))}'
     return Password
 
-Tupla_Poke = ('Ash', 'Brooke', 'Misty')
-
 Lista_Numeros = []
 Lista_Numeros.append(1)
 Lista_Numeros.insert(1, 2)
@@ -130,3 +128,18 @@ class Pokemon:
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
+
+Division_Flotante = 14/7
+
+Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
+Lista2 = [Division_Flotante, 36, 'Koala', not False]
+Lista3 = list([1, 2, 3, 4, 5])
+Lista4 = [4000, 97, 15, 200]
+
+Tupla_Poke = ('Ash', 'Brooke', 'Misty')
+
+Flotante1 = int(input(f'Ingrese un numero: '))
+
+Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
+
+Flotante3 = input(f'Ingrese una cadena de texto: ')
