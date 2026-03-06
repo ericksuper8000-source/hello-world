@@ -89,7 +89,7 @@ print (f'Texto modificado: {New_Text}')
 # Abrir e importar el modulo Modulo_Propio “import”
 # Vamos a cambiarle el nombre al modulo que vamos a usar a PEPE con “as”
 
-ARCHIVOS .TXT  \\ 
+ARCHIVOS .TXT  \\
 Creamos un archivo txt en el folder donde estan los archivos python
 
 C:\\Users\\XPC\\Desktop\\'''
@@ -564,6 +564,10 @@ Pares = [num for num in Lista if num % 2 == 0]
 
 # Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Diccionario_Poke", ya no se necesita usar Saludar
 
+# Creemos una clase hija que herede todas las caracteristicas de la clase pokemon
+
+# Ahora vamos a hacer un ejercicio de herencia multiple con 3 clases, una clase camara, otra reproductor musica y otra clase smartphone, smartphone hereda de las clases padre. Solamente tendra un metodo accion cada una
+
 
 
 # Como declarar dos variables string?
@@ -925,6 +929,29 @@ Condicionales
 Ciclo For
 Ciclo While
 Data inputs
+
+
+
+
+
+
+
+Esto es un programa que solicita una fecha y la compara con una entrada de un documento csv. Si no la encuentra mostrara un mensaje de error, si el formato es incorrecto mostrara un mensaje de error, si la encuentra mostrara el mensaje que la fecha se encontro x numero de veces.
+
+Importar pandas
+from datetime import datetime
+Crear la ruta del csv
+Cargar el archivo csv
+Pedir la fecha por medio de un input
+hacer un try except valueerror
+en el try primero vamos a asegurarnos co datetime.strptime que el formato es el correcto
+en el try luego hay que asegurarnos que la fecha esta formateda to_datetime
+en el try despues hay que asegurarse que la fecha del csv esta formateada to_datetime
+si no, el excep muestra un error ojo necesita un exit()
+Hacemos una variable encontrado, igualamos == entrada del csv .dt.date contra la fecha ingresada date()
+if encontrado.empty
+else
+exito
 
 '''
 
