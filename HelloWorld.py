@@ -598,38 +598,374 @@ print (f'--------')
 
 Array2 = np.array([[1, 2, 3], [4, 5, 6]])
 
+print (f'{Array2}')
+print (f'{Array2.ndim}') # 2
+print (f'{Array2.shape}') # 2x3
+print (f'{Array2.size}') # 6
+print (f'{Array2.dtype}') # int64
+print (f'{Array2[1, 2]}')
+print (f'{Array2[1, :2]}')
+print (f'{Array2[1, 2:]}')
+print (f'{Array2[0, ::2]}')
+print (f'{Array2[1, ::3]}')
+print (f'{Array2[0, 1:2]}')
+print (f'{Array2[:, 2]}')
+print (f'{Array2[0, 0:None]}')
+print (f'{Array2[0, :]}')
+print (f'{Array2[Array2 <= 2]}')
+
+Array2_Sorted = np.sort(Array2)
+Array2_Sorted_Mean = np.mean(Array2_Sorted)
+Array2_Sorted_Sum = np.sum(Array2_Sorted)
+
+print (f'Acomodado {Array2_Sorted}')
+print (f'Media {round(Array2_Sorted_Mean, 2)}')
+print (f'Sumatoria {Array2_Sorted_Sum}')
+
+Sumita1 = np.sum(Array2_Sorted, axis=0)
+Sumita2 = np.sum(Array2_Sorted, axis=1)
+Sumita3 = np.sum(Array2_Sorted[1, 0:None])
+Sumita4 = np.sum(Array2_Sorted[1, :])
+
+print (f'El resultado de la sumita es {Sumita1}')
+print (f'El resultado de la sumita es {Sumita2}')
+print (f'El resultado de la sumita es {Sumita3}')
+print (f'El resultado de la sumita es {Sumita4}')
+
 print (f'--------')
 
-Array3 = np.array([[['a', 'b', 'c'], ['d', 'e', 'f']], [['g', 'h', 'i'], ['j', 'k', 'l']]])
+Array3 = np.array([[['a', 'b', 'c'], ['d', 'e', 'f']],                    [['g', 'h', 'i'], ['j', 'k', 'l']]])
+
+print (f'{Array3}')
+print (f'{Array3.ndim}') # 3
+print (f'{Array3.shape}') # 2x2x3
+print (f'{Array3.size}') # 12
+print (f'{Array3.dtype}') # <U1
+print (f'{Array3[1, 0, 1]}')
+print (f'{Array3[1, 1, :2]}')
+print (f'{Array3[1, 1, 2:]}')
+print (f'{Array3[0, 1, ::2]}')
+print (f'{Array3[0, 0, ::3]}')
+print (f'{Array3[1, 0, 1:2]}')
+print (f'{Array3[0, :, 1]}')
+print (f'{Array3[1, 1, 0:None]}')
+print (f'{Array3[1, 1, :]}')
+print (f'{Array3[Array3 == "a"]}')
 
 print (f'--------')
 
-Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [0, 4, 5]]], [[[3, 2, 1], [6, 5, 4]], [[9, 8, 7], [1, 6, 3]]]])
+Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [0, 4, 5]]],           [[[3, 2, 1], [6, 5, 4]], [[9, 8, 7], [1, 6, 3]]]])
+
+print (f'{Array4}')
+print (f'{Array4.ndim}') # 4
+print (f'{Array4.shape}') # 2x2x2x3
+print (f'{Array4.size}') # 24
+print (f'{Array4.dtype}') # int64
+print (f'{Array4[1, 0, 1, 2]}')
+print (f'{Array4[1, 1, 0, :2]}')
+print (f'{Array4[1, 1, 0, 2:]}')
+print (f'{Array4[0, 1, 0, ::2]}')
+print (f'{Array4[0, 1, 0, ::3]}')
+print (f'{Array4[1, 0, 0, 1:2]}')
+print (f'{Array4[0, 1, :, 2]}')
+print (f'{Array4[1, 0, 1, 0:None]}')
+print (f'{Array4[1, 0, 1, :]}')
+print (f'{Array4[Array4 <= 2]}')
+
+Array4_Sorted = np.sort(Array4)
+Array4_Sorted_Mean = np.mean(Array4_Sorted)
+Array4_Sorted_Sum = np.sum(Array4_Sorted)
+
+print (f'Acomodado: {Array4_Sorted}')
+print (f'Media: {round(Array4_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array4_Sorted_Sum}')
+
+Sumita5 = np.sum(Array4_Sorted, axis=0)
+Sumita6 = np.sum(Array4_Sorted, axis=1)
+Sumita7 = np.sum(Array4_Sorted[1, 0, 0, 0:None])
+Sumita8 = np.sum(Array4_Sorted[1, 0, 0, :])
+
+print (f'El resultado de la sumita es {Sumita5}')
+print (f'El resultado de la sumita es {Sumita6}')
+print (f'El resultado de la sumita es {Sumita7}')
+print (f'El resultado de la sumita es {Sumita8}')
 
 print (f'--------')
+
+Array_Num1 = np.arange(start=1, stop=11, step=1)
+
+print (f'{Array_Num1}')
+
+Array_Min = np.min(Array_Num1)
+Array_Max = np.max(Array_Num1)
+
+print (f'El menor de los numeros es {Array_Min} y el mayor es {Array_Max}')
+
 print (f'--------')
+
+Array_Num2 = np.arange(25)
+
+print (f'{Array_Num2}')
+
+Array_Num2_Reshape = np.reshape(Array_Num2, shape=(5, 5))
+
+print (f'{Array_Num2_Reshape}')
+
+Array_Num2_Reshape_Column_Min = np.min(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Column_Max = np.max(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Row_Min = np.min(Array_Num2_Reshape, axis=1)
+Array_Num2_Reshape_Row_Max = np.max(Array_Num2_Reshape, axis=1)
+
+print (f'Los menores de las columnas son {Array_Num2_Reshape_Column_Min}')
+print (f'Los menores de las columnas son {Array_Num2_Reshape_Column_Max}')
+print (f'Los menores de las columnas son {Array_Num2_Reshape_Row_Min}')
+print (f'Los menores de las columnas son {Array_Num2_Reshape_Row_Max}')
+
 print (f'--------')
+
+Array_Zeros = np.zeros(shape=(2, 3))
+
+print (f'{Array_Zeros}')
+print (f'{Array_Zeros.ndim}')
+print (f'{Array_Zeros.shape}')
+print (f'{Array_Zeros.size}')
+print (f'{Array_Zeros.dtype}')
+print (f'{Array_Zeros[1, 1]}')
+
 print (f'--------')
+
+Array_Ones = np.ones(shape=(2, 3))
+
+print (f'{Array_Ones}')
+print (f'{Array_Ones.ndim}')
+print (f'{Array_Ones.shape}')
+print (f'{Array_Ones.size}')
+print (f'{Array_Ones.dtype}')
+print (f'{Array_Ones[0, 0]}')
+
 print (f'--------')
+
+Array_Gen1 = np.full(shape=(2, 3), fill_value = f'{PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'{Array_Gen1}')
+print (f'{Array_Gen1.ndim}')
+print (f'{Array_Gen1.shape}')
+print (f'{Array_Gen1.size}')
+print (f'{Array_Gen1.dtype}')
+print (f'{Array_Gen1[0, 1]}')
+
 print (f'--------')
+
+Array_Gen2 = np.full(shape=(5), fill_value = 'Fuecoco')
+
+print (f'{Array_Gen2}')
+
+Lista_Fuecoco = []
+
+for elemento in Array_Gen2:
+    Lista_Fuecoco.append(str(elemento))
+
+print (f'{Lista_Fuecoco}')
+print (f'{type(Lista_Fuecoco)}')
+
 print (f'--------')
+
+Array_Gen3 = np.full(shape=(2, 3), fill_value = Array4[0, 0, 1, 2:3])
+
+print (f'{Array_Gen3}')
+print (f'{Array_Gen3.ndim}')
+print (f'{Array_Gen3.shape}')
+print (f'{Array_Gen3.size}')
+print (f'{Array_Gen3.dtype}')
+print (f'{Array_Gen3[1, 1]}')
+
 print (f'--------')
+
+Tupla_Array = ('Rojo', 'Azul')
+Set_Conjunto_Array = {1, 2, 3}
+Diccionario_Array = dict({'Nombre' : ["Erick", "Josue", "Karlita"]})
+
+Array_Gen4 = np.full(shape=(3, 2), fill_value=Tupla_Array)
+Array_Gen5 = np.full(shape=(2, 1), fill_value=Set_Conjunto_Array)
+Array_Gen6 = np.full(shape=(4, 1), fill_value=Diccionario_Array["Nombre"][1])
+
+print (f'{Array_Gen4}')
+print (f'{Array_Gen5}')
+print (f'{Array_Gen6}')
+
 print (f'--------')
+
+print (f'{Array_Gen6[3]}')
+
 print (f'--------')
+
+Array_Num3 = np.arange(start=1, stop=11, step=1)
+Array_Num4 = np.arange(start=2, stop=21, step=2)
+Array_Num5 = np.arange(start=3, stop=31, step=3)
+Array_Num6 = np.arange(start=10, stop=21, step=2)
+Array_Num7 = np.arange(10)
+
+print (f'{Array_Num3}')
+print (f'{Array_Num4}')
+print (f'{Array_Num5}')
+print (f'{Array_Num6}')
+print (f'{Array_Num7}')
+
 print (f'--------')
+
+Array_Random1 = np.random.randint(low=1, high=10, size=(10))
+
+print (f'{Array_Random1}')
+
 print (f'--------')
+
+Array_Random2 = np.random.randint(low=1, high=10, size=(2, 3))
+
+print (f'{Array_Random2}')
+print (f'{Array_Random2.ndim}')
+print (f'{Array_Random2.shape}')
+print (f'{Array_Random2.size}')
+print (f'{Array_Random2.dtype}')
+print (f'{Array_Random2[1, 0]}')
+
+Array_Random2_Sorted = np.sort(Array_Random2)
+Array_Random2_Sorted_Mean = np.mean(Array_Random2_Sorted)
+Array_Random2_Sorted_Sum = np.sum(Array_Random2_Sorted)
+
+print (f'Acomodado: {Array_Random2_Sorted}')
+print (f'Media: {round(Array_Random2_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array_Random2_Sorted_Sum}')
+
+Sumita9 = np.sum(Array_Random2_Sorted, axis=0)
+Sumita10 = np.sum(Array_Random2_Sorted, axis=1)
+Sumita11 = np.sum(Array_Random2_Sorted[1, 0:None])
+Sumita12 = np.sum(Array_Random2_Sorted[1, :])
+
+print (f'El resultado de la sumita es {Sumita9}')
+print (f'El resultado de la sumita es {Sumita10}')
+print (f'El resultado de la sumita es {Sumita11}')
+print (f'El resultado de la sumita es {Sumita12}')
+
 print (f'--------')
+
+Arr1 = np.array([8, 9, 14])
+Arr2 = np.array([2, 3, 7])
+
+Sum = Arr1 + Arr2
+Rest = Arr1 - Arr2
+Mult = Arr1 * Arr2
+Div = Arr1 / Arr2
+
+Array_Random1_Cien = Array_Random1 + 100
+
+print (f'El resultado de la operacion es {Sum}')
+print (f'El resultado de la operacion es {Rest}')
+print (f'El resultado de la operacion es {Mult}')
+print (f'El resultado de la operacion es {Div}')
+print (f'El resultado de la operacion es {Array_Random1_Cien}')
+
 print (f'--------')
+
+Array_Num8 = np.arange(20)
+
+print (f'{Array_Num8}')
+
+Array_Num8_Reshape = np.reshape(Array_Num8, shape=(4, 5))
+
+print (f'{Array_Num8_Reshape}')
+
+Array_Num8_Reshape_Ravel = np.ravel(Array_Num8_Reshape)
+
+print (f'{Array_Num8_Reshape_Ravel}')
+
 print (f'--------')
+
+Lista_Array1 = ['Erick', 'Josue', 'Karlita']
+
+Array5 = np.array(Lista_Array1)
+
+print (f'{Array5}')
+print (f'{type(Array5)}')
+
 print (f'--------')
+
+Array6 = np.array([1, 2, 3])
+Array7 = np.arange(start=4, stop=7, step=1)
+
+Array_Concatenate = np.concatenate([Array6, Array7])
+
+print (f'{Array_Concatenate}')
+
 print (f'--------')
+
+Array_Concatenate_Split = np.split(Array_Concatenate, 3)
+
+print (f'{Array_Concatenate_Split[0]}')
+print (f'{Array_Concatenate_Split[1]}')
+print (f'{Array_Concatenate_Split[2]}')
+
 print (f'--------')
+
+Array_Concatenate_Where = np.where(Array_Concatenate == 3)
+
+print (f'{Array_Concatenate_Where}')
+
 print (f'--------')
+
+for Matriz2 in Array4:
+    for Matriz1 in Matriz2:
+        for Fila in Matriz1:
+            for Elemento in Fila:
+                print (f'{Elemento}')
+
 print (f'--------')
+
+for Matriz2 in Array4:
+    for Matriz1 in Matriz2:
+        for Fila in Matriz1:
+            print (f'{Fila}')
+
 print (f'--------')
+
+for Matriz2 in Array3:
+    for Matriz1 in Matriz2:
+        for Fila in Matriz1:
+            for Elemento in Fila:
+                print (f'{Elemento}')
+
 print (f'--------')
+
+Array_Random3 = np.random.randint(low=1, high=10, size=(2, 2, 3))
+
+print (f'{Array_Random3}')
+
+Sumita13 = np.sum(Array_Random3, axis=0)
+Sumita14 = np.sum(Array_Random3, axis=1)
+Sumita15 = np.sum(Array_Random3[1, 0, 0:None])
+Sumita16 = np.sum(Array_Random3[1, 0, :])
+
+print (f'El resultado de la sumita es {Sumita13}')
+print (f'El resultado de la sumita es {Sumita14}')
+print (f'El resultado de la sumita es {Sumita15}')
+print (f'El resultado de la sumita es {Sumita16}')
+
+
 print (f'--------')
+
+Lista_Participantes = list(['Erick', 'Josue', 'Karlita', 'Carmelo', 'Susanita', 'Roxana'])
+
+Ganador1 = np.random.choice(Lista_Participantes, size=(1), replace=False)
+Ganador2 = np.random.choice(Lista_Participantes, size=(2), replace=False)
+Ganador3 = np.random.choice(Lista_Participantes, size=(2, 3), replace=False)
+
+print (f'El ganador del sorteo es {Ganador1}')
+print (f'El ganador del sorteo es {Ganador2}')
+print (f'El ganador del sorteo es {Ganador3}')
+
 print (f'--------')
-print (f'--------')
-print (f'--------')
+
+Array_Linspace = np.linspace(start=1, stop=10, num=3)
+
+print (f'{Array_Linspace}')
+
 print (f'--------')
