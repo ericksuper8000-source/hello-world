@@ -1,8 +1,9 @@
 name: Ejecutar script de Python
 
 on:
-  push:
-    branches: [ Develop ]
+  pull_request:
+    branches: [ Master ]
+    types: [ closed ]
 
 jobs:
   run-python-script:
