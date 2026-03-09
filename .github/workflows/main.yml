@@ -2,7 +2,7 @@ name: Ejecutar script de Python
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ Develop ]
 
 jobs:
   run-python-script:
