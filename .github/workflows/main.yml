@@ -1,0 +1,21 @@
+name: Ejecutar script de Python
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Ejecutar script
+        run: python git_practica.py
