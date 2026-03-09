@@ -28,3 +28,9 @@ Diccionario = dict(zip(Key1, Lista1))
 for elemento in Diccionario.items():
     print (f'{elemento[0]} -- {elemento[1]}')
 
+Lista3 = list(Calcular1)
+
+print (f'{Lista3}')
+
+print (f'{max(Lista3)}')
+
