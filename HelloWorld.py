@@ -33,5 +33,4 @@ Lista3 = list(Calcular1)
 print (f'{Lista3}')
 
 print (f'{max(Lista3)}')
-x
 
