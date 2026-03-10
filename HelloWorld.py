@@ -1,36 +1,51 @@
-import pandas as pd
-import matplotlib.pyplot as plt
+import re
 
-Ruta_Csv1 = 'C:\\python-data-analyzer\\data\\sales.csv'
+Nombre = input(f'Ingrese su nombre: ')
 
-Cargar_Csv = pd.read_csv(Ruta_Csv1)
+Pattern1 = r'[a-zA-Z]+'
 
-Cargar_Csv['Total'] = Cargar_Csv['quantity'] * Cargar_Csv['price']
+Buscar1 = bool(re.match(Pattern1, Nombre))
 
-print (f'{Cargar_Csv}')
+if (Buscar1 == True):
+    print (f'Hola {Nombre}!')
+    print (f'El tipo de dato es - {type(Nombre)}')
+else:
+    print (f'Error, su nombre solo puede llevar texto')
 
-Calcular1 = Cargar_Csv.groupby('product')['Total'].sum()
-Mayor = Calcular1.idxmax()
-Menor = Calcular1.idxmin()
+Edad = input(f'Ingrese su edad: ')
 
-print (f'El producto que vendio mas fue {Mayor} y la cantidad vendida fue ${Calcular1.max()}')
-print (f'El producto que vendio menos fue {Menor} y la cantidad vendida fue ${Calcular1.min()}')
+Pattern2 = r'^\d+'
 
-Key1 = [f'Key{i}' for i in range(len(Cargar_Csv))]
+Buscar2 = bool(re.match(Pattern2, Edad))
 
-print (f'{Key1}')
+if (Buscar2 == True):
+    if (int(Edad) > 105):
+        print (f'Puede que haya digitado una edad falsa')
+    else:
+        print (f'Tienes {int(Edad)} años')
+        print(f'El tipo de dato es - {type(int(Edad))}')
+else:
+    print (f'Error, necesito que ingrese un numero')
 
-Lista1 = list(Cargar_Csv['product'])
-Lista2 = list(Cargar_Csv['Total'])
+Pais = input(f'Ingrese su pais de procedencia: ')
 
-Diccionario = dict(zip(Key1, Lista1))
+Buscar3 = bool(re.match(Pattern1, Pais))
 
-for elemento in Diccionario.items():
-    print (f'{elemento[0]} -- {elemento[1]}')
+if (Buscar3 == True):
+    print (f'Vives en {Pais}')
+    print(f'El tipo de dato es - {type(Pais)}')
+else:
+    print (f'Error, necesito que ingrese una cadena de texto')
 
-Lista3 = list(Calcular1)
+Altura = input(f'Ingrese su altura con formato 1.72: ')
 
-print (f'{Lista3}')
+Pattern3 = r'^[0-2]?\.\d{2}$'
 
-print (f'{max(Lista3)}')
+Buscar4 = bool(re.match(Pattern3, Altura))
+
+if (Buscar4 == True):
+    print (f'Mides {float(Altura)} metros')
+    print(f'El tipo de dato es - {type(float(Altura))}')
+else:
+    print (f'Formato de altura incorrecto, debe ser x.xx')
 
