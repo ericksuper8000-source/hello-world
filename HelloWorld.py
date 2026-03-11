@@ -257,6 +257,8 @@ Cargar_Csv2['TOTALE'] = Cargar_Csv2['quantity'] * Cargar_Csv2['price']
 
 print (f'{Cargar_Csv2}')
 
+import Module_Own as PEPE
+
 def Exception1(Numero):
     try:
         Numerito = int(Numero)
@@ -316,4 +318,326 @@ with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
     Documento_Linea = Docu.readline()
     print (f'{Documento_Linea}')
     Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nNutria'])
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nElefante')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nFresa Sabrosa', '\nFresa Sabrosa', '\nFresa Sabrosa'])
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Linea = Docu.readline()
+    print (f'{Documento_Linea}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke1"]}')
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke2"]}')
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke3"]}\n')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f' - '.join(PEPE.Set_Conjunto_Poke)])
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+
+import pandas as pd
+
+Data_Frame1 = pd.DataFrame({
+    'Nombre' : ["Erick", "Josue", "Karlita"],
+    'Edad' : [18 * 2, 20, 6],
+    'Votante' : [True, not False, False]
+})
+
+Data_Frame2 = pd.DataFrame({
+    'Nombre' : ["Carmelo", "Susanita", "Roxana"],
+    'Edad' : [55, round(50/5), 26],
+    'Votante' : [True, False, not False]
+})
+
+Data_Frame_Concatenate = pd.concat([Data_Frame2, Data_Frame1])
+
+Data_Frame_Concatenate_Age = Data_Frame_Concatenate['Edad']
+
+print (f'{Data_Frame_Concatenate}')
+
+print (f'----------')
+
+print (f'{Data_Frame_Concatenate_Age}')
+
+print (f'La menor de las edades es {Data_Frame_Concatenate_Age.min()} y la mayor es {Data_Frame_Concatenate_Age.max()}')
+
+print (f'{Data_Frame_Concatenate.info()}')
+
+print (f'----------')
+
+for indice, elemento in Data_Frame_Concatenate.iterrows():
+    Nombrecito = elemento['Nombre']
+
+    print (f'Mi nombre es {Nombrecito}')
+
+print (f'----------')
+
+Elemento2 = Data_Frame_Concatenate.groupby('Nombre')['Edad'].sum()
+Elemento2_Mayor = Elemento2.idxmax()
+Elemento2_Menor = Elemento2.idxmin()
+Elemento1_Mayor_Edad = Elemento2.max()
+Elemento1_Menor_Edad = Elemento2.min()
+
+print (f'{Elemento2}')
+
+print (f'El mayor de la lista es {Elemento2_Mayor} y su edad es {Elemento1_Mayor_Edad}')
+print (f'El menor de la lista es {Elemento2_Menor} y su edad es {Elemento1_Menor_Edad}')
+
+'''import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.lineplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
+plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.barplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
+plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.scatterplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
+plt.show()'''
+
+print (f'{Data_Frame_Concatenate.head(3)}')
+
+print (f'-----------')
+
+print (f'{Data_Frame_Concatenate.head(1)}')
+
+print (f'-----------')
+
+print (f'{Data_Frame_Concatenate.tail(1)}')
+
+print (f'-----------')
+
+Filas, Columnas = Data_Frame_Concatenate.shape
+
+print (f'Tenemos {Filas} Filas y {Columnas} Columnas')
+
+Elemento3 = Data_Frame1.loc[0, 'Nombre']
+Elemento4 = Data_Frame1.loc[1, 'Edad']
+Elemento5 = Data_Frame1.loc[2, 'Votante']
+Elemento6 = Data_Frame1.loc[1, :]
+Elemento7 = Data_Frame1.loc[:, 'Nombre']
+
+print (f'{Elemento3}')
+print (f'{Elemento4}')
+print (f'{Elemento5}')
+print (f'{Elemento6}')
+print (f'{Elemento7}')
+
+Elemento8 = Data_Frame2.iloc[0, 0]
+Elemento9 = Data_Frame2.iloc[1, 1]
+Elemento10 = Data_Frame2.iloc[2, 2]
+Elemento11 = Data_Frame2.iloc[0, :]
+Elemento12 = Data_Frame2.iloc[:, 2]
+
+print (f'{Elemento8}')
+print (f'{Elemento9}')
+print (f'{Elemento10}')
+print (f'{Elemento11}')
+print (f'{Elemento12}')
+
+print (f'-----------')
+
+import pandas as pd
+import openpyxl
+
+Ruta_Excel = 'C:\\Repo\\Book.xlsx'
+
+Cargar_Excel = pd.read_excel(Ruta_Excel)
+
+print (f'{Cargar_Excel.head()}')
+
+print (f'-----------')
+
+Cargar_Excel1 = pd.read_excel(Ruta_Excel, sheet_name=1)
+Cargar_Excel2 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0)
+Cargar_Excel3 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, names=['Uno', 'Dos', 'Tres', 'Cuatro', 'Cinco', 'Seis', 'Siete', 'Ocho', 'Nueve', 'Diez'])
+Cargar_Excel4 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, index_col='tiquete')
+Cargar_Excel5 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, usecols='E:J', index_col='cabina')
+Cargar_Excel6 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, usecols='E:J', index_col='cabina', nrows=1)
+
+print (f'{Cargar_Excel1.head()}')
+
+print (f'-----------')
+
+print (f'{Cargar_Excel2.head()}')
+
+print (f'-----------')
+
+print (f'{Cargar_Excel3.head()}')
+
+print (f'-----------')
+
+print (f'{Cargar_Excel4.head()}')
+
+print (f'-----------')
+
+print (f'{Cargar_Excel5.head()}')
+
+print (f'-----------')
+
+print (f'{Cargar_Excel6.head()}')
+
+print (f'-----------')
+
+Cargar_Excel3_Sorted = Cargar_Excel3.sort_values(by='Cinco', ascending=True)
+
+print (f'{Cargar_Excel3_Sorted}')
+
+print (f'-----------')
+
+Cargar_Excel3_Sorted_Descending = Cargar_Excel3.sort_values(by='Cinco', ascending=False)
+
+print (f'{Cargar_Excel3_Sorted_Descending}')
+
+Lista_DataFrame_Concatenate = list(Data_Frame_Concatenate['Nombre'])
+
+print (f'{Lista_DataFrame_Concatenate}')
+
+for elemento in enumerate(Lista_DataFrame_Concatenate):
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+import pandas as pd
+
+Ruta_Txt = 'C:\\Repo\\HolaMundo.txt'
+
+Cargar_Txt = pd.read_csv(Ruta_Txt)
+
+print (f'{Cargar_Txt}')
+
+print (f'-----------')
+
+print (f'{Cargar_Txt.head()}')
+
+print (f'-----------')
+
+import pandas as pd
+
+Ruta_Csv3 = 'C:\\Repo\\Base_Datos.csv'
+
+Cargar_Csv3 = pd.read_csv(Ruta_Csv3)
+
+print (f'{Cargar_Csv3}')
+
+print (f'-----------')
+
+import pandas as pd
+import requests
+import io
+
+Ruta_Html = 'https://en.wikipedia.org/wiki/Louisiana'
+
+headers = {'User-Agent' : 'Mozilla/5.0'}
+
+Response = requests.get(Ruta_Html, headers=headers)
+
+Leer_Html = io.StringIO(Response.text)
+
+Cargar_Html = pd.read_html(Leer_Html)
+
+print (f'{Cargar_Html[2].head()}')
+
+print (f'-----------')
+
+import numpy as np
+
+Array1 = np.array([1, 2, 3])
+
+print (f'{Array1}')
+print (f'{Array1.ndim}') # 1
+print (f'{Array1.shape}') # 1x3
+print (f'{Array1.size}') # 3
+print (f'{Array1.dtype}') # int64
+print (f'{Array1[1]}')
+print (f'{Array1[:2]}')
+print (f'{Array1[2:]}')
+print (f'{Array1[::2]}')
+print (f'{Array1[::3]}')
+print (f'{Array1[1:2]}')
+print (f'{Array1[0:None]}')
+print (f'{Array1[:]}')
+print (f'{Array1[Array1 <= 1]}')
+
+print (f'-----------')
+
+Array2 = np.array([[4, 5, 6], [7, 8, 9]])
+
+print (f'-----------')
+
+Array3 = np.array([[['e', 'j', 'k'], ['a', 'f', 'n']],       [['s', 'm', 'z'], ['r', 'i', 'o']]])
+
+print (f'-----------')
+
+Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [0, 6, 2]]],          [[[3, 2, 1], [6, 5, 4]], [[9, 8, 7], [4, 3, 7]]]])
+
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+print (f'-----------')
+
 
