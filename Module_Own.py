@@ -114,3 +114,33 @@ print (f'{Any_Par}')
 print (f'{Lista_Par}')
 
 Global = 30
+
+class Pokemon:
+    def __init__(self, Nombre, Tipo, Ataque):
+        self.Nombre = Nombre
+        self.Tipo = Tipo
+        self.Ataque = Ataque
+        self.Cantidad = 18 * 2
+        self.Catched = not True
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Tipo: {self.Tipo}')
+        print (f'Ataque: {self.Ataque}')
+
+class Poke_Hija(Pokemon):
+    def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.Sub_Tipo = Sub_Tipo
+
+    def Desplegar(self):
+        print (f'{self.Nombre} es de tipo {self.Tipo} / {self.Sub_Tipo}')
+
+Tupla_Poke = ('Ash', 'Brooke', 'Misty')
+
+Division_Flotante = 14/7
+
+Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
+Lista2 = [Division_Flotante, 36, 'Koala', not False]
+Lista3 = list([1, 2, 3, 4, 5])
+Lista4 = [4000, 97, 15, 200]

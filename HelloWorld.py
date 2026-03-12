@@ -1206,198 +1206,424 @@ def Usuario2(Nombre, Apellido):
 
 Usuario2("Erick", "Perez")
 
+from Module_Own import Pokemon as Poke
+from Module_Own import Poke_Hija as Poke_Son
 
-# Crea una clase pokemon con tipo, nombre, ataque y una variable capturado en el  Modulo_Propio
+Objeto3 = Poke(PEPE.Diccionario_Poke["Poke1"], 'Electrico', 'Impact Trueno')
+Objeto4 = Poke_Son(PEPE.Diccionario_Poke["Poke2"], 'Roca', 'Sismo', 'Acero')
+Objeto5 = Poke(PEPE.Diccionario_Poke["Poke3"], 'Agua', 'Hidro-Chorro')
 
-# Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Diccionario_Poke", ya no se necesita usar Saludar
+Objeto4.Mostrar()
+Objeto4.Desplegar()
 
-# Creemos una clase hija que herede todas las caracteristicas de la clase pokemon
+from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
 
-# Ahora vamos a hacer un ejercicio de herencia multiple con 3 clases, una clase camara, otra reproductor musica y otra clase smartphone, smartphone hereda de las clases padre. Solamente tendra un metodo accion cada una
+variable1 = Lista_Uno[0]
+variable2 = 'Perez'
+variable3 = '''Esto
+Es
+Un
+Long
+String'''
 
+variable4 = Objeto3.Cantidad
+variable5 = PEPE.Division_Flotante
+variable6, variable7 = not False, Objeto5.Catched
 
+# Esto es un comentario simple
 
-# Como declarar dos variables string?
-# Como declarar una variable long string?
-# Como declarar una variable integer?
-# Como declarar una varible decimal
-# Como declarar dos variables booleanas?
-# Declare dos variables en la misma linea
-# Agrega un comentario simple
-# Agregue un comentario compuesto
-# Imprime un texto con una variable string
-# Imprime dos varibles string concatenadas
-# Imprime una concatenacion de una varible texto y un integer
-# borra una variable
-# Juegue con los operadores de pertenencia in / not in
-# Declare una variable con Snake Case
+'''Esto
+Es
+Un
+Comentario
+Compuesto'''
 
-# ***********************  Listas   **********************
+print (f'Esto es una concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
 
-# Declara una lista con string
+print (f'Mi nombre es {Lista_Uno[0]} {variable2}')
 
-# Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Lista1" y cambiemosle el nombre con “as”, ya no se necesita usar Saludar
+print (f'{PEPE.Tupla_Poke[2]} tiene {Variable_Sumatoria} {Sumatoria2(1, 2, 3, 3, 4)} o incluso {Objeto3.Cantidad} pokemones')
 
-# Declara una lista con diferentes tipos de datos En  Modulo_Propio
-# Declara una lista de solo numeros En  Modulo_Propio
-# Cree una lista con la funcion list En  Modulo_Propio
+del variable5
 
-# Ahora vamos a sacar del modulo propio varias listas al mismo tiempo 1 y 4 con la instruccion from Modulo_Propio import Lista1, Lista4
+print (f'melo' in Saludar_Dos())
+print (f'Long' not in variable3)
 
-# Muestre en consola la cantidad de elementos en una de las listas con la funcion len
-# Agrega un elemento aleatorio a la lista con .append()
-# Inserta un elemento en una posición específica con .insert(posición, elemento)
-# Agreguemos varios elementos a la lista con extend(['Cada elemento se ingresa asi'])
-# Haz alguna operacion matematica con los valores de la lista 3
-# Despliegue en consola el resultado
-# Imprima un rango de elementos de la lista, por ejemplo del valor en la posicion 0 al 2 con [x:y]
-# Concatene un elemento de la primer lista y de la segunda lista e imprima en consola
-# Imprima todos los elemento de alguna de las tres listas
-# Cambie el valor de un elemento de una lista
-# Ahora muestre todos los elementos de la lista incluyendo el que cambio
-# Borre un valor de una lista usando del
-# Borra otro elemento usando .remove(elemento textual) y muestra la lista
-# Borre 1 elemento de la lista utilizando el metodo pop('Indice')
-# Borre 1 elemento de la lista utilizando el metodo pop('Indice negativo para borrar el ultimo elemento')
-# Elimine todos los elementos de una lista con el metodo clear()
-# Ordena la lista 3 numerica en orden ascendente con .sort()
-# Ordena la lista 3 numerica orden descendente .sort(reverse=True)
-# Invierte el orden de la lista con .reverse()
+snake_case1, snake_case2, snake_case3 = PEPE.Tupla_Poke
 
-# User la funcion dunder "dir" sobre el Modulo_Propio para ver todas sus caracteristicas incluyendo todos los elementos que creamos a mano
+print (f'Esto es un desempaquetado de variables {snake_case2}')
 
-# ********************************************************
+print (f'La lista 1 tiene {Lista_Uno.__len__()} elemento')
 
-# Cree una tupla
-# Cree una tupla con la funcion tuple
-# Cree una tupla sin parentesis
-# Cree una tupla sin parentesis de un solo elemento
-# En que se diferencia una lista de una tupla?
-# Intente cambiar un elemento de la tupla para obtener un error
-# Muestre en consola todos los elementos de la tupla
-# Muestre con un print un elemento de la tupla
+Lista_Uno.append('Coco Rayado')
+Lista_Uno.insert(1, 'Juana La Cubana')
+Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
 
-# Cree un set o conjunto
-# Cree un set con la funcion set
-# Cual es la diferencia entre una lista, una tupla y un set o conjunto?
-# Muestre los elementos totales del conjunto
-# Intente agregar un elemento al set con .add()
-# Reconstruya el conjunto con nuevos elementos
-# Intente agregar un elemento repetido del conjunto para obtener un error
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
 
-# TEORIA DE CONJUNTOS, CONJUNTOS SETS SIMPLES Y FROZENSETS *****
-# Creamos dos conjuntos, uno tiene 3 elementos que salen en un super conjunto mayor conjunto1, conjunto2
-# Usemos el metodo .issubset() para saber si el conjunto 2 es un subconjunto de 1, osea que sus elementos salen en el conjunto mayor, devolvera True
-# Usemos el metodo .issuperset() para saber si el conjunto 1 es un super conjunto de 2
-# Ahora comparemos si en el conjunto 2 hay algun elemento que se repita en conjunto 1 con .isdisjoint()
-# El restaurante tiene un menú fijo de jugos. Este menú nunca cambia, entonces hagamos un set con frozenset({}) de 3 sabores que no pueden cambiar
-# Intentar agregar un nuevo sabor con el metodo .add() para obtener un error
-# Ahora hacemos otro set_conjunto con 3 sabores, pero este es un set normal
-# Intentar agregar un nuevo sabor con el metodo .add()
+def Exception6(Num1, Num2):
+    try:
+        Cociente, Residuo = divmod(Num1, Num2)
+        print (f'El cociente es {Cociente} y el residuo es {Residuo}')
+    except ZeroDivisionError:
+        print (f'Error, el divisor no puede ser cero')
+        exit()
 
-# Crea un diccionario
-# Cree un Diccionario con la funcion dict
-# Muestre cada una de las llaves de un diccionario con el metodo keys
-# Imprima un Elemento del diccionario
-# Despliegue otro elemento del diccionario con la funcion get()
-# Imprima Todo el diccionario
-# Cambie un elemento del diccionario
-# Elimine un elemento del diccionario con el metodo pop()
-# Muestre el diccionario con los nuevos elementos
-# Reconstruya el diccionario con nuevos valores, ojo las llaves ahora seran numeros - Cree un Diccionario con la funcion dict
-# Haga un diccionario2 pero con varios elementos por indice, varios nombres, varias edades, etc
-# Imprima en consola una concatenacion de dos elementos del diccionario
-# Muestre cada una de las llaves de un diccionario con el metodo keys
-# Haga una operacion matematica con un elemento de una lista o tupla y uno del diccionario
-# Concatene un elemento de una lista con una tupla
-# Concatene un elemento de una lista con el diccionario
-# Creamos un diccionario vacio, solo con los keys pero sin valores por medio de la funcion dict.fromkeys([])
-# Ahora creamos un diccionario en el que todos los keys tengan el mismo valor Diccionario_Vacio = dict.fromkeys('ABCD', "Carmelo")
+Exception6(Objeto4.Cantidad, Sumatoria2(1, 2, 3, 1))
 
-# Hagamos un diccionario vacio con fromkeys, luego una lista de elementos y agregue los elementos de la lista al diccionario con un ciclo    i=0
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[2:4]}')
 
+print (f'{Lista_Uno[1]}, eso que esta ahi es un {PEPE.Lista2[2]}?')
 
-# A partir de los elementos del csv file, vamos a crear primero una lista de llaves, luego vamos a tomar los nombres y agregarlos a una lista
-# finalmente vamos a crear un diccionario y emparejar las llaves creadas y los nombres y mostramos el nuevo diccionario creado
+print (f'{Lista_Cuatro}')
 
+Lista_Cuatro[0] = Sumatoria2(Anonima2(250), 150, 50, 200, 100)
 
+print (f'{Lista_Cuatro}')
 
-# Declare una variable y asignele una division flotante
-# Declare una variable y asignele una potenciacion o exponente **
-# Declare una variable y asignele una division baja //
-# Declare una variable y asignele un resto o modulo %
-# Muestre en consola el tipo de dato de una variable float, un string, una lista, una tupla, un conjunto y un diccionario
-# Despliegue el resultado de la division flotante y de la division baja
+del Lista_Uno[1]
+Lista_Uno.remove('Coco Rayado')
+Lista_Uno.pop(-2)
+Lista_Uno.pop(-1)
+Lista_Uno.pop(-1)
 
-# ***********************  Condicionales   **********************
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
 
-# Crea una llave condicional con if simple - Contar la cantidad de caracteres de una cadena de texto con len, haga un if condition
-# Crea una llave condicional con if y else simple
-# Ahora crea un condicional con if, elif y else
-# Ahora crea un condicional con multiples elif
-# Ahora un ejercicio con varios if anidados - declaras dos variables, ingresos y gastos, si los ingresos son mayores a x y los gastos menores a x, entonces estas bien, etc
-# Ahora vamos a hacer un if con un and
-# Ahora vamos a hacer un if con un or
+Lista_Uno_Copia = Lista_Uno.copy()
 
-# ***********************  Metodos / Funciones mas utilizadas   **********************
+Lista_Uno.clear()
 
-# Declare una variable string, con un print y dir muestre todos los métodos y atributos disponibles para una variable u objeto
-# use help para ver que hace un metodo
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
 
-#**********
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort()
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort(reverse = True)
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.reverse()
+print (f'{Lista_Cuatro}')
 
-# Declare una clase Persona, cree un objeto y defina un metodo
-# Metodos magicos vs metodos normales
-# dunder methods porque empiezan y terminan con __)
-# x = 'Ejemplo'
-# len(x) o tambien
-# x.__len__()
-# Metodos normales x.upper()
+print (f'{PEPE.__dir__()}')
 
-#**********
+print (f'------------')
 
-# abs(x) → Escribe un programa que reciba un número negativo y devuelva su valor absoluto.
-# any(iterable) → Comprueba si al menos un número de una lista es par.
-# bin(x) → Convierte un número entero dado por el usuario a binario.
-# bool(x) → Determina si una cadena ingresada por el usuario está vacía o no.
-# divmod(a, b) → Pide dos números y muestra el cociente y el residuo de su división.
-# Haz un ciclo for enumerate con un unico elemento, ese unico elemento mostrara el indice con elemento[0] y el valor con elemento[1]
-# enumerate(iterable) → Crea una lista de frutas y muestra cada una con su posición en la lista.
-# Haga el texto de una variable todo minuscula con el metodo lower
-# Haga el texto de una variable todo mayuscula con el metodo upper
-# Haga la primera letra de una variable mayuscula con el metodo capitalize
-# Busque una letra en especifico en una cadena de texto con el metodo find e index
-# Cuantas veces esta la letra a en una cadena con el metodo count
-# Verifiquemos si una cadena comienza con x letra con el metodo startswith
-# Verifiquemos si una cadena termina con x letra con el metodo endswith
-# Reemplace una parte de una cadena con el metodo replace(Este tiene dos parametros, lo que se quiere cambiar y lo nuevo)
-# Tome una variable de texto y separe cada elemento de la variable en una lista separada por ',' utilizando el metodo split()
+print (f'{help(PEPE)}')
 
-# Busque un elemento en una lista o tupla con index, ojo find no es un metodo para listas
-# Declare una variable y asignele una copia de una lista con el metodo copy()
-# Borrar todos los elementos de un diccionario con clear()
-# Eliminar un elemento del diccinario con pop()
-# Recorra todos los elementos de un diccionario con un ciclo for normal
-# Recorramos tdos los elementos de un diccionario con la funcio .items()
+print (f'------------')
 
-#### VARIABLES 2.0
+Tupla1 = ('Uno', 'Dos', 'Dos', 'Dos', 'Dos', 'Dos')
 
-# Vamos a usar la tecnica de desempaquetado de variables creando una tupla de 3 elementos y agregando cada elemento de la tupla a 3 variables, ojo, no usar indices
+print (f'{Tupla1}')
 
-### CICLOS WHILE
+Tupla1 = tuple(('Uno', 'Dos', 'Tres'))
 
-# Creamos una lista con los numeros 1, 2, 3, 4, 5, hagamos un ciclo for que multiple cada uno de estos numeros y los muestre en consola
-# Creamos ahora una lista con 3 animales, los recorremos con un ciclo for, inmediatamente se evalua con un if si la variable es igual al segundo animal, lo muestra y se detiene el ciclo. Ojo, usar el break y el continue
-# Hagamos un for anidado con la funcion zip(), creamos dos listas del mismo tamaño
-# Hagamos un ciclo for con la funcion range de 0 a 5 con un unico parametro
-# Hagamos un ciclo for con la funcion range de 1 a 10 con dos parametros
-# Creamos una lista con 4 numeros, ahora creamos otra listsa Lista_Multiplicado y agregamos cada numero de la primera lista a la segunda x 10
+print (f'{Tupla1}')
 
-#### Ciclo WHILE
-# Creamo un ciclo while simple con un contador que se ejecutara mientras contador sea menor a 10
+Tupla2 = 'Uno', 'Dos', 'Tres',
+Tupla3 = 'Uno',
 
+print (f'{type(Tupla1)}')
+print (f'{type(Tupla2)}')
+print (f'{type(Tupla3)}')
 
-#### Funciones creadas directamente por python (Funciones Build-In)
+Set_Conjunto1 = {'Rojo', 'Verde', 'Verde', 'Verde', 'Verde', 'Verde'}
+Set_Conjunto1.add('Azul')
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto1 = set({'Red', 'Green', 'Blue'})
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto2 = {1, 2, 3, 4, 5}
+Set_Conjunto3 = {4, 5}
+Set_Conjunto4 = set({8})
+
+print (f'{Set_Conjunto2.issuperset(Set_Conjunto3)}')
+print (f'{Set_Conjunto3.issubset(Set_Conjunto2)}')
+print (f'{Set_Conjunto2.isdisjoint(Set_Conjunto4)}')
+
+Set_Conjunto_Menu1 = {'Chocolate', 'Vainilla'}
+Set_Conjunto_Menu1.add('Fresa')
+Set_Conjunto_Menu2 = frozenset({'Caramelo', 'Mora'})
+Set_Conjunto_Menu3 = set({Objeto4.Tipo, Set_Conjunto_Menu2})
+
+print (f'{Set_Conjunto_Menu1}')
+print (f'{Set_Conjunto_Menu2}')
+print (f'{Set_Conjunto_Menu3}')
+
+Diccionario1 = {
+    'Nombre' : Saludar_Dos(),
+    'Edad' : Variable_Sumatoria,
+    'Votante' : True
+}
+
+Diccionario2 = {
+    'Nombre' : ["Erick", Lista_Uno_Copia[1], "Karlita"],
+    'Edad' : [18 * 2, 20, 6],
+    'Votante' : [True, not False, False]
+}
+
+Diccionario3 = dict({'Ingresos' : 501, 'Gastos' : 199, 'Vacio' : "q"})
+
+print (f'------------')
+
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1["Nombre"]}')
+print (f'{Diccionario1.get("Edad")}')
+
+print (f'------------')
+
+print (f'{Diccionario2}')
+print (f'{Diccionario2.keys()}')
+print (f'{Diccionario2["Nombre"][0]}')
+print (f'{Diccionario2.get("Edad")[1]}')
+
+print (f'------------')
+
+print (f'{Diccionario3}')
+print (f'{Diccionario3.keys()}')
+print (f'{Diccionario3["Ingresos"]}')
+print (f'{Diccionario3.get("Gastos")}')
+
+print (f'------------')
+
+Diccionario1["Nombre"] = Lista_Uno_Copia[0]
+
+print (f'{Diccionario1}')
+
+del Diccionario1["Nombre"]
+Diccionario1.pop("Edad")
+
+print (f'{Diccionario1}')
+
+Diccionario1.clear()
+
+print (f'{Diccionario1}')
+
+Diccionario1 = dict({1 : "Karlita", 2 : 7, 3 : Variable_Funcion_Tupla[3]})
+
+print (f'{Diccionario1}')
+
+print (f'{Diccionario2["Nombre"][2]} no puede votar ya que solo tiene {Diccionario1.get(2)} añitos')
+
+Diccionario_Vacio1 = dict.fromkeys('ABC', "Hola")
+Diccionario_Vacio2 = dict.fromkeys(['Uno', 'Dos', 'Tres'])
+Diccionario_Vacio2['Dos'] = Objeto5.Ataque
+
+print (f'{Diccionario_Vacio1}')
+print (f'{Diccionario_Vacio2}')
+
+print (f'------------')
+
+Lista_Dict3 = list(Cargar_Csv3['Nombre'])
+
+print (f'{Lista_Dict3}')
+
+Key3 = [f'Key{i}' for i in range(len(Lista_Dict3))]
+
+print (f'{Key3}')
+
+Diccionario000 = dict(zip(Key3, Lista_Dict3))
+
+for elemento in Diccionario000.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Division_Baja = 14//7
+Exponente = 4**3
+Modulo = 20%6
+
+print (f'El resultado de la operacion es {PEPE.Division_Flotante}')
+print (f'El resultado de la operacion es {int(abs(Division_Baja))}')
+print (f'El resultado de la operacion es {Exponente}')
+print (f'El resultado de la operacion es {Modulo}')
+
+print (f'El tipo de valor de la variable es {type(variable1)}')
+print (f'El tipo de valor de la variable es {type(variable4)}')
+print (f'El tipo de valor de la variable es {type(PEPE.Division_Flotante)}')
+print (f'El tipo de valor de la variable es {type(Lista_Uno_Copia)}')
+print (f'El tipo de valor de la variable es {type(Tupla1)}')
+print (f'El tipo de valor de la variable es {type(Diccionario2)}')
+print (f'El tipo de valor de la variable es {type(Set_Conjunto_Menu1)}')
+print (f'El tipo de valor de la variable es {type(Set_Conjunto_Menu2)}')
+print (f'El tipo de valor de la variable es {type(Funcion_Tupla())}')
+print (f'El tipo de valor de la variable es {type(Array5)}')
+print (f'El tipo de valor de la variable es {type(Data_Frame_Concatenate)}')
+print (f'El tipo de valor de la variable es {type(PEPE)}')
+print (f'El tipo de valor de la variable es {type(Objeto3)}')
+
+if (Diccionario3['Ingresos'] > 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Altos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Altos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Altos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] == 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Minimos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Minimos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Minimos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] < 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Bajos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Bajos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Bajos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+else:
+    print (f'Error de codigo')
+
+if (variable1 == "Erick" and Objeto3.Cantidad > 50):
+    print (f'AND COMPLETE')
+else:
+    print (f'AT LEAST ONE CONDITION IS NOT MET')
+
+if (variable1 == "Carmelo" or Objeto3.Cantidad > 50):
+    print (f'OR COMPLETE')
+else:
+    print (f'BOTH CONDITIONS ARE NOT MET')
+
+print (f'{dir(variable1)}')
+
+class Entrenador:
+    def __init__(self, Trainer, City, Favorite):
+        self.Trainer = Trainer
+        self.City = City
+        self.Favorite = Favorite
+        self.Pokedex = Variable_Sumatoria
+        self.Classified = not False
+
+    def Desplegar(self):
+        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
+
+Objeto6 = Entrenador(PEPE.Tupla_Poke[0], 'Kanto', Objeto3.Nombre)
+Objeto7 = Entrenador(PEPE.Tupla_Poke[1], 'Alolah', Objeto4.Nombre)
+Objeto8 = Entrenador(PEPE.Tupla_Poke[2], 'Paldea', Objeto5.Nombre)
+
+Objeto7.Desplegar()
+
+Negativo = -9
+
+print (f'{int(abs(Negativo))}')
+
+Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+Anonima5 = filter(lambda num :  num % 2 == 0, PEPE.Lista_Numeros)
+
+print (f'{Any_Iterable}')
+print (f'{Lista_Iterable}')
+print (f'{list(Anonima5)}')
+
+print (f'El binario de {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
+
+if (bool(Diccionario3['Vacio']) == True):
+    print (f'Gracias por la informacion')
+else:
+    print (f'Error, ingrese una cadena de texto')
+
+for elemento in Lista_Uno_Copia:
+    print (f'{elemento}')
+
+for elemento in enumerate(Lista_Uno_Copia):
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+for indice, elemento in enumerate(Lista_Uno_Copia, start=1):
+    print (f'El elemento en la posicion {indice} es {elemento}')
+
+variable8 = 'eSteBAN'
+letra_variable8 = variable8[0]
+
+print (f'{variable8}')
+print (f'{variable8.lower()}')
+print (f'{variable8.upper()}')
+print (f'{variable8.capitalize()}')
+
+print (f'{variable8.lower().find("t")}')
+print (f'{variable8.lower().index("b")}')
+
+print (f'{variable8.lower().startswith(letra_variable8)}')
+print (f'{variable8.lower().endswith("n")}')
+
+print (f'La letra {letra_variable8} aparece un total de {variable8.lower().count(letra_variable8)}')
+
+print (f'{variable8.lower().replace("ban", "POPOTAMO")}')
+
+variable9 = 'esto es un texto cualquiera, lo que deseamos es ver si esta picha sirve'
+
+variable9_Lista = variable9.split(' ')
+
+for elemento in variable9_Lista:
+    print (f'{elemento}')
+
+print (f'La cantidad de palabras digitadas es {variable9_Lista.__len__()}')
+
+print (f'{PEPE.Tupla_Poke[2]} se encuentra en la posicion {PEPE.Tupla_Poke.index("Misty")}')
+
+for elemento in Diccionario1:
+    print (f'{Diccionario1[elemento]}')
+
+for elemento in Diccionario2.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'El numero es {PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+Contador = 0
+
+Lista_Animales = list([])
+Lista_Animales.append('Cocodrilo')
+Lista_Animales.insert(0, PEPE.Lista2[2])
+Lista_Animales.extend(['Avestruz', 'Gato'])
+
+print (f'{Lista_Animales}')
+
+print (f'------------')
+
+Contador = 0
+
+while (Contador < len(Lista_Animales)):
+    if (Lista_Animales[Contador] == 'Avestruz'):
+        print (f'Parajote este {Contador}')
+        break
+    else:
+        Contador+= 1
+        continue
+
+for elemento1, elemento2 in zip(Lista_Animales, Set_Conjunto_Menu1):
+    print (f'{elemento1} -- {elemento2}')
+
+for elemento in range(5):
+    print (f'{elemento}')
+
+for elemento in range(995, 1000):
+    print (f'{elemento}')
+
+Lista_Numeros_Mult = [num  * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Mult}')
+
+Contador = 0
+
+while (Contador <= 5):
+    print (f'El contador es {Contador}')
+    Contador+= 1
+
 
 # Encontrar el numero mayor de una lista con la funcion max()
 # Encontrar el numero menor de una lista con la funcion min()
