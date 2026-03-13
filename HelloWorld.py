@@ -1624,217 +1624,164 @@ while (Contador <= 5):
     print (f'El contador es {Contador}')
     Contador+= 1
 
+Mayor = max(Lista_Numeros_Mult)
+Menor = min(Lista_Numeros_Mult)
 
-# Encontrar el numero mayor de una lista con la funcion max()
-# Encontrar el numero menor de una lista con la funcion min()
-# Redondear el numero 14.458795 a dos decimales con la funcion round() con dos parametros
-# Retornemos False con la funcion bool() usando False, 0, "", None
-# Retornemos un False agregando varios elementos a una variable con la funcion all() pero al menos uno debe ser False, 0, "", None
-# Cree una variable y sumele todos los elementos de una Tupla, Lista, Set con la funcion sum()
+print (f'El numero menor de la lista es {Menor} y el mayor es {Mayor}')
 
-# Imprime en pantalla    print()    
-# Solicita datos al usuario     input()
-# Devuelve la longitud de una secuencia    len()
-# Devuelve el tipo de un objeto    type()
-# Convierte un número a texto y viceversa  str(), int(), float()
-# Despliegue los numeros de 90 a 100 con range()
-# Imprime los elementos de una lista con su posición.     enumerate()
-# Combina dos listas y muéstralas juntas    zip()
-# Ordena una lista de números con sort, sort(reverse = True) reverse()
+Redondeado = round(14.458795, 2)
 
-# Verifique si un elemento de una tupla es par con any()
-# Cree una list(), tuple(), set(), dict()
-# Cree una lista de 4 palabras por ejemplo mi nombre completo y unalas con la funcion print ("-".join(Lista))
+print (f'El numero redondeado es {Redondeado}')
 
-# Divide un texto por espacios con split()
+print (f'{bool(False)}')
+print (f'{bool(not True)}')
+print (f'{bool(0)}')
+print (f'{bool("")}')
+print (f'{bool(None)}')
 
-# ***********************  Data Inputs   **********************
+Todo_All = all([Lista_Uno_Copia, Tupla1, Set_Conjunto_Menu1, None])
 
-# Input lo que nos devuelve siempre es texto, aunque se ingresen numeros
-# Declare una variable y asignele un input, pida que ingrese un numero
-# Esa variable debe convertirse en integer con la funcion int
-# Haga una operacion matematica con esta variable y muestrela
+print (f'{Todo_All}')
 
-# eval(expression) → Permite al usuario ingresar una operación matemática como texto y muestra el resultado.
+Sumatoria4 = sum(Lista_Numeros_Mult)
 
-# Vamos a crear un programa en el que por medio de un input le pidamos a un usuario ingresar una cadena de texto
-# Esta cadena de texto sera guardada en una variable matriz con la funcion split separando cada palabra por un espacio
-# Ahora vamos a usar la funcion dunder len para contar cuantas palabras ingreso el usuario
+print (f'El resultado de la sumatoria es {Sumatoria4}')
 
-# Creamos una lista vacia, Ahora creamos un programa que pida la cantidad de alumnos
-# Luego con un for range, se recorre el ciclo y se pide el nombre de la cantidad de alumnos
-# Por medio de un append agregamos cada nombre a la lista vacia
-# Mostramos los elementos del filtro, cada nombre digitado
+Uno = int("500")
+Dos = str(500)
+Tres = float(Dos)
 
-# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
-# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
 
-# Usemos elementos de un modulo por medio de un import
-# Renombremos un modulo con la instrucion "as" Saludar as OtroNombre
+print (f' - '.join(Set_Conjunto_Menu1))
 
+def Ejemplo1(Numero):
+    return Variable_Sumatoria * Objeto6.Pokedex + Numero
 
+print (f'El resultado de la operacion es {Ejemplo1(PEPE.Flotante1)}')
 
-##############################     ENRUTAMIENTO DE MODULOS     ######################################
+def Ejemplo2(Opera):
+    Resultado = eval(Opera)
+    return Resultado
 
-''' Hay un modulo llamado Modulo_Propio2 dentro de una carpeta alternativa, importemos esta carpeta alternativa
-por medio del nombre de la carpeta Nueva.Modulo_Propio2, y despleguemos algun elemento de Modulo Propio2,
-Como el nombre del import se vuelve grandisimo, usemos "as" para renombrarlo y que sea mas facil manejarlo'''
+print (f'El resultado de la operacion es {Ejemplo2(PEPE.Flotante2)}')
 
+def Ejemplo3(Cadena):
+    Lista_Cadena = Cadena.split(' ')
 
-##############################     PAQUETES (Es una carpeta con muchos archivos python)     ######################################
+    for elemento in enumerate(Lista_Cadena):
+        print (f'{elemento[0]} -- {elemento[1]}')
 
-''''''Un paquete es una carpeta con muchos archivos, lo mas importante es que esta carpeta para ser
-Considerara un paquete debe tener un archivo llamado __init__.py, esto lo convierte en paquete
-Si dentro de esta carpeta paquete agregamos una sub carpeta con __init__.py, esto se vuelve un sub paquete.'''
+    print (f'La cantidad de palabras digitadas es {len(Lista_Cadena)}')
 
+Ejemplo3(PEPE.Flotante3)
 
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
 
+PEPE2.Saludar5()
 
-Alumnos = []
+import Paquete.Sub_Paquete.Segundo as PEPE3
 
-Cantidad = int(input(f'Ingrese la cantidad de alumnos: '))
+variable_PEPE3 = PEPE3
+
+Lista_Alumnos = []
+
+Contador = int(input(f'Ingrese el numero de alumnos: '))
 
 def Colegio(Lista):
-    for elemento in range(Cantidad):
+    for elemento in range(Contador):
         Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
-        Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
-        Estudiante = [Alumno, Edad]
+        Lista.append(Alumno)
+
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nLa lista de estudiantes es {Colegio(Lista_Alumnos)}')
+    Docu.close()
+
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+
+Lista_Alumnos2 = list([])
+
+Contador = int(input(f'Ingrese el numero de alumnos: '))
+
+def Colegio2(Lista):
+    for elemento in range(Contador):
+        Alumno_Name = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Alumno_Age = int(input(f'Ingrese la edad del alumno {elemento}: '))
+        Estudiante = [Alumno_Name, Alumno_Age]
+
         Lista.append(Estudiante)
-        Lista.sort(key = lambda Num : Num[1])
 
-    Estudiante = Lista[0][0]
-    Profesor = Lista[-1][0]
+    Lista.sort(key = lambda Num : Num[1])
 
-    print (f'El profesor es {Profesor} y el estudiante menor es {Estudiante}')
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
 
+    print (f'El estudiante mas joven es {Menore} ({Lista[0][1]}) y el mayor de todos es {Mayore} ({Lista[-1][1]})')
 
-Colegio(Alumnos)
+Colegio2(Lista_Alumnos2)
 
-
----------------------------
-
-
-
-
-[Excepciones]
-Una excepcion es un bloque de codigo que se mostrara en caso de que el codigo se rompa. Por ejemplo digamos que tenemos un codigo que pide un numero pero ingresamos una cadena de texto. Entonces el codigo se detendra y mostrara un mensaje de error hasta que agreguemos el numero.
-
-def Ejemplo():
+def Exception7():
     while True:
-        Numero1 = input(f'Ingrese un numero: ')
+        Numero2 = input(f'Ingrese un numero entero: ')
         try:
-            Numerito = int(Numero1)
+            Numerito2 = int(Numero2)
             break
         except:
-            print (f'Error, eso no es un numero')
+            print (f'Error, necesito que ingreses un numero entero')
 
-    return Numerito
+    return Numerito2
 
-print (f'{Ejemplo()}')
-
-
-
-
-# Validar si el correo electronico tiene el formato correcto por medio de expresiones regulares
-
-'''
+print (f'Gracias, el numero que ingresaste es {Exception7()}')
 
 import re
 
-email = 'example@example.com'
+Email2 = 'sample@sample.com'
 
-pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+Pattern3 = r'^[a-zA-Z0-9./*-+_-]+\@[a-z]+\.[a-z]{2,}$'
 
-result = re.match(pattern, email)
+Buscar21 = bool(re.match(Pattern3, Email2))
 
-if result:
-	print (f'Valido')
+if (Buscar21 == True):
+    print (f'Formato de correo electronico correcto')
 else:
-	print (f'Invalido')
+    print (f'Error, Formato Incorrecto')
 
-'''
-
-Expresiones regulares en Python
-Excepciones
-Importar modulos
-Escribir en un txt file
-DataFrames de Pandas
-Graficos con Matplotlit
-Trabarjar con archivos excel
-Trabajar con archivos csv
-Trabajar con informacion de una pagina web
-Arreglos con numpy
-Funciones Generadoras
-Funciones
-Funciones anidadas
-Funciones Lambda
-Decoradores de funciones
-Funciones Type hint
-Funciones Closure
-Clases
-Variables
-Listas
-Tuplas
-Conjuntos
-Diccionarios
-Condicionales
-Ciclo For
-Ciclo While
-Data inputs
-
-
-
-
-
-
-
-Esto es un programa que solicita una fecha y la compara con una entrada de un documento csv. Si no la encuentra mostrara un mensaje de error, si el formato es incorrecto mostrara un mensaje de error, si la encuentra mostrara el mensaje que la fecha se encontro x numero de veces.
-
-Importar pandas
+import pandas as pd
 from datetime import datetime
-Crear la ruta del csv
-Cargar el archivo csv
-Pedir la fecha por medio de un input
-hacer un try except valueerror
-en el try primero vamos a asegurarnos co datetime.strptime que el formato es el correcto
-en el try luego hay que asegurarnos que la fecha esta formateda to_datetime
-en el try despues hay que asegurarse que la fecha del csv esta formateada to_datetime
-si no, el excep muestra un error ojo necesita un exit()
-Hacemos una variable encontrado, igualamos == entrada del csv .dt.date contra la fecha ingresada date()
-if encontrado.empty
-else
-exito
 
-'''
+Ruta_Csv4 = 'C:\\python-data-analyzer\\data\\sales.csv'
 
-# Estudiemos clases y herencia
+Cargar_Csv4 = pd.read_csv(Ruta_Csv4)
 
-class Pokemon:
-    def __init__(self, Nombre, Tipo, Ataque):
-        self.Nombre = Nombre
-        self.Tipo = Tipo
-        self.Ataque = Ataque
-        self.Cantidad = 18 * 2
-        self.Catched = not True
+Fecha = input(f'Ingrese una fecha con formato YY-MM-DD: ') # 2025-01-04
 
-    def Mostrar(self):
-        print (f'Nombre: {self.Nombre}')
-        print (f'Tipo: {self.Tipo}')
-        print (f'Ataque: {self.Ataque}')
+try:
+    Fech = datetime.strptime(Fecha, '%Y-%m-%d').date()
+    Fech_Formateada = pd.to_datetime(Fech)
+    Cargar_Csv4['date'] = pd.to_datetime(Cargar_Csv4['date'])
+except ValueError:
+    print (f'Error, formato incorrecto')
+    exit()
 
-class Poke2(Pokemon):
-    def __init__(self, Nombre, Tipo, Ataque, City, Sub_Tipo):
-        super().__init__(Nombre, Tipo, Ataque)
-        self.City = City
-        self.Sub_Tipo = Sub_Tipo
+Encontrado = Cargar_Csv4[Cargar_Csv4['date'].dt.date == Fech_Formateada.date()]
 
-    def Desplegar(self):
-        print (f'{self.Nombre} se encuentra en {self.City} y tiene tipos {self.Tipo} / {self.Sub_Tipo}')
+if (Encontrado.empty):
+    print (f'No se ha encontrado ventas en esta fecha')
+else:
+    Cantidad_Ventas = Cargar_Csv4.groupby('product')['quantity'].sum()
+    Product_Mayor = Cantidad_Ventas.idxmax()
+    Product_Menor = Cantidad_Ventas.idxmin()
 
-Objeto1 = Poke2('Pikachu', 'Electrico', 'Impact Trueno', 'Kanto', 'Acero')
+    Product_Mayor_Precio = Cantidad_Ventas.max()
+    Product_Menor_Precio = Cantidad_Ventas.min()
 
-Objeto1.Mostrar()
+    print (f'El producto que mas vendio fue {Product_Mayor} con un total de {Product_Mayor_Precio} unidades')
+    print (f'El producto que menos vendio fue {Product_Menor} con un total de {Product_Menor_Precio} unidades')
 
-print (f'-----------')
-
-Objeto1.Desplegar()
