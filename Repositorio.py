@@ -119,7 +119,7 @@ Hagamos dos Dataframes, Data_Frame1, Data_Frame2 y con la funcion pd.concat([Dat
 
 Recorramos el dataframe concatenate con un for indice, elemento y iterrows() y muestre los nombres
 
-
+# Ahora vamos a jugar con groupby y con pandas
 
 # Hacer un grafico lineal con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
 
