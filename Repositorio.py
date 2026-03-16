@@ -569,6 +569,160 @@ Pares = [num for num in Lista if num % 2 == 0]
 # Ahora vamos a hacer un ejercicio de herencia multiple con 3 clases, una clase camara, otra reproductor musica y otra clase smartphone, smartphone hereda de las clases padre. Solamente tendra un metodo accion cada una
 
 
+'''
+
+Tipos de Herencia
+Hacer un ejemplo de herencia Simple
+Pokemon y poke hija
+
+Hacer un ejemplo de herencia Herarquica (Veterinaria)
+clase padre Mascota (nombre, edad, peso)
+Clases hijas (Perro, Gato, Pajaro) 
+Perro (Raza, Padecimiento, N_Visitas)
+Gato (Raza, Color, Paciente_Activo)
+Pajaro (Especie, Habla)
+
+
+Hacer un ejemplo de herencia Multiple (Personaje VideoJuego)
+
+Atacante
+daño base
+método para atacar
+energía de ataque
+
+Curador
+puntos de curación
+método para curar
+regeneración de vida
+
+Paladin
+
+Hereda de atacante y curador y tiene un nombre. Mostrar ficha de personaje
+
+
+
+Como saber si una clase hija hereda de una clase padre?
+Herencia = issubclass(Poke_Hija, Poke) # Esto debe darme true como resultado
+
+Como saber si una variable es un objeto de una clase?
+Instancia = isinstance(Objeto1, Poke) # Esto debe darme true como resultado
+
+
+
+MRO  (Que pasa si varias clases tienen el mismo metodo?)
+Vamos a hacer un ejemplo de herencia con MRO, lo que haremos es crear 5 clases, A,F,B,C,D,F, donde cada una tendra un metodo llamado Mostrar() y un texto hola "letra". 
+B heredara de A, C heredara de F, D heredara de B y C. Con esto veremos el flujo y como mostraria el mensaje del metodo si tengo un objeto Objeto1.Mostrar() Cual mensaje mostrara primero? 
+Vamos quitando bloques con pass
+Que deberia hacer ahora que entiendo el orden del MRO si quisiera explicitamente llamar el metodo de la clase B desde D?
+
+B.Mostrar(Objeto1)
+F.Mostrar(Objeto1)
+A.Mostrar(Objeto1)
+
+
+
+
+[Polimorfismo]
+Un cliente puede pagar con:
+Tarjeta
+PayPal
+Criptomonedas
+Todos comparten el mismo metodo pagar() que cambia dependiendo del metodo de pago
+
+
+[Encapsulamiento] __privada
+Cuenta bancaria encapsulada:
+class Cuenta:
+
+    def __init__(self, saldo):
+        self.__saldo = saldo
+
+    def depositar(self, dinero):
+        self.__saldo += dinero
+
+    def ver_saldo(self):
+        print(self.__saldo)
+
+mi_cuenta = Cuenta(100)
+mi_cuenta.depositar(50)
+mi_cuenta.ver_saldo()
+
+Encapsulamiento: El saldo está protegido, no se puede alterar.
+
+Getter → sirve para LEER un dato
+Setter → sirve para CAMBIAR un dato
+
+Muestre el valor de __Saldo con un getter
+Cambie el valor de __Saldo con un setter
+
+Hagamos una clase protegida que reciba un 
+nombre __privado y mostrarlo afuera de la 
+clase por medio de un @property
+
+
+
+class Protegido:
+    def __init__(self, Nombre):
+        self.__Nombre = Nombre
+
+    def Mostrar(self):
+        print (f'Tu nombre es {self.__Nombre}')
+
+    @property
+    def nombre(self):
+        return self.__Nombre
+
+    @nombre.setter
+    def nombre(self, Nuevo_Nombre):
+        self.__Nombre = Nuevo_Nombre
+
+Objeto1 = Protegido('Erick')
+
+Objeto1.Mostrar()
+
+Objeto1.nombre = 'Hola'   # setter
+
+print(Objeto1.nombre)     # getter
+
+--------------------------------------------------------------------
+
+
+
+
+
+
+Abstraccion
+
+Clases Abstractas
+
+Las clases abstractas son plantillas que generan reglas que se deben seguir a la hora de crear clases en proyectos grandes. 
+En otras palabras, si hay 100 programadores, todos deben crear las reglas definidas en la plantilla. Normalmente son metodos. 
+Pero yo puedo crear todos los metodos que quiera en mis clases, la clase abstracta me dice nada mas que a fuerza la clase nueva debe tener ese metodo definido y todo lo demas que quiera.
+
+from abc import ABC, abstractclassmethod
+
+class Comida(ABC):
+
+    @abstractclassmethod
+    def Cocinar(self):
+        pass
+
+class Pizza(Comida):
+        def Cocinar(self):
+            print (f'Horneando La Pizza')
+
+        def Mostrar(self):
+            print (f'Hola Mundo')
+
+Objeto1 = Pizza()
+
+Objeto1.Cocinar()
+Objeto1.Mostrar()
+
+'''
+
+
+
 
 # Como declarar dos variables string?
 # Como declarar una variable long string?
