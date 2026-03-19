@@ -28,3 +28,106 @@ class Pokemon():
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
+
+def Primera(Segunda):
+    def Tercera():
+        print (f'ANTES')
+        Segunda()
+
+    return Tercera
+
+@Primera
+def Saludar1():
+    print (f'Hola Mundo')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda('Carmelo')
+
+    return Tercera
+
+@Primera
+def Saludar2(Nombre = 'Juanita La Cubanita'):
+    return Nombre
+
+def Saludar3(Nombre:str) -> str:
+    return Nombre
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) + 1
+
+    return Tercera
+
+@Primera
+def Sumatoria1(Num1:int, Num2:int) -> int:
+    return Num1 + Num2
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(2)
+
+    return Tercera
+
+@Primera
+def Par(Numero:int) -> int:
+    if (Numero % 2 == 0):
+        return True
+    else:
+        return False
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'Juanita La Cubanita'
+        Sexo = 'FEMENINO'
+        return Segunda(Nombre, Sexo)
+
+    return Tercera
+
+@Primera
+def Usuario(Nombre, Sexo):
+    Genero = Sexo.lower()
+    if (Genero == 'masculino'):
+        print (f'{Nombre}, eres un hombre')
+    else:
+        print (f'{Nombre}, eres una mujer')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(2)
+
+    return Tercera
+
+@Primera
+def Contrasena(Numero:int) -> int:
+    chars = 'abcdefghij'
+    Numero_Str = str(Numero)
+    Numero_Int = int(Numero_Str[0])
+    c1 = Numero_Int - 2
+    c2 = Numero_Int
+    c3 = Numero_Int - 5
+    password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
+    return password
+
+Lista_Numeros = []
+Lista_Numeros.append(1)
+Lista_Numeros.insert(1, 2)
+Lista_Numeros.extend([3, 4, 5])
+
+print (f'{Lista_Numeros}')
+
+Tupla_Poke = ('Ash', 'Brooke', 'Misty')
+
+Division_Flotante = 14/7
+
+Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
+Variable_Funcion_Anonima2 = lambda Num : Num * 2
+Variable_Funcion_Anonima3 = filter(lambda Num : Num % 2 == 0, Lista_Numeros)
+
+Any_Par = any(num % 2 == 0 for num in Lista_Numeros)
+Lista_Par = [num for num in Lista_Numeros if num % 2 == 0]
+
+print (f'{Any_Par}')
+print (f'{Lista_Par}')
+
+Global = 30
