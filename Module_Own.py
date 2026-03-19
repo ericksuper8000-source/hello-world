@@ -1,6 +1,6 @@
 Diccionario_Poke = dict.fromkeys(['Poke1', 'Poke2', 'Poke3'])
 
-Set_Conjunto_Poke = set({'Pikachu'})
+Set_Conjunto_Poke = {'Pikachu'}
 Set_Conjunto_Poke.add('Graveler')
 Set_Conjunto_Poke.add('Vaporeon')
 
@@ -21,6 +21,8 @@ class Pokemon():
         self.Nombre = Nombre
         self.Tipo = Tipo
         self.Ataque = Ataque
+        self.Cantidad = 18 * 2
+        self.Catched = not True
 
     def Mostrar(self):
         print (f'Nombre: {self.Nombre}')
