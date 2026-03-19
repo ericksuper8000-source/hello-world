@@ -1,9 +1,9 @@
-Ardilla
-Hiena
-Salamandra
-Fresa Sabrosa
-Fresa Sabrosa
-Fresa Sabrosa
+Durazno
+Manzana
+Uvas
+Fresas Sabrosas
+Fresas Sabrosas
+Fresas Sabrosas
 Pikachu
 Graveler
 Vaporeon
