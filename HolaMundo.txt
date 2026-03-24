@@ -9,4 +9,4 @@ Graveler
 Vaporeon
 Graveler - Pikachu - Vaporeon
 Su contrasena temporal es ach4
-La lista de estudiantes actualizada es ['jonas']
+La lista de estudiantes actualizada es ['erick']
