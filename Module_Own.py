@@ -129,3 +129,46 @@ print (f'{Any_Par}')
 print (f'{Lista_Par}')
 
 Global = 30
+
+class A():
+    def Mostrar(self):
+        print (f'Hola A')
+
+class E():
+    def Mostrar(self):
+        print (f'Hola E')
+
+class B(E):
+    def Mostrar(self):
+        print (f'Hola B')
+
+class C(A):
+    def Mostrar(self):
+        print (f'Hola C')
+
+class D(B,C):
+    def Mostrar(self):
+        print (f'Hola D')
+
+Objeto17 = D()
+
+A.Mostrar(Objeto17)
+B.Mostrar(Objeto17)
+C.Mostrar(Objeto17)
+Objeto17.Mostrar()
+E.Mostrar(Objeto17)
+
+print (f'------------')
+
+Division_Flotante = 14/7
+
+Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
+Lista2 = [Division_Flotante, 250, 'Koala', True]
+Lista3 = list([1, 2, 3, 4, 5])
+Lista4 = [4000, 97, 15, 200]
+'''
+Flotante1 = int(input(f'Ingrese un numero: '))
+
+Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
+
+Flotante3 = input(f'Ingrese una cadena de texto: ')'''
