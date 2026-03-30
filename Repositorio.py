@@ -938,6 +938,9 @@ Objeto1.Mostrar()
 
 # eval(expression) → Permite al usuario ingresar una operación matemática como texto y muestra el resultado.
 
+# Haga un input que pida su nombre y valide si lo que se ingreso es un texto o algo mas
+# (Nombre.replace(" ", "").isalpha()):
+
 # Vamos a crear un programa en el que por medio de un input le pidamos a un usuario ingresar una cadena de texto
 # Esta cadena de texto sera guardada en una variable matriz con la funcion split separando cada palabra por un espacio
 # Ahora vamos a usar la funcion dunder len para contar cuantas palabras ingreso el usuario
