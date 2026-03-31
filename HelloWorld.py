@@ -1,3 +1,5 @@
+import itertools
+
 try:
     import Module_Own as PEPE
 except ImportError:
@@ -499,295 +501,524 @@ print (f'{Data_Frame_Concatenate.info()}')
 
 print (f'-' * 30)
 
-Recorramos el dataframe concatenate con un for indice, elemento y iterrows() y muestre los nombres
+for indice, elemento in Data_Frame_Concatenate.iterrows():
+    Nombrecito = elemento['Nombre']
 
-# Ahora vamos a jugar con groupby y con pandas
+    print (f'Mi nombre es {Nombrecito}')
 
-# Hacer un grafico lineal con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
+print (f'-' * 30)
+
+Grupo1 = Cargar_Csv2.groupby('Nombre')['Edad'].sum()
+Grupo1_Max = Grupo1.idxmax()
+Grupo1_Min = Grupo1.idxmin()
+
+print (f'El menor es {Grupo1_Min} y el mayor es {Grupo1_Max}')
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.lineplot(x = 'Nombre', y = 'Edad', data=Cargar_Csv2)
+
+plt.show()
+
+print (f'-' * 30)
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
-Cargar_Csv = pd.read_csv(Ruta_Csv)
-print (f'{Cargar_Csv}')
-sns.lineplot(x='Nombre', y='Edad', data=Cargar_Csv)
+
+sns.barplot(x = 'Nombre', y = 'Edad', data=Cargar_Csv2)
+
 plt.show()
 
-
-# Hacer un grafico de barras con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
+print (f'-' * 30)
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
-Cargar_Csv = pd.read_csv(Ruta_Csv)
-print (f'{Cargar_Csv}')
-sns.barplot(x='Nombre', y='Edad', data=Cargar_Csv)
+
+sns.scatterplot(x = 'Nombre', y = 'Edad', data=Cargar_Csv2)
+
 plt.show()
 
+print (f'-' * 30)'''
 
-# Hacer un grafico de dispersion con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
+print (f'{Data_Frame_Concatenate.head(3)}')
+
+print (f'-' * 30)
+
+print (f'{Data_Frame_Concatenate.head(1)}')
+
+print (f'-' * 30)
+
+print (f'{Data_Frame_Concatenate.tail(1)}')
+
+print (f'-' * 30)
+
+Filas, Columnas = Data_Frame_Concatenate.shape
+
+print (f'Filas: {Filas}')
+print (f'Columnas: {Columnas}')
+
+Elemento1 = Data_Frame1.loc[0, 'Nombre']
+Elemento2 = Data_Frame1.loc[0, 'Edad']
+Elemento3 = Data_Frame1.loc[0, 'Votante']
+Elemento4 = Data_Frame1.loc[0, :]
+Elemento5 = Data_Frame1.loc[:, 'Edad']
+
+print (f'{Elemento1}')
+print (f'{Elemento2}')
+print (f'{Elemento3}')
+print (f'-' * 30)
+print (f'{Elemento4}')
+print (f'-' * 30)
+print (f'{Elemento5}')
+
+print (f'-' * 30)
+
+Elemento6 = Data_Frame2.iloc[0, 0]
+Elemento7 = Data_Frame2.iloc[1, 1]
+Elemento8 = Data_Frame2.iloc[2, 2]
+Elemento9 = Data_Frame2.iloc[0, :]
+Elemento10 = Data_Frame2.iloc[:, 2]
+
+print (f'{Elemento6}')
+print (f'{Elemento7}')
+print (f'{Elemento8}')
+print (f'-' * 30)
+print (f'{Elemento9}')
+print (f'-' * 30)
+print (f'{Elemento10}')
+
+print (f'-' * 30)
 
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
-Cargar_Csv = pd.read_csv(Ruta_Csv)
-print (f'{Cargar_Csv}')
-sns.scatterplot(x='Nombre', y='Edad', data=Cargar_Csv)
-plt.show()
 
+Ruta_Excel = 'C:\\Repo\\Book.xlsx'
 
-Como acceder a la primera fila del dataframe? DataFrame1.head(1)  solo muestra la primera fila
+Cargar_Excel = pd.read_excel(Ruta_Excel)
 
-Como acceder a las primeras 3 filas del dataframe? DataFrame1.head(3)
+print (f'{Cargar_Excel.head()}')
 
-Como acceder a las ultimas 3 filas del Dataframe? DataFrame1.tail(3)
+print (f'-' * 30)
 
---------
+Cargar_Excel1 = pd.read_excel(Ruta_Excel, sheet_name=1)
+Cargar_Excel2 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0)
+Cargar_Excel3 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, names=['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'])
+Cargar_Excel4 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, index_col='cabina')
+Cargar_Excel5 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, usecols='E:J', index_col='cabina')
+Cargar_Excel6 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, usecols='E:J', index_col='cabina', nrows=1)
 
-Como saber cuantas filas y cuantas columnas tiene un DataFrame?
-Con desempaquetado de variables
+print (f'{Cargar_Excel1.head()}')
 
-Filas_Totales, Columnas_Totales = DataFrame1.shape
+print (f'-' * 30)
 
-print (f'Las columnnas totales son: {Filas_Totales}')
-print (f'Las filas totales son: {Columnas_Totales}')
+print (f'{Cargar_Excel2.head()}')
 
+print (f'-' * 30)
 
----------
+print (f'{Cargar_Excel3.head()}')
 
-Como acceder a un elemento especifico del DataFrame?
+print (f'-' * 30)
 
-Elemento_Especifico_loc = DataFrame1.loc[3, "edad"]  '''Aqui mostramos la edad de la fila 3 nada mas'''
+print (f'{Cargar_Excel4.head()}')
 
-Busque el nombre de la fila 0
-Busque la cabina de la fila 1
-Busque la clase de la fila 2
+print (f'-' * 30)
 
+print (f'{Cargar_Excel5.head()}')
 
-Ahora vamos a ingresar a los mismos valores pero con la funcion iloc
+print (f'-' * 30)
 
-Elemento_Especifico_loc = DataFrame1.iloc[3, 5]  // el primero es la fila, el segundo es la columna numerica no por nombre
+print (f'{Cargar_Excel6.head()}')
 
-Busque el nombre de la fila 0
-Busque la cabina de la fila 1
-Busque la clase de la fila 2
+print (f'-' * 30)
 
+Cargar_Excel3_Sorted = Cargar_Excel3.sort_values(by='cinco', ascending=True)
 
+print (f'{Cargar_Excel3_Sorted}')
 
-Como acceder a todas las filas de una unica columna con iloc ?
+print (f'-' * 30)
 
-DataFrame1.iloc[:, 2]  // Esto tomara todas las filas unicamente de la columna 2
+Cargar_Excel3_Sorted_Descending = Cargar_Excel3.sort_values(by='cinco', ascending=False)
 
+print (f'{Cargar_Excel3_Sorted_Descending}')
 
+print (f'-' * 30)
 
-Como acceder a todas las columnas de una unica fila con iloc ?
+import pandas as pd
 
-DataFrame1.iloc[3, :]  // Esto tomara todas las columnas unicamente de la fila 3
+Ruta_Txt = 'C:\\Repo\\HolaMundo.txt'
 
+Cargar_Txt = pd.read_csv(Ruta_Txt)
 
----------
+print (f'{Cargar_Txt}')
 
+print (f'-' * 30)
 
+print (f'{Cargar_Txt.head()}')
 
+print (f'-' * 30)
 
-Vamos a exportar un documento excel para mostrarlo en consola
-1 - Primero creemos un excel doc con extension .xlsx
-1 - Segundo importamos en pycharm import openpyxl
-2 - Tercero creemos la ruta del archivo
-3 - Cuarto carguemos el documento en una variable
-Excel_Doc = pd.read(Ruta, engine='openpyxl')
-4 - Ahora imprimamos el doc con print Excel_Doc.head()
+import pandas as pd
 
+Ruta_Csv3 = 'C:\\Repo\\Base_Datos.csv'
 
-Trabajemos con index_col, sheet_name, nrow, etc....
+Cargar_Csv3 = pd.read_csv(Ruta_Csv3)
 
-******************** OJO, vamos a usar la funcion .sort_value() aplicada al Cargar_Excel creamos una nueva variable, para acomodar una columna numericamente hablando
-Cargar_Excel_Sorted = Cargar_Excel.sort_values(by='clase')
-******************** Ahora vamos a acomodarlos al revez, de mayor a menor con Cargar_Excel2 = Cargar_Excel.sort_value('tarifa', ascending=False)
-******************** Agarremos ahora solamente los valores de una unica columna ----- print (f'{Cargar_Excel['nombre']}')
+print (f'{Cargar_Csv3.head()}')
 
+print (f'-' * 30)
 
-Vamos a exportar un documento txt para mostrarlo en consola
-1 - Primero creemos un txt doc
-2 - Tercero creemos la ruta del archivo
-3 - Cuarto carguemos el documento en una variable pd.read_csv
-Txt_Doc = pd.read_csv(Ruta)
-4 - Ahora imprimamos el doc con print Txt_Doc.head()
-
-Vamos a exportar un documento csv para mostrarlo en consola
-1 - Primero creemos un csv doc con extension .csv
-2 - Segundo creemos la ruta del archivo
-3 - Tercero carguemos el documento en una variable
-Cargar_csv = pd.read_csv(Ruta)
-4 - Ahora imprimamos el doc con print Cargar_csv
-
-
-
-Ahora vamos a leer una pagina web **********
 import pandas as pd
 import requests
-Ruta_HTML = 'https://en.wikipedia.org/wiki/Louisiana'
+import io
+
+Ruta_Html = 'https://en.wikipedia.org/wiki/Louisiana'
+
 headers = {'User-Agent' : 'Mozilla/5.0'}
-Response = requests.get(Ruta_HTML, headers=headers)
-Cargar_HTML = pd.read_html(Response.text)
-print (f'{Cargar_HTML[2].head()}')
 
-'''
+Response = requests.get(Ruta_Html, headers=headers)
+
+Leer_Html = io.StringIO(Response.text)
+
+Cargar_Html = pd.read_html(Leer_Html)
+
+print (f'{Cargar_Html[2].head()}')
+
+print (f'-' * 30)
+
+import numpy as np
+
+Array1 = np.array([1, 2, 3])
+
+print (f'{Array1}')
+print (f'{Array1.ndim}') # 1
+print (f'{Array1.shape}') # 1x3
+print (f'{Array1.size}') # 3
+print (f'{Array1.dtype}') # int64
+print (f'{Array1[1]}')
+
+print (f'{Array1[:2]}')
+print (f'{Array1[2:]}')
+print (f'{Array1[::2]}')
+print (f'{Array1[::3]}')
+print (f'{Array1[2:3]}')
+print (f'{Array1[0:None]}')
+print (f'{Array1[:]}')
+print (f'{Array1[Array1 <= 2]}')
+
+print (f'-' * 30)
+
+Array2 = np.array([[1, 2, 3], [4, 5, 6]])
+
+print (f'{Array2}')
+print (f'{Array2.ndim}') # 2
+print (f'{Array2.shape}') # 2x3
+print (f'{Array2.size}') # 6
+print (f'{Array2.dtype}') # int64
+print (f'{Array2[1, 0]}')
+
+print (f'{Array2[1, :2]}')
+print (f'{Array2[1, 2:]}')
+print (f'{Array2[0, ::2]}')
+print (f'{Array2[1, ::3]}')
+print (f'{Array2[:, 2]}')
+print (f'{Array2[0, 2:3]}')
+print (f'{Array2[1, 0:None]}')
+print (f'{Array2[1, :]}')
+print (f'{Array2[Array2 <= 2]}')
+
+Array2_Sorted = np.sort(Array2)
+Array2_Sorted_Mean = np.mean(Array2_Sorted)
+Array2_Sorted_Sum = np.sum(Array2_Sorted)
+
+Sumita1 = np.sum(Array2_Sorted, axis=0)
+Sumita2 = np.sum(Array2_Sorted, axis=1)
+Sumita3 = np.sum(Array2_Sorted[1, 0:None])
+Sumita4 = np.sum(Array2_Sorted[1, :])
+
+print (f'{Array2_Sorted}')
+print (f'{round(Array2_Sorted_Mean, 2)}')
+print (f'{Array2_Sorted_Sum}')
+
+print (f'-' * 30)
+
+print (f'Resultado de la sumita {Sumita1}')
+print (f'Resultado de la sumita {Sumita2}')
+print (f'Resultado de la sumita {Sumita3}')
+print (f'Resultado de la sumita {Sumita4}')
+
+print (f'-' * 30)
+
+Array3 = np.array([[['e', 'r', 'n'], ['f', 'a', 'x']],       [['i', 'k', 'j'], ['m', 'l', 'd']]])
+
+print (f'{Array3}')
+print (f'{Array3.ndim}') # 3
+print (f'{Array3.shape}') # 2x2x3
+print (f'{Array3.size}') # 12
+print (f'{Array3.dtype}') # <U1
+print (f'{Array3[1, 0, 2]}')
+
+print (f'{Array3[1, 0, :2]}')
+print (f'{Array3[1, 0, 2:]}')
+print (f'{Array3[0, 1, ::2]}')
+print (f'{Array3[0, 0, ::3]}')
+print (f'{Array3[1, :, 0]}')
+print (f'{Array3[1, 0, 1:2]}')
+print (f'{Array3[0, 1, 0:None]}')
+print (f'{Array3[0, 1, :]}')
+print (f'{Array3[Array3 == "a"]}')
+
+print (f'-' * 30)
+
+Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [3, 2, 1]]],       [[[6, 5, 4], [9, 8, 7]], [[4, 9, 2], [7, 3, 1]]]])
+
+print (f'{Array4}')
+print (f'{Array4.ndim}') # 4
+print (f'{Array4.shape}') # 2x2x2x3
+print (f'{Array4.size}') # 24
+print (f'{Array4.dtype}') # int64
+print (f'{Array4[1, 0, 1, 2]}')
+
+print (f'{Array4[1, 0, 0, :2]}')
+print (f'{Array4[1, 0, 0, 2:]}')
+print (f'{Array4[0, 1, 0, ::2]}')
+print (f'{Array4[0, 1, 0, ::3]}')
+print (f'{Array4[1, 0, :, 1]}')
+print (f'{Array4[1, 1, 0, 1:2]}')
+print (f'{Array4[0, 0, 1, 0:None]}')
+print (f'{Array4[0, 0, 1, :]}')
+print (f'{Array4[Array4 <= 2]}')
+
+Array4_Sorted = np.sort(Array4)
+Array4_Sorted_Mean = np.mean(Array4_Sorted)
+Array4_Sorted_Sum = np.sum(Array4_Sorted)
+
+print (f'{Array2_Sorted}')
+print (f'{round(Array4_Sorted_Mean, 2)}')
+print (f'{Array4_Sorted_Sum}')
+
+print (f'-' * 30)
+
+Sumita5 = np.sum(Array4_Sorted, axis=0)
+Sumita6 = np.sum(Array4_Sorted, axis=1)
+Sumita7 = np.sum(Array4_Sorted[0, 1, 1, 0:None])
+Sumita8 = np.sum(Array4_Sorted[0, 1, 1, :])
+
+print (f'Resultado de la sumita: {Sumita5}')
+print (f'Resultado de la sumita: {Sumita6}')
+print (f'Resultado de la sumita: {Sumita7}')
+print (f'Resultado de la sumita: {Sumita8}')
+
+print (f'-' * 30)
+
+Array_Num1 = np.arange(start=1, stop=11, step=1)
+
+print (f'{Array_Num1}')
+
+Array_Num1_May = np.max(Array_Num1)
+Array_Num1_Min = np.min(Array_Num1)
+
+print (f'El menor de los numeros es {Array_Num1_Min} y el mayor es {Array_Num1_May}')
+
+print (f'-' * 30)
+
+Array_Num2 = np.arange(25)
+
+print (f'{Array_Num2}')
+
+Array_Num2_Reshape = np.reshape(Array_Num2, shape=(5, 5))
+
+print (f'{Array_Num2_Reshape}')
+
+Array_Num2_Reshape_Column_Max = np.max(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Column_Min = np.min(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Row_Max = np.max(Array_Num2_Reshape, axis=1)
+Array_Num2_Reshape_Row_Min = np.min(Array_Num2_Reshape, axis=1)
+
+print (f'Los menores de las columnas son {Array_Num2_Reshape_Column_Min}')
+print (f'Los mayores de las columnas son {Array_Num2_Reshape_Column_Max}')
+print (f'Los menores de las filas son {Array_Num2_Reshape_Row_Min}')
+print (f'Los mayores de las filas son {Array_Num2_Reshape_Row_Max}')
+
+print (f'-' * 30)
+
+Array_Zeros = np.zeros(shape=(2, 3))
+
+print (f'{Array_Zeros}')
+print (f'{Array_Zeros.ndim}')
+print (f'{Array_Zeros.shape}')
+print (f'{Array_Zeros.size}')
+print (f'{Array_Zeros.dtype}')
+print (f'{Array_Zeros[1, 1]}')
+
+print (f'-' * 30)
+
+Array_Ones = np.ones(shape=(2, 3))
+
+print (f'{Array_Ones}')
+print (f'{Array_Ones.ndim}')
+print (f'{Array_Ones.shape}')
+print (f'{Array_Ones.size}')
+print (f'{Array_Ones.dtype}')
+print (f'{Array_Ones[0, 0]}')
+
+print (f'-' * 30)
+
+Array_Gen1 = np.full(shape=(2, 3), fill_value = f'{PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'{Array_Gen1}')
+print (f'{Array_Gen1.ndim}')
+print (f'{Array_Gen1.shape}')
+print (f'{Array_Gen1.size}')
+print (f'{Array_Gen1.dtype}')
+print (f'{Array_Gen1[1, 1]}')
+
+print (f'-' * 30)
+
+Array_Gen2 = np.full(shape=(5), fill_value = 'Fuecoco')
+
+print (f'{Array_Gen2}')
+print (f'{Array_Gen2.ndim}')
+print (f'{Array_Gen2.shape}')
+print (f'{Array_Gen2.size}')
+print (f'{Array_Gen2.dtype}')
+print (f'{Array_Gen2[2]}')
+
+Lista_Array1 = list([])
+
+for indice, elemento in enumerate(Array_Gen2):
+    Lista_Array1.append(str(elemento))
+
+print (f'{Lista_Array1}')
+print (f'{type(Lista_Array1)}')
+
+print (f'-' * 30)
+
+Array_Gen3 = np.full(shape=(2, 3), fill_value = Array4[0, 1, 1, 2:3])
+
+print (f'{Array_Gen3}')
+print (f'{Array_Gen3.ndim}')
+print (f'{Array_Gen3.shape}')
+print (f'{Array_Gen3.size}')
+print (f'{Array_Gen3.dtype}')
+print (f'{Array_Gen3[0, 0]}')
+
+print (f'-' * 30)
+
+Tupla_Array = tuple(('Rojo', 'Verde'))
+Set_Conjunto_Array = {1, 2, 3}
+Diccionario_Array = dict({'Nombre' : ["Erick", "Josue", "Karlita"]})
+
+Array_Gen4 = np.full(shape=(3, 2), fill_value=Tupla_Array)
+Array_Gen5 = np.full(shape=(2, 1), fill_value=Set_Conjunto_Array)
+Array_Gen6 = np.full(shape=(4, 1), fill_value=Diccionario_Array['Nombre'][1])
+
+print (f'{Array_Gen4}')
+print (f'{Array_Gen5}')
+print (f'{Array_Gen6}')
+
+print (f'-' * 30)
+
+print (f'{Array_Gen6[2]}')
+
+print (f'-' * 30)
+
+Array_Num3 = np.arange(start=1, stop=6, step=1)
+Array_Num4 = np.arange(start=2, stop=11, step=2)
+Array_Num5 = np.arange(start=3, stop=31, step=3)
+Array_Num6 = np.arange(start=10, stop=21, step=2)
+Array_Num7 = np.arange(10)
+
+print (f'{Array_Num3}')
+print (f'{Array_Num4}')
+print (f'{Array_Num5}')
+print (f'{Array_Num6}')
+print (f'{Array_Num7}')
+
+print (f'-' * 30)
+
+Array_Random1 = np.random.randint(low=1, high=10, size=(2, 3))
+
+print (f'{Array_Random1}')
+print (f'{Array_Random1.ndim}')
+print (f'{Array_Random1.shape}')
+print (f'{Array_Random1.size}')
+print (f'{Array_Random1.dtype}')
+print (f'{Array_Random1[1, 2]}')
+
+Array_Random1_Sorted = np.sort(Array_Random1)
+Array_Random1_Sorted_Mean = np.mean(Array_Random1_Sorted)
+Array_Random1_Sorted_Sum = np.sum(Array_Random1_Sorted)
+
+print (f'{Array_Random1_Sorted}')
+print (f'{round(Array_Random1_Sorted_Mean, 2)}')
+print (f'{Array_Random1_Sorted_Sum}')
+
+Sumita9 = np.sum(Array_Random1_Sorted, axis=0)
+Sumita10 = np.sum(Array_Random1_Sorted, axis=1)
+Sumita11 = np.sum(Array_Random1_Sorted[1, 0:None])
+Sumita12 = np.sum(Array_Random1_Sorted[1, :])
+
+print (f'{Sumita9}')
+print (f'{Sumita10}')
+print (f'{Sumita11}')
+print (f'{Sumita12}')
+
+print (f'-' * 30)
+
+Arr1 = np.array([8, 9, 41])
+Arr2 = np.array([2, 3, 7])
+
+Suma = Arr1 + Arr2
+Resta = Arr1 - Arr2
+Multiplicacion = Arr1 * Arr2
+Division = Arr1 / Arr2
+Division2 = Arr1 // Arr2
+
+Array_Random2 = np.random.randint(low=1, high=10, size=(10))
+
+Array_Random2_Cien = Array_Random2 + 100
+
+print (f'Resultado de la operacion {Suma}')
+print (f'Resultado de la operacion {Resta}')
+print (f'Resultado de la operacion {Multiplicacion}')
+print (f'Resultado de la operacion {Division}')
+print (f'Resultado de la operacion {Division2}')
+print (f'Resultado de la operacion {Array_Random2_Cien}')
+
+print (f'-' * 30)
+
+Array_Random3 = np.random.randint(low=1, high=10, size=(20))
+
+print (f'{Array_Random3}')
+
+Array_Random3_Reshape = np.reshape(Array_Random3, shape=(4, 5))
+
+print (f'{Array_Random3_Reshape}')
+
+Array_Random3_Reshape_Ravel = np.ravel(Array_Random3_Reshape)
+
+print (f'{Array_Random3_Reshape_Ravel}')
+
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
+print (f'-' * 30)
 
 
-'''
-*********************************************** [NUMPY]
-
-Importemos la libreria numpy
-Con as llamenos a la libreria np
-
-
-Cree un arreglo basico de 1 dimension con la funcion np.array([])
-Con un print muestre un elemento del array de una dimension
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
-
-
-Cree un arreglo basico de 2 dimensiones con la funcion np.array([])
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
-Acomodome los numeros con sort()
-Saque la media con mean
-Sume los elementos con sum
-Sume los elementos con axis Sumita
-
-# Haga una lista de 10 numeros consecutivos y con np.min() nuestre el mas pequeno
-# Haga una lista de 10 numeros consecutivos y con np.max() nuestre el mas grande
-# Hagamos una tabla de 5x5 y por medio de np.min(axis = 0) buscar el minimo de cada columna
-# Por medio de np.max(axis = 1) buscar el maximo de cada fila
-# axis = 0 son columnas
-# axis = 1 son filas
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
-
-Cree un arreglo basico de 3 dimensiones pero con letras con la funcion np.array([])
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
-
-Cree un arreglo basico de 4 dimensiones con la funcion np.array([])
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
-Acomodome los numeros con sort()
-Saque la media con mean
-Sume los elementos con sum
-Sume los elementos con axis Sumita
-
-
-# Vamos a hacer un arreglo vacio de zeros de 2 x 3 con .zeros
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
-
-
-# Vamos a hacer un arreglo vacio de unos de 2 x 3 con .ones
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
-
-
-# Ahora vamos a crear un arreglo de 3,5 en donde cada posicion tenga el mismo texto .full
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-
-
-# Creamos un Array Generico de una dimension con 10 elementos aleatorios. Por medio de un ciclo for vamos a agregarlos a una Tupla_Array
-
-
-
-# Array_Generico = np.full(shape=(3, 5), fill_value='Fuecoco')
-# Crear una tabla de 2x3 con el número 7 en cada espacio
-# Usar una tupla como fill_value, ojo el tamaño de la tupla debe ser mismo tamano de las columnas  mi_tupla = (1, 2)
-# Diccionario como fill_value   ---   mi_diccionario = {"a": 1, "b": 2}
-# Con un print muestre un elemento del array
-# Muestre la cantidad de dimensiones del array con la funcion .ndim
-# Ahora muestre la forma del array con .shape
-# Ahora veamos la cantidad de elementos del array con .size
-
-# Haz un arreglo 4x1 lleno de la palabra "hola".
-# Haz un arreglo 2x2 lleno de un set como {10, 20, 30}
-
-
-
-
-# Ahora vamos a crear un arreglo que contenga numeros del 1 al 5 con np.arange(start=1, stop=6, step=1)
-# Solo números pares del 2 al 10   pares = np.arange(2, 11, 2)
-# Crea un arreglo con los números del 10 al 20 de 2 en 2
-# Crea un arreglo con los múltiplos de 3 desde 3 hasta 30
-
-
-# Ahora creamos un arreglo que vaya de 1 a 10 con np.arrange(10)
-
-# Creamos un array con random.randint() de una unica dimensional
-# # Creamos un array con random.randint() de 2 x 3
-# Crea un arreglo de números aleatorios y ordénalo con np.sort()
-# Ahora a ese mismo arreglo saquele la media con .mean()
-# Ahora haga la sumatoria de todos los elementos del arreglo con .sum()
-
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
-
-# Sume dos matrices de 2, 3 igual tamano
-# Reste dos matrices de 2, 3 igual tamano
-# Multiplique dos matrices de 2, 3 igual tamano
-# Divida dos matrices de 2, 3 igual tamano
-# Sumele 5 a cada numero de un arreglo de una unica vez
-
-# Ahora tome un arreglo de un unico axis o dimension de 20 numeros y haga un reshape con una matriz de 4 x 5  np.reshape(array, shape=(2, 3))
 # Ahora creemos una lista con 10 elementos, luego creemos un arreglo y llenemoslo con los elementos de la lista
-# Ahora el array que fue reshape vamos a desenvolverlo con .ravel()
+
 # Ahora creemos dos arrays de 1x3 cada uno y concatenemoslos con np.concatenate       -----  np.concatenate([arr1, arr2], axis = 1)
 # Tomemos un array de 6 elementos y dividamoslo en 3 arrays  de 2 elementos cada uno con np.split(Array, 3)
 # Ahora hagamos un array de 10 elementos, con la instruccion np.where(Array == 3) me creara un array que muestra todas las posiciones donde haya un 3
