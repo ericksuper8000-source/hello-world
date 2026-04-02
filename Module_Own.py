@@ -140,3 +140,12 @@ class Pokemon2():
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
+
+Division_Flotante = 14/7
+
+Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
+Lista2 = [Division_Flotante, 200, 'Koala', True]
+Lista3 = list([1, 2, 3, 4, 5])
+Lista4 = [4000, 97, 15, 200]
+
+Tupla_Poke = ('Ash', 'Brooke', 'Misty')
