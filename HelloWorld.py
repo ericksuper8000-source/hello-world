@@ -1459,293 +1459,543 @@ Objeto14.Mostrar()
 
 print (f'-' * 20)
 
-print (f'-' * 200)
-
-Hacer un ejemplo de herencia Multiple (Personaje VideoJuego)
-
-Atacante
-daño base
-método para atacar
-energía de ataque
-
-Curador
-puntos de curación
-método para curar
-regeneración de vida
-
-Paladin
-
-Hereda de atacante y curador y tiene un nombre. Mostrar ficha de personaje
-
-
-
-Como saber si una clase hija hereda de una clase padre?
-Herencia = issubclass(Poke_Hija, Poke) # Esto debe darme true como resultado
-
-Como saber si una variable es un objeto de una clase?
-Instancia = isinstance(Objeto1, Poke) # Esto debe darme true como resultado
-
-
-
-MRO  (Que pasa si varias clases tienen el mismo metodo?)
-Vamos a hacer un ejemplo de herencia con MRO, lo que haremos es crear 5 clases, A,F,B,C,D,F, donde cada una tendra un metodo llamado Mostrar() y un texto hola "letra".
-B heredara de A, C heredara de F, D heredara de B y C. Con esto veremos el flujo y como mostraria el mensaje del metodo si tengo un objeto Objeto1.Mostrar() Cual mensaje mostrara primero?
-Vamos quitando bloques con pass
-Que deberia hacer ahora que entiendo el orden del MRO si quisiera explicitamente llamar el metodo de la clase B desde D?
-
-B.Mostrar(Objeto1)
-F.Mostrar(Objeto1)
-A.Mostrar(Objeto1)
-
-
-
-
-[Polimorfismo]
-Un cliente puede pagar con:
-Tarjeta
-PayPal
-Criptomonedas
-Todos comparten el mismo metodo pagar() que cambia dependiendo del metodo de pago
-
-
-[Encapsulamiento] __privada
-Cuenta bancaria encapsulada:
-class Cuenta:
-
-    def __init__(self, saldo):
-        self.__saldo = saldo
-
-    def depositar(self, dinero):
-        self.__saldo += dinero
-
-    def ver_saldo(self):
-        print(self.__saldo)
-
-mi_cuenta = Cuenta(100)
-mi_cuenta.depositar(50)
-mi_cuenta.ver_saldo()
-
-Encapsulamiento: El saldo está protegido, no se puede alterar.
-
-Getter → sirve para LEER un dato
-Setter → sirve para CAMBIAR un dato
-
-Muestre el valor de __Saldo con un getter
-Cambie el valor de __Saldo con un setter
-
-Hagamos una clase protegida que reciba un
-nombre __privado y mostrarlo afuera de la
-clase por medio de un @property
-
-
-
-class Protegido:
-    def __init__(self, Nombre):
-        self.__Nombre = Nombre
+class Atacante():
+    def __init__(self, Damage, Weapon, Position):
+        self.Damage = Damage
+        self.Weapon = Weapon
+        self.Position = Position
 
     def Mostrar(self):
-        print (f'Tu nombre es {self.__Nombre}')
+        print (f'Damage: {self.Damage}')
+        print (f'Weapon: {self.Weapon}')
+        print (f'Position: {self.Position}')
+
+class Defensor:
+    def __init__(self, Healing, Potion, Life):
+        self.Healing = Healing
+        self.Potion = Potion
+        self.Life = Life
+
+    def Mostrar(self):
+        print (f'Healing: {self.Healing}')
+        print (f'Potion: {self.Potion}')
+        print (f'Life: {self.Life}')
+
+class Paladin(Atacante, Defensor):
+    def __init__(self, Damage, Weapon, Position, Healing, Potion, Life, Name):
+        Atacante.__init__(self, Damage, Weapon, Position)
+        Defensor.__init__(self, Healing, Potion, Life)
+        self.Name = Name
+
+    def Mostrar(self):
+        print (f'Name: {self.Name}')
+
+Objeto15 = Paladin(75, 'Battle Axe', 'Right', 25, 'Toad Liquid', 200, 'Ghost Knight')
+
+Objeto15.Mostrar()
+Atacante.Mostrar(Objeto15)
+Defensor.Mostrar(Objeto15)
+
+print (f'-' * 20)
+
+Child_Parent = issubclass(Poke_Hija2, Poke2)
+
+print (f'{Child_Parent}')
+
+Child_Parent2 = issubclass(Poke_Hija2, Poke)
+
+print (f'{Child_Parent2}')
+
+Object_Class = isinstance(Objeto15, Atacante)
+Object_Class2 = isinstance(Objeto15, Defensor)
+Object_Class3 = isinstance(Objeto15, Paladin)
+
+print (f'{Object_Class}')
+print (f'{Object_Class2}')
+print (f'{Object_Class3}')
+
+print (f'-' * 20)
+
+class A():
+    def Mostrar(self):
+        print (f'Hola A')
+
+class E():
+    def Mostrar(self):
+        print (f'Hola E')
+
+class B(E):
+    def Mostrar(self):
+        print (f'Hola B')
+
+class C(A):
+    def Mostrar(self):
+        print (f'Hola C')
+
+class D(B,C):
+    def Mostrar(self):
+        print (f'Hola D')
+
+Objeto16 = D()
+
+A.Mostrar(Objeto16)
+B.Mostrar(Objeto16)
+C.Mostrar(Objeto16)
+Objeto16.Mostrar()
+E.Mostrar(Objeto16)
+
+print (f'-' * 20)
+
+class Tarjeta():
+    def Pagar(self):
+        print (f'El pago se realizo con tarjeta')
+
+class Efectivo:
+    def Pagar(self):
+        print (f'El pago se realizo con Efectivo')
+
+class Cripto:
+    def Pagar(self):
+        print (f'El pago se realizo con Cripto')
+
+Objeto17 = Cripto()
+Objeto18 = Efectivo()
+Objeto19 = Tarjeta()
+
+Objeto17.Pagar()
+Objeto18.Pagar()
+Objeto19.Pagar()
+
+print (f'-' * 20)
+
+class Cuenta_Bancaria:
+    def __init__(self, Saldo):
+        self.__Saldo = Saldo
+
+    def Depositar(self, Dinero):
+        self.__Saldo += Dinero
 
     @property
-    def nombre(self):
-        return self.__Nombre
+    def Saldo(self):
+        return self.__Saldo
 
-    @nombre.setter
-    def nombre(self, Nuevo_Nombre):
-        self.__Nombre = Nuevo_Nombre
+    @Saldo.setter
+    def Saldo(self, Nuevo_Saldo):
+        self.__Saldo = Nuevo_Saldo
 
-Objeto1 = Protegido('Erick')
+    def Mostrar(self):
+        print (f'Su saldo a la fecha es de ${self.__Saldo}')
 
-Objeto1.Mostrar()
+Objeto20 = Cuenta_Bancaria(100)
+Objeto20.Depositar(25)
+Objeto20.Mostrar()
 
-Objeto1.nombre = 'Hola'   # setter
+print (f'El saldo privado es {Objeto20.Saldo}')
 
-print(Objeto1.nombre)     # getter
+Objeto20.Saldo = '20,000'
 
---------------------------------------------------------------------
+Objeto20.Mostrar()
 
+print (f'El saldo privado es {Objeto20.Saldo}')
 
+print (f'-' * 20)
 
+from abc import ABC, abstractmethod
 
+class Plantilla(ABC):
 
-
-Abstraccion
-
-Clases Abstractas
-
-Las clases abstractas son plantillas que generan reglas que se deben seguir a la hora de crear clases en proyectos grandes.
-En otras palabras, si hay 100 programadores, todos deben crear las reglas definidas en la plantilla. Normalmente son metodos.
-Pero yo puedo crear todos los metodos que quiera en mis clases, la clase abstracta me dice nada mas que a fuerza la clase nueva debe tener ese metodo definido y todo lo demas que quiera.
-
-from abc import ABC, abstractclassmethod
-
-class Comida(ABC):
-
-    @abstractclassmethod
-    def Cocinar(self):
+    @abstractmethod
+    def Mostrar(self):
         pass
 
-class Pizza(Comida):
-        def Cocinar(self):
-            print (f'Horneando La Pizza')
+class Ejemplo1(Plantilla):
+    def Mostrar(self):
+        print (f'Hola Abstraccion Example')
 
-        def Mostrar(self):
-            print (f'Hola Mundo')
+Objeto21 = Ejemplo1()
 
-Objeto1 = Pizza()
+Objeto21.Mostrar()
 
-Objeto1.Cocinar()
-Objeto1.Mostrar()
+from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
 
-'''
+variable1 = Lista_Uno[0]
+variable2 = 'Perez'
+variable3 = '''
+Esto
+Es
+Un
+Long
+String'''
 
+variable4 = Objeto1.Cantidad
+variable5 = PEPE.Division_Flotante
+variable6, variable7 = not False, Objeto3.Catched
 
+# Esto es un comentario simple
 
+'''Esto
+Es 
+Un 
+Comentario 
+Compuesto'''
 
-# Como declarar dos variables string?
-# Como declarar una variable long string?
-# Como declarar una variable integer?
-# Como declarar una varible decimal
-# Como declarar dos variables booleanas?
-# Declare dos variables en la misma linea
-# Agrega un comentario simple
-# Agregue un comentario compuesto
-# Imprime un texto con una variable string
-# Imprime dos varibles string concatenadas
-# Imprime una concatenacion de una varible texto y un integer
-# borra una variable
-# Juegue con los operadores de pertenencia in / not in
-# Declare una variable con Snake Case
+print (f'Esto es una concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
 
-# ***********************  Listas   **********************
+class Primera():
+    def Saludar(self):
+        print (f'Hola Composicion')
 
-# Declara una lista con string
+class Segunda():
+    def __init__(self):
+        self.Example = Primera()
 
-# Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Lista1" y cambiemosle el nombre con “as”, ya no se necesita usar Saludar
+    def Hi(self):
+        self.Example.Saludar()
 
-# Declara una lista con diferentes tipos de datos En  Modulo_Propio
-# Declara una lista de solo numeros En  Modulo_Propio
-# Cree una lista con la funcion list En  Modulo_Propio
+Objeto22 = Segunda()
 
-# Ahora vamos a sacar del modulo propio varias listas al mismo tiempo 1 y 4 con la instruccion from Modulo_Propio import Lista1, Lista4
+Objeto22.Hi()
 
-# Muestre en consola la cantidad de elementos en una de las listas con la funcion len
-# Agrega un elemento aleatorio a la lista con .append()
-# Inserta un elemento en una posición específica con .insert(posición, elemento)
-# Agreguemos varios elementos a la lista con extend(['Cada elemento se ingresa asi'])
-# Haz alguna operacion matematica con los valores de la lista 3
-# Despliegue en consola el resultado
-# Imprima un rango de elementos de la lista, por ejemplo del valor en la posicion 0 al 2 con [x:y]
-# Concatene un elemento de la primer lista y de la segunda lista e imprima en consola
-# Imprima todos los elemento de alguna de las tres listas
-# Cambie el valor de un elemento de una lista
-# Ahora muestre todos los elementos de la lista incluyendo el que cambio
-# Borre un valor de una lista usando del
-# Borra otro elemento usando .remove(elemento textual) y muestra la lista
-# Borre 1 elemento de la lista utilizando el metodo pop('Indice')
-# Borre 1 elemento de la lista utilizando el metodo pop('Indice negativo para borrar el ultimo elemento')
-# Elimine todos los elementos de una lista con el metodo clear()
-# Ordena la lista 3 numerica en orden ascendente con .sort()
-# Ordena la lista 3 numerica orden descendente .sort(reverse=True)
-# Invierte el orden de la lista con .reverse()
+print (f'-' * 20)
 
-# User la funcion dunder "dir" sobre el Modulo_Propio para ver todas sus caracteristicas incluyendo todos los elementos que creamos a mano
+class Tercera():
+    def Mostrar(self):
+        print (f'Segunda Composicion')
 
-# ********************************************************
+class Cuarta():
+    def __init__(self):
+        self.Nueva = Tercera()
 
-# Cree una tupla
-# Cree una tupla con la funcion tuple
-# Cree una tupla sin parentesis
-# Cree una tupla sin parentesis de un solo elemento
-# En que se diferencia una lista de una tupla?
-# Intente cambiar un elemento de la tupla para obtener un error
-# Muestre en consola todos los elementos de la tupla
-# Muestre con un print un elemento de la tupla
+    def Finale(self):
+        self.Nueva.Mostrar()
 
-# Cree un set o conjunto
-# Cree un set con la funcion set
-# Cual es la diferencia entre una lista, una tupla y un set o conjunto?
-# Muestre los elementos totales del conjunto
-# Intente agregar un elemento al set con .add()
-# Reconstruya el conjunto con nuevos elementos
-# Intente agregar un elemento repetido del conjunto para obtener un error
+Objeto23 = Cuarta()
+Objeto23.Finale()
 
-# TEORIA DE CONJUNTOS, CONJUNTOS SETS SIMPLES Y FROZENSETS *****
-# Creamos dos conjuntos, uno tiene 3 elementos que salen en un super conjunto mayor conjunto1, conjunto2
-# Usemos el metodo .issubset() para saber si el conjunto 2 es un subconjunto de 1, osea que sus elementos salen en el conjunto mayor, devolvera True
-# Usemos el metodo .issuperset() para saber si el conjunto 1 es un super conjunto de 2
-# Ahora comparemos si en el conjunto 2 hay algun elemento que se repita en conjunto 1 con .isdisjoint()
-# El restaurante tiene un menú fijo de jugos. Este menú nunca cambia, entonces hagamos un set con frozenset({}) de 3 sabores que no pueden cambiar
-# Intentar agregar un nuevo sabor con el metodo .add() para obtener un error
-# Ahora hacemos otro set_conjunto con 3 sabores, pero este es un set normal
-# Intentar agregar un nuevo sabor con el metodo .add()
+print (f'Mi nombre es {Lista_Uno[0]} {variable2}')
 
-# Crea un diccionario
-# Cree un Diccionario con la funcion dict
-# Muestre cada una de las llaves de un diccionario con el metodo keys
-# Imprima un Elemento del diccionario
-# Despliegue otro elemento del diccionario con la funcion get()
-# Imprima Todo el diccionario
-# Cambie un elemento del diccionario
-# Elimine un elemento del diccionario con el metodo pop()
-# Muestre el diccionario con los nuevos elementos
-# Reconstruya el diccionario con nuevos valores, ojo las llaves ahora seran numeros - Cree un Diccionario con la funcion dict
-# Haga un diccionario2 pero con varios elementos por indice, varios nombres, varias edades, etc
-# Imprima en consola una concatenacion de dos elementos del diccionario
-# Muestre cada una de las llaves de un diccionario con el metodo keys
-# Haga una operacion matematica con un elemento de una lista o tupla y uno del diccionario
-# Concatene un elemento de una lista con una tupla
-# Concatene un elemento de una lista con el diccionario
-# Creamos un diccionario vacio, solo con los keys pero sin valores por medio de la funcion dict.fromkeys([])
-# Ahora creamos un diccionario en el que todos los keys tengan el mismo valor Diccionario_Vacio = dict.fromkeys('ABCD', "Carmelo")
+print (f'{PEPE.Tupla_Poke[2]} tiene {Variable_Sumatoria}, {Sumatoria2(1, 2, 3, 4, 5)} o incluso {Objeto2.Cantidad} pokemones')
 
-# Hagamos un diccionario vacio con fromkeys, luego una lista de elementos y agregue los elementos de la lista al diccionario con un ciclo    i=0
+del variable5
 
+print (f'melo' in Saludar_Dos())
+print (f'Long' not in variable3)
 
-# A partir de los elementos del csv file, vamos a crear primero una lista de llaves, luego vamos a tomar los nombres y agregarlos a una lista
-# finalmente vamos a crear un diccionario y emparejar las llaves creadas y los nombres y mostramos el nuevo diccionario creado
+snake_case1, snake_case2, snake_case3 = PEPE.Tupla_Poke
 
+print (f'Esto es un encapsulamiento de variables y snake case {snake_case2}')
 
+print (f'La lista 1 tiene {Lista_Uno.__len__()} elementos')
 
-# Declare una variable y asignele una division flotante
-# Declare una variable y asignele una potenciacion o exponente **
-# Declare una variable y asignele una division baja //
-# Declare una variable y asignele un resto o modulo %
-# Muestre en consola el tipo de dato de una variable float, un string, una lista, una tupla, un conjunto y un diccionario
-# Despliegue el resultado de la division flotante y de la division baja
+Lista_Uno.append('Coco Rayado')
+Lista_Uno.insert(1, 'Juana La Cubana')
+Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
 
-# ***********************  Condicionales   **********************
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
 
-# Crea una llave condicional con if simple - Contar la cantidad de caracteres de una cadena de texto con len, haga un if condition
-# Crea una llave condicional con if y else simple
-# Ahora crea un condicional con if, elif y else
-# Ahora crea un condicional con multiples elif
-# Ahora un ejercicio con varios if anidados - declaras dos variables, ingresos y gastos, si los ingresos son mayores a x y los gastos menores a x, entonces estas bien, etc
-# Ahora vamos a hacer un if con un and
-# Ahora vamos a hacer un if con un or
+Cociente, Residuo  = divmod(Objeto2.Cantidad, Sumatoria2(1, 2, 3, 1))
 
-# ***********************  Metodos / Funciones mas utilizadas   **********************
+print (f'El cociente de la operacion es {Cociente} y el residuo es {Residuo}')
 
-# Declare una variable string, con un print y dir muestre todos los métodos y atributos disponibles para una variable u objeto
-# use help para ver que hace un metodo
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[2:4]}')
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[:2]}')
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[2:]}')
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[::2]}')
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[::3]}')
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[0:None]}')
+print (f'Un rango de elementos de la lista 2 seria {PEPE.Lista2[:]}')
 
-#**********
+print (f'{Lista_Uno[1]} eso de ahi es un {PEPE.Lista2[2]}?')
 
-# Declare una clase Persona, cree un objeto y defina un metodo
-# Metodos magicos vs metodos normales
-# dunder methods porque empiezan y terminan con __)
-# x = 'Ejemplo'
-# len(x) o tambien
-# x.__len__()
-# Metodos normales x.upper()
+print (f'{Lista_Cuatro}')
 
-#**********
+Lista_Cuatro[0] = Sumatoria2(Anonima2(250), 150, 50, 200, 100)
 
-# abs(x) → Escribe un programa que reciba un número negativo y devuelva su valor absoluto.
-# any(iterable) → Comprueba si al menos un número de una lista es par.
-# bin(x) → Convierte un número entero dado por el usuario a binario.
-# bool(x) → Determina si una cadena ingresada por el usuario está vacía o no.
-# divmod(a, b) → Pide dos números y muestra el cociente y el residuo de su división.
+print (f'{Lista_Cuatro}')
+
+del Lista_Uno[1]
+Lista_Uno.remove('Coco Rayado')
+Lista_Uno.pop(-2)
+Lista_Uno.pop(-1)
+Lista_Uno.pop(-1)
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Lista_Uno_Copia = Lista_Uno.copy()
+
+Lista_Uno.clear()
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort()
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort(reverse = True)
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.reverse()
+print (f'{Lista_Cuatro}')
+
+print (f'{PEPE.__dir__()}')
+
+print (f'{help(PEPE)}')
+
+Tupla1 = ('Electrico', Objeto1.Tipo, Objeto1.Tipo, Objeto1.Tipo, Objeto1.Tipo, Objeto1.Tipo)
+
+print (f'{Tupla1}')
+
+Tupla1 = tuple(('Uno', 'Dos', 'Tres'))
+
+print (f'{Tupla1}')
+
+Tupla2 = 'Uno', 'Dos', 'Tres',
+
+Tupla3 = 'Uno',
+
+print (f'{Tupla2[2]}')
+
+print (f'{type(Funcion_Tupla)}')
+print (f'{type(Tupla1)}')
+print (f'{type(Tupla2)}')
+print (f'{type(Tupla3)}')
+
+Set_Conjunto1 = {'Rojo', 'Rojo', 'Rojo', 'Rojo', 'Rojo', 'Rojo'}
+Set_Conjunto1.add('Verde')
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto1 = set({'Red', 'Blue'})
+Set_Conjunto1.add('Black')
+
+print (f'{Set_Conjunto1}')
+
+print (f'El set conjunto tiene {len(Set_Conjunto1)} elementos')
+
+Set_Conjunto2 = {1, 2, 3, 4, 5}
+Set_Conjunto3 = {3, 4}
+Set_Conjunto4 = set({8})
+
+print (f'{Set_Conjunto2.issuperset(Set_Conjunto3)}')
+print (f'{Set_Conjunto3.issubset(Set_Conjunto2)}')
+print (f'{Set_Conjunto2.isdisjoint(Set_Conjunto4)}')
+
+Set_Conjunto_Menu1 = {'Chocolate', 'Vainilla'}
+Set_Conjunto_Menu1.add('Fresa')
+Set_Conjunto_Menu2 = frozenset({'Caramelo', Objeto3.Tipo})
+Set_Conjunto_Menu3 = set({Set_Conjunto_Menu2, Lista_Uno_Copia[1]})
+
+print (f'{Set_Conjunto_Menu1}')
+print (f'{Set_Conjunto_Menu2}')
+print (f'{Set_Conjunto_Menu3}')
+
+print (f'-' * 20)
+
+Diccionario3 = {
+    'Nombre' : Saludar_Dos(),
+    'Edad' : Variable_Sumatoria,
+    'Votante' : Variable_Funcion_Tupla[3]
+}
+
+print (f'{Diccionario3}')
+print (f'{Diccionario3.keys()}')
+print (f'{Diccionario3["Nombre"]}')
+print (f'{Diccionario3.get("Edad")}')
+
+print (f'-' * 20)
+
+Diccionario4 = {
+    'Nombre' : ["Erick", "Josue", "Karlita"],
+    'Edad' : [18 * 2, 20, 6],
+    'Votante' : [True, not False, False]
+}
+
+print (f'{Diccionario4}')
+print (f'{Diccionario4.keys()}')
+print (f'{Diccionario4["Nombre"][1]}')
+print (f'{Diccionario4.get("Votante")[2]}')
+
+print (f'-' * 20)
+
+Diccionario5 = dict({'Ingresos' : 501, 'Gastos' : 199, 'Vacio' : "q"})
+
+print (f'{Diccionario5}')
+print (f'{Diccionario5.keys()}')
+print (f'{Diccionario5["Ingresos"]}')
+print (f'{Diccionario5.get("Gastos")}')
+
+print (f'-' * 20)
+
+Diccionario3['Nombre'] = 'Erick'
+
+print (f'{Diccionario3}')
+
+del Diccionario3['Nombre']
+Diccionario3.pop("Edad")
+
+print (f'{Diccionario3}')
+
+Diccionario3.clear()
+
+print (f'{Diccionario3}')
+
+Diccionario3 = dict({1 : "Karlita", 2 : 6, 3 : variable7})
+
+print (f'{Diccionario3}')
+print (f'{Diccionario3.keys()}')
+print (f'{Diccionario3[1]}')
+print (f'{Diccionario3.get(2)}')
+
+print (f'{Diccionario4["Nombre"][2]} no puede votar todavia ya que solo tiene {Diccionario3.get(2)} añitos')
+
+Diccionario_Vacio1 = dict.fromkeys('ABC', 'HolaMundo')
+Diccionario_Vacio2 = dict.fromkeys(['Uno', 'Dos', 'Tres'])
+Diccionario_Vacio2['Dos'] = PEPE.Diccionario_Poke['Poke3']
+
+print (f'{Diccionario_Vacio1}')
+print (f'{Diccionario_Vacio2}')
+
+Lista_Dict3 = list(['Erick', 'Josue', 'Perez', 'Gutierrez'])
+
+Key3 = [f'Key{i}' for i in range(len(Lista_Dict3))]
+
+print (f'{Key3}')
+
+Diccionario6 = dict(zip(Key3, Lista_Dict3))
+
+print (f'{Diccionario6}')
+print (f'{Diccionario6.keys()}')
+print (f'{Diccionario6["Key1"]}')
+print (f'{Diccionario6.get("Key2")}')
+
+for elemento in Diccionario6.items():
+    print (f'{elemento[0]} - {elemento[1]}')
+
+import pandas as pd
+
+Ruta_Csv4 = 'C:\\python-data-analyzer\\data\\sales.csv'
+
+Cargar_Csv4 = pd.read_csv(Ruta_Csv4)
+
+print (f'{Cargar_Csv4}')
+
+Lista_Dict4 = set(Cargar_Csv4['product'])
+Key4 = [f'Key{i}' for i in range(len(Lista_Dict4))]
+
+print (f'{Lista_Dict4}')
+print (f'{Key4}')
+
+Diccionario7 = dict(zip(Key4, Lista_Dict4))
+
+for elemento in Diccionario7.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Division_Baja = 14//7
+Exponente = 4**3
+Modulo = 20%6
+
+print (f'El resultado de la operacion es {PEPE.Division_Flotante}')
+print (f'El resultado de la operacion es {int(abs(Division_Baja))}')
+print (f'El resultado de la operacion es {Exponente}')
+print (f'El resultado de la operacion es {Modulo}')
+
+print (f'El tipo de variable es {type(variable1)}')
+print (f'El tipo de variable es {type(variable4)}')
+print (f'El tipo de variable es {type(PEPE.Division_Flotante)}')
+print (f'El tipo de variable es {type(variable6)}')
+print (f'El tipo de variable es {type(Lista_Uno_Copia)}')
+print (f'El tipo de variable es {type(Tupla3)}')
+print (f'El tipo de variable es {type(Set_Conjunto_Menu1)}')
+print (f'El tipo de variable es {type(Set_Conjunto_Menu2)}')
+print (f'El tipo de variable es {type(Diccionario7)}')
+print (f'El tipo de variable es {type(Funcion_Tupla)}')
+print (f'El tipo de variable es {type(PEPE)}')
+print (f'El tipo de variable es {type(Objeto19)}')
+print (f'El tipo de variable es {type(Array6)}')
+print (f'El tipo de variable es {type(Data_Frame_Concatenate)}')
+
+if (Diccionario5['Ingresos'] > 500):
+    if (Diccionario5['Gastos'] < 200):
+        print (f'Ingresos Altos, Gastos Bajos')
+    elif (Diccionario5['Gastos'] == 200):
+        print (f'Ingresos Altos, Gastos Al Limite')
+    elif (Diccionario5['Gastos'] > 200):
+        print (f'Ingresos Altos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario5['Ingresos'] == 500):
+    if (Diccionario5['Gastos'] < 200):
+        print (f'Ingresos Minimos, Gastos Bajos')
+    elif (Diccionario5['Gastos'] == 200):
+        print (f'Ingresos Minimos, Gastos Al Limite')
+    elif (Diccionario5['Gastos'] > 200):
+        print (f'Ingresos Minimos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario5['Ingresos'] < 500):
+    if (Diccionario5['Gastos'] < 200):
+        print (f'Ingresos Bajos, Gastos Bajos')
+    elif (Diccionario5['Gastos'] == 200):
+        print (f'Ingresos Bajos, Gastos Al Limite')
+    elif (Diccionario5['Gastos'] > 200):
+        print (f'Ingresos Bajos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+else:
+    print (f'Error de codigo')
+
+if (variable1 == 'Erick' and variable4 > 50):
+    print (f'AMBAS CONDICIONES SE CUMPLEN')
+else:
+    print (f'Al menos una condicion no se cumple')
+
+if (variable1 == 'Josue' or variable4 > 50):
+    print (f'AL MENOS UNA CONDICION SE CUMPLE')
+else:
+    print (f'Ninguna condicion se cumple')
+
+print (f'{variable1.__dir__()}')
+print (f'{help(variable1)}')
+
+class Entrenador():
+    def __init__(self, Trainer, City, Favorite):
+        self.Trainer = Trainer
+        self.City = City
+        self.Favorite = Favorite
+        self.Pokedex = Variable_Sumatoria
+        self.Classified = variable6
+
+    def Desplegar(self):
+        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
+
+Objeto24 = Entrenador(PEPE.Tupla_Poke[0], 'Kanto', Objeto1.Nombre)
+Objeto25 = Entrenador(PEPE.Tupla_Poke[1], 'Jotho', Objeto2.Nombre)
+Objeto26 = Entrenador(PEPE.Tupla_Poke[2], 'Alolah', Objeto3.Nombre)
+
+Objeto24.Desplegar()
+Objeto25.Desplegar()
+Objeto26.Desplegar()
+
+Negativo = -5
+
+print (f'{int(abs(Negativo))}')
+
+Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Anonima5 = filter(lambda Num :  Num % 2 == 0, PEPE.Lista_Numeros)
+Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+
+print (f'{Any_Iterable}')
+print (f'{list(Anonima5)}')
+print (f'{Lista_Iterable}')
+
+print (f'El binario del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
+
+if (bool(Diccionario5['Vacio']) == True):
+    print (f'Gracias por la informacion')
+else:
+    print (f'Error, ingrese una cadena de texto')
+
 # Haz un ciclo for enumerate con un unico elemento, ese unico elemento mostrara el indice con elemento[0] y el valor con elemento[1]
 # enumerate(iterable) → Crea una lista de frutas y muestra cada una con su posición en la lista.
 # Haga el texto de una variable todo minuscula con el metodo lower
