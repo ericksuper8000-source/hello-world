@@ -1110,6 +1110,13 @@ if encontrado.empty
 else
 exito
 
+
+Quiero crear una columna nueva agregada sobre el mismo csv con el total en precio multiplicando cantidad x price
+
+Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
+
+print (f'{Cargar_Csv5}')
+
 '''
 
 # Estudiemos clases y herencia

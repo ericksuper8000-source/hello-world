@@ -2023,3 +2023,364 @@ print (f'{variable8.lower().find("t")}')
 print (f'{variable8.lower().index("b")}')
 
 print (f'La letra {letra8} aparece un total de {variable8.lower().count(letra8)} veces')
+
+print (f'{variable8.lower().startswith(letra8)}')
+print (f'{variable8.lower().endswith("n")}')
+
+print (f'{variable8.lower().replace("ban", "POPOTAMO")}')
+
+variable9 = 'esto es un texto cualquiera de practica'
+
+Lista_variable9 = variable9.split(' ')
+
+for elemento in Lista_variable9:
+    print (f'{elemento}')
+
+print (f'El numero de palabras digitadas es de {len(Lista_variable9)}')
+
+print (f'{PEPE.Tupla_Poke[2]} aparece en la posicion {PEPE.Tupla_Poke.index("Misty")} nunca usar find, con listas o tuplas solo sirve index()')
+
+Lista_Exception4_Copia = Lista_Exception4.copy()
+
+print (f'{Lista_Exception4_Copia}')
+
+Diccionario7.clear()
+
+print (f'{Diccionario7}')
+
+Diccionario3.pop(1)
+Diccionario3.pop(2)
+Diccionario3.pop(3)
+
+print (f'{Diccionario3}')
+
+for elemento in Diccionario4:
+    print (f'{Diccionario4[elemento]}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario5.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Tupla4 = ('Ponyo', 'Messi', 'Pepe')
+
+variable10, variable11, variable12 = Tupla4
+
+print (f'Esta es la tecnica de desempaquetado de variables {variable11}')
+
+Contador = 0
+
+while (Contador <= 5):
+    print (f'El contador es {Contador}')
+    Contador+= 1
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'{PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+Lista_Animales = []
+Lista_Animales.append('Jirafa')
+Lista_Animales.insert(0, PEPE.Lista2[2])
+Lista_Animales.extend(['Perro', 'Tortuga'])
+
+print (f'{Lista_Animales}')
+
+Contador = 0
+
+while (Contador < len(Lista_Animales)):
+    if (Lista_Animales[Contador] == 'Perro'):
+        print (f'El mejor amigo del hombre')
+        break
+    else:
+        Contador+= 1
+        continue
+
+for elemento1, elemento2 in zip(Set_Conjunto_Menu1, PEPE.Tupla_Poke):
+    print (f'{elemento1} -- {elemento2}')
+
+print (f'-' * 20)
+
+for elemento in range(5):
+    print (f'{elemento}')
+
+for elemento in range(995, 1000):
+    print (f'{elemento}')
+
+Lista_Numeros_Mult = [num  * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Mult}')
+
+Num_Mayor = max(Lista_Numeros_Mult)
+Num_Menor = min(Lista_Numeros_Mult)
+Redondeado = round(14.458795, 2)
+Sumatoria4 = sum(Lista_Numeros_Mult)
+
+print (f'El menor de los numeros es {Num_Menor} y el mayor {Num_Mayor}')
+print (f'Redondeado {Redondeado}')
+print (f'El resultado de la sumatoria {Sumatoria4}')
+
+print (f'{bool(False)}')
+print (f'{bool(not True)}')
+print (f'{bool("")}')
+print (f'{bool(0)}')
+print (f'{bool(None)}')
+
+Todo_All = all([Lista_Uno_Copia, Tupla4, Set_Conjunto_Menu1, ""])
+
+print (f'{Todo_All}')
+
+Uno = int("500")
+Dos = str(500)
+Tres = float(Dos)
+
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
+
+Any_Iterable2 = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Anonima6 = filter(lambda Num :  Num % 2 == 0, PEPE.Lista_Numeros)
+Lista_Iterable2 = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+
+print (f'{Any_Iterable2}')
+print (f'{list(Anonima6)}')
+print (f'{Lista_Iterable2}')
+
+print (f' - '.join(Set_Conjunto_Menu1))
+
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
+
+PEPE2.Saludar5()
+
+import Paquete.Sub_Paquete.Segundo as PEPE3
+
+variable_PEPE3 = PEPE3
+
+'''def Floating1(Numero):
+    return Variable_Sumatoria * Objeto2.Cantidad + Numero
+
+print (f'El resultado de la operacion es {Floating1(PEPE.Flotante1)}')
+
+Resultado2 = eval(PEPE.Flotante2)
+
+print (f'El resultado de la operacion es {Resultado2}')
+
+def Floating3(Textico):
+    Lista_Textico = Textico.split(' ')
+
+    for elemento in Lista_Textico:
+        print (f'{elemento}')
+
+    print (f'Cantidad de palabras digitadas: {Lista_Textico.__len__()}')
+
+Floating3(PEPE.Flotante3)'''
+
+'''Contador = int(input(f'Ingrese la cantidad de estudiantes -> '))
+
+Lista_Alumnos = []
+
+def Colegio(Lista):
+    for elemento in range(Contador):
+        Estudiante = input(f'Ingrese el nombre del estudiante {elemento}: ')
+        Lista.append(Estudiante)
+
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio(Lista_Alumnos)}'])
+    Docu.close()
+
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+Lista_Alumnos2 = list([])
+
+Contador = int(input(f'Ingrese el numero de estudiantes: '))
+
+def Colegio2(Lista):
+    for elemento in range(Contador):
+        Alumno_Nombre = input(f'El nombre del alumno {elemento} es: ')
+        Alumno_Edad = int(input(f'La edad del alumno {elemento} es: '))
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
+        Lista.append(Estudiante)
+
+    Lista.sort(key = lambda Num : Num[1])
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
+
+    print (f'El alumno menor de la lista es {Menore} y el mayor es {Mayore}')
+
+Colegio2(Lista_Alumnos2)'''
+
+'''def Exception_Finale():
+    while True:
+        Numero = input(f'Ingrese un numero: ')
+        try:
+            Numerito = int(Numero)
+            break
+        except:
+            print(f'Error, necesito que ingreses un numero')
+
+    return Numerito
+
+print (f'Gracias, tu numero ingresado es {Exception_Finale()}')'''
+
+import pandas as pd
+import requests
+import io
+
+headers = {'User-Agent' : 'Mozilla/5.0'}
+Response = requests.get(Ruta_Html, headers=headers)
+
+Leer_Html2 = io.StringIO(Response.text)
+
+Cargar_Html2 = pd.read_html(Leer_Html2)
+
+print (f'{Cargar_Html2[2].head()}')
+
+import re
+
+Correo = 'sample@sample.com'
+
+Pattern4 = r'^[a-zA-Z0-9./*-+]+\@[a-zA-Z]+\.[a-z]{2,}$'
+
+Buscar18 = bool(re.match(Pattern4, Correo))
+
+if (Buscar18 == True):
+    print (f'El formato del correo es correcto')
+else:
+    print (f'El formato del correo es incorrecto')
+
+from datetime import datetime
+
+Ruta_Csv5 = 'C:\\python-data-analyzer\\data\\sales.csv'
+
+Cargar_Csv5 = pd.read_csv(Ruta_Csv5)
+
+'''Fecha2 = input(f'Ingrese una fecha con formato YY-MM-DD: ')
+
+try:
+    Fech2 = datetime.strptime(Fecha2, '%Y-%m-%d').date()
+    Fech2_Formateada = pd.to_datetime(Fech2)
+    Cargar_Csv5['date'] = pd.to_datetime(Cargar_Csv5['date'])
+except ValueError:
+    print (f'Error, el formato de la fecha es incorrecto')
+    exit()
+
+Encontrado2 = Cargar_Csv5[Cargar_Csv5['date'].dt.date == Fech2_Formateada.date()]
+
+if (Encontrado2.empty):
+    print (f'No se han encontrado ventas en esta fecha')
+else:
+    print (f'Genial! ventas encontradas')
+    Buscar19 = Encontrado2.groupby('product')['quantity'].sum()
+    Buscar19_Prod_Mayor = Buscar19.idxmax()
+    Buscar19_Prod_Menor = Buscar19.idxmin()
+    Buscar19_Prod_Mayor_Cant = Buscar19.max()
+    Buscar19_Prod_Menor_Cant = Buscar19.min()
+
+    print (f'{Buscar19}')
+    print (f'En la fecha {Fech2_Formateada} se realizaron {Buscar19_Prod_Mayor_Cant} ventas del producto {Buscar19_Prod_Mayor}')
+    print (f'En la fecha {Fech2_Formateada} se realizaron {Buscar19_Prod_Menor_Cant} ventas del producto {Buscar19_Prod_Menor}')
+    print (f'Total de ventas {Buscar19_Prod_Mayor_Cant + Buscar19_Prod_Menor_Cant}')'''
+
+Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
+
+print (f'{Cargar_Csv5}')
+
+Buscar20 = Cargar_Csv5.groupby('product')['Total'].sum()
+
+
+print (f'{Buscar20}')
+
+class Pokemon3():
+    def __init__(self, Nombre, Tipo, Ataque):
+        self.Nombre = Nombre
+        self.Tipo = Tipo
+        self.Ataque = Ataque
+        self.Cantidad = 18 * 2
+        self.Catched = variable7
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Tipo: {self.Tipo}')
+        print (f'Ataque: {self.Ataque}')
+
+class Poke_Hija3(Pokemon3):
+    def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.Sub_Tipo = Sub_Tipo
+
+    def Mostrar(self):
+        print (f'Sub_Tipo: {self.Sub_Tipo}')
+
+Objeto27 = Poke_Hija3(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno', 'Hada')
+
+Pokemon3.Mostrar(Objeto27)
+Objeto27.Mostrar()
+
+class Una():
+    def Desplegar(self):
+        print (f'El mensaje ha sido desplegado')
+
+class Dos():
+    def __init__(self):
+        self.Mensaje = Una()
+
+    def Mensajear(self):
+        self.Mensaje.Desplegar()
+
+Objeto28 = Dos()
+Objeto28.Mensajear()
+
+class BankingAccount():
+    def __init__(self, Saldo):
+        self.__Saldo = Saldo
+
+    def Depositar(self, Dinero):
+        self.__Saldo += Dinero
+
+    @property
+    def Dinero(self):
+        return self.__Saldo
+
+    @Dinero.setter
+    def Dinero(self, New_Saldo):
+        self.__Saldo = New_Saldo
+
+    def Mostrar(self):
+        print (f'Su saldo a la fecha es de ${self.__Saldo}')
+
+Objeto29 = BankingAccount(100)
+Objeto29.Depositar(25)
+Objeto29.Mostrar()
+
+print (f'El saldo privado es de {Objeto29.Dinero}')
+
+Objeto29.Dinero = '20,000'
+
+Objeto29.Mostrar()
+
+print (f'El saldo privado es de {Objeto29.Dinero}')
+
+from abc import ABC, abstractmethod
+
+class Plantilla2(ABC):
+    @abstractmethod
+    def Generica(self):
+        pass
+
+class Primera(Plantilla2):
+    def Generica(self):
+        print (f'Esto es abstraccion')
+
+    def Otra(self):
+        print (f'Este es otro mensaje cualquiera')
+
+Objeto30 = Primera()
+
+Objeto30.Generica()
+Objeto30.Otra()
