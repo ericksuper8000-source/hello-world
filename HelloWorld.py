@@ -2023,3 +2023,194 @@ print (f'{variable8.lower().find("t")}')
 print (f'{variable8.lower().index("b")}')
 
 print (f'La letra {letra8} aparece un total de {variable8.lower().count(letra8)} veces')
+
+print (f'{variable8.lower().startswith(letra8)}')
+print (f'{variable8.lower().endswith("n")}')
+
+print (f'{variable8.lower().replace("ban", "POPOTAMO")}')
+
+variable9 = 'esto es un texto cualquiera de practica'
+
+Lista_variable9 = variable9.split(' ')
+
+for elemento in Lista_variable9:
+    print (f'{elemento}')
+
+print (f'El numero de palabras digitadas es de {len(Lista_variable9)}')
+
+print (f'{PEPE.Tupla_Poke[2]} aparece en la posicion {PEPE.Tupla_Poke.index("Misty")} nunca usar find, con listas o tuplas solo sirve index()')
+
+Lista_Exception4_Copia = Lista_Exception4.copy()
+
+print (f'{Lista_Exception4_Copia}')
+
+Diccionario7.clear()
+
+print (f'{Diccionario7}')
+
+Diccionario3.pop(1)
+Diccionario3.pop(2)
+Diccionario3.pop(3)
+
+print (f'{Diccionario3}')
+
+for elemento in Diccionario4:
+    print (f'{Diccionario4[elemento]}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario5.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Tupla4 = ('Ponyo', 'Messi', 'Pepe')
+
+variable10, variable11, variable12 = Tupla4
+
+print (f'Esta es la tecnica de desempaquetado de variables {variable11}')
+
+Contador = 0
+
+while (Contador <= 5):
+    print (f'El contador es {Contador}')
+    Contador+= 1
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'{PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+Lista_Animales = []
+Lista_Animales.append('Jirafa')
+Lista_Animales.insert(0, PEPE.Lista2[2])
+Lista_Animales.extend(['Perro', 'Tortuga'])
+
+print (f'{Lista_Animales}')
+
+Contador = 0
+
+while (Contador < len(Lista_Animales)):
+    if (Lista_Animales[Contador] == 'Perro'):
+        print (f'El mejor amigo del hombre')
+        break
+    else:
+        Contador+= 1
+        continue
+
+for elemento1, elemento2 in zip(Set_Conjunto_Menu1, PEPE.Tupla_Poke):
+    print (f'{elemento1} -- {elemento2}')
+
+print (f'-' * 20)
+
+for elemento in range(5):
+    print (f'{elemento}')
+
+for elemento in range(995, 1000):
+    print (f'{elemento}')
+
+Lista_Numeros_Mult = [num  * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Mult}')
+
+Num_Mayor = max(Lista_Numeros_Mult)
+Num_Menor = min(Lista_Numeros_Mult)
+Redondeado = round(14.458795, 2)
+Sumatoria4 = sum(Lista_Numeros_Mult)
+
+print (f'El menor de los numeros es {Num_Menor} y el mayor {Num_Mayor}')
+print (f'Redondeado {Redondeado}')
+print (f'El resultado de la sumatoria {Sumatoria4}')
+
+print (f'{bool(False)}')
+print (f'{bool(not True)}')
+print (f'{bool("")}')
+print (f'{bool(0)}')
+print (f'{bool(None)}')
+
+Todo_All = all([Lista_Uno_Copia, Tupla4, Set_Conjunto_Menu1, ""])
+
+print (f'{Todo_All}')
+
+Uno = int("500")
+Dos = str(500)
+Tres = float(Dos)
+
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
+
+Any_Iterable2 = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Anonima6 = filter(lambda Num :  Num % 2 == 0, PEPE.Lista_Numeros)
+Lista_Iterable2 = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+
+print (f'{Any_Iterable2}')
+print (f'{list(Anonima6)}')
+print (f'{Lista_Iterable2}')
+
+print (f' - '.join(Set_Conjunto_Menu1))
+
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
+
+PEPE2.Saludar5()
+
+import Paquete.Sub_Paquete.Segundo as PEPE3
+
+variable_PEPE3 = PEPE3
+
+'''def Floating1(Numero):
+    return Variable_Sumatoria * Objeto2.Cantidad + Numero
+
+print (f'El resultado de la operacion es {Floating1(PEPE.Flotante1)}')
+
+Resultado2 = eval(PEPE.Flotante2)
+
+print (f'El resultado de la operacion es {Resultado2}')
+
+def Floating3(Textico):
+    Lista_Textico = Textico.split(' ')
+
+    for elemento in Lista_Textico:
+        print (f'{elemento}')
+
+    print (f'Cantidad de palabras digitadas: {Lista_Textico.__len__()}')
+
+Floating3(PEPE.Flotante3)'''
+
+Contador = int(input(f'Ingrese la cantidad de estudiantes -> '))
+
+Lista_Alumnos = []
+
+def Colegio(Lista):
+    for elemento in range(Contador):
+        Estudiante = input(f'Ingrese el nombre del estudiante {elemento}: ')
+        Lista.append(Estudiante)
+
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio(Lista_Alumnos)}'])
+    Docu.close()
+
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+Lista_Alumnos2 = list([])
+
+Contador = int(input(f'Ingrese el numero de estudiantes: '))
+
+def Colegio2(Lista):
+    for elemento in range(Contador):
+        Alumno_Nombre = input(f'El nombre del alumno {elemento} es: ')
+        Alumno_Edad = int(input(f'La edad del alumno {elemento} es: '))
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
+        Lista.append(Estudiante)
+
+    Lista.sort(key = lambda Num : Num[1])
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
+
+    print (f'El alumno menor de la lista es {Menore} y el mayor es {Mayore}')
+
+Colegio2(Lista_Alumnos2)
