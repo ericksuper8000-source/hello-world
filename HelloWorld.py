@@ -2176,7 +2176,7 @@ def Floating3(Textico):
 
 Floating3(PEPE.Flotante3)'''
 
-Contador = int(input(f'Ingrese la cantidad de estudiantes -> '))
+'''Contador = int(input(f'Ingrese la cantidad de estudiantes -> '))
 
 Lista_Alumnos = []
 
@@ -2213,4 +2213,174 @@ def Colegio2(Lista):
 
     print (f'El alumno menor de la lista es {Menore} y el mayor es {Mayore}')
 
-Colegio2(Lista_Alumnos2)
+Colegio2(Lista_Alumnos2)'''
+
+'''def Exception_Finale():
+    while True:
+        Numero = input(f'Ingrese un numero: ')
+        try:
+            Numerito = int(Numero)
+            break
+        except:
+            print(f'Error, necesito que ingreses un numero')
+
+    return Numerito
+
+print (f'Gracias, tu numero ingresado es {Exception_Finale()}')'''
+
+import pandas as pd
+import requests
+import io
+
+headers = {'User-Agent' : 'Mozilla/5.0'}
+Response = requests.get(Ruta_Html, headers=headers)
+
+Leer_Html2 = io.StringIO(Response.text)
+
+Cargar_Html2 = pd.read_html(Leer_Html2)
+
+print (f'{Cargar_Html2[2].head()}')
+
+import re
+
+Correo = 'sample@sample.com'
+
+Pattern4 = r'^[a-zA-Z0-9./*-+]+\@[a-zA-Z]+\.[a-z]{2,}$'
+
+Buscar18 = bool(re.match(Pattern4, Correo))
+
+if (Buscar18 == True):
+    print (f'El formato del correo es correcto')
+else:
+    print (f'El formato del correo es incorrecto')
+
+from datetime import datetime
+
+Ruta_Csv5 = 'C:\\python-data-analyzer\\data\\sales.csv'
+
+Cargar_Csv5 = pd.read_csv(Ruta_Csv5)
+
+'''Fecha2 = input(f'Ingrese una fecha con formato YY-MM-DD: ')
+
+try:
+    Fech2 = datetime.strptime(Fecha2, '%Y-%m-%d').date()
+    Fech2_Formateada = pd.to_datetime(Fech2)
+    Cargar_Csv5['date'] = pd.to_datetime(Cargar_Csv5['date'])
+except ValueError:
+    print (f'Error, el formato de la fecha es incorrecto')
+    exit()
+
+Encontrado2 = Cargar_Csv5[Cargar_Csv5['date'].dt.date == Fech2_Formateada.date()]
+
+if (Encontrado2.empty):
+    print (f'No se han encontrado ventas en esta fecha')
+else:
+    print (f'Genial! ventas encontradas')
+    Buscar19 = Encontrado2.groupby('product')['quantity'].sum()
+    Buscar19_Prod_Mayor = Buscar19.idxmax()
+    Buscar19_Prod_Menor = Buscar19.idxmin()
+    Buscar19_Prod_Mayor_Cant = Buscar19.max()
+    Buscar19_Prod_Menor_Cant = Buscar19.min()
+
+    print (f'{Buscar19}')
+    print (f'En la fecha {Fech2_Formateada} se realizaron {Buscar19_Prod_Mayor_Cant} ventas del producto {Buscar19_Prod_Mayor}')
+    print (f'En la fecha {Fech2_Formateada} se realizaron {Buscar19_Prod_Menor_Cant} ventas del producto {Buscar19_Prod_Menor}')
+    print (f'Total de ventas {Buscar19_Prod_Mayor_Cant + Buscar19_Prod_Menor_Cant}')'''
+
+Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
+
+print (f'{Cargar_Csv5}')
+
+Buscar20 = Cargar_Csv5.groupby('product')['Total'].sum()
+
+
+print (f'{Buscar20}')
+
+class Pokemon3():
+    def __init__(self, Nombre, Tipo, Ataque):
+        self.Nombre = Nombre
+        self.Tipo = Tipo
+        self.Ataque = Ataque
+        self.Cantidad = 18 * 2
+        self.Catched = variable7
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Tipo: {self.Tipo}')
+        print (f'Ataque: {self.Ataque}')
+
+class Poke_Hija3(Pokemon3):
+    def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.Sub_Tipo = Sub_Tipo
+
+    def Mostrar(self):
+        print (f'Sub_Tipo: {self.Sub_Tipo}')
+
+Objeto27 = Poke_Hija3(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno', 'Hada')
+
+Pokemon3.Mostrar(Objeto27)
+Objeto27.Mostrar()
+
+class Una():
+    def Desplegar(self):
+        print (f'El mensaje ha sido desplegado')
+
+class Dos():
+    def __init__(self):
+        self.Mensaje = Una()
+
+    def Mensajear(self):
+        self.Mensaje.Desplegar()
+
+Objeto28 = Dos()
+Objeto28.Mensajear()
+
+class BankingAccount():
+    def __init__(self, Saldo):
+        self.__Saldo = Saldo
+
+    def Depositar(self, Dinero):
+        self.__Saldo += Dinero
+
+    @property
+    def Dinero(self):
+        return self.__Saldo
+
+    @Dinero.setter
+    def Dinero(self, New_Saldo):
+        self.__Saldo = New_Saldo
+
+    def Mostrar(self):
+        print (f'Su saldo a la fecha es de ${self.__Saldo}')
+
+Objeto29 = BankingAccount(100)
+Objeto29.Depositar(25)
+Objeto29.Mostrar()
+
+print (f'El saldo privado es de {Objeto29.Dinero}')
+
+Objeto29.Dinero = '20,000'
+
+Objeto29.Mostrar()
+
+print (f'El saldo privado es de {Objeto29.Dinero}')
+
+from abc import ABC, abstractmethod
+
+class Plantilla2(ABC):
+    @abstractmethod
+    def Generica(self):
+        pass
+
+class Primera(Plantilla2):
+    def Generica(self):
+        print (f'Esto es abstraccion')
+
+    def Otra(self):
+        print (f'Este es otro mensaje cualquiera')
+
+Objeto30 = Primera()
+
+Objeto30.Generica()
+Objeto30.Otra()
