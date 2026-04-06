@@ -1,3 +1,15 @@
+'''
+Clase normal
+Herencia simple
+Herencia Jerarquica
+Herencia Multiple
+Polimorfismo
+Encapsulamiento
+Abstraccion
+Composicion
+
+'''
+
 #*******************************************************************************************
 
 '''Expresiones regulares en Python
