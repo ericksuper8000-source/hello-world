@@ -132,6 +132,22 @@ Hagamos dos Dataframes, Data_Frame1, Data_Frame2 y con la funcion pd.concat([Dat
 Recorramos el dataframe concatenate con un for indice, elemento y iterrows() y muestre los nombres
 
 # Ahora vamos a jugar con groupby y con pandas
+----------------------------------------------------------------------------------------
+# Hagamos un grafico solamente con matplotlip 
+
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 25]
+
+plt.figure(figsize=(4, 3))
+plt.plot(x, y)
+
+plt.title("Ventas")
+plt.xlabel("Día")
+plt.ylabel("Cantidad")
+
+plt.show()
 
 # Hacer un grafico lineal con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
 
@@ -159,6 +175,7 @@ plt.show()
 
 # Hacer un grafico de dispersion con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
 
+import pandas as pd
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -748,7 +765,8 @@ Objeto1.Mostrar()
 # Imprime dos varibles string concatenadas
 # Imprime una concatenacion de una varible texto y un integer
 # borra una variable
-# Juegue con los operadores de pertenencia in / not in
+# Juegue con los operadores de pertenencia in / not in en variables simples
+# Busque un elemento en una Lista o Tupla con los operadores de pertenencia in/ not in
 # Declare una variable con Snake Case
 
 # ***********************  Listas   **********************

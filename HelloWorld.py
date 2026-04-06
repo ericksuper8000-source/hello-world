@@ -1,4 +1,8 @@
-import Module_Own as PEPE
+try:
+    import Module_Own as PEPE
+except ImportError:
+    print (f'Error, el modulo seleccionado no existe')
+
 from Module_Own import Pokemon as Poke
 
 class Poke_Kid(Poke):
@@ -374,3 +378,228 @@ with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
     Documento_Linea = Docu.readline()
     print (f'{Documento_Linea}')
     Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nCalamar'])
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nLeon')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nFresas Sabrosas', '\nFresas Sabrosas', '\nFresas Sabrosas'])
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Linea = Docu.readline()
+    print (f'{Documento_Linea}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke1"]}')
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke2"]}')
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke3"]}\n')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f' - '.join(PEPE.Set_Conjunto_Poke)])
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+
+import pandas as pd
+
+Data_Frame1 = pd.DataFrame({
+    'Nombre' : ["Erick", "Josue", "Karlita"],
+    'Edad' : [37, 20, 6],
+    'Votante' : [True, not False, False]
+})
+
+Data_Frame2 = pd.DataFrame({
+    'Nombre' : ["Carmelo", "Susanita", "Roxana"],
+    'Edad' : [55, 14, 26],
+    'Votante' : [True, False, not False]
+})
+
+print (f'{Data_Frame1}')
+
+Data_Frame_Concatenate = pd.concat([Data_Frame2, Data_Frame1])
+
+Data_Frame_Concatenate_Age = Data_Frame_Concatenate['Edad']
+
+print (f'-' * 20)
+
+print (f'{Data_Frame_Concatenate_Age}')
+
+print (f'La menor de las edades es {Data_Frame_Concatenate_Age.min()} y la mayor es {Data_Frame_Concatenate_Age.max()}')
+
+print (f'{Data_Frame_Concatenate.info()}')
+
+print (f'-' * 20)
+
+for indice, elemento in Data_Frame_Concatenate.iterrows():
+    nombrecito = elemento['Nombre']
+
+    print (f'Mi nombre es {nombrecito}')
+
+print (f'-' * 20)
+
+Grupo1 = Data_Frame_Concatenate.groupby('Nombre')['Edad'].sum()
+Grupo1_Mayor = Grupo1.idxmax()
+Grupo1_Menor = Grupo1.idxmin()
+Grupo1_Mayor_Cant = Grupo1.max()
+Grupo1_Menor_Cant = Grupo1.min()
+
+print (f'Mayor {Grupo1_Mayor} - {Grupo1_Mayor_Cant}')
+print (f'Mayor {Grupo1_Menor} - {Grupo1_Menor_Cant}')
+
+'''import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.barplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
+plt.show()
+
+print (f'-' * 20)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.lineplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
+plt.show()
+
+print (f'-' * 20)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.scatterplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
+plt.show()
+
+print (f'-' * 20)'''
+
+print (f'{Data_Frame_Concatenate.head(3)}')
+
+print (f'-' * 20)
+
+print (f'{Data_Frame_Concatenate.head(1)}')
+
+print (f'-' * 20)
+
+print (f'{Data_Frame_Concatenate.tail(1)}')
+
+print (f'-' * 20)
+
+Filas, Columnas = Data_Frame_Concatenate.shape
+
+print (f'Filas: {Filas}')
+print (f'Columnas: {Columnas}')
+
+Elemento1 = Data_Frame1.loc[0, 'Nombre']
+Elemento2 = Data_Frame1.loc[1, 'Edad']
+Elemento3 = Data_Frame1.loc[2, 'Votante']
+Elemento4 = Data_Frame1.loc[:, 'Nombre']
+Elemento5 = Data_Frame1.loc[1, :]
+
+print (f'{Elemento1}')
+print (f'{Elemento2}')
+print (f'{Elemento3}')
+print (f'{Elemento4}')
+print (f'{Elemento5}')
+
+print (f'-' * 20)
+
+Elemento6 = Data_Frame2.iloc[0, 0]
+Elemento7 = Data_Frame2.iloc[1, 1]
+Elemento8 = Data_Frame2.iloc[2, 2]
+Elemento9 = Data_Frame2.iloc[0, :]
+Elemento10 = Data_Frame2.iloc[:, 2]
+
+print (f'{Elemento6}')
+print (f'{Elemento7}')
+print (f'{Elemento8}')
+print (f'{Elemento9}')
+print (f'{Elemento10}')
+
+print (f'-' * 20)
+
+import pandas as pd
+import openpyxl
+
+Ruta_Excel = 'C:\\Repo\\Book.xlsx'
+Cargar_Excel = pd.read_excel(Ruta_Excel, engine='openpyxl')
+
+print (f'{Cargar_Excel.head()}')
+
+print (f'-' * 20)
+
+Cargar_Excel1 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=1)
+Cargar_Excel2 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0)
+Cargar_Excel3 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, names=['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve' 'diez'])
+Cargar_Excel4 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, index_col='tarifa')
+Cargar_Excel5 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, usecols='E:I', index_col='tarifa')
+Cargar_Excel6 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, usecols='E:I', index_col='tarifa', nrows=1)
+
+print (f'{Cargar_Excel1.head()}')
+
+print (f'-' * 20)
+
+print (f'{Cargar_Excel2.head()}')
+
+print (f'-' * 20)
+
+print (f'{Cargar_Excel3.head()}')
+
+print (f'-' * 20)
+
+print (f'{Cargar_Excel4.head()}')
+
+print (f'-' * 20)
+
+print (f'{Cargar_Excel5.head()}')
+
+print (f'-' * 20)
+
+print (f'{Cargar_Excel6.head()}')
+
+print (f'-' * 20)
+
+Cargar_Excel3_Sorted = Cargar_Excel3.sort_values(by='cinco', ascending=False)
+
+print (f'{Cargar_Excel3_Sorted}')
+
+print (f'-' * 20)
+
+Cargar_Excel3_Sorted_Descending = Cargar_Excel3.sort_values(by='cinco', ascending=True)
+
+print (f'{Cargar_Excel3_Sorted_Descending}')
+
+print (f'-' * 20)
+
+print (f'{Data_Frame_Concatenate_Age}')
+
+print (f'-' * 20)
