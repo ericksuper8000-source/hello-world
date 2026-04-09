@@ -1468,3 +1468,202 @@ Atacante.Mostrar(Objeto21)
 Defensor.Mostrar(Objeto21)
 
 print (f'-' * 20)
+
+Children_Parent = issubclass(Poke_Kid2, Pokemon2)
+
+print (f'{Children_Parent}')
+
+Objeto_Clase1 = isinstance(Objeto21, Atacante)
+Objeto_Clase2 = isinstance(Objeto21, Defensor)
+Objeto_Clase3 = isinstance(Objeto21, Paladin)
+
+print (f'{Objeto_Clase1}')
+print (f'{Objeto_Clase2}')
+print (f'{Objeto_Clase3}')
+
+print (f'-' * 20)
+
+class A():
+    def Mostrar(self):
+        print (f'Hola A')
+
+class E():
+    def Mostrar(self):
+        print (f'Hola E')
+
+class B(E):
+    def Mostrar(self):
+        print (f'Hola B')
+
+class C(A):
+    def Mostrar(self):
+        print (f'Hola C')
+
+class D(B,C):
+    def Mostrar(self):
+        print (f'Hola D')
+
+Objeto22 = D()
+
+A.Mostrar(Objeto21)
+B.Mostrar(Objeto21)
+C.Mostrar(Objeto21)
+Objeto22.Mostrar()
+E.Mostrar(Objeto21)
+
+print (f'-' * 20)
+
+class Cash():
+    def Pagar(self):
+        print (f'Your payment method is Cash')
+
+class Card:
+    def Pagar(self):
+        print (f'Your payment method is Card')
+
+class CriptoCurrency:
+    def Pagar(self):
+        print (f'Your payment method is CriptoCurrency')
+
+Objeto23 = CriptoCurrency()
+Objeto24 = Card()
+Objeto25 = Cash()
+
+Objeto23.Pagar()
+Objeto24.Pagar()
+Objeto25.Pagar()
+
+print (f'-' * 20)
+
+class Bank_Account:
+    def __init__(self, Balance):
+        self.__Balance = Balance
+
+    def Deposit(self, Money):
+        self.__Balance += Money
+
+    @property
+    def Money(self):
+        return self.__Balance
+
+    @Money.setter
+    def Money(self, New_Balance):
+        self.__Balance = New_Balance
+
+    def Show(self):
+        print (f'Thank you, your balance is ${self.__Balance}')
+
+Objeto26 = Bank_Account(100)
+Objeto26.Deposit(25)
+Objeto26.Show()
+
+print (f'Your private balance is {Objeto26.Money}')
+
+Objeto26.Money = '20,000'
+
+Objeto26.Show()
+
+print (f'Your NEW private balance is {Objeto26.Money}')
+
+print (f'-' * 20)
+
+from abc import ABC, abstractmethod
+
+class Plantilla2(ABC):
+    @abstractmethod
+    def Mostrandolo(self):
+        pass
+
+class Ejemplo2(Plantilla2):
+    def Mostrandolo(self):
+        print (f'Esto es un segundo ejemplo de abstraccion')
+
+    def Segunda(self):
+        print (f'Hola Abstraccion')
+
+Objeto27 = Ejemplo2()
+
+Objeto27.Mostrandolo()
+Objeto27.Segunda()
+
+class Composicion1():
+    def Mensajear(self):
+        print (f'El mensaje ha sido enviado')
+
+class Composicion2():
+    def __init__(self):
+        self.Clase_Composicion = Composicion1()
+
+    def Mostrar(self):
+        self.Clase_Composicion.Mensajear()
+
+Objeto28 = Composicion2()
+
+Objeto28.Mostrar()
+
+print (f'-' * 20)
+
+from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
+
+variable1 = Lista_Uno[0]
+variable2 = 'Perez'
+variable3 = '''
+Esto
+Es
+Un
+Long
+String'''
+
+variable4 = Variable_Sumatoria
+variable5 = PEPE.Division_Flotante
+variable6, variable7 = not False, Objeto1.Catched
+
+# Esto es un comentario simple
+
+'''Esto
+Es
+Un
+Comentario
+Compuesto'''
+
+print (f'Esto es una concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'Mi nombre completo es {Lista_Uno[0]} {variable2}')
+
+print (f'{PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")]} tiene {Variable_Sumatoria}, {Sumatoria2(1, 2, 3, 4)} o incluso {Objeto3.Cantidad} pokemones')
+
+del variable5
+
+print (f'melo' in Saludar_Dos())
+print (f'Long' not in variable3)
+
+print (f'Erick' in Lista_Uno)
+
+print (f'-' * 20)
+
+snake_case1, snake_case2, snake_case3 = PEPE.Tupla_Poke
+
+print (f'Esto es un desempaquetado de variables {snake_case2}')
+
+print (f'La lista 1 tiene {Lista_Uno.__len__()} elementos')
+
+Lista_Uno.append('Coco Rayado')
+Lista_Uno.insert(1, 'Juana La Cubana')
+Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)}')
+
+Cociente, Residuo = divmod(Objeto2.Cantidad, Variable_Sumatoria)
+
+print (f'El cociente de la operacion es {Cociente} y el residuo {Residuo}')
+
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:4]}')
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[:2]}')
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[:3]}')
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:]}')
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:]}')
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[0:None]}')
+print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[:]}')
+
+print (f'{Lista_Uno[1]} eso es un {PEPE.Lista2[2]}?')
