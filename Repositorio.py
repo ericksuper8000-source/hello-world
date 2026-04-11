@@ -757,6 +757,18 @@ Objeto1.Mostrar()
 '''
 
 
+# Como iteramos una matriz ------------
+
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+for i in range(len(matriz)):
+    for j in range(len(matriz[i])):
+        print (f'{matriz[i][j]}')
+
 
 
 # Como declarar dos variables string?
@@ -833,6 +845,103 @@ Objeto1.Mostrar()
 # Usemos el metodo .issubset() para saber si el conjunto 2 es un subconjunto de 1, osea que sus elementos salen en el conjunto mayor, devolvera True
 # Usemos el metodo .issuperset() para saber si el conjunto 1 es un super conjunto de 2
 # Ahora comparemos si en el conjunto 2 hay algun elemento que se repita en conjunto 1 con .isdisjoint()
+
+
+'''
+
+✅ Operaciones principales de conjuntos en Python
+Supongamos los siguientes conjuntos para los ejemplos:
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+1. 🔹 Unión (union)
+Devuelve todos los elementos de ambos conjuntos sin repetir.
+A.union(B)
+# o también
+A | B
+Resultado:
+{1, 2, 3, 4, 5, 6}
+
+2. 🔹 Intersección (intersection)
+Devuelve los elementos comunes entre los conjuntos.
+A.intersection(B)
+# o también
+A & B
+Resultado:
+{3, 4}
+
+3. 🔹 Diferencia (difference)
+Devuelve los elementos que están en un conjunto pero no en el otro.
+A.difference(B)
+# o también
+A - B
+Resultado:
+{1, 2}
+También puedes obtener la diferencia inversa:
+B - A  # {5, 6}
+
+4. 🔹 Diferencia simétrica (symmetric_difference)
+Devuelve los elementos que están en uno u otro conjunto, pero no en ambos.
+A.symmetric_difference(B)
+# o también
+A ^ B
+Resultado:
+{1, 2, 5, 6}
+
+5. 🔹 Subconjunto (issubset)
+Verifica si todos los elementos de un conjunto están contenidos en otro.
+A.issubset(B)
+# o también
+A <= B
+Ejemplo:
+C = {1, 2}
+C.issubset(A)  # True
+
+6. 🔹 Superconjunto (issuperset)
+Verifica si un conjunto contiene todos los elementos de otro.
+A.issuperset(C)
+# o también
+A >= C
+
+7. 🔹 Conjuntos disjuntos (isdisjoint)
+Determina si dos conjuntos no tienen elementos en común.
+A.isdisjoint(B)
+Ejemplo:
+D = {7, 8}
+A.isdisjoint(D)  # True
+
+8. 🔹 Operaciones con actualización (modifican el conjunto original)
+Operación
+Método
+Operador
+Descripción
+Unión
+update()
+`
+=`
+Intersección
+intersection_update()
+&=
+Conserva solo los elementos comunes
+Diferencia
+difference_update()
+-=
+Elimina los elementos presentes en el otro conjunto
+Diferencia simétrica
+symmetric_difference_update()
+^=
+Conserva los elementos no comunes
+Ejemplo:
+A = {1, 2, 3}
+B = {3, 4}
+A.update(B)
+print(A)  # {1, 2, 3, 4}
+
+
+'''
+
+
+
 # El restaurante tiene un menú fijo de jugos. Este menú nunca cambia, entonces hagamos un set con frozenset({}) de 3 sabores que no pueden cambiar
 # Intentar agregar un nuevo sabor con el metodo .add() para obtener un error
 # Ahora hacemos otro set_conjunto con 3 sabores, pero este es un set normal
