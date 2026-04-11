@@ -15,6 +15,7 @@ Clase normal
 Herencia simple
 Herencia Jerarquica
 Herencia Multiple
+MRO
 Polimorfismo
 Encapsulamiento
 Abstraccion
@@ -77,8 +78,9 @@ resultado = re.findall(r'\d{2,4}|Hola', texto)  (Encuentra un numero como minimo
 
 Verifiquemos que un correo electronico tiene el formato correcto
 Verifiquemos que un correo electronico tiene el formato correcto y use hotmail, gmail, yahoo y .com, .net, .org
-Verifiquemos que un numero de telefono tiene el formato correcto
+
 Verifiquemos que un numero se encuentre entre el rango de 1 y 31
+Buscar12 = re.findall(r'(0[1-9]|[12][0-9]|3[01])', '32')
 
 Reemplace la fecha con XX/XX/XXXX
 text = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
