@@ -1,3 +1,15 @@
+# Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
+# En caso de que de error, entonces con except mostraremos un mensaje de error
+
+# Abrir e importar el modulo Modulo_Propio “import”
+# Abrir e importar el modulo Modulo_Propio “import”
+# Vamos a cambiarle el nombre al modulo que vamos a usar a PEPE con “as”
+
+ARCHIVOS .TXT  \\
+Creamos un archivo txt en el folder donde estan los archivos python
+
+C:\\Users\\XPC\\Desktop\\'''
+
 '''
 Clase normal
 Herencia simple
@@ -9,8 +21,6 @@ Abstraccion
 Composicion
 
 '''
-
-#*******************************************************************************************
 
 '''Expresiones regulares en Python
 Son un buscador con superpoderes para texto. Siempre hay que comenzar exportando import re
@@ -65,6 +75,12 @@ resultado = re.findall(r'\d{2,4}|Hola', texto)  (Encuentra un numero como minimo
 
 '''
 
+Verifiquemos que un correo electronico tiene el formato correcto
+Verifiquemos que un correo electronico tiene el formato correcto y use hotmail, gmail, yahoo y .com, .net, .org
+Verifiquemos que un numero de telefono tiene el formato correcto
+Verifiquemos que un numero se encuentre entre el rango de 1 y 31
+
+Reemplace la fecha con XX/XX/XXXX
 text = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
 pattern = r'\d{2}/\d{2}/\d{4}'
 replacement = 'Fecha Oculta'
@@ -80,7 +96,9 @@ print (f'Texto modificado: {New_Text}')
 
 
 # Hagamos una exception ValueError, sera una funcio con un input que pida ingresar un numero, try int(Numero) si no entonces except mostrar mensaje de error.
+
 # Hagamos una exception TypeError, sera una funcion que reciba como parametro 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
+
 # Hagamos una exception ZeroDivisionError, sera una funcion que reciba como parametros 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
 
 # Hagamos una exception IndexError, primero haremos una lista con 3 elementos, luego una funcion que pida como parametro el indice, try mostrar un mensaje el elemento en el indice x es x
@@ -91,20 +109,6 @@ print (f'Texto modificado: {New_Text}')
 
 # Hagamos una exception FileNotFoundError, aqui no usaremos funciones, solo hacer un try y dentro del try hacemos un with open para mostrar con un read el archivo txt HolaMundo.txt
 # Si no es posible mostrarlo con un except mostrar un mensaje de error
-
-# Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
-# En caso de que de error, entonces con except mostraremos un mensaje de error
-
-
-
-# Abrir e importar el modulo Modulo_Propio “import”
-# Abrir e importar el modulo Modulo_Propio “import”
-# Vamos a cambiarle el nombre al modulo que vamos a usar a PEPE con “as”
-
-ARCHIVOS .TXT  \\
-Creamos un archivo txt en el folder donde estan los archivos python
-
-C:\\Users\\XPC\\Desktop\\'''
 
 
 # Sobreescribir el txt y mostrar un readline
@@ -133,6 +137,7 @@ Recorramos el dataframe concatenate con un for indice, elemento y iterrows() y m
 
 # Ahora vamos a jugar con groupby y con pandas
 ----------------------------------------------------------------------------------------
+
 # Hagamos un grafico solamente con matplotlip 
 
 import matplotlib.pyplot as plt
@@ -148,6 +153,10 @@ plt.xlabel("Día")
 plt.ylabel("Cantidad")
 
 plt.show()
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 # Hacer un grafico lineal con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
 
@@ -184,6 +193,10 @@ Cargar_Csv = pd.read_csv(Ruta_Csv)
 print (f'{Cargar_Csv}')
 sns.scatterplot(x='Nombre', y='Edad', data=Cargar_Csv)
 plt.show()
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 
 Como acceder a la primera fila del dataframe? DataFrame1.head(1)  solo muestra la primera fila
@@ -294,6 +307,24 @@ Lista_Matriz = [[1, 2, 3], [4, 5, 6]]
 
 print (f'{Lista_Matriz[0][1]}')
 
+
+
+# Como iteramos una matriz ------------
+
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+for i in range(len(matriz)):
+    for j in range(len(matriz[i])):
+        print (f'{matriz[i][j]}')
+
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
+
 Importemos la libreria numpy
 Con as llamenos a la libreria np
 
@@ -392,7 +423,7 @@ Ahora muestre la forma del array con .shape
 Ahora veamos la cantidad de elementos del array con .size
 
 
-# Creamos un Array Generico de una dimension con 10 elementos aleatorios. Por medio de un ciclo for vamos a agregarlos a una Tupla_Array
+# Creamos un Array Generico de una dimension con 5 elementos aleatorios. Por medio de un ciclo for vamos a agregarlos a una Tupla_Array
 
 
 
@@ -415,8 +446,6 @@ Ahora veamos la cantidad de elementos del array con .size
 # Solo números pares del 2 al 10   pares = np.arange(2, 11, 2)
 # Crea un arreglo con los números del 10 al 20 de 2 en 2
 # Crea un arreglo con los múltiplos de 3 desde 3 hasta 30
-
-
 # Ahora creamos un arreglo que vaya de 1 a 10 con np.arrange(10)
 
 # Creamos un array con random.randint() de una unica dimensional
@@ -424,13 +453,6 @@ Ahora veamos la cantidad de elementos del array con .size
 # Crea un arreglo de números aleatorios y ordénalo con np.sort()
 # Ahora a ese mismo arreglo saquele la media con .mean()
 # Ahora haga la sumatoria de todos los elementos del arreglo con .sum()
-
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
 
 # Sume dos matrices de 2, 3 igual tamano
 # Reste dos matrices de 2, 3 igual tamano
@@ -447,6 +469,8 @@ Ahora veamos la cantidad de elementos del array con .size
 
 # con un ciclo for y una matriz de 2x3 recorra cada una de las filas
 # Con un ciclo for y una matriz de 2x2x3 recorra cada matriz y luego otro for para recorrer cada fila
+
+
 # vamos a hacer una matriz de 2x2x3 y con axis, vamos a sumar solo los elementos de la segunda fila np.sum(array1, axis=0)
 
 # Vertical (por columnas)	           axis=0	Baja por las filas ↓
@@ -465,7 +489,9 @@ Con la instruccion replace = False, vamos a asegurarnos que ningun numero del re
 Busque 3 numeros entre el 1 y el 10 con Array_Linspace = np.linspace(start=1, stop=10, num=3)
 '''
 
-
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 Hagamos una funcion Generadora.
 Las funciones generadoras me permiten ejecutar un codigo de manera pausada y controlada para ver el comportamiento.
@@ -593,6 +619,9 @@ Pares = [num for num in Lista if num % 2 == 0]
 
 '''
 
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 
 # Crea una clase pokemon con tipo, nombre, ataque y una variable capturado en el  Modulo_Propio
@@ -756,19 +785,9 @@ Objeto1.Mostrar()
 
 '''
 
-
-# Como iteramos una matriz ------------
-
-matriz = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-for i in range(len(matriz)):
-    for j in range(len(matriz[i])):
-        print (f'{matriz[i][j]}')
-
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
 
 
 # Como declarar dos variables string?
@@ -784,7 +803,7 @@ for i in range(len(matriz)):
 # Imprime una concatenacion de una varible texto y un integer
 # borra una variable
 # Juegue con los operadores de pertenencia in / not in en variables simples
-# Busque un elemento en una Lista o Tupla con los operadores de pertenencia in/ not in
+# Busque un elemento en una Lista o Tupla o Set_Conjunto con los operadores de pertenencia in/ not in
 # Declare una variable con Snake Case
 
 # ***********************  Listas   **********************
@@ -911,25 +930,12 @@ D = {7, 8}
 A.isdisjoint(D)  # True
 
 8. 🔹 Operaciones con actualización (modifican el conjunto original)
-Operación
-Método
-Operador
-Descripción
-Unión
-update()
-`
-=`
-Intersección
-intersection_update()
-&=
-Conserva solo los elementos comunes
-Diferencia
-difference_update()
--=
-Elimina los elementos presentes en el otro conjunto
-Diferencia simétrica
-symmetric_difference_update()
-^=
+
+Unión   update()    -----  Conserva los elementos no comunes
+Intersección    intersection_update()    --- Conserva solo los elementos comunes
+Diferencia      difference_update()    ---  Elimina los elementos presentes en el otro conjunto
+Diferencia simétrica     symmetric_difference_update()      --- Conserva los elementos no comunes
+
 Conserva los elementos no comunes
 Ejemplo:
 A = {1, 2, 3}
@@ -1030,6 +1036,23 @@ print(A)  # {1, 2, 3, 4}
 # Verifiquemos si una cadena termina con x letra con el metodo endswith
 # Reemplace una parte de una cadena con el metodo replace(Este tiene dos parametros, lo que se quiere cambiar y lo nuevo)
 # Tome una variable de texto y separe cada elemento de la variable en una lista separada por ',' utilizando el metodo split()
+
+
+'''
+| Método        | Descripción                            |
+| ------------- | -------------------------------------- |
+| `isalpha()`   | Solo letras                            |
+| `isdigit()`   | Dígitos y algunos caracteres numéricos |
+| `isdecimal()` | Solo dígitos decimales                 |
+| `isnumeric()` | Cualquier carácter numérico            |
+| `isalnum()`   | Letras y números                       |
+| `isspace()`   | Solo espacios                          |
+| `islower()`   | Letras en minúsculas                   |
+| `isupper()`   | Letras en mayúsculas                   |
+| `istitle()`   | Formato de título                      |
+
+'''
+
 
 # Busque un elemento en una lista o tupla con index, ojo find no es un metodo para listas
 # Declare una variable y asignele una copia de una lista con el metodo copy()
@@ -1213,37 +1236,6 @@ else:
 
 '''
 
-Expresiones regulares en Python
-Excepciones
-Importar modulos
-Escribir en un txt file
-DataFrames de Pandas
-Graficos con Matplotlit
-Trabarjar con archivos excel
-Trabajar con archivos csv
-Trabajar con informacion de una pagina web
-Arreglos con numpy
-Funciones Generadoras
-Funciones
-Funciones anidadas
-Funciones Lambda
-Decoradores de funciones
-Funciones Type hint
-Funciones Closure
-Clases
-Variables
-Listas
-Tuplas
-Conjuntos
-Diccionarios
-Condicionales
-Ciclo For
-Ciclo While
-Data inputs
-
-
-
-
 
 
 
@@ -1273,34 +1265,31 @@ print (f'{Cargar_Csv5}')
 
 '''
 
-# Estudiemos clases y herencia
 
-class Pokemon:
-    def __init__(self, Nombre, Tipo, Ataque):
-        self.Nombre = Nombre
-        self.Tipo = Tipo
-        self.Ataque = Ataque
-        self.Cantidad = 18 * 2
-        self.Catched = not True
-
-    def Mostrar(self):
-        print (f'Nombre: {self.Nombre}')
-        print (f'Tipo: {self.Tipo}')
-        print (f'Ataque: {self.Ataque}')
-
-class Poke2(Pokemon):
-    def __init__(self, Nombre, Tipo, Ataque, City, Sub_Tipo):
-        super().__init__(Nombre, Tipo, Ataque)
-        self.City = City
-        self.Sub_Tipo = Sub_Tipo
-
-    def Desplegar(self):
-        print (f'{self.Nombre} se encuentra en {self.City} y tiene tipos {self.Tipo} / {self.Sub_Tipo}')
-
-Objeto1 = Poke2('Pikachu', 'Electrico', 'Impact Trueno', 'Kanto', 'Acero')
-
-Objeto1.Mostrar()
-
-print (f'-----------')
-
-Objeto1.Desplegar()
+Expresiones regulares en Python
+Excepciones
+Importar modulos
+Escribir en un txt file
+DataFrames de Pandas
+Graficos con Matplotlit
+Trabarjar con archivos excel
+Trabajar con archivos csv
+Trabajar con informacion de una pagina web
+Arreglos con numpy
+Funciones Generadoras
+Funciones
+Funciones anidadas
+Funciones Lambda
+Decoradores de funciones
+Funciones Type hint
+Funciones Closure
+Clases
+Variables
+Listas
+Tuplas
+Conjuntos
+Diccionarios
+Condicionales
+Ciclo For
+Ciclo While
+Data inputs
