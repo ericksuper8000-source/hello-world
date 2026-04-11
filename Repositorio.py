@@ -859,6 +859,12 @@ Objeto1.Mostrar()
 
 # Hagamos un diccionario vacio con fromkeys, luego una lista de elementos y agregue los elementos de la lista al diccionario con un ciclo    i=0
 
+'''Hagamos un diccionario nuevo y saquemos diferentes elementos con
+.keys()
+.values()
+.items()
+'''
+
 
 # A partir de los elementos del csv file, vamos a crear primero una lista de llaves, luego vamos a tomar los nombres y agregarlos a una lista
 # finalmente vamos a crear un diccionario y emparejar las llaves creadas y los nombres y mostramos el nuevo diccionario creado
