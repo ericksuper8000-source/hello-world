@@ -288,6 +288,12 @@ print (f'{Cargar_HTML[2].head()}')
 '''
 *********************************************** [NUMPY]
 
+Vamos  a hacer una matriz simple con Listas antes de comenzar con numpy.
+
+Lista_Matriz = [[1, 2, 3], [4, 5, 6]]
+
+print (f'{Lista_Matriz[0][1]}')
+
 Importemos la libreria numpy
 Con as llamenos a la libreria np
 
@@ -1071,6 +1077,9 @@ print(Cargar_Html[0].head())
 
 
 # Validar si el correo electronico tiene el formato correcto por medio de expresiones regulares
+# Ojo hagamos un ejemplo de validacion de correo electronico que pida explicitamente hotmail, gmail, yahoo o .com, .net .org  pattern1 = r'^[a-zA-Z0-9./*-+=_/?]+\@(hotmail|gmail|yahoo)\.(com|net|org)$'
+
+# Busque un numero que debe estar explicitamente entre 01 y 31. pattern1 = r'(0[0-9]|[12][0-9]|3[01])'
 
 '''
 
