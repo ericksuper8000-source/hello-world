@@ -149,3 +149,15 @@ Lista3 = list([1, 2, 3, 4, 5])
 Lista4 = [4000, 97, 15, 200]
 
 Tupla_Poke = ('Ash', 'Brooke', 'Misty')
+
+'''Flotante1 = int(input(f'Ingrese un numero entero: '))
+
+Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
+
+Flotante3 = input(f'Ingrese una cadena de texto: ')
+
+Flotante4 = input(f'Ingrese un texto: ')
+
+Flotante5 = input(f'Ingrese un numero decimal: ')
+
+Flotante6 = input(f'Ingrese un numero entero: ')'''

@@ -91,9 +91,23 @@ print (f'Texto modificado: {New_Text}')
 
 #*******************************************************************************************
 
+Con exceptions vamos a asegurarnos que lo que se ingreso es un numero decimal
 
+try:
+    float(variable13)
+    print('Correcto')
+except ValueError:
+    print('Incorrecto')
+    
+Con exceptions vamos a asegurarnos que lo que se ingreso es un numero entero
 
+variable14 = 35
 
+try:
+    int(variable14)
+    print (f'Correcto, es un numero entero')
+except ValueError:
+    print (f'Incorrecto, necesito que ingreses un numero entero')
 
 
 
