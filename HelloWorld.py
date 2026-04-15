@@ -1,11 +1,14 @@
+import fontTools.tfmLib
+import numpy as np
+
 try:
     import Module_Own as PEPE
 except ImportError:
-    print (f'Error, el modulo seleccionado no existe')
+    print (f'El modulo elegido es incorrecto')
 
-from Module_Own import Pokemon as Poke
+from Module_Own import Pokemon1 as Poke
 
-class Poke_Kid(Poke):
+class Poke_Kid1(Poke):
     def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
         super().__init__(Nombre, Tipo, Ataque)
         self.Sub_Tipo = Sub_Tipo
@@ -13,12 +16,16 @@ class Poke_Kid(Poke):
     def Mostrar(self):
         print (f'Sub_Tipo: {self.Sub_Tipo}')
 
-Objeto1 = Poke_Kid(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno', 'Acero')
-Objeto2 = Poke_Kid(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo', 'Fantasma')
-Objeto3 = Poke_Kid(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro', 'Hada')
+Objeto1 = Poke(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno')
+Objeto2 = Poke_Kid1(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo', 'Acero')
+Objeto3 = Poke(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro')
 
-Poke.Mostrar(Objeto1)
-Objeto1.Mostrar()
+Objeto2.Mostrar()
+
+print (f'-' * 20)
+
+Poke.Mostrar(Objeto2)
+Objeto2.Mostrar()
 
 print (f'-' * 20)
 
@@ -43,7 +50,7 @@ class Perro(Mascota):
         print (f'Raza: {self.Raza}')
         print (f'Padecimiento: {self.Padecimiento}')
 
-Objeto4 = Perro('Chester', 5, 2.6, 'Poodle', 'Asma')
+Objeto4 = Perro('Chester', 5, 2.5, 'Poodle', 'Asma')
 
 Mascota.Mostrar(Objeto4)
 Objeto4.Mostrar()
@@ -51,16 +58,18 @@ Objeto4.Mostrar()
 print (f'-' * 20)
 
 class Gato(Mascota):
-    def __init__(self, Nombre, Edad, Peso, Raza, Paciente_Activo):
+    def __init__(self, Nombre, Edad, Peso, Raza, Color, Paciente_Activo):
         super().__init__(Nombre, Edad, Peso)
         self.Raza = Raza
+        self.Color = Color
         self.Paciente_Activo = Paciente_Activo
 
     def Mostrar(self):
         print (f'Raza: {self.Raza}')
+        print (f'Color: {self.Color}')
         print (f'Paciente_Activo: {self.Paciente_Activo}')
 
-Objeto5 = Gato('Messi', 1.5, 1.8, 'Angora', 'Si')
+Objeto5 = Gato('Messi', 1.5, 1.2, 'Angora', 'Gris', 'No')
 
 Mascota.Mostrar(Objeto5)
 Objeto5.Mostrar()
@@ -77,7 +86,7 @@ class Pajaro(Mascota):
         print (f'Especie: {self.Especie}')
         print (f'Habla: {self.Habla}')
 
-Objeto6 = Pajaro('Polly', 31, 0.7, 'Cacatua Amarilla', 'Si')
+Objeto6 = Pajaro('Polly', 31, 0.4, 'Cacatua Amarilla', 'Si')
 
 Mascota.Mostrar(Objeto6)
 Objeto6.Mostrar()
@@ -113,7 +122,7 @@ class Paladin(Atacante, Defensor):
     def Mostrar(self):
         print (f'Name: {self.Name}')
 
-Objeto7 = Paladin(75, 'Battle Axe', 25, 'Green Liquid', 200, 'Ghost Knight')
+Objeto7 = Paladin(75, 'Battle Axe', 25, 'Black Lagoon', 200, 'Ghost Knight')
 
 Objeto7.Mostrar()
 Atacante.Mostrar(Objeto7)
@@ -121,29 +130,59 @@ Defensor.Mostrar(Objeto7)
 
 print (f'-' * 20)
 
-class Efectivo():
-    def Pagar(self):
-        print (f'El pago se realizo en efectivo')
+class A():
+    def Mostrar(self):
+        print (f'Hola A')
 
-class Tarjeta:
-    def Pagar(self):
-        print (f'El pago se realizo en tarjeta')
+class E():
+    def Mostrar(self):
+        print (f'Hola E')
 
-class Cripto:
-    def Pagar(self):
-        print (f'El pago se realizo en cripto')
+class B(E):
+    def Mostrar(self):
+        print (f'Hola B')
 
-Objeto8 = Cripto()
-Objeto9 = Tarjeta()
-Objeto10 = Efectivo()
+class C(A):
+    def Mostrar(self):
+        print (f'Hola C')
 
-Objeto8.Pagar()
-Objeto9.Pagar()
-Objeto10.Pagar()
+class D(B,C):
+    def Mostrar(self):
+        print (f'Hola D')
+
+Objeto8 = D()
+
+A.Mostrar(Objeto8)
+B.Mostrar(Objeto8)
+C.Mostrar(Objeto8)
+Objeto8.Mostrar()
+E.Mostrar(Objeto8)
 
 print (f'-' * 20)
 
-class Banking_Account():
+class Efectivo():
+    def Pagar(self):
+        print (f'El pago se realizo con Efectivo')
+
+class Tarjeta:
+    def Pagar(self):
+        print (f'El pago se realizo con Tarjeta')
+
+class Cripto:
+    def Pagar(self):
+        print (f'El pago se realizo con Cripto')
+
+Objeto9 = Cripto()
+Objeto10 = Tarjeta()
+Objeto11 = Efectivo()
+
+Objeto9.Pagar()
+Objeto10.Pagar()
+Objeto11.Pagar()
+
+print (f'-' * 20)
+
+class CuentaBancaria:
     def __init__(self, Saldo):
         self.__Saldo = Saldo
 
@@ -159,19 +198,19 @@ class Banking_Account():
         self.__Saldo = New_Saldo
 
     def Mostrar(self):
-        print (f'Tu saldo a la fecha es de ${self.__Saldo}')
+        print (f'Su saldo a la fecha es de ${self.__Saldo}')
 
-Objeto11 = Banking_Account(100)
+Objeto11 = CuentaBancaria(100)
 Objeto11.Depositar(25)
 Objeto11.Mostrar()
 
-print (f'El valor de la variable privada es {Objeto11.Dinero}')
+print (f'El saldo privado es de {Objeto11.Dinero}')
 
-Objeto11.Dinero = '35,0000'
+Objeto11.Dinero = '20,000'
 
 Objeto11.Mostrar()
 
-print (f'El valor de la variable privada es {Objeto11.Dinero}')
+print (f'El saldo privado es de {Objeto11.Dinero}')
 
 print (f'-' * 20)
 
@@ -179,147 +218,116 @@ from abc import ABC, abstractmethod
 
 class Plantilla(ABC):
     @abstractmethod
-    def Borrador(self):
+    def Obligatoria(self):
         pass
 
-class Ejemplo(Plantilla):
+class Ejemplo1(Plantilla):
     def Mostrar(self):
-        print (f'Hola Cualquiera')
+        print (f'Hola Mundo')
 
-    def Borrador(self):
-        print (f'Esto es un ejemplo de abstraccion')
+    def Obligatoria(self):
+        print (f'Hola Ejemplo Abstraccion')
 
-Objeto12 = Ejemplo()
+Objeto12 = Ejemplo1()
 
 Objeto12.Mostrar()
-Objeto12.Borrador()
+Objeto12.Obligatoria()
 
-print (f'-' * 20)
-
-class Uno():
-    def Mostrando(self):
-        print (f'Esto es un ejemplo de composicion')
+class Uno:
+    def Mensajear(self):
+        print (f'El mensaje de Uno aparece en Dos')
 
 class Dos():
     def __init__(self):
-        self.Placeholder = Uno()
+        self.Mensaje = Uno()
 
-    def Mostrando_Finale(self):
-        self.Placeholder.Mostrando()
+    def Mostrar(self):
+        self.Mensaje.Mensajear()
 
 Objeto13 = Dos()
 
-Objeto13.Mostrando_Finale()
+Objeto13.Mostrar()
 
 print (f'-' * 20)
 
 import re
 
-Texto1 = 'esto es 100 un! hola ejemplo cualquiera@ para baiaiai hela probar. el concepto 8 de haala expresiones 45 regulares'
+Texto1 = 'este es hola un 15 texto de ejemplo hela 250 @ para probar que la hala 1000 mica sirve'
 
-Buscar1 = re.search(r'\d+', Texto1)
+Buscar1 = re.search('para', Texto1)
 
 print (f'{Buscar1}')
 
-Buscar2 = re.findall(r'\d+', Texto1)
+Buscar2 = re.findall('e', Texto1)
 
 print (f'{Buscar2}')
 
-Buscar3 = re.findall(r'\D+', Texto1)
+Buscar3 = re.fullmatch('este es hola un 15 texto de ejemplo hela 250 para probar que la hala 1000 mica sirve', Texto1)
 
 print (f'{Buscar3}')
 
-Buscar4 = re.findall(r'\w+', Texto1)
+Buscar4 = re.findall(r'\d{1}', Texto1)
 
 print (f'{Buscar4}')
 
-Buscar5 = re.findall(r'\W+', Texto1)
+Buscar5 = re.findall('h.la', Texto1)
 
 print (f'{Buscar5}')
 
-Buscar6 = re.findall(r'\s', Texto1)
+Buscar6 = re.findall(r'(texto|250)', Texto1)
 
 print (f'{Buscar6}')
 
-Buscar7 = re.findall(r'\S', Texto1)
+Buscar7 = re.findall(r'\d{3}\s{1}\W{1}', Texto1)
 
 print (f'{Buscar7}')
 
-Buscar8 = re.findall(r'h.la', Texto1)
+Buscar8 = re.findall(r'[ar]{2,4}', Texto1)
 
 print (f'{Buscar8}')
 
-Buscar9 = re.findall(r'[a,e,i]{2,}', Texto1)
+Buscar9 = re.findall(r'[0-9]{2,4}', Texto1)
 
 print (f'{Buscar9}')
 
-Buscar10 = re.findall(r'(ai){3,4}', Texto1)
+Telefono1 = 'sample@hotmail.org'
 
-print (f'{Buscar10}')
+Pattern1 = r'^[a-zA-Z0-9./*-+=_-]+\@(hotmail|gmail|yahoo)\.(com|net|org)$'
 
-Buscar11 = re.findall(r'a{2}', Texto1)
+Buscar10 = bool(re.fullmatch(Pattern1, Telefono1))
 
-print (f'{Buscar11}')
-
-Buscar12 = re.findall(r'^esto', Texto1)
-Buscar13 = re.findall(r'es$', Texto1)
-
-print (f'{Buscar12}')
-print (f'{Buscar13}')
-
-Buscar14 = re.findall(r'hola', Texto1)
-
-print (f'{Buscar14}')
-
-Buscar15 = re.fullmatch('esto es 100 un! hola ejemplo cualquiera@ para baiaiai hela probar. el 123 @ concepto 8 de haala expresiones 45 regulares', Texto1)
-
-print (f'{Buscar15}')
-
-Buscar16 = re.findall(r'[0-9]*', Texto1)
-
-print (f'{Buscar16}')
-
-Buscar17 = re.findall(r'[0-9]{2,}', Texto1)
-
-print (f'{Buscar17}')
-
-Pattern1 = r'[0-9]{3}\s?\W'
-
-Buscar18 = re.findall((r'[0-9]{3}\s+\W{1}'), Texto1)
-
-print (f'{Buscar18}')
-
-Texto2 = 'hola 125 este es mi nombre y mi numero'
-
-Buscar19 = re.findall(r'[a-z]+|\d+', Texto2)
-
-print (f'{Buscar19}')
-
-Texto3 = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
-
-Pattern2 = r'[0-9]{2}\/\d{2}\/[0-9]{4}'
-
-Reemplazar = 'XX/XX/XXXX'
-
-Buscar20 = re.sub(Pattern2, Reemplazar, Texto3)
-
-print (f'{Buscar20}')
-
-Correo1 = 'sample@sample.com'
-
-Pattern3 = r'^[a-zA-Z./*-+_-]+\@[a-zA-Z]+\.[a-z]{2,}$'
-
-Buscar21 = bool(re.match(Pattern3, Correo1))
-
-if (Buscar21 == True):
+if (Buscar10 == True):
     print (f'El formato del correo es correcto')
 else:
     print (f'El formato del correo es incorrecto')
 
-def Exception1(Numero):
+Fecha = 'Necesito confirmar que la siguiente fecha 12/29/2026 tiene el formato correcto'
+
+Pattern2 = r'[0-9]{2}\/[0-9]{2}\/[0-9]{4}'
+
+Replacement = 'xx/xx/xxxx'
+
+Buscar11 = re.sub(Pattern2, Replacement, Fecha)
+
+print (f'{Buscar11}')
+
+print (f'-' * 20)
+
+Buscar12 = re.findall(r'(0[1-9]|[12][0-9]|3[01])', '32')
+
+print (f'{Buscar12}')
+
+Buscar13 = bool(re.match(r'(0[0-9]|[12][0-9]|3[01])', '32'))
+
+if (Buscar13 == True):
+    print (f'El numero se encuentra entre 00 y 31')
+else:
+    print (f'Error, no se encuentra en el rango definido')
+
+def Exception1(Elemento):
     try:
-        Numerito = int(Numero)
-        print (f'Gracias, el numero digitado es {Numerito}')
+        Numerito = int(Elemento)
+        print (f'El elemento es un numero {Numerito}')
     except ValueError:
         print (f'Error, necesito que ingreses un numero')
 
@@ -327,8 +335,8 @@ Exception1("Hola")
 
 def Exception2(Num1, Num2):
     try:
-        Opera = Num1 + Num2
-        print (f'El resultado de la operacion es {Opera}')
+        Resultado = Num1 + Num2
+        print (f'El resultado de la operacion es {Resultado}')
     except TypeError:
         print (f'Error, ambos elementos deben ser numeros')
 
@@ -339,16 +347,15 @@ def Exception3(Num1, Num2):
         Divi = Num1 / Num2
         print (f'El resultado de la division es {round(Divi, 2)}')
     except ZeroDivisionError:
-        print (f'Error, el divisor no puede ser cero')
+        print (f'Error, el divisor no puede ser un numero')
 
 Exception3(12, 0)
 
-Lista_Exception4 = list(['Erick', 'Josue'])
-Lista_Exception4.extend(['Karlita'])
+Lista_Exception4 = list(['Erick', 'Josue', 'Karlita'])
 
 def Exception4(Indice):
     try:
-        print (f'El elemento con el indice {Indice} es {Lista_Exception4[Indice]}')
+        print (f'El elemento en la posicion {Indice} es {Lista_Exception4[Indice]}')
     except IndexError:
         print (f'Error, El indice esta fuera de rango')
 
@@ -361,15 +368,17 @@ Diccionario_Exception5 = {
 
 def Exception5(Llave):
     try:
-        print (f'El elemento dentro de la llave {Llave} es {Diccionario_Exception5[Llave]}')
+        print (f'El elemento en la llave {Llave} es {Diccionario_Exception5[Llave]}')
     except KeyError:
         print (f'Error, la llave seleccionada esta fuera de rango')
 
 Exception5('Votante')
 
+Ruta_Txt = 'C:\\Repo\\HolaMundo.txt'
+
 try:
-    with open ('C:\\Repo\\HolaMundo.txt', 'w', encoding='UTF-8') as Docu:
-        Documento_SobreEscribir = Docu.write(f'Elefante')
+    with open('C:\\Repo\\HolaMundo.txt', 'w', encoding='UTF-8') as Docu:
+        Documento_SobreEscribir = Docu.write(f'Durazno')
         Docu.close()
 except FileNotFoundError:
     print (f'Error, el archivo no fue encontrado')
@@ -380,7 +389,7 @@ with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
     Docu.close()
 
 with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
-    Documento_Agregar = Docu.writelines([f'\nCalamar'])
+    Documento_Agregar = Docu.writelines([f'\nManzana'])
     Docu.close()
 
 with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
@@ -389,7 +398,7 @@ with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
     Docu.close()
 
 with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
-    Documento_Agregar = Docu.write(f'\nLeon')
+    Documento_Agregar = Docu.write(f'\nUvas')
     Docu.close()
 
 with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
@@ -440,47 +449,62 @@ Data_Frame2 = pd.DataFrame({
     'Votante' : [True, False, not False]
 })
 
-print (f'{Data_Frame1}')
+Data_Frame_Concatenate = pd.concat([Data_Frame1, Data_Frame2])
 
-Data_Frame_Concatenate = pd.concat([Data_Frame2, Data_Frame1])
-
-Data_Frame_Concatenate_Age = Data_Frame_Concatenate['Edad']
+print (f'{Data_Frame_Concatenate}')
 
 print (f'-' * 20)
 
+Data_Frame_Concatenate_Age = Data_Frame_Concatenate['Edad']
+
 print (f'{Data_Frame_Concatenate_Age}')
 
-print (f'La menor de las edades es {Data_Frame_Concatenate_Age.min()} y la mayor es {Data_Frame_Concatenate_Age.max()}')
+print (f'-' * 20)
 
 print (f'{Data_Frame_Concatenate.info()}')
 
 print (f'-' * 20)
 
-for indice, elemento in Data_Frame_Concatenate.iterrows():
-    nombrecito = elemento['Nombre']
+print (f'El numero menor del dataframe es {Data_Frame_Concatenate_Age.min()} y el mayor de los numeros es {Data_Frame_Concatenate_Age.max()}')
 
-    print (f'Mi nombre es {nombrecito}')
+for indice, elemento in Data_Frame_Concatenate.iterrows():
+    Nombrecito = elemento['Nombre']
+
+    print (f'Mi nombre es {Nombrecito}')
 
 print (f'-' * 20)
 
-Grupo1 = Data_Frame_Concatenate.groupby('Nombre')['Edad'].sum()
-Grupo1_Mayor = Grupo1.idxmax()
-Grupo1_Menor = Grupo1.idxmin()
-Grupo1_Mayor_Cant = Grupo1.max()
-Grupo1_Menor_Cant = Grupo1.min()
+import pandas as pd
 
-print (f'Mayor {Grupo1_Mayor} - {Grupo1_Mayor_Cant}')
-print (f'Mayor {Grupo1_Menor} - {Grupo1_Menor_Cant}')
+Ruta_Csv1 = 'C:\\Repo\\Store.csv'
+
+Cargar_Csv1 = pd.read_csv(Ruta_Csv1)
+
+print (f'{Cargar_Csv1}')
+
+Group1 = Cargar_Csv1.groupby('product')['quantity'].sum()
+
+Group1_May = Group1.idxmax()
+Group1_Min = Group1.idxmin()
+Group1_May_Cant = Group1.max()
+Group1_Min_Cant = Group1.min()
+
+print (f'El producto menos vendido fue ({Group1_Min}) con un total de {Group1_Min_Cant} unidades y el producto mas vendido fue ({Group1_May}) con un total de {Group1_May_Cant} unidades')
 
 '''import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-sns.barplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+x = list([1, 2, 3, 4])
+y = [45, 77, 20, 95]
+
+plt.figure(figsize=(4,3))
+plt.plot(x, y)
+
+plt.title("Ventas")
+plt.xlabel("Día")
+plt.ylabel("Cantidad")
 
 plt.show()
-
-print (f'-' * 20)
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -490,7 +514,13 @@ sns.lineplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
 
 plt.show()
 
-print (f'-' * 20)
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.barplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
+plt.show()
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -498,9 +528,9 @@ import seaborn as sns
 
 sns.scatterplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
 
-plt.show()
+plt.show()'''
 
-print (f'-' * 20)'''
+print (f'-' * 20)
 
 print (f'{Data_Frame_Concatenate.head(3)}')
 
@@ -523,7 +553,7 @@ Elemento1 = Data_Frame1.loc[0, 'Nombre']
 Elemento2 = Data_Frame1.loc[1, 'Edad']
 Elemento3 = Data_Frame1.loc[2, 'Votante']
 Elemento4 = Data_Frame1.loc[:, 'Nombre']
-Elemento5 = Data_Frame1.loc[1, :]
+Elemento5 = Data_Frame1.loc[2, :]
 
 print (f'{Elemento1}')
 print (f'{Elemento2}')
@@ -536,8 +566,8 @@ print (f'-' * 20)
 Elemento6 = Data_Frame2.iloc[0, 0]
 Elemento7 = Data_Frame2.iloc[1, 1]
 Elemento8 = Data_Frame2.iloc[2, 2]
-Elemento9 = Data_Frame2.iloc[0, :]
-Elemento10 = Data_Frame2.iloc[:, 2]
+Elemento9 = Data_Frame2.iloc[1, :]
+Elemento10 = Data_Frame2.iloc[:, 0]
 
 print (f'{Elemento6}')
 print (f'{Elemento7}')
@@ -551,18 +581,19 @@ import pandas as pd
 import openpyxl
 
 Ruta_Excel = 'C:\\Repo\\Book.xlsx'
-Cargar_Excel = pd.read_excel(Ruta_Excel, engine='openpyxl')
+
+Cargar_Excel = pd.read_excel(Ruta_Excel)
 
 print (f'{Cargar_Excel.head()}')
 
 print (f'-' * 20)
 
-Cargar_Excel1 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=1)
-Cargar_Excel2 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0)
-Cargar_Excel3 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, names=['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve' 'diez'])
-Cargar_Excel4 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, index_col='tarifa')
-Cargar_Excel5 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, usecols='E:I', index_col='tarifa')
-Cargar_Excel6 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, usecols='E:I', index_col='tarifa', nrows=1)
+Cargar_Excel1 = pd.read_excel(Ruta_Excel, sheet_name=1)
+Cargar_Excel2 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0)
+Cargar_Excel3 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, names=['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'])
+Cargar_Excel4 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, index_col='tiquete')
+Cargar_Excel5 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, usecols='E:K', index_col='tiquete')
+Cargar_Excel6 = pd.read_excel(Ruta_Excel, sheet_name=0, header=0, usecols='E:K', index_col='tiquete', nrows=1)
 
 print (f'{Cargar_Excel1.head()}')
 
@@ -588,43 +619,37 @@ print (f'{Cargar_Excel6.head()}')
 
 print (f'-' * 20)
 
-Cargar_Excel3_Sorted = Cargar_Excel3.sort_values(by='cinco', ascending=False)
+Cargar_Excel3_Sorted = Cargar_Excel3.sort_values(by='cinco', ascending=True)
 
 print (f'{Cargar_Excel3_Sorted}')
 
 print (f'-' * 20)
 
-Cargar_Excel3_Sorted_Descending = Cargar_Excel3.sort_values(by='cinco', ascending=True)
+Cargar_Excel3_Sorted_Descending = Cargar_Excel3.sort_values(by='cinco', ascending=False)
 
 print (f'{Cargar_Excel3_Sorted_Descending}')
 
+import pandas as pd
+
+Ruta_Txt2 = 'C:\\Repo\\HolaMundo.txt'
+
+Cargar_Txt2 = pd.read_csv(Ruta_Txt2)
+
+print (f'{Cargar_Txt2.head()}')
+
 print (f'-' * 20)
 
-print (f'{Data_Frame_Concatenate_Age}')
+print (f'{Cargar_Txt2}')
 
 print (f'-' * 20)
 
 import pandas as pd
 
-Ruta_Txt = 'C:\\Repo\\HolaMundo.txt'
+Ruta_Csv2 = 'C:\\Repo\\Base_Datos.csv'
 
-Cargar_Txt = pd.read_csv(Ruta_Txt)
+Cargar_Csv2 = pd.read_csv(Ruta_Csv2)
 
-print (f'{Cargar_Txt}')
-
-print (f'-' * 20)
-
-print (f'{Cargar_Txt.head()}')
-
-print (f'-' * 20)
-
-import pandas as pd
-
-Ruta_Csv1 = 'C:\\Repo\\Base_Datos.csv'
-
-Cargar_Csv1 = pd.read_csv(Ruta_Csv1)
-
-print (f'{Cargar_Csv1}')
+print (f'{Cargar_Csv2.head()}')
 
 print (f'-' * 20)
 
@@ -646,11 +671,36 @@ print (f'{Cargar_Html[2].head()}')
 
 print (f'-' * 20)
 
-Array0 = [[1, 2, 3], [4, 5, 6]]
+Lista_Array1 = [[1, 2, 3], [4, 5, 6]]
 
-print (f'Esto es un array con Listas: {Array0}')
+print (f'{Lista_Array1[1][2]}')
+print (f'{Lista_Array1[1][:2]}')
+print (f'{Lista_Array1[1][2:]}')
+print (f'{Lista_Array1[0][::2]}')
+print (f'{Lista_Array1[1][::3]}')
+print (f'{Lista_Array1[1][2:3]}')
+print (f'{Lista_Array1[0][0:None]}')
+print (f'{Lista_Array1[0][:]}')
 
-print (f'Un elemento de la matriz con listas es {Array0[1][0]}')
+print (f'-' * 20)
+
+Lista_Array2 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+for i in range(len(Lista_Array2)):
+    for j in range(len(Lista_Array2[i])):
+        print (f'{Lista_Array2[i][j]}')
+
+print (f'-' * 20)
+
+for Fila in Lista_Array2:
+    for Elemento in Fila:
+        print (f'{Elemento}')
+
+print (f'-' * 20)
 
 import numpy as np
 
@@ -667,7 +717,7 @@ print (f'{Array1[:2]}')
 print (f'{Array1[2:]}')
 print (f'{Array1[::2]}')
 print (f'{Array1[::3]}')
-print (f'{Array1[2:3]}')
+print (f'{Array1[1:2]}')
 print (f'{Array1[0:None]}')
 print (f'{Array1[:]}')
 print (f'{Array1[Array1 <= 2]}')
@@ -683,28 +733,28 @@ print (f'{Array2.size}') # 6
 print (f'{Array2.dtype}') # int64
 print (f'{Array2[1, 0]}')
 
-print (f'{Array2[1, :2]}')
-print (f'{Array2[1, 2:]}')
-print (f'{Array2[0, ::2]}')
-print (f'{Array2[1, ::3]}')
+print (f'{Array2[0, :2]}')
+print (f'{Array2[0, 2:]}')
+print (f'{Array2[1, ::2]}')
+print (f'{Array2[0, ::3]}')
+print (f'{Array2[1, 1:2]}')
 print (f'{Array2[:, 1]}')
-print (f'{Array2[0, 2:3]}')
-print (f'{Array2[1, 0:None]}')
-print (f'{Array2[1, :]}')
+print (f'{Array2[0, 0:None]}')
+print (f'{Array2[0, :]}')
 print (f'{Array2[Array2 <= 2]}')
 
 Array2_Sorted = np.sort(Array2)
 Array2_Sorted_Mean = np.mean(Array2_Sorted)
 Array2_Sorted_Sum = np.sum(Array2_Sorted)
 
-print (f'Acomodado: {Array2_Sorted}')
-print (f'Media: {round(Array2_Sorted_Mean, 2)}')
-print (f'Sumatoria: {Array2_Sorted_Sum}')
-
 Sumita1 = np.sum(Array2_Sorted, axis=0)
 Sumita2 = np.sum(Array2_Sorted, axis=1)
 Sumita3 = np.sum(Array2_Sorted[0, 0:None])
 Sumita4 = np.sum(Array2_Sorted[0, :])
+
+print (f'Acomodado: {Array2_Sorted}')
+print (f'Media: {round(Array2_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array2_Sorted_Sum}')
 
 print (f'El resultado de la sumita es {Sumita1}')
 print (f'El resultado de la sumita es {Sumita2}')
@@ -713,7 +763,7 @@ print (f'El resultado de la sumita es {Sumita4}')
 
 print (f'-' * 20)
 
-Array3 = np.array([[['w', 'r', 'f'], ['a', 'k', 'j']],           [['o', 'u', 'b'], ['d', 'c', 'n']]])
+Array3 = np.array([[['e', 's', 'u'], ['d', 'a', 'i']],              [['j', 'l', 'm'], ['n', 'o', 'r']]])
 
 print (f'{Array3}')
 print (f'{Array3.ndim}') # 3
@@ -724,42 +774,34 @@ print (f'{Array3[1, 0, 2]}')
 
 print (f'{Array3[1, 0, :2]}')
 print (f'{Array3[1, 0, 2:]}')
-print (f'{Array3[0, 1, ::2]}')
-print (f'{Array3[0, 0, ::3]}')
-print (f'{Array3[1, :, 2]}')
-print (f'{Array3[1, 1, 1:2]}')
-print (f'{Array3[0, 1, 0:None]}')
-print (f'{Array3[0, 1, :]}')
-print (f'{Array3[Array3 == "b"]}')
+print (f'{Array3[1, 1, ::2]}')
+print (f'{Array3[0, 1, ::3]}')
+print (f'{Array3[1, 0, 1:2]}')
+print (f'{Array3[0, :, 0]}')
+print (f'{Array3[1, 0, 0:None]}')
+print (f'{Array3[1, 0, :]}')
+print (f'{Array3[Array3 == "a"]}')
 
 print (f'-' * 20)
 
-Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [3, 2, 1]]],      [[[6, 5, 4], [9, 8, 7]], [[7, 5, 3], [2, 4, 9]]]])
+Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [3, 2, 1]]],          [[[6, 5, 4], [9, 8, 7]], [[4, 6, 7], [3, 1, 9]]]])
 
 print (f'{Array4}')
-print (f'{Array4.ndim}') # 4
-print (f'{Array4.shape}') # 2x2x2x3
-print (f'{Array4.size}') # 24
+print (f'{Array4.ndim}') #  4
+print (f'{Array4.shape}') #2x2x2x3
+print (f'{Array4.size}') #24
 print (f'{Array4.dtype}') # int64
 print (f'{Array4[1, 0, 1, 2]}')
 
-print (f'{Array4[1, 1, 0, :2]}')
-print (f'{Array4[1, 1, 0, 2:]}')
-print (f'{Array4[0, 1, 0, ::2]}')
-print (f'{Array4[1, 0, 0, ::3]}')
-print (f'{Array4[1, 1, :, 0]}')
-print (f'{Array4[0, 0, 0, 2:3]}')
-print (f'{Array4[1, 0, 1, 0:None]}')
-print (f'{Array4[1, 0, 1, :]}')
+print (f'{Array4[1, 0, 1, :2]}')
+print (f'{Array4[1, 0, 1, 2:]}')
+print (f'{Array4[1, 1, 0, ::2]}')
+print (f'{Array4[0, 0, 1, ::3]}')
+print (f'{Array4[0, 1, 0, 1:2]}')
+print (f'{Array4[1, 0, :, 2]}')
+print (f'{Array4[1, 0, 0, 0:None]}')
+print (f'{Array4[1, 0, 0, :]}')
 print (f'{Array4[Array4 <= 2]}')
-
-Array4_Sorted = np.sort(Array4)
-Array4_Sorted_Mean = np.mean(Array4_Sorted)
-Array4_Sorted_Sum = np.sum(Array4_Sorted)
-
-print (f'Acomodado: {Array4_Sorted}')
-print (f'Media: {round(Array4_Sorted_Mean, 2)}')
-print (f'Sumatoria: {Array4_Sorted_Sum}')
 
 print (f'-' * 20)
 
@@ -767,14 +809,12 @@ Array_Num1 = np.arange(start=1, stop=11, step=1)
 
 print (f'{Array_Num1}')
 
-Array_Num1_Menor = np.min(Array_Num1)
-Array_Num1_Mayor = np.max(Array_Num1)
+Array_May = np.max(Array_Num1)
+Array_Min = np.min(Array_Num1)
 
-print (f'El menor de los numeros es {Array_Num1_Menor} y el mayor es {Array_Num1_Mayor}')
+print (f'El menor de los numeros es {Array_Min} y el mayor es {Array_May}')
 
-print (f'-' * 20)
-
-Array_Num2 = np.arange(start=1, stop=26, step=1)
+Array_Num2 = np.arange(25)
 
 print (f'{Array_Num2}')
 
@@ -784,7 +824,6 @@ print (f'{Array_Num2_Reshape}')
 
 Array_Num2_Reshape_Column_Min = np.min(Array_Num2_Reshape, axis=0)
 Array_Num2_Reshape_Column_Max = np.max(Array_Num2_Reshape, axis=0)
-
 Array_Num2_Reshape_Row_Min = np.min(Array_Num2_Reshape, axis=1)
 Array_Num2_Reshape_Row_Max = np.max(Array_Num2_Reshape, axis=1)
 
@@ -802,7 +841,7 @@ print (f'{Array_Zeros.ndim}')
 print (f'{Array_Zeros.shape}')
 print (f'{Array_Zeros.size}')
 print (f'{Array_Zeros.dtype}')
-print (f'{Array_Zeros[1, 0]}')
+print (f'{Array_Zeros[1, 2]}')
 
 print (f'-' * 20)
 
@@ -813,7 +852,7 @@ print (f'{Array_Ones.ndim}')
 print (f'{Array_Ones.shape}')
 print (f'{Array_Ones.size}')
 print (f'{Array_Ones.dtype}')
-print (f'{Array_Ones[0, 0]}')
+print (f'{Array_Ones[0, 1]}')
 
 print (f'-' * 20)
 
@@ -824,7 +863,7 @@ print (f'{Array_Gen1.ndim}')
 print (f'{Array_Gen1.shape}')
 print (f'{Array_Gen1.size}')
 print (f'{Array_Gen1.dtype}')
-print (f'{Array_Gen1[1, 1]}')
+print (f'{Array_Gen1[0, 0]}')
 
 print (f'-' * 20)
 
@@ -837,60 +876,60 @@ print (f'{Array_Gen2.size}')
 print (f'{Array_Gen2.dtype}')
 print (f'{Array_Gen2[3]}')
 
-Lista_Array1 = list([])
+Lista_Array3 = list([])
 
 for elemento in Array_Gen2:
-    Lista_Array1.append(str(elemento))
+    Lista_Array3.append(str(elemento))
 
-print (f'{Lista_Array1}')
-print (f'{type(Lista_Array1)}')
-
-print (f'-' * 20)
-
-Array_Num3 = np.full(shape=(2, 3), fill_value = Array4[1, 0, 1, 2:3])
-
-print (f'{Array_Num3}')
-print (f'{Array_Num3.ndim}')
-print (f'{Array_Num3.shape}')
-print (f'{Array_Num3.size}')
-print (f'{Array_Num3.dtype}')
-print (f'{Array_Num3[1, 1]}')
+print (f'{Lista_Array3}')
+print (f'{type(Lista_Array3)}')
 
 print (f'-' * 20)
 
-Tupla_Array1 = ('Rojo', 'Verde')
+Array_Gen3 = np.full(shape=(2, 3), fill_value=Array4[1, 0, 1, 2])
+
+print (f'{Array_Gen3}')
+print (f'{Array_Gen3.ndim}')
+print (f'{Array_Gen3.shape}')
+print (f'{Array_Gen3.size}')
+print (f'{Array_Gen3.dtype}')
+print (f'{Array_Gen3[1, 1]}')
+
+print (f'-' * 20)
+
+Tupla_Array = ('Rojo', 'Verde')
 Set_Conjunto_Array = {1, 2, 3}
 Diccionario_Array = dict({'Nombre' : ["Erick", "Josue", "Karlita"]})
 
-Array_Gen3 = np.full(shape=(3, 2), fill_value = Tupla_Array1)
-Array_Gen4 = np.full(shape=(2, 1), fill_value = Set_Conjunto_Array)
-Array_Gen5 = np.full(shape=(4, 1), fill_value = Diccionario_Array['Nombre'][2])
+Array_Gen4 = np.full(shape=(3, 2), fill_value = Tupla_Array)
+Array_Gen5 = np.full(shape=(2, 1), fill_value = Set_Conjunto_Array)
+Array_Gen6 = np.full(shape=(4, 1), fill_value = Diccionario_Array['Nombre'][1])
 
-print (f'{Array_Gen3}')
 print (f'{Array_Gen4}')
 print (f'{Array_Gen5}')
+print (f'{Array_Gen6}')
 
 print (f'-' * 20)
 
-print (f'{Array_Gen5[3]}')
+print (f'{Array_Gen6[3]}')
 
 print (f'-' * 20)
 
-Array_Num4 = np.arange(start=1, stop=6, step=1)
-Array_Num5 = np.arange(start=2, stop=11, step=2)
-Array_Num6 = np.arange(start=3, stop=31, step=3)
-Array_Num7 = np.arange(start=10, stop=21, step=2)
-Array_Num8 = np.arange(10)
+Array_Num3 = np.arange(start=1, stop=6, step=1)
+Array_Num4 = np.arange(start=2, stop=11, step=2)
+Array_Num5 = np.arange(start=3, stop=31, step=3)
+Array_Num6 = np.arange(start=10, stop=21, step=2)
+Array_Num7 = np.arange(10)
 
+print (f'{Array_Num3}')
 print (f'{Array_Num4}')
 print (f'{Array_Num5}')
 print (f'{Array_Num6}')
 print (f'{Array_Num7}')
-print (f'{Array_Num8}')
 
 print (f'-' * 20)
 
-Array_Random1 = np.random.randint(low=1, high=10, size=(10))
+Array_Random1 = np.random.randint(low=1, high=10, size=(5))
 
 print (f'{Array_Random1}')
 
@@ -909,7 +948,7 @@ Array_Random2_Sorted = np.sort(Array_Random2)
 Array_Random2_Sorted_Mean = np.mean(Array_Random2_Sorted)
 Array_Random2_Sorted_Sum = np.sum(Array_Random2_Sorted)
 
-print (f'Acomodado: {Array_Random2_Sorted}')
+print (f'Ordenado: {Array_Random2_Sorted}')
 print (f'Media: {round(Array_Random2_Sorted_Mean, 2)}')
 print (f'Sumatoria: {Array_Random2_Sorted_Sum}')
 
@@ -932,6 +971,7 @@ Sum = Arr1 + Arr2
 Rest = Arr1 - Arr2
 Mult = Arr1 * Arr2
 Div = Arr1 / Arr2
+
 Array_Random1_Cien = Array_Random1 + 100
 
 print (f'El resultado de la operacion es {Sum}')
@@ -942,29 +982,26 @@ print (f'El resultado de la operacion es {Array_Random1_Cien}')
 
 print (f'-' * 20)
 
-Array_Num9 = np.arange(start=1, stop=21, step=1)
+Array_Num8 = np.arange(start=1, stop=21, step=1)
 
-print (f'{Array_Num9}')
+print (f'{Array_Num8}')
 
-Array_Num9_Reshape = np.reshape(Array_Num9, shape=(4, 5))
+Array_Num8_Reshape = np.reshape(Array_Num8, shape=(4, 5))
 
-print (f'{Array_Num9_Reshape}')
+print (f'{Array_Num8_Reshape}')
 
-Array_Num9_Reshape_Ravel = np.ravel(Array_Num9_Reshape)
+Array_Num8_Reshape_Ravel = np.ravel(Array_Num8_Reshape)
 
-print (f'{Array_Num9_Reshape_Ravel}')
+print (f'{Array_Num8_Reshape_Ravel}')
 
 print (f'-' * 20)
 
-Lista_Array2 = []
-Lista_Array2.append('Josue')
-Lista_Array2.insert(0, 'Erick')
-Lista_Array2.extend(['Karlita'])
+Lista_Array4 = list(['Erick', 'Josue', 'Karlita'])
 
-Array5 = np.array(Lista_Array2)
+Array5 = np.array(Lista_Array4)
 
-print (f'{Lista_Array2}')
-print (f'{type(Lista_Array2)}')
+print (f'{Array5}')
+print (f'{type(Array5)}')
 
 print (f'-' * 20)
 
@@ -975,15 +1012,39 @@ Array_Concatenate = np.concatenate([Array6, Array7])
 
 print (f'{Array_Concatenate}')
 
+print (f'-' * 20)
+
 Array_Concatenate_Split = np.split(Array_Concatenate, 3)
 
 print (f'{Array_Concatenate_Split[0]}')
 print (f'{Array_Concatenate_Split[1]}')
 print (f'{Array_Concatenate_Split[2]}')
 
+print (f'-' * 20)
+
 Array_Concatenate_Where = np.where(Array_Concatenate == 3)
 
 print (f'{Array_Concatenate_Where}')
+
+print (f'-' * 20)
+
+Lista_Array5 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print (f'{Lista_Array5[2][0:None]}')
+
+for i in range(len(Lista_Array5)):
+    for j in range(len(Lista_Array5[i])):
+        print (f'{Lista_Array5[i][j]}')
+
+print (f'-' * 20)
+
+for Fila in Lista_Array5:
+    for Elemento in Fila:
+        print (f'{Elemento}')
 
 print (f'-' * 20)
 
@@ -1001,35 +1062,30 @@ for Matriz1 in Array3:
 
 print (f'-' * 20)
 
-for Matriz1 in Array3:
-    for Fila in Matriz1:
-        for Elemento in Fila:
-            print (f'{Elemento}')
-
-print (f'-' * 20)
-
 Array_Random3 = np.random.randint(low=1, high=10, size=(2, 2, 3))
 
 print (f'{Array_Random3}')
 
-Array_Random3_Columna_Min = np.min(Array_Random3, axis=0)
-Array_Random3_Columna_Max = np.max(Array_Random3, axis=0)
+Sumita9 = np.sum(Array_Random3, axis=0)
+Sumita10 = np.sum(Array_Random3, axis=1)
+Sumita11 = np.sum(Array_Random3[1, 0, 0:None])
+Sumita12 = np.sum(Array_Random3[1, 0, :])
 
-Array_Random3_Row_Min = np.min(Array_Random3, axis=1)
-Array_Random3_Row_Max = np.max(Array_Random3, axis=1)
-
-print (f'Los menores de las columnas son {Array_Random3_Columna_Min}')
-print (f'Los mayores de las columnas son {Array_Random3_Columna_Max}')
-print (f'Los menores de las filas son {Array_Random3_Row_Min}')
-print (f'Los mayores de las filas son {Array_Random3_Row_Max}')
+print (f'{Sumita9}')
+print (f'{Sumita10}')
+print (f'{Sumita11}')
+print (f'{Sumita12}')
 
 print (f'-' * 20)
 
-Tupla_Array2 = tuple(('Ash', 'Brooke', 'Misty', 'Josue', 'Karlita', 'Erick'))
+Lista_Ganador = ['Erick', 'Josue']
+Lista_Ganador.append('Karlita')
+Lista_Ganador.insert(0, 'Carmelo')
+Lista_Ganador.extend(['Roxana', 'Susanita'])
 
-Ganador1 = np.random.choice(Tupla_Array2, size=(1), replace=False)
-Ganador2 = np.random.choice(Tupla_Array2, size=(2), replace=False)
-Ganador3 = np.random.choice(Tupla_Array2, size=(2, 3), replace=False)
+Ganador1 = np.random.choice(Lista_Ganador, size=(1), replace=False)
+Ganador2 = np.random.choice(Lista_Ganador, size=(2), replace=False)
+Ganador3 = np.random.choice(Lista_Ganador, size=(2, 3), replace=False)
 
 print (f'El ganador del sorteo es {Ganador1}')
 print (f'El ganador del sorteo es {Ganador2}')
@@ -1037,12 +1093,14 @@ print (f'El ganador del sorteo es {Ganador3}')
 
 print (f'-' * 20)
 
-Array_Linspace = np.linspace(start=0, stop=10, num=3)
+Array_Linspace = np.linspace(start=1, stop=10, num=3)
 
 print (f'{Array_Linspace}')
 
+print (f'-' * 20)
+
 def Generadora1():
-    for elemento in range(1, 5):
+    for elemento in range(5):
         yield f'El elemento es {elemento}'
 
 Gen1 = Generadora1()
@@ -1055,12 +1113,12 @@ try:
     print (f'{next(Gen1)}')
     print (f'{next(Gen1)}')
 except StopIteration:
-    print (f'Fin del experimento')
+    print (f'El experimento termina aqui')
 
 print (f'-' * 20)
 
 def Generadora2():
-    for elemento in range(5):
+    for elemento in range(0, 5):
         if (elemento % 2 == 0):
             yield f'PAR'
         else:
@@ -1076,20 +1134,22 @@ try:
     print (f'{next(Gen2)}')
     print (f'{next(Gen2)}')
 except StopIteration:
-    print (f'Fin del experimento')
+    print (f'El experimento termina aqui')
 
 print (f'-' * 20)
 
 def Generadora3():
-    for elemento in range(1, 5):
-        if (elemento == 1):
-            yield f'NUMBER ONE'
+    for elemento in range(0, 5):
+        if (elemento == 0):
+            yield f'ZERO'
+        elif (elemento == 1):
+            yield f'ONE'
         elif (elemento == 2):
-            yield f'NUMBER TWO'
+            yield f'TWO'
         elif (elemento == 3):
-            yield f'NUMBER THREE'
+            yield f'THREE'
         elif (elemento == 4):
-            yield f'NUMBER FOUR'
+            yield f'FOUR'
         else:
             yield f'Error de codigo'
 
@@ -1103,7 +1163,7 @@ try:
     print (f'{next(Gen3)}')
     print (f'{next(Gen3)}')
 except StopIteration:
-    print (f'Fin del experimento')
+    print (f'El experimento termina aqui')
 
 print (f'-' * 20)
 
@@ -1118,14 +1178,14 @@ print (f'Hola nuevamente {PEPE.Saludar3(Saludar_Dos())}')
 print (f'El resultado de la sumatoria es {PEPE.Sumatoria1(12, 7)}')
 
 def Sumatoria_Externa(Num1):
-    def Sumatoria_Interna(Num2:int):
+    def Sumatoria_Interna(Num2:int) -> int:
         return Num1 + Num2
 
     return Sumatoria_Interna(4)
 
 Variable_Sumatoria = Sumatoria_Externa(3)
 
-print (f'El resultado de la operacion es {Variable_Sumatoria}')
+print (f'El resultado de la sumatoria es {Variable_Sumatoria}')
 
 if (PEPE.Par(Variable_Sumatoria) == True):
     print (f'El numero es par')
@@ -1151,26 +1211,24 @@ if (Variable_Usuario == True):
 else:
     print (f'YOU ARE A WOMAN')
 
-with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
-    Documento_Agregar = Docu.write(f'\nSu contrasena temporal es {PEPE.Contrasena(88)}')
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nSu contrasena temporal es {PEPE.Contrasena(44)}'])
     Docu.close()
 
-with open (Ruta_Txt, encoding='UTF-8') as Docu:
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
     Documento_Lineas = Docu.readlines()
     print (f'{Documento_Lineas}')
     Docu.close()
 
-print (f'-' * 20)
-
 def Funcion_Tupla(*args):
     return args
 
-Variable_Funcion_Tupla = Funcion_Tupla("Perro", 3.5, 200, not True)
+Variable_Funcion_Tupla = Funcion_Tupla("Perro", 3.5, 200, True)
 
-print (f'{Funcion_Tupla("Perro", 3.5, 200, not True)}')
-print (f'{Funcion_Tupla("Perro", 3.5, 200, not True)[2]}')
+print (f'{Funcion_Tupla("Perro", 3.5, 200, True)}')
+print (f'{Funcion_Tupla("Perro", 3.5, 200, True)[2]}')
 print (f'{Variable_Funcion_Tupla[3]}')
-print (f'{type(Funcion_Tupla("Perro", 3.5, 200, not True))}')
+print (f'{type(Funcion_Tupla("Perro", 3.5, 200, True))}')
 
 print (f'-' * 20)
 
@@ -1192,13 +1250,13 @@ def Sumatoria_Dos(Nombre, *args):
 
 print (f'{Sumatoria_Dos("Erick", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
 
-print (f'-' * 20)
-
 from Module_Own import Variable_Funcion_Anonima1 as Anonima1, Variable_Funcion_Anonima2 as Anonima2, Variable_Funcion_Anonima3 as Anonima3
 
 print (f'El resultado de la multiplicacion es {Anonima1(150, 3)}')
+
 print (f'El doble del numero {Variable_Sumatoria} es {Anonima2(Variable_Sumatoria)}')
-print (f'Los numeros pares de la lista son {list(Anonima3)} o podrian ser tambien {PEPE.Lista_Par}')
+
+print (f'Los numeros pares de la lista son {PEPE.Lista_Par} o incluso podrian ser {list(Anonima3)}')
 
 def Primera(Segunda):
     def Tercera(*args):
@@ -1207,7 +1265,7 @@ def Primera(Segunda):
     return Tercera
 
 @Primera
-def Operacion(Numero):
+def Operacion(Numero:int) -> int:
     Local = Numero
     return PEPE.Global + Local
 
@@ -1219,15 +1277,12 @@ def Externa(Nombre):
 
     return Interna('PEREZ GUTIERREZ')
 
-Variable_Anidada = Externa('ERICK JOSUE')
-
-print (f'-' * 20)
+Externa('ERICK JOSUE')
 
 def Closure_Externo():
     Lista_Closure = []
     def Closure_Interno(x):
         Lista_Closure.append(x)
-
         return Lista_Closure
 
     return Closure_Interno
@@ -1235,10 +1290,8 @@ def Closure_Externo():
 Variable_Closure = Closure_Externo()
 
 print (f'{Variable_Closure(12)}')
-print (f'{Variable_Closure(25)}')
-print (f'{Variable_Closure(37)}')
-
-print (f'-' * 20)
+print (f'{Variable_Closure(28)}')
+print (f'{Variable_Closure(34)}')
 
 def Crear_Multiplicador(x):
     def Multiplicador(y):
@@ -1253,24 +1306,22 @@ print (f'El multiplicador es {Mult1(10)}')
 print (f'El multiplicador es {Mult2(10)}')
 
 def Filtrador(Lista):
-    Any_Impares = any(num % 2 != 0 for num in PEPE.Lista_Numeros)
-    if (Any_Impares == True):
-        Anonima4 = filter(lambda Num : Num % 2 != 0, PEPE.Lista_Numeros)
-        Lista_Impares = [num for num in PEPE.Lista_Numeros if num % 2 != 0]
+    Any_Impar = any(num % 2 == 0 for num in Lista)
+    if (Any_Impar == True):
+        Anonima4 = filter(lambda Num : Num % 2 != 0, Lista)
+        Lista_Impar = [num for num in Lista if num % 2 != 0]
 
-        print (f'Los numeros impares de la lista son {list(Anonima4)} o incluso podrian ser {Lista_Impares}')
+        print (f'Los numeros impares de la lista son {Lista_Impar} o incluso podrian ser {list(Anonima4)}')
     else:
-        print (f'Error, no hay numeros impares en la lista')
+        print (f'Error, no hay elementos impares en la lista')
 
 Filtrador(PEPE.Lista_Numeros)
 
-print (f'-' * 20)
-
 def Primera(Segunda):
     def Tercera():
-        print (f'*' * 20)
+        print (f'COMIENZA AQUI')
         Segunda()
-        print(f'*' * 20)
+        print (f'TERMINA AQUI')
 
     return Tercera
 
@@ -1282,15 +1333,15 @@ Saludar4()
 
 def Primera(Segunda):
     def Tercera(*args, **kwargs):
-        return Segunda(*args, **kwargs) - 12
+        return Segunda(*args, **kwargs) - 1
 
     return Tercera
 
 @Primera
-def Sumatoria3(Num1, Num2):
+def Sumatoria3(Num1:int, Num2:int) -> int:
     return Num1 + Num2
 
-print (f'El resultado de la sumatoria es {Sumatoria3(4, 8)}')
+print (f'El resultado de la sumatoria es {Sumatoria3(4, 7)}')
 
 def Primera(Segunda):
     def Tercera(*args, **kwargs):
@@ -1304,22 +1355,19 @@ def Primera(Segunda):
 def Usuario2(Nombre, Apellido):
     print (f'Mi nombre es {Nombre} {Apellido}')
 
-Usuario2('Erick', 'Perez')
+Usuario2("Erick", "Perez")
 
 print (f'-' * 20)
 
-class Pokemon2():
-    def __init__(self, Nombre, Tipo, Ataque):
-        self.Nombre = Nombre
-        self.Tipo = Tipo
-        self.Ataque = Ataque
+from Module_Own import Pokemon2 as Poke2
 
-    def Mostrar(self):
-        print (f'Nombre: {self.Nombre}')
-        print (f'Tipo: {self.Tipo}')
-        print (f'Ataque: {self.Ataque}')
+Objeto14 = Poke2(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno')
 
-class Poke_Kid2(Pokemon2):
+Objeto14.Mostrar()
+
+print (f'-' * 20)
+
+class Poke_Kid2(Poke2):
     def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
         super().__init__(Nombre, Tipo, Ataque)
         self.Sub_Tipo = Sub_Tipo
@@ -1327,22 +1375,10 @@ class Poke_Kid2(Pokemon2):
     def Mostrar(self):
         print (f'Sub_Tipo: {self.Sub_Tipo}')
 
-Objeto14 = Pokemon2(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno')
-Objeto15 = Pokemon2(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo')
-Objeto16 = Poke_Kid2(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro', 'Hada')
+Objeto15 = Poke_Kid2(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo', 'Acero')
 
-Objeto14.Mostrar()
-
-print (f'-' * 20)
-
-from Module_Own import Pokemon as Poke2
-
-print (f'{Poke2}')
-
-print (f'-' * 20)
-
-Pokemon2.Mostrar(Objeto16)
-Objeto16.Mostrar()
+Poke2.Mostrar(Objeto15)
+Objeto15.Mostrar()
 
 print (f'-' * 20)
 
@@ -1350,19 +1386,19 @@ class Camara():
     def Tomar_Fotografia(self):
         print (f'Fotografia Tomada')
 
-class Reproductor_Musica:
+class Reproductor:
     def Reproducir_Musica(self):
         print (f'Musica Reproducida')
 
-class Smartphone(Camara, Reproductor_Musica):
+class SmartPhone(Camara, Reproductor):
     def Encender_Smartphone(self):
         print (f'Smartphone Encendido')
 
-Objeto17 = Smartphone()
+Objeto16 = SmartPhone()
 
-Objeto17.Encender_Smartphone()
-Objeto17.Reproducir_Musica()
-Objeto17.Tomar_Fotografia()
+Objeto16.Encender_Smartphone()
+Objeto16.Reproducir_Musica()
+Objeto16.Tomar_Fotografia()
 
 print (f'-' * 20)
 
@@ -1389,10 +1425,10 @@ class Perro(Mascota):
         print (f'Padecimiento: {self.Padecimiento}')
         print (f'Visitas: {self.Visitas}')
 
-Objeto18 = Perro('Chester', 4, 2.8, 'Poodle', 'Asma', 4)
+Objeto17 = Perro('Chester', 5, 2.8, 'Poodle', 'Asma', 3)
 
-Mascota.Mostrar(Objeto18)
-Objeto18.Mostrar()
+Mascota.Mostrar(Objeto17)
+Objeto17.Mostrar()
 
 print (f'-' * 20)
 
@@ -1408,10 +1444,10 @@ class Gato(Mascota):
         print (f'Color: {self.Color}')
         print (f'Paciente_Activo: {self.Paciente_Activo}')
 
-Objeto19 = Gato('Messi', 1.5, 1.2, 'Siames', 'Gris', 'Si')
+Objeto18 = Gato('Messi', 1.5, 1.8, 'Angora', 'Gris', 'No')
 
-Mascota.Mostrar(Objeto19)
-Objeto19.Mostrar()
+Mascota.Mostrar(Objeto18)
+Objeto18.Mostrar()
 
 print (f'-' * 20)
 
@@ -1425,10 +1461,10 @@ class Pajaro(Mascota):
         print (f'Especie: {self.Especie}')
         print (f'Habla: {self.Habla}')
 
-Objeto20 = Pajaro('Polly', 31, 0.4, 'Cacatua Amarilla', 'Si')
+Objeto19 = Pajaro('Polly', 31, 0.4, 'Cacatua Amarilla', 'Si')
 
-Mascota.Mostrar(Objeto20)
-Objeto20.Mostrar()
+Mascota.Mostrar(Objeto19)
+Objeto19.Mostrar()
 
 print (f'-' * 20)
 
@@ -1461,25 +1497,25 @@ class Paladin(Atacante, Defensor):
     def Mostrar(self):
         print (f'Name: {self.Name}')
 
-Objeto21 = Paladin(75, 'Battle Axe', 25, 'Green Liquid', 200, 'Ghost Knight')
+Objeto20 = Paladin(75, 'Battle Axe', 25, 'Red Velvet', 200, 'Ghost Knight')
 
-Objeto21.Mostrar()
-Atacante.Mostrar(Objeto21)
-Defensor.Mostrar(Objeto21)
+Objeto20.Mostrar()
+Atacante.Mostrar(Objeto20)
+Defensor.Mostrar(Objeto20)
 
 print (f'-' * 20)
 
-Children_Parent = issubclass(Poke_Kid2, Pokemon2)
+Children_Parent = issubclass(Poke_Kid2, Poke2)
 
 print (f'{Children_Parent}')
 
-Objeto_Clase1 = isinstance(Objeto21, Atacante)
-Objeto_Clase2 = isinstance(Objeto21, Defensor)
-Objeto_Clase3 = isinstance(Objeto21, Paladin)
+Clase_Objeto1 = isinstance(Objeto20, Atacante)
+Clase_Objeto2 = isinstance(Objeto20, Defensor)
+Clase_Objeto3 = isinstance(Objeto20, Paladin)
 
-print (f'{Objeto_Clase1}')
-print (f'{Objeto_Clase2}')
-print (f'{Objeto_Clase3}')
+print (f'{Clase_Objeto1}')
+print (f'{Clase_Objeto2}')
+print (f'{Clase_Objeto3}')
 
 print (f'-' * 20)
 
@@ -1503,112 +1539,94 @@ class D(B,C):
     def Mostrar(self):
         print (f'Hola D')
 
-Objeto22 = D()
+Objeto21 = D()
 
 A.Mostrar(Objeto21)
 B.Mostrar(Objeto21)
 C.Mostrar(Objeto21)
-Objeto22.Mostrar()
+Objeto21.Mostrar()
 E.Mostrar(Objeto21)
 
 print (f'-' * 20)
 
-class Cash():
+class Efectivo():
     def Pagar(self):
-        print (f'Your payment method is Cash')
+        print (f'El pago se realizo en efectivo')
 
-class Card:
+class Tarjeta:
     def Pagar(self):
-        print (f'Your payment method is Card')
+        print (f'El pago se realizo en tarjeta')
 
-class CriptoCurrency:
+class Cripto:
     def Pagar(self):
-        print (f'Your payment method is CriptoCurrency')
+        print (f'El pago se realizo en crito')
 
-Objeto23 = CriptoCurrency()
-Objeto24 = Card()
-Objeto25 = Cash()
+Objeto22 = Cripto()
+Objeto23 = Tarjeta()
+Objeto24 = Efectivo()
 
+Objeto22.Pagar()
 Objeto23.Pagar()
 Objeto24.Pagar()
-Objeto25.Pagar()
 
 print (f'-' * 20)
 
-class Bank_Account:
-    def __init__(self, Balance):
-        self.__Balance = Balance
+class Cuenta_Bancaria():
+    def __init__(self, Saldo):
+        self.__Saldo = Saldo
 
-    def Deposit(self, Money):
-        self.__Balance += Money
+    def Depositar(self, Dinero):
+        self.__Saldo += Dinero
 
     @property
-    def Money(self):
-        return self.__Balance
+    def Dinero(self):
+        return self.__Saldo
 
-    @Money.setter
-    def Money(self, New_Balance):
-        self.__Balance = New_Balance
+    @Dinero.setter
+    def Dinero(self, Nuevo_Saldo):
+        self.__Saldo = Nuevo_Saldo
 
-    def Show(self):
-        print (f'Thank you, your balance is ${self.__Balance}')
+    def Mostrar(self):
+        print (f'Su saldo a la fecha es de ${self.__Saldo}')
 
-Objeto26 = Bank_Account(100)
-Objeto26.Deposit(25)
-Objeto26.Show()
+Objeto25 = Cuenta_Bancaria(100)
+Objeto25.Depositar(25)
+Objeto25.Mostrar()
 
-print (f'Your private balance is {Objeto26.Money}')
+print (f'Tu saldo privado es de {Objeto25.Dinero}')
 
-Objeto26.Money = '20,000'
+Objeto25.Dinero = '20,000'
 
-Objeto26.Show()
+Objeto25.Mostrar()
 
-print (f'Your NEW private balance is {Objeto26.Money}')
+print (f'Tu saldo privado es de {Objeto25.Dinero}')
 
 print (f'-' * 20)
 
 from abc import ABC, abstractmethod
 
-class Plantilla2(ABC):
+class Plantilla(ABC):
     @abstractmethod
-    def Mostrandolo(self):
+    def Borrador(self):
         pass
 
-class Ejemplo2(Plantilla2):
-    def Mostrandolo(self):
-        print (f'Esto es un segundo ejemplo de abstraccion')
-
-    def Segunda(self):
-        print (f'Hola Abstraccion')
-
-Objeto27 = Ejemplo2()
-
-Objeto27.Mostrandolo()
-Objeto27.Segunda()
-
-class Composicion1():
-    def Mensajear(self):
-        print (f'El mensaje ha sido enviado')
-
-class Composicion2():
-    def __init__(self):
-        self.Clase_Composicion = Composicion1()
-
+class Ejemplo1(Plantilla):
     def Mostrar(self):
-        self.Clase_Composicion.Mensajear()
+        print (f'Este es un segundo metodo de la abstraccion')
 
-Objeto28 = Composicion2()
+    def Borrador(self):
+        print (f'Aqui se muestra la abstraccion')
 
-Objeto28.Mostrar()
+Objeto26 = Ejemplo1()
 
-print (f'-' * 20)
+Objeto26.Mostrar()
+Objeto26.Borrador()
 
 from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
 
 variable1 = Lista_Uno[0]
 variable2 = 'Perez'
-variable3 = '''
-Esto
+variable3 = '''Esto
 Es
 Un
 Long
@@ -1630,20 +1648,21 @@ print (f'Esto es una concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
 
 print (f'Mi nombre completo es {Lista_Uno[0]} {variable2}')
 
-print (f'{PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")]} tiene {Variable_Sumatoria}, {Sumatoria2(1, 2, 3, 4)} o incluso {Objeto3.Cantidad} pokemones')
+print (f'{PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")]} tiene {Variable_Sumatoria}, {Sumatoria2(1, 2, 3, 4, 5)} o incluso {Objeto3.Cantidad} pokemones')
 
 del variable5
 
 print (f'melo' in Saludar_Dos())
 print (f'Long' not in variable3)
 
-print (f'Erick' in Lista_Uno)
-
-print (f'-' * 20)
+print (f'Josue' in Lista_Uno)
+print (f'Misty' in PEPE.Tupla_Poke)
+print (f'Pikachu' in PEPE.Set_Conjunto_Poke)
+print (f'Poke3' in PEPE.Diccionario_Poke)
 
 snake_case1, snake_case2, snake_case3 = PEPE.Tupla_Poke
 
-print (f'Esto es un desempaquetado de variables {snake_case2}')
+print (f'Esto es un snake case y al mismo tiempo un desempaquetado de variables: {snake_case3}')
 
 print (f'La lista 1 tiene {Lista_Uno.__len__()} elementos')
 
@@ -1652,21 +1671,21 @@ Lista_Uno.insert(1, 'Juana La Cubana')
 Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
 
 print (f'{Lista_Uno}')
-print (f'La lista 1 tiene {len(Lista_Uno)}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
 
-Cociente, Residuo = divmod(Objeto2.Cantidad, Variable_Sumatoria)
+Cociente, Residuo = divmod(Objeto2.Cantidad, Sumatoria2(1, 2, 3, 1))
 
-print (f'El cociente de la operacion es {Cociente} y el residuo {Residuo}')
+print (f'El cociente de la operacion es {Cociente} y el residuo es {Residuo}')
 
-print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:4]}')
-print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[:2]}')
-print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[:3]}')
-print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:]}')
-print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[2:]}')
-print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[0:None]}')
-print (f'Un rango de elementos de la lista 2 es {PEPE.Lista2[:]}')
+print (f'Rango de elementos {PEPE.Lista2[1:2]}')
+print (f'Rango de elementos {PEPE.Lista2[:2]}')
+print (f'Rango de elementos {PEPE.Lista2[2:]}')
+print (f'Rango de elementos {PEPE.Lista2[::2]}')
+print (f'Rango de elementos {PEPE.Lista2[::3]}')
+print (f'Rango de elementos {PEPE.Lista2[0:None]}')
+print (f'Rango de elementos {PEPE.Lista2[:]}')
 
-print (f'{Lista_Uno[1]} eso es un {PEPE.Lista2[2]}?')
+print (f'{Lista_Uno[0]} eso que esta ahi es un {PEPE.Lista2[2]}?')
 
 print (f'{Lista_Cuatro}')
 
@@ -1681,14 +1700,14 @@ Lista_Uno.pop(-1)
 Lista_Uno.pop(-1)
 
 print (f'{Lista_Uno}')
-print (f'La lista 1 tiene {len(Lista_Uno)}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
 
 Lista_Uno_Copia = Lista_Uno.copy()
 
 Lista_Uno.clear()
 
 print (f'{Lista_Uno}')
-print (f'La lista 1 tiene {len(Lista_Uno)}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
 
 print (f'{Lista_Cuatro}')
 Lista_Cuatro.sort()
@@ -1702,11 +1721,11 @@ print (f'{PEPE.__dir__()}')
 
 print (f'{help(PEPE)}')
 
-Tupla1 = ('Rojo', 'Verde', 'Verde', 'Verde', 'Verde', 'Verde')
+Tupla1 = ('Rojo', 'Verde', 'Verde', 'Verde', 'Verde')
 
 print (f'{Tupla1}')
 
-Tupla1 = tuple(('Red', 'Green', 'Blue'))
+Tupla1 = tuple(('Red', 'Green'))
 
 print (f'{Tupla1}')
 
@@ -1714,17 +1733,15 @@ Tupla2 = 'Uno', 'Dos', 'Tres',
 
 Tupla3 = 'Uno',
 
-print (f'{type(Tupla1)}')
-print (f'{type(Tupla2)}')
-print (f'{type(Tupla3)}')
-print (f'{type(Variable_Funcion_Tupla)}')
+print (f'Un elemento de la tupla es {Tupla1[1]}')
 
-Set_Conjunto1 = {Objeto1.Nombre, 'Pikachu', 'Pikachu', 'Pikachu', 'Pikachu'}
-Set_Conjunto1.add('Charmander')
+Set_Conjunto1 = {'Rojo', 'Rojo', 'Rojo', 'Rojo', 'Rojo', 'Rojo', 'Rojo'}
+Set_Conjunto1.add('Black')
 
 print (f'{Set_Conjunto1}')
 
-Set_Conjunto1 = set({'Uno', 'Dos', 'Tres'})
+Set_Conjunto1 = set({'Red', 'Black'})
+Set_Conjunto1.add('Blue')
 
 print (f'{Set_Conjunto1}')
 
@@ -1736,25 +1753,125 @@ print (f'{Set_Conjunto2.issuperset(Set_Conjunto3)}')
 print (f'{Set_Conjunto3.issubset(Set_Conjunto2)}')
 print (f'{Set_Conjunto2.isdisjoint(Set_Conjunto4)}')
 
-Set_Conjunto_Menu1 = {'Chocolate', 'Vainilla'}
-Set_Conjunto_Menu1.add('Fresa')
+A = {1, 2, 3, 4}
+B = set({3, 4, 5, 6})
 
-print (f'{Set_Conjunto_Menu1}')
+print (f'{A.union(B)}')
+
+print (f'{A|B}')
+
+print (f'{A.intersection(B)}')
+
+print (f'{A&B}')
+
+print (f'{A.difference(B)}')
+print (f'{B.difference(A)}')
+
+print (f'{A - B}')
+print (f'{B - A}')
+
+print (f'{A.issuperset(B)}')
+print (f'{B.issubset(B)}')
+print (f'{A.isdisjoint(B)}')
+
+print (f'{A.symmetric_difference(B)}')
+print (f'{A ^ B}')
+
+print (f'-' * 20)
+
+C = {1, 2, 3}
+D = {3, 4}
+
+C.difference_update(D)
+
+print (f'{C}')
+
+C.update(D)
+
+print (f'{C}')
+
+C.intersection_update(D)
+
+print (f'{C}')
+
+C.symmetric_difference_update(D)
+
+print (f'{C}')
+
+print (f'-' * 20)
+
+Set_Conjunto5 = {1, 2, 3, 4}
+Set_Conjunto6 = set({3, 4, 5, 6})
+
+print (f'La union de ambos sets es {Set_Conjunto5.union(Set_Conjunto6)}')
+print (f'La union de ambos sets es {Set_Conjunto5 | Set_Conjunto6}')
+
+print (f'Mostrando solo lo que tienen en comun ambos sets {Set_Conjunto5.intersection(Set_Conjunto6)}')
+print (f'Mostrando solo lo que tienen en comun ambos sets {Set_Conjunto5 & Set_Conjunto6}')
+
+print (f'Los elementos que no tienen en comun los sets son {Set_Conjunto5.difference(Set_Conjunto6)}')
+print (f'Los elementos que no tienen en comun los sets son {Set_Conjunto6.difference(Set_Conjunto5)}')
+
+print (f'Los elementos que no tienen en comun los sets son {Set_Conjunto5 - Set_Conjunto6}')
+print (f'Los elementos que no tienen en comun los sets son {Set_Conjunto6 - Set_Conjunto5}')
+
+print (f'Los elementos que son diferentes son {Set_Conjunto5.symmetric_difference(Set_Conjunto6)}')
+print (f'Los elementos que son diferentes son {Set_Conjunto5 ^ Set_Conjunto6}')
+
+Set_Conjunto7 = {1, 2, 3, 4, 5}
+Set_Conjunto8 = {4, 5}
+Set_Conjunto9 = set({8})
+
+print (f'{Set_Conjunto7.issuperset(Set_Conjunto8)}')
+print (f'{Set_Conjunto7 >= Set_Conjunto8}')
+print (f'-' * 20)
+print (f'{Set_Conjunto8.issubset(Set_Conjunto7)}')
+print (f'{Set_Conjunto8 <= Set_Conjunto7}')
+print (f'-' * 20)
+print (f'{Set_Conjunto7.isdisjoint(Set_Conjunto9)}')
+print (f'-' * 20)
+
+'''Set_Conjunto6.update(Set_Conjunto7)
+
+print (f'Set actualizado {Set_Conjunto6}')'''
+
+'''Set_Conjunto6.intersection_update(Set_Conjunto7)
+
+print (f'Set actualizado {Set_Conjunto6}')'''
+
+Set_Conjunto6.difference_update(Set_Conjunto7)
+Set_Conjunto7.difference_update(Set_Conjunto6)
+
+print (f'Set actualizado {Set_Conjunto6}')
+print (f'Set actualizado {Set_Conjunto7}')
+
+Set_Conjunto_Menu1 = {'Chocolate', 'Fresa'}
+Set_Conjunto_Menu1.add('Vainilla')
 
 Set_Conjunto_Menu2 = frozenset({'Caramelo'})
 
-Set_Conjunto_Menu3 = set({Set_Conjunto_Menu2, Objeto3.Nombre})
+print (f'{Set_Conjunto_Menu1.union(Set_Conjunto_Menu2)}')
+
+Set_Conjunto_Menu3 = set({Set_Conjunto_Menu2, Objeto1.Nombre})
 
 print (f'{Set_Conjunto_Menu1}')
 print (f'{Set_Conjunto_Menu2}')
 print (f'{Set_Conjunto_Menu3}')
+
+Nuevo_Set_Menu = list(Set_Conjunto_Menu1.union(Set_Conjunto_Menu2))
+
+print (f'{Nuevo_Set_Menu}')
+print (f'{type(Nuevo_Set_Menu)}')
+
+for indice, elemento in enumerate(Nuevo_Set_Menu, start=1):
+    print (f'El elemento en la posicion {indice} es {elemento}')
 
 print (f'-' * 20)
 
 Diccionario1 = {
     'Nombre' : Saludar_Dos(),
     'Edad' : Variable_Sumatoria,
-    'Votante' : Objeto2.Catched
+    'Votante' : Variable_Funcion_Tupla[3]
 }
 
 print (f'{Diccionario1}')
@@ -1766,7 +1883,7 @@ print (f'-' * 20)
 
 Diccionario2 = {
     'Nombre' : ["Erick", "Josue", "Karlita"],
-    'Edad' : [37, 20, 6],
+    'Edad' : [18 * 2, 20, 6],
     'Votante' : [True, not False, False]
 }
 
@@ -1786,25 +1903,24 @@ print (f'{Diccionario3.get("Gastos")}')
 
 print (f'-' * 20)
 
-Diccionario1['Nombre'] = PEPE.Diccionario_Poke['Poke2']
+print (f'Un elemento del diccionario 2 es {Diccionario2["Nombre"][2:3]}')
+
+Diccionario1['Nombre'] = variable1
 
 print (f'{Diccionario1}')
-print (f'{Diccionario1.keys()}')
-print (f'{Diccionario1["Nombre"]}')
-print (f'{Diccionario1.get("Edad")}')
-
-print (f'-' * 20)
 
 del Diccionario1['Nombre']
 Diccionario1.pop("Edad")
 
 print (f'{Diccionario1}')
 
+print (f'-' * 20)
+
 Diccionario1.clear()
 
 print (f'{Diccionario1}')
 
-Diccionario1 = dict({1 : "Karlita", 2 : Variable_Sumatoria, 3 : not True})
+Diccionario1 = dict({1 : "Karlita", 2 : 6, 3 : not True})
 
 print (f'{Diccionario1}')
 print (f'{Diccionario1.keys()}')
@@ -1813,53 +1929,80 @@ print (f'{Diccionario1.get(2)}')
 
 print (f'-' * 20)
 
-print (f'{Diccionario1.get(1)} no puede votar ya que solo tiene {Diccionario2["Edad"][2]} añitos')
+print (f'{Diccionario2.get("Nombre")[2]} no puede votar ya que solo tiene {Diccionario1[2]} añitos')
 
-Diccionario_Vacio1 = dict.fromkeys('ABC', PEPE.Diccionario_Poke['Poke3'])
+Diccionario_Vacio1 = dict.fromkeys('ABC', "HolaMundo")
 Diccionario_Vacio2 = dict.fromkeys(['Uno', 'Dos', 'Tres'])
-
-Diccionario_Vacio2['Dos'] = 'HelloWorld'
+Diccionario_Vacio2['Dos'] = PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")]
 
 print (f'{Diccionario_Vacio1}')
 print (f'{Diccionario_Vacio2}')
 
-Lista_Dict1 = list(['Erick', 'Josue', 'Karlita'])
+Key1 = [f'Key{i}' for i in range(len(Lista_Uno_Copia))]
 
-Key1 = [f'Key{i}' for i in range(len(Lista_Dict1))]
+Diccionario4 = dict(zip(Key1, Lista_Uno_Copia))
 
-print (f'{Key1}')
+for elemento in Diccionario4.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
 
-Diccionario4 = dict(zip(Key1, Lista_Dict1))
+print (f'-' * 20)
 
-print (f'{Diccionario4}')
+for elemento in Diccionario3.keys():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario3.values():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario3.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
 
 print (f'-' * 20)
 
 import pandas as pd
 
-Ruta_Csv2 = 'C:\\python-data-analyzer\\data\\sales.csv'
+Ruta_Csv3 = 'C:\\Repo\\Store.csv'
 
-Cargar_Csv2 = pd.read_csv(Ruta_Csv2)
+Cargar_Csv3 = pd.read_csv(Ruta_Csv3)
 
-print (f'{Cargar_Csv2}')
-
-Lista_Dict2 = set(Cargar_Csv2['product'])
-
-print (f'{Lista_Dict2}')
-
-Key2 = [f'Key{i}' for i in range(len(Lista_Dict2))]
-
-Diccionario5 = dict(zip(Key2, Lista_Dict2))
-
-print (f'{Diccionario5}')
+print (f'{Cargar_Csv3}')
 
 print (f'-' * 20)
 
+Lista_Csv3 = set(Cargar_Csv3['product'])
+
+print (f'{Lista_Csv3}')
+
+Key2 = [f'Key{i}' for i in range(len(Lista_Csv3))]
+
+print (f'{Key2}')
+
+Diccionario5 = dict(zip(Key2, Lista_Csv3))
+
+print (f'-' * 20)
+
+for elemento in Diccionario5.keys():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario5.values():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario5.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Division_Flotante = PEPE.Division_Flotante
 Division_Baja = 14//7
 Exponente = 4**3
 Modulo = 20%6
 
-print (f'El resultado de la operacion es {PEPE.Division_Flotante}')
+print (f'El resultado de la operacion es {Division_Flotante}')
 print (f'El resultado de la operacion es {int(abs(Division_Baja))}')
 print (f'El resultado de la operacion es {Exponente}')
 print (f'El resultado de la operacion es {Modulo}')
@@ -1867,16 +2010,18 @@ print (f'El resultado de la operacion es {Modulo}')
 print (f'El tipo de dato de la variable es {type(variable1)}')
 print (f'El tipo de dato de la variable es {type(variable4)}')
 print (f'El tipo de dato de la variable es {type(PEPE.Division_Flotante)}')
-print (f'El tipo de dato de la variable es {type(Objeto2.Catched)}')
-print (f'El tipo de dato de la variable es {type(Lista_Array1)}')
-print (f'El tipo de dato de la variable es {type(Tupla1)}')
-print (f'El tipo de dato de la variable es {type(Set_Conjunto_Menu1)}')
-print (f'El tipo de dato de la variable es {type(Set_Conjunto_Menu2)}')
-print (f'El tipo de dato de la variable es {type(Diccionario3)}')
+print (f'El tipo de dato de la variable es {type(Objeto3.Catched)}')
+
+print (f'El tipo de dato de la variable es {type(Lista_Uno_Copia)}')
+print (f'El tipo de dato de la variable es {type(Tupla_Array)}')
+print (f'El tipo de dato de la variable es {type(Set_Conjunto_Menu3)}')
+print (f'El tipo de dato de la variable es {type(Diccionario_Vacio1)}')
 print (f'El tipo de dato de la variable es {type(Funcion_Tupla)}')
+print (f'El tipo de dato de la variable es {type(Array_Concatenate)}')
+print (f'El tipo de dato de la variable es {type(Data_Frame_Concatenate)}')
+print (f'El tipo de dato de la variable es {type(Objeto1)}')
+print (f'El tipo de dato de la variable es {type(Poke_Kid1)}')
 print (f'El tipo de dato de la variable es {type(PEPE)}')
-print (f'El tipo de dato de la variable es {type(Data_Frame2)}')
-print (f'El tipo de dato de la variable es {type(Array6)}')
 
 if (Diccionario3['Ingresos'] > 500):
     if (Diccionario3['Gastos'] < 200):
@@ -1908,20 +2053,22 @@ elif (Diccionario3['Ingresos'] < 500):
 else:
     print (f'Error de codigo')
 
-variable8 = 'Erick'
+variable8 = 'erick'
 variable9 = 30
 
-if (variable8 == 'Erick' and variable9 > 50):
-    print (f'AMBAS CONDICIONES SE CUMPLEN')
+if (variable8 == 'erick' and variable9 > 50):
+    print (f'Ambas condiciones se cumplen')
 else:
     print (f'Error, al menos una condicion no se cumple')
 
-if (variable8 == 'Josue' or variable9 > 30):
-    print (f'AL MENOS UNA CONDICION SE CUMPLE')
+if (variable8 == 'josue' or variable9 > 50):
+    print (f'Al menos una condicion se cumplen')
 else:
-    print (f'Error, ninguna condicion se cumple')
+    print (f'Error, ninguna de las condiciones se cumplen')
 
-print (f'{variable1.__dir__()}')
+print (f'{dir(PEPE)}')
+
+print (f'{help(PEPE)}')
 
 print (f'-' * 20)
 
@@ -1930,36 +2077,36 @@ class Entrenador():
         self.Trainer = Trainer
         self.City = City
         self.Favorite = Favorite
-        self.Pokedex = variable4
-        self.Classified = True
+        self.Pokedex = Variable_Sumatoria
+        self.Classified = not False
 
     def Desplegar(self):
         print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
 
-Objeto29 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index('Ash')], 'Kanto', Objeto1.Nombre)
-Objeto30 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index('Brooke')], 'Alolah', Objeto2.Nombre)
-Objeto31 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index('Misty')], 'Paldea', Objeto3.Nombre)
+Objeto27 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index('Ash')], 'Kanto', Objeto1.Nombre)
+Objeto28 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index('Brooke')], 'Alolah', Objeto2.Nombre)
+Objeto29 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index('Misty')], 'Paldea', Objeto3.Nombre)
 
-Objeto30.Desplegar()
+Objeto28.Desplegar()
 
 Negativo = -5
 
-print (f'{int(abs(Negativo))}')
+print (f'El numero positivo es {int(abs(Negativo))}')
 
 Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
-Anonima5 = filter(lambda Num :  Num % 2 == 0, PEPE.Lista_Numeros)
 Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+Anonima5 = filter(lambda Num : Num % 2 == 0, PEPE.Lista_Numeros)
 
 print (f'{Any_Iterable}')
-print (f'{list(Anonima5)}')
 print (f'{Lista_Iterable}')
+print (f'{list(Anonima5)}')
 
-print (f'El binario del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
+print (f'La version binaria del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
 
 if (bool(Diccionario3['Vacio']) == True):
     print (f'Gracias por la informacion')
 else:
-    print (f'Error, ingrese una cadena de texto')
+    print (f'Error, necesito que ingreses una cadena de texto')
 
 for elemento in Lista_Uno_Copia:
     print (f'{elemento}')
@@ -1974,51 +2121,72 @@ print (f'-' * 20)
 for indice, elemento in enumerate(Lista_Uno_Copia, start=1):
     print (f'El elemento en la posicion {indice} es {elemento}')
 
-print (f'-' * 20)
-
 variable10 = 'eSteBAN'
 variable10_letra = variable10[0]
 
 print (f'{variable10}')
 print (f'{variable10.lower()}')
-print (f'{variable10.upper()}')
 print (f'{variable10.capitalize()}')
+print (f'{variable10.upper()}')
 
 print (f'{variable10.lower().find("t")}')
 print (f'{variable10.lower().index("b")}')
 
-print (f'La letra {variable10_letra} aparece un total de {variable10.lower().count(variable10_letra)} veces')
-
 print (f'{variable10.lower().startswith(variable10_letra)}')
 print (f'{variable10.lower().endswith("n")}')
 
+print (f'La letra {variable10_letra} aparece un total de {variable10.lower().count(variable10_letra)} veces')
+
 print (f'{variable10.lower().replace("ban", "POPOTAMO")}')
 
-variable11 = 'esto es un texto de practica'
+variable11 = 'esto es un texto cualquiera que quiero probar'
 
 Lista_variable11 = variable11.split(' ')
 
 for elemento in Lista_variable11:
     print (f'{elemento}')
 
-print (f'La cantidad de palabras digitadas es {len(Lista_variable11)}')
+print (f'la variable 11 tiene un total de {Lista_variable11.__len__()} palabras')
 
-variable12 = '78'
+variable12 = '89'
 
-Buscar22 = variable12.replace(' ', '').isalpha()
-
-if (Buscar22 == True):
-    print (f'Ingresaste un texto')
+if (variable12.replace(' ', '').isalpha() == True):
+    print (f'Lo ingresado es un texto')
 else:
-    print (f'Ingresaste algo que no es un texto')
+    print (f'Error, lo ingresado no es un texto')
 
-print (f'{PEPE.Tupla_Poke[2]} se encuentra en la posicion {PEPE.Tupla_Poke.index("Misty")}')
+variable13 = '3.5'
 
-for elemento in Diccionario4:
-    print (f'{Diccionario4[elemento]}')
+try:
+    float(variable13)
+    print('Correcto')
+except ValueError:
+    print('Incorrecto')
 
-for elemento in Diccionario3.items():
-    print (f'{elemento[0]} -- {elemento[1]}')
+variable14 = 35
+
+try:
+    int(variable14)
+    print (f'Correcto, es un numero entero')
+except ValueError:
+    print (f'Incorrecto, necesito que ingreses un numero entero')
+
+print (f'{PEPE.Tupla_Poke[2]} aparece en la posicion {PEPE.Tupla_Poke.index("Misty")}')
+
+for elemento in Diccionario5.keys():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario5.values():
+    print(f'{elemento}')
+
+print(f'-' * 20)
+
+for elemento in Diccionario5.items():
+    print(f'{elemento[0]} -- {elemento[1]}')
+
+print(f'-' * 20)
 
 Contador = 0
 
@@ -2026,31 +2194,31 @@ while (Contador <= 5):
     print (f'El contador es {Contador}')
     Contador+= 1
 
-Contador = 0
-
-while (Contador < len(PEPE.Lista_Numeros)):
-    print (f'El elemento es {PEPE.Lista_Numeros[Contador] * 100}')
-    Contador+= 1
-
 Lista_Animales = []
 Lista_Animales.append('Cocodrilo')
-Lista_Animales.insert(0, PEPE.Lista2[2])
-Lista_Animales.extend(['Leon', 'Capibara'])
+Lista_Animales.insert(1, PEPE.Lista2[2])
+Lista_Animales.extend(['Avestruz', 'Escarabajo'])
 
 print (f'{Lista_Animales}')
 
 Contador = 0
 
 while (Contador < len(Lista_Animales)):
-    if (Lista_Animales[Contador] == 'Leon'):
-        print (f'El rey de la selva')
+    if (Lista_Animales[Contador] == 'Koala'):
+        print (f'Este animal es australiano')
         break
     else:
         Contador+= 1
         continue
 
-for elemento1, elemento2, in zip(Lista_Uno_Copia, PEPE.Tupla_Poke):
-    print (f'{elemento2} -- {elemento1}')
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'{PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+for elemento1, elemento2 in zip(Lista_Animales, Set_Conjunto_Menu1):
+    print (f'{elemento1} -- {elemento2}')
 
 for elemento in range(5):
     print (f'{elemento}')
@@ -2067,29 +2235,31 @@ Menor = min(Lista_Numeros_Mult)
 Redondeo = round(14.458795, 2)
 Sumatoria4 = sum(Lista_Numeros_Mult)
 
-print (f'{bool(not True)}')
+print (f'El menor de los resultados es {Menor} y el mayor es {Mayor}')
+
+print (f'El redondeo es {Redondeo}')
+
+print (f'El resultado de la sumatoria es {Sumatoria4}')
+
 print (f'{bool(False)}')
 print (f'{bool("")}')
 print (f'{bool(None)}')
 print (f'{bool(0)}')
+print (f'{bool(not True)}')
 
-Todo_All = all([Lista_Uno_Copia, Tupla_Array1, Diccionario5, ""])
+Todo_All = all([Lista_Uno_Copia, Tupla3, Set_Conjunto_Menu1, ""])
 
 print (f'{Todo_All}')
 
-Uno = int('500')
-Dos = str(500)
-Tres = float(Uno)
-Cuatro = list(['Erick'])
+Entero = int('500')
+String = str(500)
+Flotante = float(Entero)
 
-print (f'{type(Uno)}')
-print (f'{type(Dos)}')
-print (f'{type(Tres)}')
-print (f'{type(Cuatro)}')
+print (f'{type(Entero)}')
+print (f'{type(String)}')
+print (f'{type(Flotante)}')
 
-Cinco = tuple(Cuatro)
-
-print (f'{type(Cinco)}')
+print (f'La llave es {" - ".join(Lista_Uno_Copia)}')
 
 import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
 
@@ -2099,46 +2269,63 @@ import Paquete.Sub_Paquete.Segundo as PEPE3
 
 Variable_PEPE3 = PEPE3
 
-'''def Floating1(Numero):
+'''def Finale1(Numero):
     return Variable_Sumatoria * Objeto3.Cantidad + Numero
 
-print (f'El resultado de la operacion es {Floating1(PEPE.Flotante1)}')
+print (f'El resultado de la operacion es {Finale1(PEPE.Flotante1)}')
 
 Resultado2 = eval(PEPE.Flotante2)
 
 print (f'El resultado de la operacion es {Resultado2}')
 
-def Floating3(Cadena):
+def Finale3(Cadena):
     Lista_Cadena = Cadena.split(' ')
-    for indice, elemento in enumerate(Lista_Cadena):
-        print (f'El elemento en la posicion {indice} es {elemento}')
+    for elemento in enumerate(Lista_Cadena):
+        print (f'{elemento[0]} - {elemento[1]}')
 
-    print (f'La cantidad de elementos digitados es {len(Lista_Cadena)}')
+    print (f'La cantidad de palabras digitadas es {len(Lista_Cadena)}')
 
-Floating3(PEPE.Flotante3)
+Finale3(PEPE.Flotante3)
 
-def Floating4(Texto):
-    Comprobacion = Texto.replace(' ', '').isalpha()
-    if (Comprobacion == True):
-        print (f'Gracias, has ingresado un texto')
+def Finale4(Textico):
+    if (Textico.isalpha() == True):
+        print (f'Exito, ingresaste un texto')
     else:
-        print (f'Error, necesito que ingreses un texto')
+        print (f'Error, lo ingresado no es un texto')
 
-Floating4(PEPE.Flotante4)'''
+Finale4(PEPE.Flotante4)
 
-'''Lista_Alumnos = []
+def Finale5(Decimal):
+    try:
+        float(Decimal)
+        print (f'Genial, lo ingresado es un numero decimal')
+    except ValueError:
+        print (f'Error, lo ingresado no es un numero decimal')
 
-Contador = int(input(f'Ingrese el numero de alumnos: '))
+Finale5(PEPE.Flotante5)
 
-def Colegio1(Lista):
+def Finale6(Numero):
+    try:
+        int(Numero)
+        print (f'Genial, lo ingresado es un numero entero')
+    except ValueError:
+        print (f'Error, lo ingresado no es un numero entero')
+
+Finale6(PEPE.Flotante6)'''
+
+'''Lista_Alumnos = list([])
+
+Contador = int(input(f'Ingrese la cantidad de estudiantes: '))
+
+def Colegio(Lista):
     for elemento in range(Contador):
-        Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
-        Lista.append(Alumno)
+        Estudiante = input(f'Ingrese el nombre del estudiante {elemento}: ')
+        Lista.append(Estudiante)
 
     return Lista
 
 with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
-    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio1(Lista_Alumnos)}'])
+    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio(Lista_Alumnos)}'])
     Docu.close()
 
 with open (Ruta_Txt, encoding='UTF-8') as Docu:
@@ -2146,22 +2333,24 @@ with open (Ruta_Txt, encoding='UTF-8') as Docu:
     print (f'{Documento_Leer}')
     Docu.close()
 
-Lista_Alumnos2 = list([])
+Lista_Alumnos2 = []
 
-Contador = int(input(f'Ingrese el numero de alumnos: '))
+Contador = int(input(f'Ingrese el numero de estudiantes: '))
 
 def Colegio2(Lista):
     for elemento in range(Contador):
-        Alumno_Name = input(f'Ingrese el nombre del estudiante {elemento}: ')
-        Alumno_Age = int(input(f'Ingrese la edad del estudiante {elemento}: '))
-        Estudiante = [Alumno_Name, Alumno_Age]
+        Alumno_Nombre = input(f'Ingrese el nombre del estudiante {elemento}: ')
+        Alumno_Edad = int(input(f'Ingrese la edad del estudiante {elemento}: '))
+
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
         Lista.append(Estudiante)
 
-    Lista.sort(key=lambda Num : Num[1])
+    Lista.sort(key=lambda Num :  Num[1])
     Menore = Lista[0][0]
     Mayore = Lista[-1][0]
 
-    print (f'El menor de los estudiantes es {Menore} y el mayor de los estudiantes es {Mayore}')
+    print (f'El menor de los estudiantes es {Menore} ({Lista[0][1]} años)')
+    print (f'El mayor de los estudiantes es {Menore} ({Lista[-1][1]} años)')
 
 Colegio2(Lista_Alumnos2)'''
 
@@ -2172,8 +2361,7 @@ Colegio2(Lista_Alumnos2)'''
             Numerito = int(Numero)
             break
         except:
-            print (f'Error, necesito que ingreses un numero entero')
-
+            print (f'Error, el valor ingresado no es un numero entero, intente nuevamente')
     return Numerito
 
 print (f'Gracias, tu numero digitado es {Exception_Finale()}')'''
@@ -2182,35 +2370,43 @@ import pandas as pd
 import requests
 import io
 
+Ruta_Html2 = 'https://en.wikipedia.org/wiki/Louisiana'
+
 headers = {'User-Agent' : 'Mozilla/5.0'}
 
-Response2 = requests.get(Ruta_Html, headers=headers)
+Response = requests.get(Ruta_Html2, headers=headers)
 
-Leer_Html = io.StringIO(Response2.text)
+Leer_Html = io.StringIO(Response.text)
 
-Cargar_Txt = pd.read_html(Leer_Html)
+Cargar_Html2 = pd.read_html(Leer_Html)
 
-print (f'{Cargar_Txt[1].head()}')
+print (f'{Cargar_Html2[1].head()}')
 
 import re
 
-Correo2 = 'example@example.com'
+Correo1 = 'sample@hotmail.org'
 
-Pattern4 = r'^[a-zA-Z0-9./*-+=]+\@[a-zA-Z]+\.[a-z]{2,}$'
+Pattern3 = r'^[a-zA-Z0-9./*-+=_-]+\@(gmail|hotmail|yahoo)\.(com|net|org)$'
 
-Buscar23 = bool(re.match(Pattern4, Correo2))
+Buscar14 = bool(re.match(Pattern3, Correo1))
 
-if (Buscar23 == True):
-    print (f'El formato del correo es correcto')
+if (Buscar14 == True):
+    print (f'Formato de correo electronico corecto')
 else:
-    print (f'El correo electronico tiene el formato incorrecto')
+    print (f'El formato del correo electronico es incorrecto')
 
-import pandas as pd
+Numero = '32'
+
+Pattern4 = r'0[0-9]|[12][0-9]|3[01]'
+
+Buscar15 = bool(re.fullmatch(Pattern4, Numero))
+
+if (Buscar15):
+    print (f'El numero se encuentra entre 1 y 31')
+else:
+    print (f'Error, el numero esta fuera de rango')
+
 from datetime import datetime
-
-Ruta_Csv3 = 'C:\\python-data-analyzer\\data\\sales.csv'
-
-Cargar_Csv3 = pd.read_csv(Ruta_Csv3)
 
 print (f'{Cargar_Csv3}')
 
@@ -2221,24 +2417,26 @@ try:
     Fech_Formateada = pd.to_datetime(Fech)
     Cargar_Csv3['date'] = pd.to_datetime(Cargar_Csv3['date'])
 except ValueError:
-    print (f'Error, formato de fecha incorrecto')
+    print (f'Error, la fecha tiene un formato incorrecto')
     exit()
 
-Ubicado = Cargar_Csv3[Cargar_Csv3['date'].dt.date == Fech_Formateada.date()]
+Buscador = Cargar_Csv3[Cargar_Csv3['date'].dt.date == Fech_Formateada.date()]
 
-if (Ubicado.empty):
-    print (f'No se han encontrado ventas en esta fecha')
+if (Buscador.empty):
+    print (f'No hay ventas registradas en esta fecha')
 else:
-    print (f'Genial, hay ventas en esta fecha')
-    Venta = Ubicado.groupby('product')['quantity'].sum()
-    Venta_Prod_May = Venta.idxmax()
-    Venta_Prod_Min = Venta.idxmin()
-    Venta_Prod_May_Cant = Venta.max()
-    Venta_Prod_Min_Cant = Venta.min()
+    print (f'Genial, ventas registradas')
+    Grupo1 = Buscador.groupby('product')['quantity'].sum()
+    Grupo1_Prod_Max = Grupo1.idxmax()
+    Grupo1_Prod_Min = Grupo1.idxmin()
+    Grupo1_Prod_Max_Cant = Grupo1.max()
+    Grupo1_Prod_Min_Cant = Grupo1.min()
 
-    print (f'En la fecha {Fech_Formateada} se encontraron {Venta_Prod_May_Cant} ventas del producto {Venta_Prod_May}')
-    print (f'En la fecha {Fech_Formateada} se encontraron {Venta_Prod_Min_Cant} ventas del producto {Venta_Prod_Min}')
+    print (f'Durante {Fech_Formateada} el producto que mas vendio fue {Grupo1_Prod_Max} con un total de {Grupo1_Prod_Max_Cant} unidades')
+    print (f'Durante {Fech_Formateada} el producto que menos vendio fue {Grupo1_Prod_Min} con un total de {Grupo1_Prod_Min_Cant} unidades')
 
-Cargar_Csv3['Totalxxxx'] = Cargar_Csv3['quantity'] * Cargar_Csv3['price']
+print (f'-' * 20)
+
+Cargar_Csv3['Totales'] = Cargar_Csv3['quantity'] * Cargar_Csv3['price']
 
 print (f'{Cargar_Csv3}')
