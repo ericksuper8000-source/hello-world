@@ -132,6 +132,25 @@ lower() → normaliza
 re.sub() → limpia caracteres
 split() + join() → arregla espacios
 
+
+import re
+
+texto = "   Hola!!!   mundo@@   123   "
+
+# 1. Quitar espacios de los bordes
+texto = texto.strip()
+
+# 2. Pasar todo a minúsculas
+texto = texto.lower()
+
+# 3. Eliminar caracteres especiales (dejamos letras, números y espacios)
+texto = re.sub(r'[^a-z0-9\s]', '', texto)
+
+# 4. Arreglar espacios múltiples
+texto = " ".join(texto.split())
+
+print(texto)
+
 #*******************************************************************************************
 #*******************************************************************************************
 #*******************************************************************************************
