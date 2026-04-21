@@ -1,3 +1,16 @@
+'''
+Librerias mas utiles de python. Acceder a CheatSheet y jugar un rato con cada una.
+
+os
+pathlib
+json
+re
+datetime
+collections
+
+'''
+
+
 # Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
 # En caso de que de error, entonces con except mostraremos un mensaje de error
 
@@ -108,8 +121,20 @@ try:
     print (f'Correcto, es un numero entero')
 except ValueError:
     print (f'Incorrecto, necesito que ingreses un numero entero')
+    
+    
+# Limpiar Una cadena de caracteres (Purificacion o Saneamiento)
 
+texto = "   Hola!!!   mundo@@   123   "
 
+strip() → limpia bordes
+lower() → normaliza
+re.sub() → limpia caracteres
+split() + join() → arregla espacios
+
+#*******************************************************************************************
+#*******************************************************************************************
+#*******************************************************************************************
 
 # Hagamos una exception ValueError, sera una funcio con un input que pida ingresar un numero, try int(Numero) si no entonces except mostrar mensaje de error.
 
@@ -558,6 +583,9 @@ except StopIteration:
 
 ####### CREANDO MIS PROPIAS FUNCIONES
 
+# Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los
+# valores y los devuelva return como una lista.
+
 # Creamos una funcion simple propia que diga hola mundo  en  Modulo_Propio
 # Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio
 # Creamos una funcion que tenga un parametro nombre agregado por el usuario en  Modulo_Propio, ojo hagamos la funcion type hint mostrando el tipo de dato
@@ -579,7 +607,7 @@ except StopIteration:
 # Creamos una lista de numeros y una funcion lambda con un filter que saque solo los pares
 
 '''
-Declarar una variable global externa integer
+Declarar una variable GLOBAL externa integer, ojo recuerda que las variables globales se declaran totalmente en mayuscula
 Ahora declaramos una funcion con una variable local interna integer
 Hacemos una suma en la funcion de la variable global mas la variable local
 
