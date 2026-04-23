@@ -1242,158 +1242,420 @@ print (f'{Array_Linspace}')
 
 print (f'-' * 20)
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+Texto6 = "   Hola!!!   mundo@@   123   "
 
-Hagamos una funcion Generadora.
-Las funciones generadoras me permiten ejecutar un codigo de manera pausada y controlada para ver el comportamiento.
+print (f'{Texto6}')
 
-Hagamos una funcion generadora, donde por medio de un range se muestren 10 numeros, pero con los parametros de la funcion generadora, ir de uno en uno para analizar su ejecucion.
+Version11 = Texto6.strip()
 
-def Ejemplo():
-    for elemento in range(0, 10):
-        yield elemento
+print (f'{Version11}')
 
-Rango = Ejemplo()
+Version12 = ' '.join(Version11.split())
 
-print (f'{next(Rango)}')
+print (f'{Version12}')
 
+Version13 = Version12.lower()
 
-Ahora hagamos una funcion donde por medio de un range se evalue si el elemento es un numero par o impar, vamos a ir evaluando cada uno con un if % 2 == 0 y yield, quiero que me muestre cada resultado de manera individual. La idea es con el next mostrar par, impar, par, etc….
+print (f'{Version13}')
 
-def Ejemplo2():
-    for elemento in range(5):
-        if (elemento % 2 == 0):
-            yield f'par'
-        else:
-            yield f'impar'
+import re
 
-Rango2 = Ejemplo2()
+Version14 = re.sub(r'[^a-z0-9\s]', '', Version13)
 
-print (f'{next(Rango2)}')
+print (f'{Version14}')
 
+print (f'-' * 20)
 
+import pandas as pd
+from datetime import datetime
 
-# Ahora vamos a hacer un ejercicio mas donde por medio de una funcion que recorra un ciclo range, con yield y next se muestre cada uno por separado
-# Pero en este caso cuando lleguemos al final mostraremos un mensaje El ejercicio termino. Esto lo manejaremos con una exception StopIteration
-def Ejemplo():
-    for elemento in range(3):
-        yield elemento
+Ruta_Csv4 = 'C:\\Repo\\Store.csv'
 
-Rango = Ejemplo()
+Cargar_Csv4 = pd.read_csv(Ruta_Csv4)
+
+print (f'{Cargar_Csv4}')
+
+print (f'-' * 20)
+
+Fecha3 = '2026-04-01'
 
 try:
-    print (f'{next(Rango)}')
-    print(f'{next(Rango)}')
-    print(f'{next(Rango)}')
-    print(f'{next(Rango)}')
+    Fech3 = datetime.strptime(Fecha3, '%Y-%m-%d').date()
+    Fech3_Formateada = pd.to_datetime(Fech3)
+    Cargar_Csv4['date'] = pd.to_datetime(Cargar_Csv4['date'])
+except ValueError:
+    print (f'Error, formato incorrecto')
+    exit()
+
+Encontrado4 = Cargar_Csv4[Cargar_Csv4['date'].dt.date == Fech3_Formateada.date()]
+
+if (Encontrado4.empty):
+    print (f'No se han encontrado ventas en esta fecha')
+else:
+    print (f'Genial, encontramos ventas')
+
+    Grupo4 = Encontrado4.groupby('product')['quantity'].sum()
+    Grupo4_May = Grupo4.idxmax()
+    Grupo4_Min = Grupo4.idxmin()
+
+    Grupo4_May_Cant = Grupo4.max()
+    Grupo4_Min_Cant = Grupo4.min()
+
+    print (f'El producto que mas vendio durante {Fech3_Formateada} fue {Grupo4_May} ({Grupo4_May_Cant})')
+    print (f'El producto que menos vendio durante {Fech3_Formateada} fue {Grupo4_Min} ({Grupo4_Min_Cant})')
+
+print (f'-' * 20)
+
+Cargar_Csv4['BEBES'] = Cargar_Csv4['quantity'] * Cargar_Csv4['price']
+
+print (f'{Cargar_Csv4}')
+
+print (f'-' * 20)
+
+def Generadora1():
+    for elemento in range(5):
+        yield elemento
+
+Gen1 = Generadora1()
+
+try:
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
 except StopIteration:
-    print (f'El ejercicio termino')
-'''
+    print (f'El experimento termina aqui')
 
+print (f'-' * 20)
 
-####### CREANDO MIS PROPIAS FUNCIONES
+def Generadora2():
+    for elemento in range(0, 5):
+        if (elemento % 2 == 0):
+            yield 'PAR'
+        else:
+            yield 'IMPAR'
 
-# Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los
-# valores y los devuelva return como una lista.
+Gen2 = Generadora2()
 
-# Creamos una funcion simple propia que diga hola mundo  en  Modulo_Propio
-# Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio
-# Creamos una funcion que tenga un parametro nombre agregado por el usuario en  Modulo_Propio, ojo hagamos la funcion type hint mostrando el tipo de dato
-# Creamos una funcion que recibe dos numeros, retorne (return) la suma del num1 y el num2 en  Modulo_Propio
-# Ahora haremos la misma sumatoria pero con funciones anidadas
-# Crear una función que devuelva True si un número es par
-# Creamos ahora una funcion con dos parametros, nombre y sexo, si el sexo es femenimo muestra chica, si el sexo es masculino muestra chico con un condicional.
-# Ahora haremos la misma funcion pero con funciones anidadas
-# Creamos una funcion que solicite un numero para hacer una contrasena random, se devuelve un valor con return
-# *args devuelve una tupla
-# Con un subindice, muestre un solo elemento de la tupla resultado
-# **kwargs devuelve un diccionario
-# Ahora vamos a usar el argumento *args para empaquetar varios argumentos en una unica variable, hacemos una funcion que reciba muchos argumentos, los sume todos y despliegue el resultado
-# Ahora vamos a hacer una funcion que diga, variable nombre Erick, la sumatoria de todos tus numeros es xxx, usando dos parametros, nombre y *args
-# Ahora vamos a crear una tupla con *args
-# Creamos un diccionario con **kwargs
-# Creamos una funcion anonima lambda basica
-# Crear una lambda que calcule el doble de un número. y lo imprima
-# Creamos una lista de numeros y una funcion lambda con un filter que saque solo los pares
+try:
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+except StopIteration:
+    print (f'El experimento termina aqui')
 
-'''
-Declarar una variable GLOBAL externa integer, ojo recuerda que las variables globales se declaran totalmente en mayuscula
-Ahora declaramos una funcion con una variable local interna integer
-Hacemos una suma en la funcion de la variable global mas la variable local
+print (f'-' * 20)
 
-Hagamos una funcion anidada
-funcion externa con una variable nombre
-indentamos una funcion interna con un apellido
-imprimimos el nombre completo en la funcion interna
+def Generadora3():
+    for elemento in range(5):
+        if (elemento == 0):
+            yield 'ZERO'
+        elif (elemento == 1):
+            yield 'ONE'
+        elif (elemento == 2):
+            yield 'TWO'
+        elif (elemento == 3):
+            yield 'THREE'
+        elif (elemento == 4):
+            yield 'FOUR'
+        else:
+            yield 'Error de codigo'
 
-'''
+Gen3 = Generadora3()
 
-# Esto es una funcion closure anidada que agrega numeros a una lista
+try:
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+except StopIteration:
+    print (f'El experimento termina aqui')
 
-def Agregue_Numero_Externa():
-    Lista = []
-   
-    def Agregue_Numero_Interna(x):
-        Lista.append(x)
-        print (f'{Lista}')
-       
-    return Agregue_Numero_Interna
+def Primera(Segunda):
+    def Tercera(*args):
+        Lista_Externa = [20, 21, 22, 23, 24]
+        return Segunda(Lista_Externa)
 
-variable = Agregue_Numero_Externa()
+    return Tercera
 
-variable(1)
-variable(2)
-variable(3)
+@Primera
+def Dobles(Lista):
+    Num1 = min(Lista)
+    Num2 = max(Lista)
 
-# Ahora vamos a crear un closure con dos funciones crear_multiplicador y multiplicar que recibe dos parametros x y n, la idea es crear dos variables que multpliquen 10 * 2 y 10 * 3
+    Lista_Funcion = [Num1, Num2]
 
-def crear_Multiplicador(x):
-    def Multiplicar(n):
-        return x * n
-   
-    return Multiplicar
+    return Lista_Funcion
 
-num1 = crear_Multiplicador(2)
-num2 = crear_Multiplicador(3)
+Lista0 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-print (f'El primer resultado es {num1(10)}')
-print (f'El primer resultado es {num2(10)}')
+print (f'{Dobles(Lista0)}')
 
-# Creamos una funcion que reciba un set o tupla de numeros y filtre para mostrar unicamente los numeros pares
-Pares = [num for num in Lista if num % 2 == 0]
+PEPE.Saludar1()
 
-'''
-************************* DECORADORES   *************************
+from Module_Own import Saludar2 as Saludar_Dos
 
-1 - Primero vamos a crear un decorador que afecta a una funcion saludar hola mundo. La idea es agregar el texto "Esto va antes" a la funcion saludar hola mundo original por medio de un decorador
+print (f'Hola {Saludar_Dos()}')
 
-2 - Ahora vamos a crear una funcion que suma dos numeros, por medio de otro decorador, vamos a alterar el resultado de la sumatoria de la funcion y le sumaremos 100 mas
+print (f'Hola nuevamente {PEPE.Saludar3(Saludar_Dos())}')
 
-3 - Ahora vamos a crear una funcion que muestre un nombre y un apellido y por medio de un decorador vamos a cambiar el nombre de Erick a Carmelo
+print (f'El resultado de la sumatoria es {PEPE.Sumatoria1(12, 7)}')
 
-'''
+def Sumatoria_Externa(Num1):
+    def Sumatoria_Interna(Num2:int) -> int:
+        return Num1 + Num2
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+    return Sumatoria_Interna(3)
 
+Variable_Sumatoria = Sumatoria_Externa(4)
 
-# Crea una clase pokemon con tipo, nombre, ataque y una variable capturado en el  Modulo_Propio
+print (f'El resultado de la operacion es {Variable_Sumatoria}')
 
-# Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Diccionario_Poke", ya no se necesita usar Saludar
+if (PEPE.Par(Variable_Sumatoria) == True):
+    print (f'El numero es par')
+else:
+    print (f'El numero es impar')
 
-# Creemos una clase hija que herede todas las caracteristicas de la clase pokemon
+PEPE.Usuario(Saludar_Dos(), 'MASCULINO')
 
-# Ahora vamos a hacer un ejercicio de herencia multiple con 3 clases, una clase camara, otra reproductor musica y otra clase smartphone, smartphone hereda de las clases padre. Solamente tendra un metodo accion cada una
+def Usuario_Externo():
+    def Usuario_Interno(Sexo):
+        Genero = Sexo.lower()
+        if (Genero == 'masculino'):
+            return True
+        else:
+            return False
 
+    return Usuario_Interno('MASCULINO')
 
-'''
+Variable_Usuario = Usuario_Externo()
 
-Tipos de Herencia
-Hacer un ejemplo de herencia Simple
-Pokemon y poke hija
+if (Variable_Usuario == True):
+    print (f'YOU ARE A MAN')
+else:
+    print (f'YOU ARE A WOMAN')
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nSu contrasena temporal es {PEPE.Contrasena(44)}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+print (f'-' * 20)
+
+def Funcion_Tupla(*args):
+    return args
+
+Variable_Funcion_Tupla = Funcion_Tupla("Perro", 3.5, 500, True)
+
+print (f'{Funcion_Tupla("Perro", 3.5, 500, True)}')
+print (f'{Funcion_Tupla("Perro", 3.5, 500, True)[2]}')
+print (f'{Variable_Funcion_Tupla[3]}')
+print (f'{type(Funcion_Tupla("Perro", 3.5, 500, True))}')
+
+print (f'-' * 20)
+
+def Funcion_Diccionario(**kwargs):
+    for elemento in kwargs.items():
+        print (f'{elemento[0]} -- {elemento[1]}')
+
+Funcion_Diccionario(Nombre = Saludar_Dos(), Edad = Variable_Sumatoria, Votante = Variable_Funcion_Tupla[3])
+
+print (f'-' * 20)
+
+def Sumatoria2(*args):
+    return sum(args)
+
+print (f'El resultado de la sumatoria es {Sumatoria2(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+def Sumatoria_Dos(Nombre, *args):
+    return f'{Nombre}, tu numero favorito es {sum(args)}'
+
+print (f'{Sumatoria_Dos("Erick", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+from Module_Own import Variable_Funcion_Anonima1 as Anonima1, Variable_Funcion_Anonima2 as Anonima2, Variable_Funcion_Anonima3 as Anonima3
+
+print (f'El resultado de la multiplicacion es {Anonima1(150, 3)}')
+
+print (f'El doble del numero {Variable_Sumatoria} es {Anonima2(Variable_Sumatoria)}')
+
+print (f'Los numeros pares de la lista son {list(Anonima3)} o incluso podrian ser {PEPE.Lista_Par}')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(*args) - 42
+
+    return Tercera
+
+@Primera
+def Operacion(Numero:int) -> int:
+    Local = Numero
+    return PEPE.GLOBAL + Local
+
+print (f'El resultado de la operacion es {Operacion(12)}')
+
+def Externa(Nombre):
+    def Interna(Apellido):
+        return f'Mi nombre es {Nombre} {Apellido}'
+
+    return Interna('PEREZ GUTIERREZ')
+
+Variable_Finale = Externa('ERICK JOSUE')
+
+print (f'{Variable_Finale}')
+
+def Closure_Externa():
+    Lista_Closure = []
+    def Closure_Interna(x):
+        Lista_Closure.append(x)
+
+        return Lista_Closure
+
+    return Closure_Interna
+
+Variable_Closure = Closure_Externa()
+
+print (f'{Variable_Closure(12)}')
+print (f'{Variable_Closure(25)}')
+print (f'{Variable_Closure(37)}')
+
+def Crear_Multiplicador(x):
+    def Multiplicador(y):
+        return x * y
+
+    return Multiplicador
+
+Variable_Mult1 = Crear_Multiplicador(2)
+Variable_Mult2 = Crear_Multiplicador(3)
+
+print (f'El multiplicador es {Variable_Mult1(10)}')
+print (f'El multiplicador es {Variable_Mult2(10)}')
+
+def Filtrador(Lista):
+    Any_Impar = any(num % 2 != 0 for num in Lista)
+    if (Any_Impar == True):
+        Anonima4 = filter(lambda Num :  Num % 2 != 0, Lista)
+        Lista_Impar = [num for num in Lista if num % 2 != 0]
+
+        print (f'Los elementos impares de la lista son {list(Anonima4)} o incluso podrian ser {Lista_Impar}')
+    else:
+        print (f'Error, no hay elementos impares en la lista')
+
+Filtrador(PEPE.Lista_Numeros)
+
+def Primera(Segunda):
+    def Tercera():
+        print (f'****************')
+        Segunda()
+        print (f'****************')
+
+    return Tercera
+
+@Primera
+def Saludar4():
+    print (f'Hola Erick')
+
+Saludar4()
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) - 7
+
+    return Tercera
+
+@Primera
+def Sumatoria3(Num1, Num2):
+    return Num1 + Num2
+
+print (f'El resultado de la sumatoria es {Sumatoria3(4, 3)}')
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'JONATHAN'
+        Apellido = 'SMITHY'
+        return Segunda(Nombre, Apellido)
+
+    return Tercera
+
+@Primera
+def Usuario2(Nombre, Apellido):
+    print (f'Mi nombre es {Nombre} {Apellido}')
+
+Usuario2('Erick', 'Josue')
+
+print (f'-' * 20)
+
+from Module_Own import Pokemon2 as Poke2
+
+Objeto16 = Poke2(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno')
+
+Objeto16.Mostrar()
+
+print (f'-' * 20)
+
+class Poke_Kid2(Poke2):
+    def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.Sub_Tipo = Sub_Tipo
+
+    def Mostrar(self):
+        print (f'Sub_Tipo: {self.Sub_Tipo}')
+
+Objeto17 = Poke_Kid2(PEPE.Diccionario_Poke['Poke2'], 'Roca', 'Sismo', 'Acero')
+
+Poke2.Mostrar(Objeto17)
+Objeto17.Mostrar()
+
+print (f'-' * 20)
+
+class Camara2():
+    def Tomar_Fotografia(self):
+        print (f'La fotografia ha sido tomada')
+
+class Reproductor2():
+    def Reproducir_Musica(self):
+        print (f'La musica ha sido reproducida')
+
+class Celular2(Camara2, Reproductor2):
+    def Encender_Celular(self):
+        print (f'El smartphone ha sido encendido')
+
+Objeto18 = Celular2()
+
+Objeto18.Encender_Celular()
+Objeto18.Reproducir_Musica()
+Objeto18.Tomar_Fotografia()
+
+print (f'-' * 20)
+
+from abc import ABC, abstractmethod
+
+class Plantilla2(ABC):
+    @abstractmethod
+    def Borradora(self):
+        pass
+
+class Abstraccion2(Plantilla2):
+    def Mostrar(self):
+        print (f'Este es un mensaje secundario')
+
+    def Borradora(self):
+        print (f'Este es el ejemplo de abstraccion')
+
+Objeto19 = Abstraccion2()
+
+Objeto19.Mostrar()
+Objeto19.Borradora()
 
 Hacer un ejemplo de herencia Herarquica (Veterinaria)
 clase padre Mascota (nombre, edad, peso)
@@ -2022,4 +2284,3 @@ Quiero crear una columna nueva agregada sobre el mismo csv con el total en preci
 Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
 
 print (f'{Cargar_Csv5}')
-
