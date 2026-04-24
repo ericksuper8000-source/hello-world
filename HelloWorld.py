@@ -1657,314 +1657,492 @@ Objeto19 = Abstraccion2()
 Objeto19.Mostrar()
 Objeto19.Borradora()
 
-Hacer un ejemplo de herencia Herarquica (Veterinaria)
-clase padre Mascota (nombre, edad, peso)
-Clases hijas (Perro, Gato, Pajaro)
-Perro (Raza, Padecimiento, N_Visitas)
-Gato (Raza, Color, Paciente_Activo)
-Pajaro (Especie, Habla)
+Texto7 = "   Hola!!!   mundo@@   123   "
 
+print (f'{Texto7}')
 
-Hacer un ejemplo de herencia Multiple (Personaje VideoJuego)
+Version15 = Texto7.strip()
 
-Atacante
-daño base
-método para atacar
-energía de ataque
+print (f'{Version15}')
 
-Curador
-puntos de curación
-método para curar
-regeneración de vida
+Version16 = ' '.join(Version15.split())
 
-Paladin
+print (f'{Version16}')
 
-Hereda de atacante y curador y tiene un nombre. Mostrar ficha de personaje
+Version17 = Version16.lower()
 
+print (f'{Version17}')
 
+import re
 
-Como saber si una clase hija hereda de una clase padre?
-Herencia = issubclass(Poke_Hija, Poke) # Esto debe darme true como resultado
+Version18 = re.sub(r'[^a-z0-9\s]', '', Version17)
 
-Como saber si una variable es un objeto de una clase?
-Instancia = isinstance(Objeto1, Poke) # Esto debe darme true como resultado
+print (f'{Version18}')
 
+print (f'-' * 20)
 
+import pandas as pd
+from datetime import datetime
 
-MRO  (Que pasa si varias clases tienen el mismo metodo?)
-Vamos a hacer un ejemplo de herencia con MRO, lo que haremos es crear 5 clases, A,F,B,C,D,F, donde cada una tendra un metodo llamado Mostrar() y un texto hola "letra".
-B heredara de A, C heredara de F, D heredara de B y C. Con esto veremos el flujo y como mostraria el mensaje del metodo si tengo un objeto Objeto1.Mostrar() Cual mensaje mostrara primero?
-Vamos quitando bloques con pass
-Que deberia hacer ahora que entiendo el orden del MRO si quisiera explicitamente llamar el metodo de la clase B desde D?
+Ruta_Csv5 = 'C:\\Repo\\Store.csv'
 
-B.Mostrar(Objeto1)
-F.Mostrar(Objeto1)
-A.Mostrar(Objeto1)
+Cargar_Csv5 = pd.read_csv(Ruta_Csv5)
 
+print (f'{Cargar_Csv5}')
 
+print (f'-' * 20)
 
+Fecha5 = '2026-04-01'
 
-[Polimorfismo]
-Un cliente puede pagar con:
-Tarjeta
-PayPal
-Criptomonedas
-Todos comparten el mismo metodo pagar() que cambia dependiendo del metodo de pago
+try:
+    Fech5 = datetime.strptime(Fecha5, '%Y-%m-%d').date()
+    Fecha5_Formateada = pd.to_datetime(Fech5)
+    Cargar_Csv5['date'] = pd.to_datetime(Cargar_Csv5['date'])
+except ValueError:
+    print (f'Error, formato incorrecto')
+    exit()
 
+Encontrado5 = Cargar_Csv5[Cargar_Csv5['date'].dt.date == Fecha5_Formateada.date()]
 
-[Encapsulamiento] __privada
-Cuenta bancaria encapsulada:
-class Cuenta:
+if (Encontrado5.empty):
+    print (f'No hay ventas en esta fecha')
+else:
+    print (f'Genial! encontramos ventas')
+    Grupo5 = Encontrado5.groupby('product')['quantity'].sum()
+    Grupo5_May = Grupo5.idxmax()
+    Grupo5_Min = Grupo5.idxmin()
+    Grupo5_May_Cant = Grupo5.max()
+    Grupo5_Min_Cant = Grupo5.min()
 
-    def __init__(self, saldo):
-        self.__saldo = saldo
+    print (f'En la fecha {Fecha5_Formateada} el prod que mas vendio fue {Grupo5_May} con un total de unidades de {Grupo5_May_Cant}')
+    print (f'En la fecha {Fecha5_Formateada} el prod que mas vendio fue {Grupo5_Min} con un total de unidades de {Grupo5_Min_Cant}')
 
-    def depositar(self, dinero):
-        self.__saldo += dinero
+import re
 
-    def ver_saldo(self):
-        print(self.__saldo)
+Correo2 = 'sample@sample.com'
 
-mi_cuenta = Cuenta(100)
-mi_cuenta.depositar(50)
-mi_cuenta.ver_saldo()
+Pattern4 = r'^[a-z-A-Z0-9./*-+-_]+\@[a-zA-Z]+\.[a-z]{3}$'
 
-Encapsulamiento: El saldo está protegido, no se puede alterar.
+Buscar15 = bool(re.fullmatch(Pattern4, Correo2))
 
-Getter → sirve para LEER un dato
-Setter → sirve para CAMBIAR un dato
+if (Buscar15 == True):
+    print (f'El formato es correcto')
+else:
+    print (f'Formato de correo electronico incorrecto')
 
-Muestre el valor de __Saldo con un getter
-Cambie el valor de __Saldo con un setter
+print (f'-' * 20)
 
-Hagamos una clase protegida que reciba un
-nombre __privado y mostrarlo afuera de la
-clase por medio de un @property
+import re
 
+Correo2 = 'sample@gmail.com'
 
+Pattern5 = r'^[a-zA-Z0-9*-+./]+\@(gmail|yahoo|hotmail)\.(com|org|net)$'
 
-class Protegido:
-    def __init__(self, Nombre):
-        self.__Nombre = Nombre
+Buscar16 = bool(re.match(Pattern5, Correo2))
+
+if (Buscar16):
+    print (f'El formato de mi correo electronico es correcto')
+else:
+    print (f'Error, formato de correo incorrecto')
+
+Numero2 = '31'
+
+Pattern6 = r'(0[0-9]|[12][0-9]|3[01])'
+
+Buscar17 = bool(re.match(Pattern6, Numero2))
+
+if (Buscar17 == True):
+    print (f'Correcto, el numero se encuentra entre 1 y 31')
+else:
+    print (f'Error, numero fuera de rango')
+
+print (f'-' * 20)
+
+import re
+
+Texto8 = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
+
+Pattern7 = r'\d{2}\/[0-9]{2}\/\d{2,4}'
+
+Replacemen7 = 'XX/XX/XXXX'
+
+Buscar18 = re.sub(Pattern7, Replacemen7, Texto8)
+
+print (f'{Buscar18}')
+
+Pattern8 = r'\+[0-9]{1}\-\d{3}\-\d{3}\-[0-9]{2,4}'
+
+Replacemen8 = '+x-xxx-xxx-xxxx'
+
+Buscar19 = re.sub(Pattern8, Replacemen8, Buscar18)
+
+print (f'{Buscar19}')
+
+print (f'-' * 20)
+
+class Mascota2():
+    def __init__(self, Nombre, Edad, Peso):
+        self.Nombre = Nombre
+        self.Edad = Edad
+        self.Peso = Peso
 
     def Mostrar(self):
-        print (f'Tu nombre es {self.__Nombre}')
+        print (f'Nombre: {self.Nombre}')
+        print (f'Edad: {self.Edad} años')
+        print (f'Peso: {self.Peso}kgs')
+
+class Perro2(Mascota2):
+    def __init__(self, Nombre, Edad, Peso, Raza, Padecimientos):
+        super().__init__(Nombre, Edad, Peso)
+        self.Raza = Raza
+        self.Padecimiento = Padecimientos
+
+    def Mostrar(self):
+        print (f'Raza: {self.Raza}')
+        print (f'Padecimiento: {self.Padecimiento}')
+
+Objeto20 = Perro2('Chester', 5, 2.8, 'Bulldog', 'Anemia')
+
+Mascota2.Mostrar(Objeto20)
+Objeto20.Mostrar()
+
+print (f'-' * 20)
+
+class Gato2(Mascota2):
+    def __init__(self, Nombre, Edad, Peso, Color, Paciente_Activo):
+        super().__init__(Nombre, Edad, Peso)
+        self.Color = Color
+        self.Paciente_Activo = Paciente_Activo
+
+    def Mostrar(self):
+        print (f'Color: {self.Color}')
+        print (f'Paciente_Activo: {self.Paciente_Activo}')
+
+Objeto21 = Gato2('Messi', 1.5, 1.8, 'Gris', 'No')
+
+Mascota2.Mostrar(Objeto21)
+Objeto21.Mostrar()
+
+print (f'-' * 20)
+
+class Pajaro2(Mascota2):
+    def __init__(self, Nombre, Edad, Peso, Especie, Habla):
+        super().__init__(Nombre, Edad, Peso)
+        self.Especie = Especie
+        self.Habla = Habla
+
+    def Mostrar(self):
+        print (f'Especie: {self.Especie}')
+        print (f'Habla: {self.Habla}')
+
+Objeto22 = Pajaro2('Polly', 31, 0.4, 'Cacatua Amarilla', 'Si')
+
+Mascota2.Mostrar(Objeto22)
+Objeto22.Mostrar()
+
+print (f'-' * 20)
+
+class Atacante2():
+    def __init__(self, Damage, Weapon):
+        self.Damage = Damage
+        self.Weapon = Weapon
+
+    def Mostrar(self):
+        print (f'Damage: {self.Damage}pts')
+        print (f'Weapon: {self.Weapon}')
+
+class Defensor2:
+    def __init__(self, Healing, Potion, Life):
+        self.Healing = Healing
+        self.Potion = Potion
+        self.Life = Life
+
+    def Mostrar(self):
+        print (f'Healing: {self.Healing}pts')
+        print (f'Potion: {self.Potion}')
+        print (f'Life: {self.Life}pts')
+
+class Paladin2(Atacante2, Defensor2):
+    def __init__(self, Damage, Weapon, Healing, Potion, Life, Name):
+        Atacante2.__init__(self, Damage, Weapon)
+        Defensor2.__init__(self, Healing, Potion, Life)
+        self.Name = Name
+
+    def Mostrar(self):
+        print (f'Name: {self.Name}')
+
+Objeto23 = Paladin2(75, 'Battle Axe', 25, 'Black Lagoon', 200, 'Ghost Knight')
+
+Objeto23.Mostrar()
+Atacante2.Mostrar(Objeto23)
+Defensor2.Mostrar(Objeto23)
+
+print (f'-' * 20)
+
+Children_Class = issubclass(Poke_Kid2, Poke2)
+
+print (f'{Children_Class}')
+
+Objeto_Clase1 = isinstance(Objeto23, Atacante2)
+Objeto_Clase2 = isinstance(Objeto23, Defensor2)
+Objeto_Clase3 = isinstance(Objeto23, Paladin2)
+
+print (f'{Objeto_Clase1}')
+print (f'{Objeto_Clase2}')
+print (f'{Objeto_Clase3}')
+
+print (f'-' * 20)
+
+class F():
+    def Mostrar(self):
+        print (f'Hola F')
+
+class J():
+    def Mostrar(self):
+        print (f'Hola J')
+
+class G(J):
+    def Mostrar(self):
+        print (f'Hola G')
+
+class H(F):
+    def Mostrar(self):
+        print (f'Hola H')
+
+class I(G,H):
+    def Mostrar(self):
+        print (f'Hola I')
+
+Objeto24 = I()
+
+F.Mostrar(Objeto24)
+G.Mostrar(Objeto24)
+H.Mostrar(Objeto24)
+Objeto24.Mostrar()
+J.Mostrar(Objeto24)
+
+print (f'-' * 20)
+
+class Banking_Account():
+    def __init__(self, Saldo):
+        self.__Saldo = Saldo
+
+    def Deposit(self, Money):
+        self.__Saldo += Money
 
     @property
-    def nombre(self):
-        return self.__Nombre
+    def Money(self):
+        return self.__Saldo
 
-    @nombre.setter
-    def nombre(self, Nuevo_Nombre):
-        self.__Nombre = Nuevo_Nombre
+    @Money.setter
+    def Money(self, New_Money):
+        self.__Saldo = New_Money
 
-Objeto1 = Protegido('Erick')
+    def Show(self):
+        print (f'Your current balance is ${self.__Saldo}')
 
-Objeto1.Mostrar()
+Objeto25 = Banking_Account(200)
+Objeto25.Deposit(40)
+Objeto25.Show()
 
-Objeto1.nombre = 'Hola'   # setter
+print (f'Tu saldo privado es {Objeto25.Money}')
 
-print(Objeto1.nombre)     # getter
+Objeto25.Money = '30,000'
 
---------------------------------------------------------------------
+Objeto25.Show()
+print (f'Tu saldo privado es {Objeto25.Money}')
 
+print (f'-' * 20)
 
+from abc import ABC, abstractmethod
 
-
-
-
-Abstraccion
-
-Clases Abstractas
-
-Las clases abstractas son plantillas que generan reglas que se deben seguir a la hora de crear clases en proyectos grandes.
-En otras palabras, si hay 100 programadores, todos deben crear las reglas definidas en la plantilla. Normalmente son metodos.
-Pero yo puedo crear todos los metodos que quiera en mis clases, la clase abstracta me dice nada mas que a fuerza la clase nueva debe tener ese metodo definido y todo lo demas que quiera.
-
-from abc import ABC, abstractclassmethod
-
-class Comida(ABC):
-
-    @abstractclassmethod
-    def Cocinar(self):
+class Plantilla3(ABC):
+    @abstractmethod
+    def Metodo_Default(self):
         pass
 
-class Pizza(Comida):
-        def Cocinar(self):
-            print (f'Horneando La Pizza')
+class Ejemplo3(Plantilla3):
+    def Mostrar(self):
+        print (f'Hola Mundo Plantilla3')
 
-        def Mostrar(self):
-            print (f'Hola Mundo')
+    def Metodo_Default(self):
+        print (f'Hola Abstraccion 3')
 
-Objeto1 = Pizza()
+Objeto26 = Ejemplo3()
 
-Objeto1.Cocinar()
-Objeto1.Mostrar()
+Objeto26.Mostrar()
 
-'''
+from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
 
----------------------------------------------------------
----------------------------------------------------------
----------------------------------------------------------
+variable1 = Lista_Uno[0]
+variable2 = 'Perez'
+variable3 = '''
+Esto
+Es
+Un
+Long
+String'''
 
+variable4 = Objeto3.Cantidad
+variable5 = PEPE.Division_Flotante
+variable6, variable7 = not False, Objeto2.Catched
 
-# Como declarar dos variables string?
-# Como declarar una variable long string?
-# Como declarar una variable integer?
-# Como declarar una varible decimal
-# Como declarar dos variables booleanas?
-# Declare dos variables en la misma linea
-# Agrega un comentario simple
-# Agregue un comentario compuesto
-# Imprime un texto con una variable string
-# Imprime dos varibles string concatenadas
-# Imprime una concatenacion de una varible texto y un integer
-# borra una variable
-# Juegue con los operadores de pertenencia in / not in en variables simples
-# Busque un elemento en una Lista o Tupla o Set_Conjunto con los operadores de pertenencia in/ not in
-# Declare una variable con Snake Case
-
-# ***********************  Listas   **********************
-
-# Declara una lista con string
-
-# Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Lista1" y cambiemosle el nombre con “as”, ya no se necesita usar Saludar
-
-# Declara una lista con diferentes tipos de datos En  Modulo_Propio
-# Declara una lista de solo numeros En  Modulo_Propio
-# Cree una lista con la funcion list En  Modulo_Propio
-
-# Ahora vamos a sacar del modulo propio varias listas al mismo tiempo 1 y 4 con la instruccion from Modulo_Propio import Lista1, Lista4
-
-# Muestre en consola la cantidad de elementos en una de las listas con la funcion len
-# Agrega un elemento aleatorio a la lista con .append()
-# Inserta un elemento en una posición específica con .insert(posición, elemento)
-# Agreguemos varios elementos a la lista con extend(['Cada elemento se ingresa asi'])
-# Haz alguna operacion matematica con los valores de la lista 3
-# Despliegue en consola el resultado
-# Imprima un rango de elementos de la lista, por ejemplo del valor en la posicion 0 al 2 con [x:y]
-# Concatene un elemento de la primer lista y de la segunda lista e imprima en consola
-# Imprima todos los elemento de alguna de las tres listas
-# Cambie el valor de un elemento de una lista
-# Ahora muestre todos los elementos de la lista incluyendo el que cambio
-# Borre un valor de una lista usando del
-# Borra otro elemento usando .remove(elemento textual) y muestra la lista
-# Borre 1 elemento de la lista utilizando el metodo pop('Indice')
-# Borre 1 elemento de la lista utilizando el metodo pop('Indice negativo para borrar el ultimo elemento')
-# Elimine todos los elementos de una lista con el metodo clear()
-# Ordena la lista 3 numerica en orden ascendente con .sort()
-# Ordena la lista 3 numerica orden descendente .sort(reverse=True)
-# Invierte el orden de la lista con .reverse()
-
-# User la funcion dunder "dir" sobre el Modulo_Propio para ver todas sus caracteristicas incluyendo todos los elementos que creamos a mano
-
-# ********************************************************
-
-# Cree una tupla
-# Cree una tupla con la funcion tuple
-# Cree una tupla sin parentesis
-# Cree una tupla sin parentesis de un solo elemento
-# En que se diferencia una lista de una tupla?
-# Intente cambiar un elemento de la tupla para obtener un error
-# Muestre en consola todos los elementos de la tupla
-# Muestre con un print un elemento de la tupla
-
-# Cree un set o conjunto
-# Cree un set con la funcion set
-# Cual es la diferencia entre una lista, una tupla y un set o conjunto?
-# Muestre los elementos totales del conjunto
-# Intente agregar un elemento al set con .add()
-# Reconstruya el conjunto con nuevos elementos
-# Intente agregar un elemento repetido del conjunto para obtener un error
-
-# TEORIA DE CONJUNTOS, CONJUNTOS SETS SIMPLES Y FROZENSETS *****
-# Creamos dos conjuntos, uno tiene 3 elementos que salen en un super conjunto mayor conjunto1, conjunto2
-# Usemos el metodo .issubset() para saber si el conjunto 2 es un subconjunto de 1, osea que sus elementos salen en el conjunto mayor, devolvera True
-# Usemos el metodo .issuperset() para saber si el conjunto 1 es un super conjunto de 2
-# Ahora comparemos si en el conjunto 2 hay algun elemento que se repita en conjunto 1 con .isdisjoint()
-
+# Esto es un comentario simple
 
 '''
+Esto 
+Es
+Un
+Comentario
+Compuesto'''
 
-✅ Operaciones principales de conjuntos en Python
-Supongamos los siguientes conjuntos para los ejemplos:
+print (f'Esto es una concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'Mi nombre es {Lista_Uno[0]} {variable2}')
+
+print (f'{PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")]} tiene {Variable_Sumatoria} o {Sumatoria2(1, 2, 3, 4, 5)} o incluso {Objeto2.Cantidad} pokemones')
+
+del variable5
+
+print (f'melo' in Saludar_Dos())
+print (f'Long' not in variable3)
+
+print (f'Josue' in PEPE.Lista1)
+
+print (f'Misty' in PEPE.Tupla_Poke)
+print (f'Vaporeon' in PEPE.Set_Conjunto_Poke)
+
+snake_case1, snake_case2, snake_case3 = PEPE.Tupla_Poke
+
+print (f'Esto es un desempaquetado de variables {snake_case2}')
+
+print (f'La lista 1 tiene {Lista_Uno.__len__()} elementos')
+
+Lista_Uno.append('Coco Rayado')
+Lista_Uno.insert(1, 'Juana La Cubana')
+Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Cociente, Residuo = divmod(Objeto1.Cantidad, Sumatoria2(1, 2, 3, 1))
+
+print (f'El cociente es {Cociente} y residuo es {Residuo}')
+
+print (f'{Lista_Uno[:2]}')
+print (f'{Lista_Uno[2:]}')
+print (f'{Lista_Uno[::2]}')
+print (f'{Lista_Uno[::3]}')
+print (f'{Lista_Uno[2:3]}')
+print (f'{Lista_Uno[0:None]}')
+print (f'{Lista_Uno[:]}')
+
+print (f'{Lista_Uno[1]} eso de ahi es un {PEPE.Lista2[2]}?')
+
+print (f'{Lista_Cuatro}')
+
+Lista_Cuatro[0] = Sumatoria2(Anonima2(250), 150, 50, 100, 200)
+
+print (f'{Lista_Cuatro}')
+
+del Lista_Uno[0]
+Lista_Uno.remove('Juana La Cubana')
+Lista_Uno.pop(-2)
+Lista_Uno.pop(-1)
+Lista_Uno.pop(-1)
+Lista_Uno.pop(-1)
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Lista_Uno_Copia = Lista_Uno.copy()
+
+Lista_Uno.clear()
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort()
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort(reverse = True)
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.reverse()
+print (f'{Lista_Cuatro}')
+
+print (f'{PEPE.__dir__()}')
+
+Tupla1 = ('Rojo', 'Verde', 'Verde', 'Verde', 'Verde')
+
+print (f'{Tupla1}')
+
+Tupla1 = tuple(('Red', 'Green'))
+
+print (f'{Tupla1}')
+
+Tupla2 = 'Uno', 'Dos', 'Tres',
+
+Tupla3 = 'Uno',
+
+print (f'{type(Tupla1)}')
+print (f'{type(Tupla2)}')
+print (f'{type(Tupla3)}')
+print (f'{type(Tupla_Array)}')
+
+Set_Conjunto1 = {'Erick'}
+Set_Conjunto1.add('Josue')
+Set_Conjunto1.add('Karlita')
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto1 = set({'Tortuga'})
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto2 = {1, 2, 3, 4, 5}
+Set_Conjunto3 = {4, 5}
+Set_Conjunto4 = set({8})
+
+print (f'{Set_Conjunto2.issuperset(Set_Conjunto3)}')
+print (f'{Set_Conjunto2 >= Set_Conjunto3}')
+print (f'-' * 20)
+print (f'{Set_Conjunto3.issubset(Set_Conjunto2)}')
+print (f'{Set_Conjunto3 <= Set_Conjunto2}')
+print (f'-' * 20)
+print (f'{Set_Conjunto2.isdisjoint(Set_Conjunto4)}')
+
+print (f'-' * 20)
+
 A = {1, 2, 3, 4}
 B = {3, 4, 5, 6}
 
-1. 🔹 Unión (union)
-Devuelve todos los elementos de ambos conjuntos sin repetir.
-A.union(B)
-# o también
-A | B
-Resultado:
-{1, 2, 3, 4, 5, 6}
+print (f'Union - {A.union(B)}')
+print (f'Union - {A | B}')
 
-2. 🔹 Intersección (intersection)
-Devuelve los elementos comunes entre los conjuntos.
-A.intersection(B)
-# o también
-A & B
-Resultado:
-{3, 4}
+print (f'Interseccion - {A.intersection(B)}')
+print (f'Interseccion - {A & B}')
 
-3. 🔹 Diferencia (difference)
-Devuelve los elementos que están en un conjunto pero no en el otro.
-A.difference(B)
-# o también
-A - B
-Resultado:
-{1, 2}
-También puedes obtener la diferencia inversa:
-B - A  # {5, 6}
+print (f'Diferencia1 - {A.difference(B)}')
+print (f'Diferencia1 - {A - B}')
+print (f'Diferencia2 - {B.difference(A)}')
+print (f'Diferencia2 - {B - A}')
 
-4. 🔹 Diferencia simétrica (symmetric_difference)
-Devuelve los elementos que están en uno u otro conjunto, pero no en ambos.
-A.symmetric_difference(B)
-# o también
-A ^ B
-Resultado:
-{1, 2, 5, 6}
+print (f'Symmetric Difference - {A.symmetric_difference(B)}')
+print (f'Symmetric Difference - {A ^ B}')
 
-5. 🔹 Subconjunto (issubset)
-Verifica si todos los elementos de un conjunto están contenidos en otro.
-A.issubset(B)
-# o también
-A <= B
-Ejemplo:
-C = {1, 2}
-C.issubset(A)  # True
+print (f'-' * 20)
 
-6. 🔹 Superconjunto (issuperset)
-Verifica si un conjunto contiene todos los elementos de otro.
-A.issuperset(C)
-# o también
-A >= C
+'''A.update(B)
 
-7. 🔹 Conjuntos disjuntos (isdisjoint)
-Determina si dos conjuntos no tienen elementos en común.
-A.isdisjoint(B)
-Ejemplo:
-D = {7, 8}
-A.isdisjoint(D)  # True
+print (f'{A}')'''
 
-8. 🔹 Operaciones con actualización (modifican el conjunto original)
+'''A.intersection_update(B)
 
-Unión   update()    -----  Conserva los elementos no comunes
-Intersección    intersection_update()    --- Conserva solo los elementos comunes
-Diferencia      difference_update()    ---  Elimina los elementos presentes en el otro conjunto
-Diferencia simétrica     symmetric_difference_update()      --- Conserva los elementos no comunes
+print (f'{A}')'''
 
-Conserva los elementos no comunes
-Ejemplo:
-A = {1, 2, 3}
-B = {3, 4}
-A.update(B)
-print(A)  # {1, 2, 3, 4}
+A.symmetric_difference_update(B)
 
-
-'''
-
-
+print (f'{A}')
 
 # El restaurante tiene un menú fijo de jugos. Este menú nunca cambia, entonces hagamos un set con frozenset({}) de 3 sabores que no pueden cambiar
 # Intentar agregar un nuevo sabor con el metodo .add() para obtener un error
@@ -2284,3 +2462,4 @@ Quiero crear una columna nueva agregada sobre el mismo csv con el total en preci
 Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
 
 print (f'{Cargar_Csv5}')
+
