@@ -1105,16 +1105,20 @@ print(A)  # {1, 2, 3, 4}
 | Método        | Descripción                            |
 | ------------- | -------------------------------------- |
 | `isalpha()`   | Solo letras                            |
-| `isdigit()`   | Dígitos y algunos caracteres numéricos |
-| `isdecimal()` | Solo dígitos decimales                 |
+| `isinstance()`| Solo dígitos decimales                 |  mas util
 | `isnumeric()` | Cualquier carácter numérico            |
 | `isalnum()`   | Letras y números                       |
 | `isspace()`   | Solo espacios                          |
 | `islower()`   | Letras en minúsculas                   |
 | `isupper()`   | Letras en mayúsculas                   |
-| `istitle()`   | Formato de título                      |
-
 '''
+
+variable13 = 4.3
+
+if (isinstance(variable13, float)):
+    print (f'El numero es decimal')
+else:
+    print (f'Error, no es decimal')
 
 
 # Busque un elemento en una lista o tupla con index, ojo find no es un metodo para listas
