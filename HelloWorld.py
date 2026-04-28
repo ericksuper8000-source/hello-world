@@ -774,3 +774,629 @@ Cargar_Html = pd.read_html(Leer_Html)
 print (f'{Cargar_Html[2].head()}')
 
 print (f'-' * 20)
+
+Texto5 = "   Hola!!!   mundo@@   123   "
+
+print (f'{Texto5}')
+
+Texto5_Version1 = Texto5.strip()
+
+print (f'{Texto5_Version1}')
+
+Texto5_Version2 = ' '.join(Texto5_Version1.split())
+
+print (f'{Texto5_Version2}')
+
+Texto5_Version3 = Texto5_Version2.lower()
+
+print (f'{Texto5_Version3}')
+
+import re
+
+Texto5_Version4 = re.sub(r'[^a-z0-9\s]', '', Texto5_Version3)
+
+print (f'{Texto5_Version4}')
+
+print (f'-' * 20)
+
+import pandas as pd
+from datetime import datetime
+
+Ruta_Csv3 = 'C:\\Repo\\Store.csv'
+
+Cargar_Csv3 = pd.read_csv(Ruta_Csv3)
+
+print (f'{Cargar_Csv3}')
+
+print (f'-' * 20)
+
+Fecha2 = '2026-04-01'
+
+try:
+    Fech2 = datetime.strptime(Fecha2, '%Y-%m-%d').date()
+    Fech2_Formateada = pd.to_datetime(Fech2)
+    Cargar_Csv3['date'] = pd.to_datetime(Cargar_Csv3['date'])
+except ValueError:
+    print (f'Error, formato de fecha incorrecto')
+
+Encontrado2 = Cargar_Csv3[Cargar_Csv3['date'].dt.date == Fech2_Formateada.date()]
+
+if (Encontrado2.empty):
+    print (f'No se han encontrado ventas en esta fecha')
+else:
+    print (f'Genial! encontramos ventas')
+
+    Grupo2 = Encontrado2.groupby('product')['quantity'].sum()
+    Grupo2_May = Grupo2.idxmax()
+    Grupo2_Min = Grupo2.idxmin()
+    Grupo2_May_Cant = Grupo2.max()
+    Grupo2_Min_Cant = Grupo2.min()
+
+    print (f'En la fecha {Fech2_Formateada} el producto {Grupo2_May} vendio {Grupo2_May_Cant} unidades')
+    print (f'En la fecha {Fech2_Formateada} el producto {Grupo2_Min} vendio {Grupo2_Min_Cant} unidades')
+
+print (f'-' * 20)
+
+Array0 = list([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+print (f'{Array0}')
+print (f'{Array0[1][:2]}')
+print (f'{Array0[1][2:]}')
+print (f'{Array0[0][::2]}')
+print (f'{Array0[0][::3]}')
+print (f'{Array0[1][0:None]}')
+print (f'{Array0[1][:]}')
+print (f'{Array0[:][1]}')
+
+print (f'-' * 20)
+
+for i in range(len(Array0)):
+    for j in range(len(Array0[i])):
+        print (f'{Array0[i][j]}')
+
+import numpy as np
+
+Array1 = np.array([1, 2, 3])
+
+print (f'{Array1}')
+print (f'{Array1.ndim}')
+print (f'{Array1.shape}')
+print (f'{Array1.size}')
+print (f'{Array1.dtype}')
+print (f'{Array1[2]}')
+
+print (f'{Array1[:2]}')
+print (f'{Array1[2:]}')
+print (f'{Array1[::2]}')
+print (f'{Array1[::3]}')
+print (f'{Array1[2:3]}')
+print (f'{Array1[0:None]}')
+print (f'{Array1[:]}')
+print (f'{Array1[Array1 <= 2]}')
+
+print (f'-' * 20)
+
+Array2 = np.array([[1, 2, 3], [4, 5, 6]])
+
+print (f'{Array2}')
+print (f'{Array2.ndim}')
+print (f'{Array2.shape}')
+print (f'{Array2.size}')
+print (f'{Array2.dtype}')
+print (f'{Array2[1, 1]}')
+
+print (f'{Array2[1, :2]}')
+print (f'{Array2[1, 2:]}')
+print (f'{Array2[0, ::2]}')
+print (f'{Array2[0, ::3]}')
+print (f'{Array2[1, 3:4]}')
+print (f'{Array2[:, 1]}')
+print (f'{Array2[1, 0:None]}')
+print (f'{Array2[1, :]}')
+print (f'{Array2[Array2 <= 2]}')
+
+Array2_Sorted = np.sort(Array2)
+Array2_Sorted_Mean = np.mean(Array2_Sorted)
+Array2_Sorted_Sum = np.sum(Array2_Sorted)
+
+print (f'Acomodado: {Array2_Sorted}')
+print (f'Media: {round(Array2_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array2_Sorted_Sum}')
+
+Sumita1 = np.sum(Array2_Sorted, axis=0)
+Sumita2 = np.sum(Array2_Sorted, axis=1)
+Sumita3 = np.sum(Array2_Sorted[1, 0:None])
+Sumita4 = np.sum(Array2_Sorted[1, :])
+
+print (f'-' * 20)
+
+Array3 = np.array([[['w', 'u', 'a'], ['f', 'x', 'i']],     [['s', 'v', 'n'], ['k', 'm', 'l']]])
+
+print (f'{Array3}')
+print (f'{Array3.ndim}')
+print (f'{Array3.shape}')
+print (f'{Array3.size}')
+print (f'{Array3.dtype}')
+print (f'{Array3[1, 0, 2]}')
+
+print (f'{Array3[0, 1, :2]}')
+print (f'{Array3[0, 1, 2:]}')
+print (f'{Array3[1, 0, ::2]}')
+print (f'{Array3[1, 0, ::3]}')
+print (f'{Array3[0, 1, 2:3]}')
+print (f'{Array3[1, :, 2]}')
+print (f'{Array3[1, 0, 0:None]}')
+print (f'{Array3[1, 0, :]}')
+print (f'{Array3[Array3 == "u"]}')
+
+print (f'-' * 20)
+
+Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [3, 2, 1]]],      [[[6, 5, 4], [9, 8, 7]], [[0, 5, 9], [4, 8, 1]]]])
+
+print (f'{Array4}')
+print (f'{Array4.ndim}') # 4
+print (f'{Array4.shape}') # 2x2x2x3
+print (f'{Array4.size}') # 24
+print (f'{Array4.dtype}') # int64
+print (f'{Array4[1, 0, 0, 2]}')
+
+print (f'{Array4[1, 0, 1, :2]}')
+print (f'{Array4[1, 0, 1, 2:]}')
+print (f'{Array4[1, 1, 0, ::2]}')
+print (f'{Array4[0, 1, 0, ::3]}')
+print (f'{Array4[1, 0, 1, 2:3]}')
+print (f'{Array4[1, 1, :, 2]}')
+print (f'{Array4[1, 0, 0, 0:None]}')
+print (f'{Array4[1, 0, 0, :]}')
+print (f'{Array4[Array4 <= 2]}')
+
+Array4_Sorted = np.sort(Array4)
+Array4_Sorted_Mean = np.mean(Array4_Sorted)
+Array4_Sorted_Sum = np.sum(Array4_Sorted)
+
+print (f'Acomodado: {Array4_Sorted}')
+print (f'Media: {round(Array4_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array4_Sorted_Sum}')
+
+Sumita5 = np.sum(Array4_Sorted, axis=0)
+Sumita6 = np.sum(Array4_Sorted, axis=1)
+Sumita7 = np.sum(Array4_Sorted[1, 0, 1, 0:None])
+Sumita8 = np.sum(Array4_Sorted[1, 0, 1, :])
+
+print (f'-' * 20)
+
+Array_Num1 = np.arange(start=1, stop=11, step=1)
+
+print (f'{Array_Num1}')
+
+print (f'El numero menor de la lista es {Array_Num1.min()} y el numero mayor es {Array_Num1.max()}')
+
+Array_Min = np.min(Array_Num1)
+Array_Max = np.max(Array_Num1)
+
+print (f'El numero menor de la lista es {Array_Min} y el numero mayor es {Array_Max}')
+
+Array_Num2 = np.arange(25)
+
+print (f'{Array_Num2}')
+
+Array_Num2_Reshape = np.reshape(Array_Num2, shape=(5, 5))
+
+print (f'{Array_Num2_Reshape}')
+
+Array_Num2_Reshape_Column_Min = np.min(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Column_Max = np.max(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Row_Min = np.min(Array_Num2_Reshape, axis=1)
+Array_Num2_Reshape_Row_Max = np.max(Array_Num2_Reshape, axis=1)
+
+print (f'Los menores de las columnas son {Array_Num2_Reshape_Column_Min}')
+print (f'Los mayores de las columnas son {Array_Num2_Reshape_Column_Max}')
+print (f'Los menores de las filas son {Array_Num2_Reshape_Row_Min}')
+print (f'Los mayores de las filas son {Array_Num2_Reshape_Row_Max}')
+
+print (f'-' * 20)
+
+Array_Zero = np.zeros(shape=(2, 3))
+
+print (f'{Array_Zero}')
+print (f'{Array_Zero.ndim}')
+print (f'{Array_Zero.shape}')
+print (f'{Array_Zero.size}')
+print (f'{Array_Zero.dtype}')
+print (f'{Array_Zero[1, 0]}')
+
+print (f'-' * 20)
+
+Array_Ones = np.ones(shape=(2, 3))
+
+print (f'{Array_Ones}')
+print (f'{Array_Ones.ndim}')
+print (f'{Array_Ones.shape}')
+print (f'{Array_Ones.size}')
+print (f'{Array_Ones.dtype}')
+print (f'{Array_Ones[0, 2]}')
+
+print (f'-' * 20)
+
+Array_Gen1 = np.full(shape=(2, 3), fill_value = f'{PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'{Array_Gen1}')
+print (f'{Array_Gen1.ndim}')
+print (f'{Array_Gen1.shape}')
+print (f'{Array_Gen1.size}')
+print (f'{Array_Gen1.dtype}')
+print (f'{Array_Gen1[1, 0]}')
+
+print (f'-' * 20)
+
+Array_Gen2 = np.full(shape=(5), fill_value = f'Fuecoco')
+
+print (f'{Array_Gen2}')
+print (f'{Array_Gen2.ndim}')
+print (f'{Array_Gen2.shape}')
+print (f'{Array_Gen2.size}')
+print (f'{Array_Gen2.dtype}')
+print (f'{Array_Gen2[3]}')
+
+Lista_Array1 = list([])
+
+for elemento in Array_Gen2:
+    Lista_Array1.append(str(elemento))
+
+print (f'{Lista_Array1}')
+print (f'{type(Lista_Array1)}')
+
+print (f'-' * 20)
+
+Array_Gen3 = np.full(shape=(2, 3), fill_value = Array4_Sorted[1, 0, 1, 2])
+
+print (f'{Array_Gen3}')
+print (f'{Array_Gen3.ndim}')
+print (f'{Array_Gen3.shape}')
+print (f'{Array_Gen3.size}')
+print (f'{Array_Gen3.dtype}')
+print (f'{Array_Gen3[0, 1]}')
+
+print (f'-' * 20)
+
+Tupla_Array = tuple(('Rojo', 'Verde'))
+Set_Conjunto_Array = {1, 2, 3}
+Diccionario_Array = dict({'Nombre' : ["Erick", "Josue", "Karlita"]})
+
+Array_Gen4 = np.full(shape=(3, 2), fill_value=Tupla_Array)
+Array_Gen5 = np.full(shape=(2, 1), fill_value=Set_Conjunto_Array)
+Array_Gen6 = np.full(shape=(4, 1), fill_value=Diccionario_Array['Nombre'][2:3])
+
+print (f'{Array_Gen4}')
+print (f'{Array_Gen4.ndim}')
+print (f'{Array_Gen4.shape}')
+print (f'{Array_Gen4.size}')
+print (f'{Array_Gen4.dtype}')
+print (f'{Array_Gen4[2, 1]}')
+
+print (f'-' * 20)
+
+print (f'{Array_Gen5}')
+print (f'{Array_Gen5.ndim}')
+print (f'{Array_Gen5.shape}')
+print (f'{Array_Gen5.size}')
+print (f'{Array_Gen5.dtype}')
+print (f'{Array_Gen5[1, 0]}')
+
+print (f'-' * 20)
+
+print (f'{Array_Gen6}')
+print (f'{Array_Gen6.ndim}')
+print (f'{Array_Gen6.shape}')
+print (f'{Array_Gen6.size}')
+print (f'{Array_Gen6.dtype}')
+print (f'{Array_Gen6[3, 0]}')
+
+print (f'-' * 20)
+
+print (f'{Array_Gen6[3]}')
+
+print (f'-' * 20)
+
+Array_Num3 = np.arange(start=1, stop=6, step=1)
+Array_Num4 = np.arange(start=2, stop=11, step=2)
+Array_Num5 = np.arange(start=3, stop=31, step=3)
+Array_Num6 = np.arange(start=10, stop=21, step=2)
+Array_Num7 = np.arange(10)
+
+print (f'{Array_Num3}')
+print (f'{Array_Num4}')
+print (f'{Array_Num5}')
+print (f'{Array_Num6}')
+print (f'{Array_Num7}')
+
+print (f'-' * 20)
+
+Array_Random1 = np.random.randint(low=1, high=10, size=(10))
+
+print (f'{Array_Random1}')
+
+print (f'-' * 20)
+
+Array_Random2 = np.random.randint(low=1, high=10, size=(2, 3))
+
+print (f'{Array_Random2}')
+print (f'{Array_Random2.ndim}')
+print (f'{Array_Random2.shape}')
+print (f'{Array_Random2.size}')
+print (f'{Array_Random2.dtype}')
+print (f'{Array_Random2[1, 1]}')
+
+Array_Random2_Sorted = np.sort(Array_Random2)
+Array_Random2_Mean = np.mean(Array_Random2)
+Array_Random2_Sum = np.sum(Array_Random2)
+
+print (f'Acomodado: {Array_Random2_Sorted}')
+print (f'Acomodado: {round(Array_Random2_Mean, 2)}')
+print (f'Acomodado: {Array_Random2_Sum}')
+
+Sumita9 = np.sum(Array4_Sorted, axis=0)
+Sumita10 = np.sum(Array4_Sorted, axis=1)
+Sumita11 = np.sum(Array4_Sorted[0, 0:None])
+Sumita12 = np.sum(Array4_Sorted[0, :])
+
+print (f'El resultado de la sumita es {Sumita9}')
+print (f'El resultado de la sumita es {Sumita10}')
+print (f'El resultado de la sumita es {Sumita11}')
+print (f'El resultado de la sumita es {Sumita12}')
+
+print (f'-' * 20)
+
+Arr1 = np.array([8, 9, 14])
+Arr2 = np.array([2, 3, 7])
+
+Sum = Arr1 + Arr2
+Rest = Arr1 - Arr2
+Mult = Arr1 * Arr2
+Div = Arr1 / Arr2
+
+Array_Random1_Cien = Array_Random1 + 100
+
+print (f'El resultado de la operacion es {Sum}')
+print (f'El resultado de la operacion es {Rest}')
+print (f'El resultado de la operacion es {Mult}')
+print (f'El resultado de la operacion es {Div}')
+print (f'El resultado de la operacion es {Array_Random1_Cien}')
+
+print (f'-' * 20)
+
+Array_Num8 = np.arange(20)
+
+print (f'{Array_Num8}')
+
+Array_Num8_Reshape = np.reshape(Array_Num8, shape=(4, 5))
+
+print (f'{Array_Num8_Reshape}')
+
+Array_Num8_Reshape_Ravel = np.ravel(Array_Num8_Reshape)
+
+print (f'{Array_Num8_Reshape_Ravel}')
+
+print (f'-' * 20)
+
+Lista_Array2 = []
+Lista_Array2.append('Uno')
+Lista_Array2.extend(['Tres', 'Cuatro'])
+Lista_Array2.insert(1, 'Dos')
+
+print (f'{Lista_Array2}')
+
+Array5 = np.array(Lista_Array2)
+
+print (f'{Array5}')
+print (f'{type(Array5)}')
+
+print (f'-' * 20)
+
+Array6 = np.array([1, 2, 3])
+Array7 = np.arange(start=4, stop=7, step=1)
+
+Array_Concatenate = np.concatenate([Array6, Array7])
+
+print (f'{Array_Concatenate}')
+
+print (f'-' * 20)
+
+Array_Concatenate_Split = np.split(Array_Concatenate, 3)
+
+print (f'{Array_Concatenate_Split[0]}')
+print (f'{Array_Concatenate_Split[1]}')
+print (f'{Array_Concatenate_Split[2]}')
+
+print (f'-' * 20)
+
+Array_Concatenate_Where = np.where(Array_Concatenate == 3)
+
+print (f'{Array_Concatenate_Where}')
+
+print (f'-' * 20)
+
+for Matriz2 in Array4:
+    for Matriz1 in Matriz2:
+        for Fila in Matriz1:
+            print (f'{Fila}')
+
+print (f'-' * 20)
+
+for Matriz2 in Array4:
+    for Matriz1 in Matriz2:
+        for Fila in Matriz1:
+            for Elemento in Fila:
+                print (f'{Elemento}')
+
+print (f'-' * 20)
+
+for Matriz1 in Array3:
+    for Fila in Matriz1:
+        for Elemento in Fila:
+            print (f'{Elemento}')
+
+print (f'-' * 20)
+
+Array_Random3 = np.random.randint(low=1, high=10, size=(2, 2, 3))
+
+print (f'{Array_Random3}')
+print (f'{Array_Random3.ndim}')
+print (f'{Array_Random3.shape}')
+print (f'{Array_Random3.size}')
+print (f'{Array_Random3.dtype}')
+print (f'{Array_Random3[1, 0, 2]}')
+
+Sumita13 = np.sum(Array_Random3, axis=0)
+Sumita14 = np.sum(Array_Random3, axis=1)
+Sumita15 = np.sum(Array_Random3[0, 1, 0:None])
+Sumita16 = np.sum(Array_Random3[0, 1, :])
+
+print (f'El resultado de la sumita es {Sumita13}')
+print (f'El resultado de la sumita es {Sumita14}')
+print (f'El resultado de la sumita es {Sumita15}')
+print (f'El resultado de la sumita es {Sumita16}')
+
+print (f'-' * 20)
+
+Lista_Array3 = ['Erick', 'Josue', 'Karlita', 'Karlita', 'Carmelo', 'Roxana']
+
+Ganador1 = np.random.choice(Lista_Array3, size=(1), replace=False)
+Ganador2 = np.random.choice(Lista_Array3, size=(2), replace=False)
+Ganador3 = np.random.choice(Lista_Array3, size=(2, 3), replace=False)
+
+print (f'El ganador del sorteo es {Ganador1}')
+print (f'El ganador del sorteo es {Ganador2}')
+print (f'El ganador del sorteo es {Ganador3}')
+
+print (f'-' * 20)
+
+Array_Linspace = np.linspace(start=1, stop=10, num=3)
+
+print (f'{Array_Linspace}')
+
+print (f'-' * 20)
+
+def Generadora1():
+    for elemento in range(5):
+        yield f'El numero es {elemento}'
+
+Gen1 = Generadora1()
+
+try:
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+except StopIteration:
+    print (f'Fin del experimento')
+
+print (f'-' * 20)
+
+def Generadora2():
+    for elemento in range(1, 5):
+        if (elemento % 2 == 0):
+            yield f'El numero es par'
+        else:
+            yield f'El numero es impar'
+
+Gen2 = Generadora2()
+
+try:
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+except StopIteration:
+    print (f'Fin del experimento')
+
+print (f'-' * 20)
+
+def Generadora3():
+    for elemento in range(5):
+        if (elemento == 0):
+            yield f'The number is zero'
+        elif (elemento == 1):
+            yield f'The number is one'
+        elif (elemento == 2):
+            yield f'The number is two'
+        elif (elemento == 3):
+            yield f'The number is three'
+        elif (elemento == 4):
+            yield f'The number is four'
+        else:
+            yield f'Coding Error'
+
+Gen3 = Generadora3()
+
+try:
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+except StopIteration:
+    print (f'Fin del experimento')
+
+print (f'-' * 20)
+
+PEPE.Saludar1()
+
+from Module_Own import Saludar2 as Saludar_Dos
+
+print (f'Hola {Saludar_Dos()}')
+
+print (f'Hola nuevamente {PEPE.Saludar3(Saludar_Dos())}')
+
+print (f'El resultado de la sumatoria es {PEPE.Sumatoria1(7, 4)}')
+
+def Sumatoria_Externa(Num1):
+    def Sumatoria_Interna(Num2:int):
+        return Num1 + Num2
+
+    return Sumatoria_Interna(4)
+
+Variable_Sumatoria = Sumatoria_Externa(3)
+
+print (f'El resultado de la sumatoria es {Variable_Sumatoria}')
+
+if (PEPE.Par(Variable_Sumatoria) == True):
+    print (f'El numero es par')
+else:
+    print (f'El numero es impar')
+
+PEPE.Usuario(Saludar_Dos(), 'MASCULINO')
+
+def Usuario_Externo():
+    def Usuario_Interno(Sexo):
+        Genero = Sexo.lower()
+        if (Genero == 'masculino'):
+            return True
+        else:
+            return False
+
+    return Usuario_Interno('MASCULINO')
+
+Variable_Usuario = Usuario_Externo()
+
+if (Variable_Usuario == True):
+    print (f'YOU ARE A MAN')
+else:
+    print (f'YOU ARE A WOMAN')
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nSu contrasena temporal es {PEPE.Contrasena(44)}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Docu_Lineas}')
+    Docu.close()

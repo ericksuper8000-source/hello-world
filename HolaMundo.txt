@@ -7,4 +7,5 @@ Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Graveler - Vaporeon
+Vaporeon - Pikachu - Graveler
+Su contrasena temporal es bdi105
