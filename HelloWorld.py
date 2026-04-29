@@ -1400,3 +1400,584 @@ with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
     Documento_Lineas = Docu.readlines()
     print (f'{Docu_Lineas}')
     Docu.close()
+
+Texto6 = "   Hola!!!   mundo@@   123   "
+
+print (f'{Texto6}')
+
+Texto6_Version1 = Texto6.lower()
+
+print (f'{Texto6_Version1}')
+
+Texto6_Version2 = Texto6_Version1.strip()
+
+print (f'{Texto6_Version2}')
+
+Texto6_Version3 = ' '.join(Texto6_Version2.split())
+
+print (f'{Texto6_Version3}')
+
+import re
+
+Texto6_Version4 = re.sub(r'[^a-z0-9\s]', '', Texto6_Version3)
+
+print (f'{Texto6_Version4}')
+
+print (f'-' * 20)
+
+import pandas as pd
+from datetime import datetime
+
+Ruta_Csv4 = 'C:\\Repo\\Store.csv'
+
+Cargar_Csv4 = pd.read_csv(Ruta_Csv4)
+
+print (f'{Cargar_Csv4}')
+
+print (f'-' * 20)
+
+Fecha3 = '2026-04-01'
+
+try:
+    Fech3 = datetime.strptime(Fecha3, '%Y-%m-%d').date()
+    Fech3_Formateado = pd.to_datetime(Fech3)
+    Cargar_Csv4['date'] = pd.to_datetime(Cargar_Csv4['date'])
+except ValueError:
+    print (f'Error, formato de fecha incorrecto')
+    exit()
+
+Encontrado3 = Cargar_Csv4[Cargar_Csv4['date'].dt.date == Fech3_Formateado.date()]
+
+if (Encontrado3.empty):
+    print (f'No se han encontrado ventas en esta fecha')
+else:
+    print (f'Genial! hemos encontrado ventas')
+    Grupo3 = Encontrado3.groupby('product')['quantity'].sum()
+    Grupo3_May = Grupo3.idxmax()
+    Grupo3_Min = Grupo3.idxmin()
+    Grupo3_May_Cant = Grupo3.max()
+    Grupo3_Min_Cant = Grupo3.min()
+
+    print (f'En la fecha {Fech3_Formateado} el producto {Grupo3_May} vendio un total de {Grupo3_May_Cant} unidades')
+    print (f'En la fecha {Fech3_Formateado} el producto {Grupo3_Min} vendio un total de {Grupo3_Min_Cant} unidades')
+
+def Funcion_Tupla(*args):
+    return args
+
+Variable_Funcion_Tupla = Funcion_Tupla("Perro", 36, 3.5, True)
+
+print (f'{Funcion_Tupla("Perro", 36, 3.5, True)}')
+print (f'{Funcion_Tupla("Perro", 36, 3.5, True)[2]}')
+print (f'{Variable_Funcion_Tupla[3]}')
+print (f'{type(Funcion_Tupla("Perro", 36, 3.5, True))}')
+
+print (f'-' * 20)
+
+def Funcion_Diccionario(**kwargs):
+    for elemento in kwargs.items():
+        print (f'{elemento[0]} -- {elemento[1]}')
+
+Funcion_Diccionario(Nombre = Saludar_Dos(), Edad = Variable_Sumatoria, Votante = Variable_Funcion_Tupla[3])
+
+print (f'-' * 20)
+
+def Sumatoria2(*args):
+    return sum(args)
+
+print (f'El resultado de la sumatoria es {Sumatoria2(1, 2, 3, 4, 5, 6, 7 ,8, 9, 10)}')
+
+def Sumatoria_Dos(Nombre, *args):
+    return f'{Nombre}, tu numero favorito es {sum(args)}'
+
+print (f'{Sumatoria_Dos("Erick", 1, 2, 3, 4, 5 ,6 ,7 ,8, 9, 10)}')
+
+from Module_Own import Variable_Funcion_Anonima1 as Anonima1, Variable_Funcion_Anonima2 as Anonima2, Variable_Funcion_Anonima3 as Anonima3
+
+print (f'El resultado de la multiplicacion es {Anonima1(150, 3)}')
+
+print (f'El doble del numero {Variable_Sumatoria} es {Anonima2(Variable_Sumatoria)}')
+
+print (f'Los numeros pares de la lista son {list(Anonima3)} o incluso podrian ser {PEPE.Lista_Pares}')
+
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda(*args) - 42
+
+    return Tercera
+
+@Primera
+def Operacion(Numero:int) -> int:
+    Local = Numero
+    return PEPE.GLOBAL + Local
+
+print (f'El resultado de la operacion es {Operacion(12)}')
+
+def Externa(Nombre):
+    def Interna(Apellido):
+        print (f'Mi nombre es {Nombre} {Apellido}')
+
+    return Interna('PEREZ GUTIERREZ')
+
+Externa('ERICK JOSUE')
+
+def Closure_Externo():
+    Lista_Closure = []
+    def Closure_Interno(x):
+        Lista_Closure.append(x)
+        return Lista_Closure
+
+    return Closure_Interno
+
+Variable_Closure = Closure_Externo()
+
+print (f'{Variable_Closure(12)}')
+print (f'{Variable_Closure(23)}')
+print (f'{Variable_Closure(50)}')
+
+print (f'-' * 20)
+
+def Crear_Multiplicador(x):
+    def Multiplicador(y):
+        return x * y
+
+    return Multiplicador
+
+Mult1 = Crear_Multiplicador(2)
+Mult2 = Crear_Multiplicador(3)
+
+print (f'El resultado del multiplicador es {Mult1(10)}')
+print (f'El resultado del multiplicador es {Mult2(10)}')
+
+def Filtrador(Lista):
+    Any_Impar = any(num % 2 != 0 for num in Lista)
+    if (Any_Impar == True):
+        Lista_Impar = [num for num in Lista if num % 2 != 0]
+        Anonima4 = filter(lambda Num : Num % 2 != 0, Lista)
+
+        print (f'Los elementos impares de la lista son {list(Anonima4)} o incluso podrian ser {Lista_Impar}')
+    else:
+        print (f'Error, no hay elementos impares en la lista')
+
+Filtrador(PEPE.Lista_Numeros)
+
+def Primera(Segunda):
+    def Tercera():
+        print (f'XXXXXXXX')
+        Segunda()
+        print (f'XXXXXXXX')
+
+    return Tercera
+
+@Primera
+def Saludar4():
+    print (f'Hola Mundo')
+
+Saludar4()
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) - 11
+
+    return Tercera
+
+@Primera
+def Sumatoria3(Num1:int, Num2:int) -> int:
+    return Num1 + Num2
+
+print (f'El resultado de la sumatoria es {Sumatoria3(4, 7)}')
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'Jonatha'
+        Apellido = 'Smith'
+        return Segunda(Nombre, Apellido)
+
+    return Tercera
+
+@Primera
+def Usuario2(Nombre, Apellido):
+    print (f'Mi nombre es {Nombre} {Apellido}')
+
+Usuario2('Erick', 'Perez')
+
+print (f'-' * 20)
+
+from Module_Own import Pokemon2 as Poke2
+
+Objeto16 = Poke2(PEPE.Diccionario_Poke['Poke1'], 'Electrico', 'Impact Trueno')
+
+Objeto16.Mostrar()
+
+print (f'-' * 20)
+
+class Poke_Kid2(Poke2):
+    def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.Sub_Tipo = Sub_Tipo
+
+    def Mostrar(self):
+        print (f'Sub_Tipo: {self.Sub_Tipo}')
+
+Objeto17 = Poke_Kid2(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro', 'Acero')
+
+Poke2.Mostrar(Objeto17)
+Objeto17.Mostrar()
+
+print (f'-' * 20)
+
+class Camara2():
+    def Tomar_Fotografia(self):
+        print (f'Fotografia tomada')
+
+class Reproductor_Musica2:
+    def Reproducir_Musica(self):
+        print (f'Musica reproducida')
+
+class Celular2(Camara2, Reproductor_Musica2):
+    def Encender_Celular(self):
+        print (f'Celular encendido')
+
+Objeto18 = Celular2()
+
+Objeto18.Encender_Celular()
+Objeto18.Reproducir_Musica()
+Objeto18.Tomar_Fotografia()
+
+print (f'-' * 20)
+
+class Veterinaria2():
+    def __init__(self, Nombre, Edad, Peso):
+        self.Nombre = Nombre
+        self.Edad = Edad
+        self.Peso = Peso
+
+    def Mostrar(self):
+        print (f'Nombre: {self.Nombre}')
+        print (f'Edad: {self.Edad} años')
+        print (f'Peso: {self.Peso}kgs')
+
+class Perro2(Veterinaria2):
+    def __init__(self, Nombre, Edad, Peso, Raza, Padecimiento):
+        super().__init__(Nombre, Edad, Peso)
+        self.Raza = Raza
+        self.Padecimiento = Padecimiento
+
+    def Mostrar(self):
+        print (f'Raza: {self.Raza}')
+        print (f'Padecimiento: {self.Padecimiento}')
+
+Objeto19 = Perro2('Chester', 5, 2.8, 'Poodle', 'Asma')
+
+Veterinaria2.Mostrar(Objeto19)
+Objeto19.Mostrar()
+
+print (f'-' * 20)
+
+class Gato2(Veterinaria2):
+    def __init__(self, Nombre, Edad, Peso, Color, Paciente_Activo):
+        super().__init__(Nombre, Edad, Peso)
+        self.Color = Color
+        self.Paciente_Activo = Paciente_Activo
+
+    def Mostrar(self):
+        print (f'Color: {self.Color}')
+        print (f'Paciente_Activo: {self.Paciente_Activo}')
+
+Objeto20 = Gato2('Messi', 1.5, 1.8, 'Gris', 'No')
+
+Veterinaria2.Mostrar(Objeto20)
+Objeto20.Mostrar()
+
+print (f'-' * 20)
+
+class Pajaro2(Veterinaria2):
+    def __init__(self, Nombre, Edad, Peso, Especie, Habla):
+        super().__init__(Nombre, Edad, Peso)
+        self.Especie = Especie
+        self.Habla = Habla
+
+    def Mostrar(self):
+        print (f'Especie: {self.Especie}')
+        print (f'Habla: {self.Habla}')
+
+Objeto21 = Pajaro2('Polly', 31, 0.4, 'Papagayo', 'Si')
+
+Veterinaria2.Mostrar(Objeto21)
+Objeto21.Mostrar()
+
+print (f'-' * 20)
+
+class Atacante2():
+    def __init__(self, Damage, Weapon):
+        self.Damage = Damage
+        self.Weapon = Weapon
+
+    def Mostrar(self):
+        print (f'Damage: {self.Damage}pts')
+        print (f'Weapon: {self.Weapon}')
+
+class Defensor2:
+    def __init__(self, Healing, Potion, Life):
+        self.Healing = Healing
+        self.Potion = Potion
+        self.Life = Life
+
+    def Mostrar(self):
+        print (f'Healing: {self.Healing}pts')
+        print (f'Potion: {self.Potion}')
+        print (f'Life: {self.Life}pts')
+
+class Hechicero(Atacante2, Defensor2):
+    def __init__(self, Damage, Weapon, Healing, Potion, Life, Name):
+        Atacante2.__init__(self, Damage, Weapon)
+        Defensor2.__init__(self, Healing, Potion, Life)
+        self.Name = Name
+
+    def Mostrar(self):
+        print (f'Name: {self.Name}')
+
+Objeto22 = Hechicero(65, 'Baston de luz', 50, 'Dark Crystal', 200, 'Gandalf')
+
+Objeto22.Mostrar()
+Atacante2.Mostrar(Objeto22)
+Defensor2.Mostrar(Objeto22)
+
+print (f'-' * 20)
+
+Hija_Padre = issubclass(Poke_Kid2, Poke2)
+Objeto_Clase1 = isinstance(Objeto22, Atacante2)
+Objeto_Clase2 = isinstance(Objeto22, Defensor2)
+Objeto_Clase3 = isinstance(Objeto22, Hechicero)
+
+print (f'{Hija_Padre}')
+print (f'{Objeto_Clase1}')
+print (f'{Objeto_Clase2}')
+print (f'{Objeto_Clase3}')
+
+print (f'-' * 20)
+
+class A2():
+    def Mostrar(self):
+        print (f'Hola A')
+
+class E2():
+    def Mostrar(self):
+        print (f'Hola E')
+
+class B2(E2):
+    def Mostrar(self):
+        print (f'Hola B')
+
+class C2(A2):
+    def Mostrar(self):
+        print (f'Hola C')
+
+class D2(B2, C2):
+    def Mostrar(self):
+        print (f'Hola D')
+
+Objeto23 = D2()
+
+A2.Mostrar(Objeto23)
+B2.Mostrar(Objeto23)
+C2.Mostrar(Objeto23)
+Objeto23.Mostrar()
+E2.Mostrar(Objeto23)
+
+print (f'-' * 20)
+
+class Efectivo2:
+    def Depositar(self):
+        print (f'El deposito se realizo en efectivo')
+
+class Tarjeta2():
+    def Depositar(self):
+        print (f'El deposito se realizo en tarjeta')
+
+class Cripto2:
+    def Depositar(self):
+        print (f'El deposito se realizo en cripto')
+
+Objeto24 = Cripto2()
+Objeto25 = Tarjeta2()
+Objeto26 = Efectivo2()
+
+Objeto24.Depositar()
+Objeto25.Depositar()
+Objeto26.Depositar()
+
+print (f'-' * 20)
+
+class Cuenta_Bancaria2():
+    def __init__(self, Saldo):
+        self.__Saldo = Saldo
+
+    def Depositar(self, Dinero):
+        self.__Saldo += Dinero
+
+    @property
+    def Dinero(self):
+        return self.__Saldo
+
+    @Dinero.setter
+    def Dinero(self, Nuevo_Saldo):
+        self.__Saldo = Nuevo_Saldo
+
+    def Mostrar(self):
+        print (f'Tu saldo a la fecha es de ${self.__Saldo}')
+
+Objeto27 = Cuenta_Bancaria2(100)
+Objeto27.Depositar(25)
+Objeto27.Mostrar()
+
+print (f'Tu saldo privado es de {Objeto27.Dinero}')
+
+Objeto27.Dinero = '55,000'
+
+Objeto27.Mostrar()
+
+print (f'Tu saldo privado es de {Objeto27.Dinero}')
+
+print (f'-' * 20)
+
+from abc import ABC, abstractmethod
+
+class Plantilla2(ABC):
+    @abstractmethod
+    def Borradora(self):
+        pass
+
+class Ejemplo2(Plantilla2):
+    def Mostrar(self):
+        print (f'HOLA AMIGOS')
+
+    def Borradora(self):
+        print (f'Esto es lo que debo agregar a fuera para cumplir la abstraccion')
+
+Objeto28 = Ejemplo2()
+
+Objeto28.Mostrar()
+Objeto28.Borradora()
+
+print (f'-' * 20)
+
+class Composicion():
+    def Compo1(self):
+        print (f'Este mensaje de composicion se mostrara en la otra clase')
+
+class Ejemplo_Composicion:
+    def __init__(self):
+        self.Textico = Composicion()
+
+    def Mostrar(self):
+        self.Textico.Compo1()
+
+Objeto29 = Ejemplo_Composicion()
+
+Objeto29.Mostrar()
+
+print (f'-' * 20)
+
+from Module_Own import Lista1 as Lista_Uno, Lista4 as Lista_Cuatro
+
+variable1 = Lista_Uno[0]
+variable2 = 'Perez'
+variable3 = '''
+Esto
+Es
+Un
+Long
+String'''
+
+variable4 = Variable_Sumatoria
+variable5 = PEPE.Division_Flotante
+variable6, variable7 = not False, Objeto3.Catched
+
+# Esto es un comentario simple
+
+'''Esto
+Es
+Un
+Comentario
+Compuesto'''
+
+print (f'Esto es una concatenacion simple {PEPE.Diccionario_Poke["Poke1"]}')
+
+print (f'Mi nombre completo es {Lista_Uno[0]} {variable2}')
+
+print (f'{PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")]} tiene {Variable_Sumatoria}, {Sumatoria2(1, 2, 3, 4)} o incluso {Objeto2.Cantidad} pokemones')
+
+del variable5
+
+print (f'melo' in Saludar_Dos())
+print (f'Long' not in variable3)
+
+print (f'Koala' in PEPE.Lista2)
+
+print (f'Graveler' in PEPE.Set_Conjunto_Poke)
+
+print (f'Misty' in PEPE.Tupla_Poke)
+
+print (f'Pikachu' in PEPE.Diccionario_Poke['Poke1'])
+
+print (f'-' * 20)
+
+snake_case1, snake_case2, snake_case3 = PEPE.Tupla_Poke
+
+print (f'Esto es un desempaquetado de variables y snake case asignation al mismo tiempo {snake_case2}')
+
+print (f'La lista 1 tiene {Lista_Uno.__len__()} elementos')
+
+Lista_Uno.append('Coco Rayado')
+Lista_Uno.insert(1, 'Juana La Cubana')
+Lista_Uno.extend(['Finale1', 'Finale2', 'Finale3'])
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Cociente, Residuo = divmod(Objeto2.Cantidad, Sumatoria2(1, 2, 3, 1))
+
+print (f'El cociente de la operacion es {Cociente} y el residuo es {Residuo}')
+
+print (f'{PEPE.Lista2[2:3]}')
+print (f'{PEPE.Lista2[:2]}')
+print (f'{PEPE.Lista2[2:]}')
+print (f'{PEPE.Lista2[::2]}')
+print (f'{PEPE.Lista2[::3]}')
+print (f'{PEPE.Lista2[0:None]}')
+print (f'{PEPE.Lista2[:]}')
+
+print (f'{Lista_Uno[1]} eso de ahi es un {PEPE.Lista2[2]}?')
+
+print (f'{Lista_Cuatro}')
+
+Lista_Cuatro[0] = Sumatoria2(Anonima2(250), 150, 50, 200, 100)
+
+print (f'{Lista_Cuatro}')
+
+del Lista_Uno[1]
+Lista_Uno.remove('Coco Rayado')
+Lista_Uno.pop(-2)
+Lista_Uno.pop(-1)
+Lista_Uno.pop(-1)
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+Lista_Uno_Copia = Lista_Uno.copy()
+
+Lista_Uno.clear()
+
+print (f'{Lista_Uno}')
+print (f'La lista 1 tiene {len(Lista_Uno)} elementos')
+
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort()
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.sort(reverse = True)
+print (f'{Lista_Cuatro}')
+Lista_Cuatro.reverse()
+print (f'{Lista_Cuatro}')
+
+print (f'-' * 20)
+
