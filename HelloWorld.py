@@ -1981,3 +1981,735 @@ print (f'{Lista_Cuatro}')
 
 print (f'-' * 20)
 
+Texto7 = "   Hola!!!   mundo@@   123   "
+
+print (f'{Texto7}')
+
+Texto7_Version1 = Texto7.strip()
+
+print (f'{Texto7_Version1}')
+
+Texto7_Version2 = ' '.join(Texto7_Version1.split())
+
+print (f'{Texto7_Version2}')
+
+Texto7_Version3 = Texto7_Version2.lower()
+
+print (f'{Texto7_Version3}')
+
+import re
+
+Texto7_Version4 = re.sub(r'[^a-z0-9\s]', '', Texto7_Version3)
+
+print (f'{Texto7_Version4}')
+
+print (f'-' * 20)
+
+import pandas as pd
+from datetime import datetime
+
+Ruta_Csv5 = 'C:\\Repo\\Store.csv'
+
+Cargar_Csv5 = pd.read_csv(Ruta_Csv5)
+
+print (f'{Cargar_Csv5}')
+
+print (f'-' * 20)
+
+Fecha4 = '2026-04-01'
+
+try:
+    Fech4 = datetime.strptime(Fecha4, '%Y-%m-%d').date()
+    Fech4_Formateado = pd.to_datetime(Fech4)
+    Cargar_Csv5['date'] = pd.to_datetime(Cargar_Csv5['date'])
+except ValueError:
+    print (f'Error, formato incorrecto')
+    exit()
+
+Encontrado4 = Cargar_Csv5[Cargar_Csv5['date'].dt.date == Fech4_Formateado.date()]
+
+if (Encontrado4.empty):
+    print (f'No hay ventas en esta fecha')
+else:
+    print (f'Genial! ventas encontradas')
+    Grupo4 = Encontrado4.groupby('product')['quantity'].sum()
+    Grupo4_May = Grupo4.idxmax()
+    Grupo4_Min = Grupo4.idxmin()
+    Grupo4_May_Cant = Grupo4.max()
+    Grupo4_Min_Cant = Grupo4.min()
+
+    print (f'En la fecha {Fech4_Formateado} el producto {Grupo4_May} vendio {Grupo3_May_Cant} unidades')
+    print (f'En la fecha {Fech4_Formateado} el producto {Grupo4_Min} vendio {Grupo4_Min_Cant} unidades')
+
+print (f'{variable4.__dir__()}')
+
+print (f'{help(Objeto22)}')
+
+Tupla1 = ('Electrico', Objeto1.Tipo, Objeto1.Tipo, Objeto1.Tipo, Objeto1.Tipo)
+
+print (f'{Tupla1}')
+
+Tupla2 = 'Uno', 'Dos', 'Tres',
+
+Tupla3 = 'Uno',
+
+Tupla1 = tuple(('Red', 'Black', 'Blue'))
+
+print (f'{Tupla1}')
+
+Set_Conjunto1 = {'Balon', 'Balon', 'Balon', 'Balon', 'Balon'}
+Set_Conjunto1.add('Casa')
+Set_Conjunto1.add('Bicicleta')
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto1 = set({'Ball', 'House', 'Bicycle'})
+
+print (f'{Set_Conjunto1}')
+
+Set_Conjunto2 = {1, 2, 3, 4, 5}
+Set_Conjunto3 = {4, 5}
+Set_Conjunto4 = set({8})
+
+print (f'{Set_Conjunto2.issuperset(Set_Conjunto3)}')
+print (f'{Set_Conjunto2 >= Set_Conjunto3}')
+print (f'-' * 20)
+print (f'{Set_Conjunto3.issubset(Set_Conjunto2)}')
+print (f'{Set_Conjunto3 <= Set_Conjunto2}')
+print (f'-' * 20)
+print (f'{Set_Conjunto2.isdisjoint(Set_Conjunto4)}')
+print (f'-' * 20)
+
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+print (f'{A.union(B)}')
+print (f'{A | B}')
+
+print (f'-' * 20)
+
+print (f'{A.intersection(B)}')
+print (f'{A & B}')
+
+print (f'-' * 20)
+
+print (f'{A.difference(B)}')
+print (f'{A - B}')
+
+print (f'-' * 20)
+
+print (f'{B.difference(A)}')
+print (f'{B - A}')
+
+print (f'-' * 20)
+
+print (f'{A.symmetric_difference(B)}')
+print (f'{A ^ B}')
+
+print (f'-' * 20)
+
+A1 = {1, 2, 3}
+B1 = {3, 4}
+
+'''A1.update(B1)
+
+print (f'{A1}')'''
+
+'''A1.intersection_update(B1)
+
+print (f'{A1}')'''
+
+'''A1.difference_update(B)
+
+print (f'{A1}')'''
+
+'''B1.difference_update(A1)
+
+print (f'{B1}')'''
+
+A1.symmetric_difference_update(B1)
+
+print (f'{B1}')
+
+print (f'-' * 20)
+
+Set_Conjunto_Menu1 = {'Chocolate', 'Vainilla'}
+Set_Conjunto_Menu1.add('Fresa')
+
+Set_Conjunto_Menu2 = frozenset({'Caramelo'})
+Set_Conjunto_Menu3 = set({Set_Conjunto_Menu2, Objeto3.Nombre})
+
+print (f'{Set_Conjunto_Menu1}')
+print (f'{Set_Conjunto_Menu2}')
+print (f'{Set_Conjunto_Menu3}')
+
+Set_Conjunto_Menu4 = Set_Conjunto_Menu1.union(Set_Conjunto_Menu2)
+
+print (f'{Set_Conjunto_Menu4}')
+
+print (f'-' * 20)
+
+Diccionario1 = {
+    'Nombre' : Saludar_Dos(),
+    'Edad' : Objeto2.Cantidad,
+    'Votante' : not True
+}
+
+Diccionario2 = {
+    'Nombre' : ["Erick", "Josue", "Karlita"],
+    'Edad' : [37, 20, 6],
+    'Votante' : [True, not False, False]
+}
+
+Diccionario3 = dict({'Ingresos' : 501, 'Gastos' : 199, 'Vacio' : "q"})
+
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1["Nombre"]}')
+print (f'{Diccionario1.get("Edad")}')
+
+Diccionario1['Nombre'] = variable1
+
+print (f'{Diccionario1}')
+
+del Diccionario1['Nombre']
+Diccionario1.pop('Edad')
+
+print (f'{Diccionario1}')
+
+Diccionario1.clear()
+
+print (f'{Diccionario1}')
+
+Diccionario1 = dict({1 : "Karlita", 2 : variable4, 3 : not False})
+
+print (f'{Diccionario1}')
+print (f'{Diccionario1.keys()}')
+print (f'{Diccionario1[1]}')
+print (f'{Diccionario1.get(2)}')
+
+print (f'{Diccionario2["Nombre"][2]} no puede votar ya que solo tiene {Diccionario1.get(2)} añitos')
+
+Diccionario_Vacio1 = dict.fromkeys('ABC', 'Hola')
+Diccionario_Vacio2 = dict.fromkeys(['Uno', 'Dos', 'Tres'])
+Diccionario_Vacio2['Dos'] = Lista_Uno_Copia[0]
+
+print (f'{Diccionario_Vacio1}')
+
+print (f'{Diccionario_Vacio2}')
+
+Key1 = [f'{i}' for i in range(len(Lista_Uno_Copia))]
+
+print (f'{Key1}')
+
+Diccionario4 = dict(zip(Key1, Lista_Uno_Copia))
+
+for elemento in Diccionario4.keys():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario4.values():
+    print(f'{elemento}')
+
+print(f'-' * 20)
+
+for elemento in Diccionario4.items():
+    print(f'{elemento[0]} -- {elemento[1]}')
+
+print(f'-' * 20)
+
+print (f'{Cargar_Csv5}')
+
+print(f'-' * 20)
+
+Set_Conjunto_Diccionario5 = set(Cargar_Csv5['product'])
+
+print (f'{Set_Conjunto_Diccionario5}')
+
+Key2 = [f'key{i}' for i in range(len(Set_Conjunto_Diccionario5))]
+
+print (f'{Key2}')
+
+Diccionario5 = dict(zip(Key2, Set_Conjunto_Diccionario5))
+
+for elemento in Diccionario5.keys():
+    print (f'{elemento}')
+
+print(f'-' * 20)
+
+for elemento in Diccionario5.values():
+    print(f'{elemento}')
+
+print(f'-' * 20)
+
+for elemento in Diccionario5.items():
+    print(f'{elemento[0]} -- {elemento[1]}')
+
+print(f'-' * 20)
+
+Division_Baja = 14//7
+Exponente = 4**3
+Modulo = 20%6
+
+print (f'El resultado de la operacion es {PEPE.Division_Flotante}')
+print (f'El resultado de la operacion es {int(abs(Division_Baja))}')
+print (f'El resultado de la operacion es {Exponente}')
+print (f'El resultado de la operacion es {Modulo}')
+
+print (f'El tipo de dato de la variable es {type(variable1)}')
+print (f'El tipo de dato de la variable es {type(variable4)}')
+print (f'El tipo de dato de la variable es {type(PEPE.Division_Flotante)}')
+print (f'El tipo de dato de la variable es {type(Objeto2.Catched)}')
+print (f'El tipo de dato de la variable es {type(Lista_Uno_Copia)}')
+print (f'El tipo de dato de la variable es {type(Tupla3)}')
+print (f'El tipo de dato de la variable es {type(Set_Conjunto_Menu1)}')
+print (f'El tipo de dato de la variable es {type(Set_Conjunto_Menu2)}')
+print (f'El tipo de dato de la variable es {type(Diccionario4)}')
+print (f'El tipo de dato de la variable es {type(Funcion_Tupla)}')
+print (f'El tipo de dato de la variable es {type(Objeto6)}')
+print (f'El tipo de dato de la variable es {type(Poke_Kid1)}')
+print (f'El tipo de dato de la variable es {type(Data_Frame_Concatenate)}')
+print (f'El tipo de dato de la variable es {type(Array_Gen1)}')
+print (f'El tipo de dato de la variable es {type(PEPE)}')
+
+print (f'-' * 20)
+
+if (Diccionario3['Ingresos'] > 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Altos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Altos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Altos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] == 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Minimos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Minimos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Minimos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] < 500):
+    if (Diccionario3['Gastos'] < 200):
+        print (f'Ingresos Bajos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Bajos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200):
+        print (f'Ingresos Bajos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+else:
+    print (f'Error de codigo')
+
+variable8 = 'erick'
+variable9 = 30
+
+if (variable8.upper() == 'ERICK' and variable9 >= 30):
+    print (f'Ambas condiciones se cumple')
+else:
+    print (f'Error, al menos una de las condiciones no se cumplen')
+
+if (variable9 <= 20 or variable8 == 'josue'):
+    print (f'Correcto, al menos una condcion se cumple')
+else:
+    print (f'Error, no se cumple ninguna de las condiciones')
+
+class Entrenador():
+    def __init__(self, Trainer, City, Favorite):
+        self.Trainer = Trainer
+        self.City = City
+        self.Favorite = Favorite
+        self.Pokedex = Sumatoria2(1, 2, 3, 4)
+        self.Classified = True
+
+    def Desplegar(self):
+        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
+
+Objeto30 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Ash")], 'Kanto', Objeto1.Nombre)
+Objeto31 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Brooke")], 'Alolah', Objeto2.Nombre)
+Objeto32 = Entrenador(PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")], 'Paldea', Objeto3.Nombre)
+
+Objeto31.Desplegar()
+
+Negativo = -5
+
+print (f'{int(abs(Negativo))}')
+
+Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+Anonima5 = filter(lambda Num : Num % 2 == 0, PEPE.Lista_Numeros)
+
+print (f'{Any_Iterable}')
+print (f'{Lista_Iterable}')
+print (f'{list(Anonima5)}')
+
+print (f'El binario del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
+
+if (bool(Diccionario3['Vacio']) == True):
+    print (f'Gracias por la informacion')
+else:
+    print (f'Error, ingrese una cadena de texto')
+
+for elemento in Lista_Uno_Copia:
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in enumerate(Lista_Uno_Copia):
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+print (f'-' * 20)
+
+for indice, elemento in enumerate(Lista_Uno_Copia, start=1):
+    print (f'El elemento en la posicion {indice} es {elemento}')
+
+variable10 = 'eSteBAN'
+letra_variable10 = variable10[0]
+
+print (f'{variable10}')
+print (f'{variable10.lower()}')
+print (f'{variable10.upper()}')
+print (f'{variable10.capitalize()}')
+
+print (f'{variable10.lower().find("t")}')
+print (f'{variable10.lower().index("b")}')
+
+print (f'{variable10.lower().startswith(letra_variable10)}')
+print (f'{variable10.lower().endswith("n")}')
+
+print (f'En la cadena de texto la letra {letra_variable10} aparece un total de {variable10.lower().count(letra_variable10)} veces')
+
+print (f'{variable10.lower().replace("ban", "POPOTAMO")}')
+
+variable11 = 'esto es un texto cualquiera para probar que la mica funciona'
+
+Lista_variable11 = variable11.split(' ')
+
+for elemento in Lista_variable11:
+    print (f'{elemento}')
+
+print (f'La lista tiene un total de {len(Lista_variable11)} palabras')
+
+variable12 = '26'
+
+if (variable12.isalpha()):
+    print (f'Lo ingresado es texto')
+else:
+    print (f'Lo ingresado no es texto')
+
+variable13 = 2.4
+
+if (isinstance(variable13, float)):
+    print (f'Lo ingresado es un decimal')
+else:
+    print (f'Error, lo ingresado no es un decimal')
+
+variable14 = '36.4'
+
+if (variable14.isnumeric()):
+    print (f'La mica es un numero entero')
+else:
+    print (f'Error, lo ingresado no es un numero entero')
+
+variable15 = 'texto123'
+
+if (variable15.isalnum()):
+    print (f'El texto tiene letras o numeros')
+else:
+    print (f'Error, formato incorrecto')
+
+variable16 = ' e'
+
+if (variable16.isspace()):
+    print (f'Esto es un espacio nada mas')
+else:
+    print (f'Error, es mas que solo espacios')
+
+variable17 = 'eSteBAN'
+
+if (variable17.lower().islower()):
+    print (f'Correcto, la mica esta en minuscula')
+else:
+    print (f'Error')
+
+if (variable17.upper().isupper()):
+    print (f'Correcto, la mica esta en mayuscula')
+else:
+    print (f'Error')
+
+print (f'{PEPE.Tupla_Poke[PEPE.Tupla_Poke.index("Misty")]} se encuentra en la posicion {PEPE.Tupla_Poke.index("Misty")}')
+
+for elemento in Diccionario1:
+    print (f'{Diccionario1[elemento]}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario1.keys():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario1.values():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario1.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+
+Contador = 0
+
+while (Contador <= 5):
+    print (f'El contador es {Contador}')
+    Contador+= 1
+
+print (f'-' * 20)
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Animales)):
+    if (PEPE.Lista_Animales[Contador] == 'Salamandra'):
+        print (f'En China se comen estos bichos')
+        break
+    else:
+        Contador+= 1
+        continue
+
+print (f'-' * 20)
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'{PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+
+print (f'-' * 20)
+
+for elemento1, elemento2 in zip(Set_Conjunto_Menu1, PEPE.Tupla_Poke):
+    print (f'{elemento1} -- {elemento2}')
+
+for elemento in range(5):
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in range(995, 1000):
+    print (f'{elemento}')
+
+Lista_Numeros_Mult = [num  * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Mult}')
+
+Numero_Mayor = max(Lista_Numeros_Mult)
+Numero_Menor = min(Lista_Numeros_Mult)
+Redondeado = round(14.458795, 2)
+Sumatoria4 = sum(Lista_Numeros_Mult)
+
+print (f'{bool(not True)}')
+print (f'{bool(False)}')
+print (f'{bool(0)}')
+print (f'{bool("")}')
+print (f'{bool(None)}')
+
+Todo_All = all([Lista_Numeros_Mult, Set_Conjunto_Menu1, Tupla2, None])
+
+print (f'{Todo_All}')
+
+Uno = int('500')
+Dos = str(500)
+Tres = float(Dos)
+
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
+
+print (f' - '.join(PEPE.Set_Conjunto_Poke))
+
+print (f'-' * 20)
+
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
+
+PEPE2.Saludar5()
+
+print (f'-' * 20)
+
+import Paquete.Sub_Paquete.Segundo as PEPE3
+
+Variable_PEPE3 = PEPE3
+
+'''def Floating1(Elemento):
+    print (f'El resultado de la operacion es {Elemento * Variable_Sumatoria + Sumatoria2(1, 2, 3, 4, 5)}')
+
+Floating1(PEPE.Flotante1())
+
+Resultado2 = eval(PEPE.Flotante2)
+
+print (f'El resultado de la operacion es {Resultado2}')
+
+def Floating3(Elemento):
+    if (Elemento.replace(' ', '').isalpha()):
+        print (f'Gracias {Elemento}, lo que ingresaste es correcto')
+    else:
+        print (f'Error, necesito que ingreses un texto')
+
+Floating3(PEPE.Flotante3)
+
+def Floating4(Cadena):
+    Lista_Cadena = Cadena.split(' ')
+    for indice, elemento in enumerate(Lista_Cadena):
+        print (f'El elemento en la posicion {indice} es {elemento}')
+
+    print (f'Cantidad de palabras digitadas: {len(Lista_Cadena)}')
+
+Floating4(PEPE.Flotante4)'''
+
+Lista_Alumnos = []
+
+Contador = int(input(f'Ingrese la cantidad de alumnos: '))
+
+def Colegio(Lista):
+    for elemento in range(Contador):
+        Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Lista.append(Alumno)
+
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio(Lista_Alumnos)}'])
+    Docu.close()
+
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+
+# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
+# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+
+# Usemos elementos de un modulo por medio de un import
+# Renombremos un modulo con la instrucion "as" Saludar as OtroNombre
+
+
+
+
+
+Alumnos = []
+
+Cantidad = int(input(f'Ingrese la cantidad de alumnos: '))
+
+def Colegio(Lista):
+    for elemento in range(Cantidad):
+        Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
+        Estudiante = [Alumno, Edad]
+        Lista.append(Estudiante)
+        Lista.sort(key = lambda Num : Num[1])
+
+    Estudiante = Lista[0][0]
+    Profesor = Lista[-1][0]
+
+    print (f'El profesor es {Profesor} y el estudiante menor es {Estudiante}')
+
+
+Colegio(Alumnos)
+
+
+---------------------------
+
+
+
+
+[Excepciones]
+Una excepcion es un bloque de codigo que se mostrara en caso de que el codigo se rompa. Por ejemplo digamos que tenemos un codigo que pide un numero pero ingresamos una cadena de texto. Entonces el codigo se detendra y mostrara un mensaje de error hasta que agreguemos el numero.
+
+def Ejemplo():
+    while True:
+        Numero1 = input(f'Ingrese un numero: ')
+        try:
+            Numerito = int(Numero1)
+            break
+        except:
+            print (f'Error, eso no es un numero')
+
+    return Numerito
+
+print (f'{Ejemplo()}')
+
+
+
+[LEER UNA PAGINA WEB]
+
+import pandas as pd
+import requests
+import io # Esto viene incluido en Python, no hay que instalar nada
+
+Ruta_Html = 'https://en.wikipedia.org/wiki/Louisiana'
+headers = {'User-Agent' : 'Mozilla/5.0'}
+
+# 1. Obtenemos la respuesta
+Response = requests.get(Ruta_Html, headers=headers)
+
+# 2. Envolvemos el texto en StringIO (esto suele quitar el 99% de los errores)
+texto_html = io.StringIO(Response.text)
+
+# 3. Leemos las tablas
+Cargar_Html = pd.read_html(texto_html)
+
+# 4. Mostramos la primera tabla encontrada
+print(Cargar_Html[0].head())
+
+
+# Validar si el correo electronico tiene el formato correcto por medio de expresiones regulares
+# Ojo hagamos un ejemplo de validacion de correo electronico que pida explicitamente hotmail, gmail, yahoo o .com, .net .org  pattern1 = r'^[a-zA-Z0-9./*-+=_/?]+\@(hotmail|gmail|yahoo)\.(com|net|org)$'
+
+# Busque un numero que debe estar explicitamente entre 01 y 31. pattern1 = r'(0[0-9]|[12][0-9]|3[01])'
+
+'''
+
+import re
+
+email = 'example@example.com'
+
+pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+
+result = re.match(pattern, email)
+
+if result:
+	print (f'Valido')
+else:
+	print (f'Invalido')
+
+'''
+
+
+
+
+Esto es un programa que solicita una fecha y la compara con una entrada de un documento csv. Si no la encuentra mostrara un mensaje de error, si el formato es incorrecto mostrara un mensaje de error, si la encuentra mostrara el mensaje que la fecha se encontro x numero de veces.
+
+Importar pandas
+from datetime import datetime
+Crear la ruta del csv
+Cargar el archivo csv
+Pedir la fecha por medio de un input
+hacer un try except valueerror
+en el try primero vamos a asegurarnos co datetime.strptime que el formato es el correcto
+en el try luego hay que asegurarnos que la fecha esta formateda to_datetime
+en el try despues hay que asegurarse que la fecha del csv esta formateada to_datetime
+si no, el excep muestra un error ojo necesita un exit()
+Hacemos una variable encontrado, igualamos == entrada del csv .dt.date contra la fecha ingresada date()
+if encontrado.empty
+else
+exito
+
+
+Quiero crear una columna nueva agregada sobre el mismo csv con el total en precio multiplicando cantidad x price
+
+Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
+
+print (f'{Cargar_Csv5}')
+
+'''

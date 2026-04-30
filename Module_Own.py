@@ -166,3 +166,27 @@ Lista2 = [Division_Flotante, 200, 'Koala', not True]
 Lista3 = list([1, 2, 3, 4])
 Lista3.append(5)
 Lista4 = [4000, 97, 15, 300]
+
+Lista_Animales = []
+Lista_Animales.append('Cocodrilo')
+Lista_Animales.insert(1, 'Aguila')
+Lista_Animales.extend(['Perro', 'Salamandra'])
+Lista_Animales.insert(2, Lista2[2])
+
+'''def Flotante1():
+    while True:
+        Numero = input(f'Ingrese un numero entero: ')
+        try:
+            Numerito = int(Numero)
+            break
+        except:
+            print (f'Error, necesito que ingreses un numero entero')
+
+    return Numerito
+
+Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
+
+Flotante3 = input(f'Ingrese su nombre completo: ')
+
+Flotante4 = input(f'Ingrese una cadena de texto: ')'''
+
