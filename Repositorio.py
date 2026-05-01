@@ -846,6 +846,11 @@ Objeto1 = Pizza()
 Objeto1.Cocinar()
 Objeto1.Mostrar()
 
+
+
+
+Ahora vamos a hacer un ejercicio de Composicion, el metod de la primera clase se debe mostrar en la segunda sin usar herencia
+
 '''
 
 ---------------------------------------------------------
