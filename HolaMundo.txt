@@ -7,6 +7,5 @@ Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Graveler - Pikachu - Vaporeon
+Vaporeon - Graveler - Pikachu
 Su contrasena temporal es bdi105
-La lista de estudiantes es ['erick', 'josue', 'karlita']

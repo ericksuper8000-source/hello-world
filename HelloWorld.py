@@ -2567,7 +2567,7 @@ def Floating4(Cadena):
 
 Floating4(PEPE.Flotante4)'''
 
-Lista_Alumnos = []
+'''Lista_Alumnos = []
 
 Contador = int(input(f'Ingrese la cantidad de alumnos: '))
 
@@ -2585,131 +2585,209 @@ with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
 with open (Ruta_Txt, encoding='UTF-8') as Docu:
     Documento_Leer = Docu.read()
     print (f'{Documento_Leer}')
-    Docu.close()
+    Docu.close()'''
 
-# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
-# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+Texto8 = "   Hola!!!   mundo@@   123   "
 
-# Usemos elementos de un modulo por medio de un import
-# Renombremos un modulo con la instrucion "as" Saludar as OtroNombre
+print (f'{Texto8}')
 
+Texto8_Version1 = Texto8.lower()
 
+print (f'{Texto8_Version1}')
 
+Texto8_Version2 = Texto8_Version1.strip()
 
+print (f'{Texto8_Version2}')
 
-Alumnos = []
+Texto8_Version3 = ' '.join(Texto8_Version2.split())
 
-Cantidad = int(input(f'Ingrese la cantidad de alumnos: '))
-
-def Colegio(Lista):
-    for elemento in range(Cantidad):
-        Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
-        Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
-        Estudiante = [Alumno, Edad]
-        Lista.append(Estudiante)
-        Lista.sort(key = lambda Num : Num[1])
-
-    Estudiante = Lista[0][0]
-    Profesor = Lista[-1][0]
-
-    print (f'El profesor es {Profesor} y el estudiante menor es {Estudiante}')
-
-
-Colegio(Alumnos)
-
-
----------------------------
-
-
-
-
-[Excepciones]
-Una excepcion es un bloque de codigo que se mostrara en caso de que el codigo se rompa. Por ejemplo digamos que tenemos un codigo que pide un numero pero ingresamos una cadena de texto. Entonces el codigo se detendra y mostrara un mensaje de error hasta que agreguemos el numero.
-
-def Ejemplo():
-    while True:
-        Numero1 = input(f'Ingrese un numero: ')
-        try:
-            Numerito = int(Numero1)
-            break
-        except:
-            print (f'Error, eso no es un numero')
-
-    return Numerito
-
-print (f'{Ejemplo()}')
-
-
-
-[LEER UNA PAGINA WEB]
-
-import pandas as pd
-import requests
-import io # Esto viene incluido en Python, no hay que instalar nada
-
-Ruta_Html = 'https://en.wikipedia.org/wiki/Louisiana'
-headers = {'User-Agent' : 'Mozilla/5.0'}
-
-# 1. Obtenemos la respuesta
-Response = requests.get(Ruta_Html, headers=headers)
-
-# 2. Envolvemos el texto en StringIO (esto suele quitar el 99% de los errores)
-texto_html = io.StringIO(Response.text)
-
-# 3. Leemos las tablas
-Cargar_Html = pd.read_html(texto_html)
-
-# 4. Mostramos la primera tabla encontrada
-print(Cargar_Html[0].head())
-
-
-# Validar si el correo electronico tiene el formato correcto por medio de expresiones regulares
-# Ojo hagamos un ejemplo de validacion de correo electronico que pida explicitamente hotmail, gmail, yahoo o .com, .net .org  pattern1 = r'^[a-zA-Z0-9./*-+=_/?]+\@(hotmail|gmail|yahoo)\.(com|net|org)$'
-
-# Busque un numero que debe estar explicitamente entre 01 y 31. pattern1 = r'(0[0-9]|[12][0-9]|3[01])'
-
-'''
+print (f'{Texto8_Version3}')
 
 import re
 
-email = 'example@example.com'
+Texto8_Version4 = re.sub(r'[^a-z0-9\s]', '', Texto8_Version3)
 
-pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+print (f'{Texto8_Version4}')
 
-result = re.match(pattern, email)
+print (f'-' * 20)
 
-if result:
-	print (f'Valido')
-else:
-	print (f'Invalido')
-
-'''
-
-
-
-
-Esto es un programa que solicita una fecha y la compara con una entrada de un documento csv. Si no la encuentra mostrara un mensaje de error, si el formato es incorrecto mostrara un mensaje de error, si la encuentra mostrara el mensaje que la fecha se encontro x numero de veces.
-
-Importar pandas
+import pandas as pd
 from datetime import datetime
-Crear la ruta del csv
-Cargar el archivo csv
-Pedir la fecha por medio de un input
-hacer un try except valueerror
-en el try primero vamos a asegurarnos co datetime.strptime que el formato es el correcto
-en el try luego hay que asegurarnos que la fecha esta formateda to_datetime
-en el try despues hay que asegurarse que la fecha del csv esta formateada to_datetime
-si no, el excep muestra un error ojo necesita un exit()
-Hacemos una variable encontrado, igualamos == entrada del csv .dt.date contra la fecha ingresada date()
-if encontrado.empty
-else
-exito
+
+Ruta_Csv6 = 'C:\\Repo\\Store.csv'
+
+Cargar_Csv6 = pd.read_csv(Ruta_Csv6)
+
+print (f'{Cargar_Csv6}')
+
+print (f'-' * 20)
+
+Fecha5 = '2026-04-01'
+
+try:
+    Fech5 = datetime.strptime(Fecha5, '%Y-%m-%d').date()
+    Fech5_Formateada = pd.to_datetime(Fech5)
+    Cargar_Csv6['date'] = pd.to_datetime(Cargar_Csv6['date'])
+except ValueError:
+    print (f'Error, formato de fecha incorrecto')
+    exit()
+
+Encontrado5 = Cargar_Csv6[Cargar_Csv6['date'].dt.date == Fech5_Formateada.date()]
+
+if (Encontrado5.empty):
+    print (f'No se han encontrado ventas en esta fecha')
+else:
+    print (f'Genial! hemos encontrado ventas en esta fecha')
+    Grupo5 = Encontrado5.groupby('product')['quantity'].sum()
+    Grupo5_May = Grupo5.idxmax()
+    Grupo5_Min = Grupo5.idxmax()
+    Grupo5_May_Cant = Grupo5.max()
+    Grupo5_Min_Cant = Grupo5.min()
+
+    print (f'En la fecha {Fech5_Formateada} el producto {Grupo5_May} vendio un total de {Grupo4_May_Cant} unidades')
+    print (f'En la fecha {Fech5_Formateada} el producto {Grupo5_Min} vendio un total de {Grupo5_Min_Cant} unidades')
+
+C = {1, 2, 3, 4}
+D = set({3, 4, 5, 6})
+
+print (f'{C.union(D)}')
+print (f'{C | D}')
+
+print (f'-' * 20)
+
+print (f'{C.intersection(D)}')
+print (f'{C & D}')
+
+print (f'-' * 20)
+
+print (f'{C.difference(D)}')
+print (f'{C - D}')
+
+print (f'-' * 20)
+
+print (f'{D.difference(C)}')
+print (f'{D - C}')
+
+print (f'-' * 20)
+
+print (f'{A.symmetric_difference(B)}')
+print (f'{A ^ B}')
+
+print (f'-' * 20)
+
+E = {1, 2, 3, 4, 5}
+F = set({4, 5})
+G = set({8})
+
+print (f'{E.issuperset(F)}')
+print (f'{E >= F}')
+
+print (f'-' * 20)
+
+print (f'{F.issubset(E)}')
+print (f'{F <= E}')
+
+print (f'-' * 20)
+
+print (f'{E.isdisjoint(G)}')
+
+'''C.update(D)
+
+print (f'{C}')'''
+
+'''C.intersection_update(D)
+
+print (f'{C}')'''
+
+'''C.difference_update(D)
+
+print (f'{C}')'''
+
+C.symmetric_difference_update(D)
+
+print (f'{C}')
+
+'''Lista_Alumnos = []
+
+Contador = int(input(f'Ingrese la cantidad de estudiantes: '))
+
+def Colegio2(Lista):
+    for elemento in range(Contador):
+        Alumno_Nombre = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Alumno_Edad = int(input(f'Ingrese la edad del estudiante {elemento}: '))
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
+        Lista.append(Estudiante)
+
+    Lista.sort(key = lambda Num : Num[1])
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
+
+    print (f'El estudiante menor es {Menore} - ({Lista[0][1]})')
+    print (f'El estudiante mayor es {Mayore} - ({Lista[-1][1]})')
+
+Colegio2(Lista_Alumnos)'''
+
+'''def Finale():
+    while True:
+        numero = input(f'Ingrese un numero entero: ')
+        try:
+            numerito = int(numero)
+            return numerito
+        except:
+            print(f'Error, necesito que ingreses un numero entero')
+
+print (f'Gracias, el numero ingresado es {Finale()}')'''
+
+import pandas as pd
+import requests
+import io
+
+headers = {'User-Agent' : 'Mozilla/5.0'}
+
+Response = requests.get(Ruta_Html, headers=headers)
+
+Leer_Html2 = io.StringIO(Response.text)
+
+Cargar_Html2 = pd.read_html(Leer_Html2)
+
+print (f'{Cargar_Html2[2].head()}')
+
+print (f'-' * 20)
+
+import re
+
+Correo3 = 'example@example.com'
+
+Pattern2 = r'^[a-zA-Z0-9./*-+]+\@[a-zA-Z0-9]+\.(com|org|net)$'
+
+Buscar17 = bool(re.match(Pattern2, Correo3))
+
+if (Buscar17):
+    print (f'El formato del correo es correcto')
+else:
+    print (f'Error, el formato del correo es incorrecto')
+
+Numero2 = '06'
+
+Pattern3 = r'(0[0-9]|[12][0-9]|3[01])'
+
+Buscar18 = bool(re.match(Pattern3, Numero2))
+
+if (Buscar18 == True):
+    print (f'El numero esta entre 1 y 31')
+else:
+    print (f'El numero esta fuera de rango')
 
 
-Quiero crear una columna nueva agregada sobre el mismo csv con el total en precio multiplicando cantidad x price
+print (f'{Cargar_Csv6}')
 
-Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
+Cargar_Csv6['PANDITA'] = Cargar_Csv6['quantity'] * Cargar_Csv6['price']
 
-print (f'{Cargar_Csv5}')
+print (f'-' * 20)
 
-'''
+print (f'{Cargar_Csv6}')
+
+
+
+
+
