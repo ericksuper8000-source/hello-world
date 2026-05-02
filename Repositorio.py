@@ -1,4 +1,20 @@
 '''
+Vamos a hacer un ejercicio de Sanizacion de texto, Tomamos un texto y lo limpiamos.
+Vamos a hacer el ejercicio de busqueda de ventas en una fecha con groupby
+Vamos a hacer operaciones con Sets
+Composicion vs Inyeccion de Dependencias, elegir tu pokemon inicial
+De una cadena multiple ubique los correos electronicos con formato correcto  # usuario@dominio.extension y devuelvalos en un ciclo for each.
+Recuerde que findall() devuelve SOLO lo que está dentro de los paréntesis
+❌ No devuelve el correo completo
+✔ Solo devuelve los grupos
+
+Del texto elimine los simbolos especiales y los 3 puntos, pero mantenga los puntos individuales. Hagamoslo con dos subs
+
+Leer diccionario keys, values, items
+
+''' *******************************************************************
+
+'''
 Librerias mas utiles de python. Acceder a CheatSheet y jugar un rato con cada una.
 
 os
@@ -101,6 +117,53 @@ pattern = r'\d{2}/\d{2}/\d{4}'
 replacement = 'Fecha Oculta'
 New_Text = re.sub(pattern, replacement, text)
 print (f'Texto modificado: {New_Text}')
+
+
+
+
+
+
+De este texto ubique los correos electronicos con formato correcto  # usuario@dominio.extension y devuelvalos en un ciclo for each.
+
+Texto9 = """
+Contactos:
+- juan.perez@gmail.com
+- maria_123@hotmail.net
+- usuario-invalido@com
+- pedro.lopez@yahoo.org
+- test@empresa
+- ana+test@gmail.com
+"""
+
+findall() devuelve SOLO lo que está dentro de los paréntesis
+❌ No devuelve el correo completo
+✔ Solo devuelve los grupos
+
+Si usas (?: )
+findall() devuelve el match completo
+
+
+
+
+
+
+De este texto elimine los simbolos especiales y los 3 puntos, pero mantenga los puntos individuales
+
+texto = """
+Hola!!! Mi nombre es Erick123...
+Mi correo es: erick.perez@gmail.com!!!
+Mi número es: 8888-7777???
+Gracias!!!
+"""
+
+# Paso 1: eliminar símbolos ! ? .
+texto_limpio = re.sub(r'\!|\?|\.{2,}', '', texto)
+
+# Paso 2: eliminar números
+texto_limpio = re.sub(r'\d+', '', texto_limpio)
+
+print(texto_limpio)
+
 
 #*******************************************************************************************
 
@@ -852,6 +915,67 @@ Objeto1.Mostrar()
 Ahora vamos a hacer un ejercicio de Composicion, el metod de la primera clase se debe mostrar en la segunda sin usar herencia
 
 '''
+
+
+
+
+[COMPOSICION VS INYECCION DE DEPENDENCIAS]
+
+
+
+Ejercicio horneando un paste. En el caso de la composicion, el pastel "nace" condenado a ser de chocolate porque él mismo crea el ingrediente.
+
+class Ingredientes():
+    def Sabor(self):
+        return f'Chocolate'
+
+class Pastel:
+    def __init__(self):
+        self.Agregado = Ingredientes()
+
+    def Hornear(self):
+        print (f'Horneaste un pastel de {self.Agregado.Sabor()}')
+
+Objeto33 = Pastel()
+
+Objeto33.Hornear()
+
+[Inyeccion de dependencias]
+
+# 1. Definimos los posibles sabores por separado
+class Chocolate:
+    def sabor(self):
+        return "Chocolate suizo 🍫"
+
+class Fresa:
+    def sabor(self):
+        return "Fresas naturales 🍓"
+
+# 2. La clase Pastel ahora es "Abierta"
+class Pastel:
+    def __init__(self, ingrediente):
+        # INYECCIÓN: El pastel recibe el ingrediente por el constructor.
+        # Ya no hace: self.Agregado = Chocolate()
+        self.ingrediente = ingrediente
+
+    def hornear(self):
+        # El pastel simplemente usa el sabor del objeto que le pasaron
+        print(f"Horneaste un pastel de {self.ingrediente.sabor()}")
+
+# --- MOMENTO DE LA INYECCIÓN (Fuera de las clases) ---
+
+# Queremos un pastel de Chocolate:
+ingrediente1 = Chocolate()
+mi_pastel_choc = Pastel(ingrediente1) # Inyectamos chocolate
+mi_pastel_choc.hornear()
+
+# Queremos un pastel de Fresa:
+ingrediente2 = Fresa()
+mi_pastel_fresa = Pastel(ingrediente2) # Inyectamos fresa
+mi_pastel_fresa.hornear()
+mi_pastel_fresa.hornear()
+
+
 
 ---------------------------------------------------------
 ---------------------------------------------------------

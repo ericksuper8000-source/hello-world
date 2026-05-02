@@ -2787,6 +2787,430 @@ print (f'-' * 20)
 
 print (f'{Cargar_Csv6}')
 
+class ProcesadorIntel:
+    def procesar(self):
+        return "Procesando datos a 3.5GHz..."
+
+print (f'-' * 20)
+
+# Composicion
+
+class Ingrediente():
+    def Agregar(self):
+        return f'Chocolate'
+
+class Pastel:
+    def __init__(self):
+        self.Cocinando = Ingrediente()
+
+    def Hornear(self):
+        print (f'Listo! has preparado un pastel de {self.Cocinando.Agregar()}')
+
+Objeto33 = Pastel()
+
+Objeto33.Hornear()
+
+print (f'-' * 20)
+
+class Chocolate:
+    def Sabor(self):
+        return f'Chocolate Suizo'
+
+class Fresa:
+    def Sabor(self):
+        return f'Fresas Frescas'
+
+class Pastel():
+    def __init__(self, Seleccion):
+        self.Seleccion = Seleccion
+
+    def Hornear(self):
+        print (f'Listo!!!, has horneado un paste del {self.Seleccion.Sabor()}')
+
+Ingrediente1 = Chocolate()
+Objeto34 = Pastel(Ingrediente1)
+Objeto34.Hornear()
+
+print (f'-' * 20)
+
+Ingrediente2 = Fresa()
+Objeto35 = Pastel(Ingrediente2)
+Objeto35.Hornear()
+
+print (f'-' * 20)
+print (f'-' * 20)
+print (f'-' * 20)
+
+class Inicial():
+    def Elegir(self):
+        return f'Pikachu'
+
+class Pokemones:
+    def __init__(self):
+        self.Po = Inicial()
+
+    def Seleccionar(self):
+        print (f'Felicidades tu pokemon inicial es {self.Po.Elegir()}')
+
+Objeto36 = Pokemones()
+
+Objeto36.Seleccionar()
+
+print (f'-' * 20)
+
+class Charmander:
+    def Elegir(self):
+        return f'Charmander'
+
+class Bulbasaur:
+    def Elegir(self):
+        return f'Bulbasaur'
+
+class Squirtle:
+    def Elegir(self):
+        return f'Squirtle'
+
+class Pokemones2():
+    def __init__(self, Elegido):
+        self.Elegido = Elegido
+
+    def Mostrar(self):
+        print (f'Felicidades, tu pokemon inicial es {self.Elegido.Elegir()}')
+
+Seleccionar1 = Charmander()
+Objeto37 = Pokemones2(Seleccionar1)
+Objeto37.Mostrar()
+
+print (f'-' * 20)
+
+Seleccionar2 = Bulbasaur()
+Objeto38 = Pokemones2(Seleccionar2)
+Objeto38.Mostrar()
+
+print (f'-' * 20)
+
+Seleccionar3 = Squirtle()
+Objeto39 = Pokemones2(Seleccionar3)
+Objeto39.Mostrar()
+
+print (f'-' * 20)
+
+class Composicion():
+    def Seleccion(self):
+        return f'Pikachu'
+
+class Eleccion:
+    def __init__(self):
+        self.Composicion = Composicion()
+
+    def Mostrar(self):
+        print (f'Elegiste como tu inicial a {self.Composicion.Seleccion()}')
+
+Objeto40 = Eleccion()
+
+Objeto40.Mostrar()
+
+print (f'-' * 20)
+
+class Graveler:
+    def iniciar(self):
+        return f'Graveler'
+
+class Greninja:
+    def iniciar(self):
+        return f'Greninja'
+
+class Incineroar:
+    def iniciar(self):
+        return f'Incineroar'
+
+class Pokemones3():
+    def __init__(self, Poke):
+        self.Poke = Poke
+
+    def procesar(self):
+        print (f'Tu pokemon inicial es {self.Poke.iniciar()}')
+
+Elegido1 = Graveler()
+Objeto41 = Pokemones3(Elegido1)
+Objeto41.procesar()
+
+print (f'-' * 20)
+
+Elegido2 = Greninja()
+Objeto42 = Pokemones3(Elegido2)
+Objeto42.procesar()
+
+print (f'-' * 20)
+
+Elegido3 = Incineroar()
+Objeto43 = Pokemones3(Elegido3)
+Objeto43.procesar()
+
+print (f'-' * 20)
+
+import re
+
+Texto9 = """
+Contactos:
+- juan.perez@gmail.com
+- maria_123@hotmail.net
+- usuario-invalido@com
+- pedro.lopez@yahoo.org
+- test@empresa
+- ana+test@gmail.com
+"""
+
+Pattern4 = r'[a-zA-Z0-9]+[\.\_\-\+][a-zA-Z0-9]+\@(?:gmail|hotmail|yahoo)\.(?:com|net|org)'
+
+Buscar19 = re.findall(Pattern4, Texto9)
+
+print (f'{Buscar19}')
+
+import re
+
+texto = """
+Hola!!! Mi nombre es Erick123...
+Mi correo es: erick.perez@gmail.com!!!
+Mi número es: 8888-7777???
+Gracias!!!
+"""
+
+# Paso 1: eliminar símbolos ! ? .
+texto_limpio = re.sub(r'\!|\?|\.{2,}', '', texto)
+
+# Paso 2: eliminar números
+texto_limpio = re.sub(r'\d+', '', texto_limpio)
+
+print(texto_limpio)
+
+Texto10 = "   Hola!!!   mundo@@   123   "
+
+print (f'{Texto10}')
+
+Texto10_Version1 = Texto10.strip()
+
+print (f'{Texto10_Version1}')
+
+Texto10_Version2 = ' '.join(Texto10_Version1.split())
+
+print (f'{Texto10_Version2}')
+
+Texto10_Version3 = Texto10_Version2.lower()
+
+print (f'{Texto10_Version3}')
+
+import re
+
+Texto10_Version4 = re.sub(r'[^a-z0-9\s]', '', Texto10_Version3)
+
+print (f'{Texto10_Version4}')
+
+print (f'-' * 20)
+
+import pandas as pd
+from datetime import datetime
+
+Ruta_Csv7 = 'C:\\Repo\\Store.csv'
+
+Fecha6 = '2026-04-01'
+
+try:
+    Fech6 = datetime.strptime(Fecha6, '%Y-%m-%d').date()
+    Fecha6_Formateada = pd.to_datetime(Fecha6)
+    Cargar_Csv6['date'] = pd.to_datetime(Cargar_Csv6['date'])
+except ValueError:
+    print (f'Error de formato, fecha incorrecta')
+    exit()
+
+Encontrado6 = Cargar_Csv6[Cargar_Csv6['date'].dt.date == Fecha6_Formateada.date()]
+
+if (Encontrado6.empty):
+    print (f'No se han encontrado ventas en esta fecha')
+else:
+    print (f'Genial! se encontraron ventas en esta fecha')
+    Grupo6 = Encontrado6.groupby('product')['quantity'].sum()
+    Grupo6_May = Grupo6.idxmax()
+    Grupo6_Min = Grupo6.idxmin()
+    Grupo6_May_Cant = Grupo6.max()
+    Grupo6_Min_Cant = Grupo6.min()
+
+    print (f'Durante {Fecha6_Formateada} el prod {Grupo6_May} vendio {Grupo6_May_Cant} unidadaes')
+    print (f'Durante {Fecha6_Formateada} el prod {Grupo6_Min} vendio {Grupo6_Min_Cant} unidadaes')
+
+
+print (f'-' * 20)
+
+X = {1,2 ,3 ,4}
+Y = set({3, 4, 5, 6})
+
+print (f'{X.union(Y)}')
+print (f'{X | Y}')
+
+print (f'-' * 20)
+
+print (f'{X.intersection(Y)}')
+print (f'{X & Y}')
+
+print (f'-' * 20)
+
+print (f'{X.difference(Y)}')
+print (f'{X - Y}')
+
+print (f'-' * 20)
+
+print (f'{Y.difference(X)}')
+print (f'{Y - X}')
+
+print (f'-' * 20)
+
+print (f'{X.symmetric_difference(Y)}')
+print (f'{X ^ Y}')
+
+Q = {1, 2, 3, 4, 5}
+P = {4, 5}
+Z = set({8})
+
+print (f'{Q.issuperset(P)}')
+print (f'{Q >= P}')
+print (f'-' * 20)
+print (f'{P.issubset(Q)}')
+print (f'{P <= Q}')
+print (f'-' * 20)
+print (f'{Q.isdisjoint(Z)}')
+print (f'-' * 20)
+
+'''X.update(Y)
+
+print (f'{X}')'''
+
+'''X.intersection_update(Y)
+print (f'{X}')'''
+
+'''X.difference_update(Y)
+print (f'{X}')'''
+
+'''Y.difference_update(X)
+print (f'{Y}')'''
+
+X.symmetric_difference_update(Y)
+
+print (f'{X}')
+
+class Composicion5():
+    def Elegir(self):
+        return f'Pikachu'
+
+class Inicial:
+    def __init__(self):
+        self.Elegido = Composicion5()
+
+    def Mostrar(self):
+        print (f'Tu pokemon inicial es {self.Elegido.Elegir()}')
+
+Objeto44 = Inicial()
+
+Objeto44.Mostrar()
+
+print (f'-' * 20)
+
+class Tortuga():
+    def Elegir(self):
+        return f'Squirtle'
+
+class Sapo():
+    def Elegir(self):
+        return f'Bulbasaur'
+
+class Lagarto():
+    def Elegir(self):
+        return f'Charmander'
+
+class Primer_Poke:
+    def __init__(self, Picker):
+        self.Piker = Picker
+
+    def Mostrar(self):
+        print (f'Tu pokemon inicial sera {self.Piker.Elegir()}')
+
+Seleccionar4 = Tortuga()
+Objeto45 = Primer_Poke(Seleccionar4)
+Objeto45.Mostrar()
+
+print (f'-' * 20)
+
+Seleccionar5 = Sapo()
+Objeto46 = Primer_Poke(Seleccionar5)
+Objeto46.Mostrar()
+
+print (f'-' * 20)
+
+Seleccionar6 = Lagarto()
+Objeto47 = Primer_Poke(Seleccionar6)
+Objeto47.Mostrar()
+
+print (f'-' * 20)
+
+# usuario@dominio.extension
+
+import re
+
+Texto11 = """
+Contactos:
+- juan.perez@gmail.com
+- maria_123@hotmail.net
+- usuario-invalido@com
+- pedro.lopez@yahoo.org
+- test@empresa
+- ana+test@gmail.com
+"""
+
+Pattern5 = r'[a-zA-Z0-9]+[\.\_\-\+][a-zA-Z0-9]+\@(?:gmail|hotmail|yahoo)\.(?:org|com|net)'
+
+Buscar20 = re.findall(Pattern5, Texto11)
+
+print (f'{Buscar20}')
+
+for elemento in Buscar20:
+    print (f'Correo electronico: {elemento}')
+
+import re
+
+Texto12 = """
+Hola!!! Mi nombre es Erick123...
+Mi correo es: erick.perez@gmail.com!!!
+Mi número es: 8888-7777???
+Gracias!!!
+"""
+
+Buscar21 = re.sub(r'\!|\?|\.{2,}', '', Texto12)
+
+print (f'{Buscar21}')
+
+Buscar22 = re.sub(r'\d+', '', Buscar21)
+
+print (f'{Buscar22}')
+
+for elemento in Diccionario_Vacio1:
+    print (f'{Diccionario_Vacio1[elemento]}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario_Vacio1.keys():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario_Vacio1.values():
+    print(f'{elemento}')
+
+print(f'-' * 20)
+
+for elemento in Diccionario_Vacio1.items():
+    print(f'{elemento[0]} -- {elemento[1]}')
+
+print(f'-' * 20)
+
 
 
 
