@@ -4,17 +4,37 @@ Set_Conjunto_Poke = {'Pikachu'}
 Set_Conjunto_Poke.add('Graveler')
 Set_Conjunto_Poke.add('Vaporeon')
 
-for elemento in enumerate(Set_Conjunto_Poke):
-    if (elemento[1] == 'Pikachu'):
-        Diccionario_Poke['Poke1'] = elemento[1]
-    elif (elemento[1] == 'Graveler'):
-        Diccionario_Poke['Poke2'] = elemento[1]
-    elif (elemento[1] == 'Vaporeon'):
-        Diccionario_Poke['Poke3'] = elemento[1]
+for elemento in Set_Conjunto_Poke:
+    if (elemento == 'Pikachu'):
+        Diccionario_Poke['Poke1'] = elemento
+    elif (elemento == 'Graveler'):
+        Diccionario_Poke['Poke2'] = elemento
+    elif (elemento == 'Vaporeon'):
+        Diccionario_Poke['Poke3'] = elemento
     else:
         continue
 
 print (f'{Diccionario_Poke}')
+
+for elemento in Diccionario_Poke.keys():
+    print (f'{elemento}')
+
+print (f'-' * 20)
+
+for elemento in Diccionario_Poke.values():
+    print(f'{elemento}')
+
+print(f'-' * 20)
+
+for elemento in Diccionario_Poke.items():
+    print(f'{elemento[0]} -- {elemento[1]}')
+
+print(f'-' * 20)
+
+for elemento in Diccionario_Poke:
+    print (f'{Diccionario_Poke[elemento]}')
+
+print (f'-' * 20)
 
 class Pokemon1():
     def __init__(self, Nombre, Tipo, Ataque):
@@ -29,22 +49,9 @@ class Pokemon1():
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
 
-def Parametros(Lista):
-    Numero_Menor = min(Lista)
-
-    import numpy as np
-
-    Numero_Mayor = np.max(Lista)
-    Resultado_Lista = [Numero_Menor, int(Numero_Mayor)]
-    return Resultado_Lista
-
-Lista_Parametros = list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-
-print (f'El resultado de la operacion es {Parametros(Lista_Parametros)}')
-
 def Primera(Segunda):
     def Tercera():
-        print (f'XXXXXXXXXXX')
+        print (f'xxxxxxxxxxxxxxxx')
         Segunda()
 
     return Tercera
@@ -60,15 +67,22 @@ def Primera(Segunda):
     return Tercera
 
 @Primera
-def Saludar2(Nombre = 'Juana La Cubana'):
+def Saludar2(Nombre='Juliana'):
     return Nombre
 
+def Primera(Segunda):
+    def Tercera(*args):
+        return Segunda('Tiranosaurio')
+
+    return Tercera
+
+@Primera
 def Saludar3(Nombre:str) -> str:
     return Nombre
 
 def Primera(Segunda):
     def Tercera(*args, **kwargs):
-        return Segunda(*args, **kwargs) - 11
+        return Segunda(*args, **kwargs) + 1
 
     return Tercera
 
@@ -92,7 +106,7 @@ def Par(Numero):
 def Primera(Segunda):
     def Tercera(*args, **kwargs):
         Nombre = 'Juana La Cubana'
-        Sexo = 'Femenino'
+        Sexo = 'FEMENINO'
         return Segunda(Nombre, Sexo)
 
     return Tercera
@@ -103,30 +117,31 @@ def Usuario(Nombre, Sexo):
     if (Genero == 'masculino'):
         print (f'{Nombre}, eres un hombre')
     else:
-        print (f'{Nombre}, eres una mujer')
+        print (f'{Nombre} eres una mujer')
 
 def Primera(Segunda):
     def Tercera(*args):
-        return Segunda(35)
+        return Segunda(88)
 
     return Tercera
 
 @Primera
-def Contrasena(Numero:int) -> int:
+def Contrasena(numero:int) -> int:
     chars = 'abcdefghij'
-    Numero_Str = str(Numero)
-    Numero_Int = int(Numero_Str[0])
-    c1 = Numero_Int - 2
-    c2 = Numero_Int
-    c3 = Numero_Int - 5
-    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(c2 * Numero))}'
-    return Password
+    numero_str = str(numero)
+    numero_int = int(numero_str[0])
+    c1 = numero_int - 2
+    c2 = numero_int
+    c3 = numero_int - 5
+    password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(numero * c2))}'
+    return password
 
-Lista_Numeros = []
-Lista_Numeros.extend([1, 2])
-Lista_Numeros.insert(2, 3)
-Lista_Numeros.insert(3, 4)
-Lista_Numeros.append(5)
+Tupla_Poke = 'Ash', 'Brooke', 'Misty',
+
+Lista_Numeros = [1]
+Lista_Numeros.append(3)
+Lista_Numeros.insert(1, 2)
+Lista_Numeros.extend([4, 5])
 
 print (f'{Lista_Numeros}')
 
@@ -134,11 +149,11 @@ Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
 Variable_Funcion_Anonima2 = lambda Num : Num * 2
 Variable_Funcion_Anonima3 = filter(lambda Num : Num % 2 == 0, Lista_Numeros)
 
-Any_Pares = any(num % 2 == 0 for num in Lista_Numeros)
-Lista_Pares = [num for num in Lista_Numeros if num % 2 == 0]
+Any_Par = any(num % 2 == 0 for num in Lista_Numeros)
+Lista_Par = [num for num in Lista_Numeros if num % 2 == 0]
 
-print (f'{Any_Pares}')
-print (f'{Lista_Pares}')
+print (f'{Any_Par}')
+print (f'{Lista_Par}')
 
 GLOBAL = 30
 
@@ -157,36 +172,18 @@ class Pokemon2():
 
 Division_Flotante = 14/7
 
-Tupla_Poke = 'Ash', 'Misty', 'Brooke',
-
-print (f'{type(Tupla_Poke)}')
-
 Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
-Lista2 = [Division_Flotante, 200, 'Koala', not True]
+Lista2 = [Division_Flotante, 20, 'Koala', True]
 Lista3 = list([1, 2, 3, 4])
-Lista3.append(5)
+Lista3.extend([5])
 Lista4 = [4000, 97, 15, 300]
 
-Lista_Animales = []
-Lista_Animales.append('Cocodrilo')
-Lista_Animales.insert(1, 'Aguila')
-Lista_Animales.extend(['Perro', 'Salamandra'])
-Lista_Animales.insert(2, Lista2[2])
-
-'''def Flotante1():
-    while True:
-        Numero = input(f'Ingrese un numero entero: ')
-        try:
-            Numerito = int(Numero)
-            break
-        except:
-            print (f'Error, necesito que ingreses un numero entero')
-
-    return Numerito
+'''Flotante1 = int(input(f'Ingrese un numero: '))
 
 Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
 
-Flotante3 = input(f'Ingrese su nombre completo: ')
+Flotante3 = input(f'Ingrese un valor: ')
+Flotante3_Limpio = Flotante3.replace(' ', '')
 
 Flotante4 = input(f'Ingrese una cadena de texto: ')'''
 

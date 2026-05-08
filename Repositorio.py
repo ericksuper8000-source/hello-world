@@ -1,6 +1,16 @@
 '''
+veamos si un numero es entero isinstance(xxx, int)
+veamos si un numero es flotante isinstance(xxx, int)
+validemos que un elemento puede ser un numero entero OOOO un numero flotante     isinstance(resultado, (int, float))
 Vamos a hacer un ejercicio de Sanizacion de texto, Tomamos un texto y lo limpiamos.
 Vamos a hacer el ejercicio de busqueda de ventas en una fecha con groupby
+1 - Busquemos cuantas ventas se realizan durante esta fecha, numero de ventas individuales con count
+2 - Que producto vendio mas y cuanto
+3 - Que producto vendio menos y cuanto
+[Creamos una columna nueva en el CSV para total vendido]
+4 - Cuantos productos se vendieron en total en esta fecha --- NO USA GROUPBY
+5 - Cuanto dinero se vendio en esta fecha en total --- NO USA GROUPBY
+
 Vamos a hacer operaciones con Sets
 Composicion vs Inyeccion de Dependencias, elegir tu pokemon inicial
 De una cadena multiple ubique los correos electronicos con formato correcto  # usuario@dominio.extension y devuelvalos en un ciclo for each.
@@ -9,6 +19,43 @@ Recuerde que findall() devuelve SOLO lo que está dentro de los paréntesis
 ✔ Solo devuelve los grupos
 
 Del texto elimine los simbolos especiales y los 3 puntos, pero mantenga los puntos individuales. Hagamoslo con dos subs
+
+
+
+
+En este ejercicio vamos a Sacar los correos y guardarlos, Reemplazarlos por algo temporal, Limpiar el texto y Volver a poner los correos
+
+
+import re
+
+texto = """
+Hola!!! Contacta a juan.perez@gmail.com!!!
+También a maria_123@hotmail.net???
+Otro válido: ana+test@yahoo.org!!!
+Fin!!!
+"""
+
+pattern = r'[a-zA-Z0-9._+-]+@(?:gmail|hotmail|yahoo)\.(?:com|net|org)'
+
+# 1. Extraer correos
+emails = re.findall(pattern, texto)
+
+# 2. Reemplazar con placeholders
+texto_temp = texto
+for i, email in enumerate(emails):
+    texto_temp = texto_temp.replace(email, f'__EMAIL{i}__')
+
+# 3. Limpiar (⚠️ sin borrar números)
+texto_limpio = re.sub(r'!|\?|\.{2,}', '', texto_temp)
+
+# 4. Restaurar
+for i, email in enumerate(emails):
+    texto_limpio = texto_limpio.replace(f'__EMAIL{i}__', email)
+
+print(texto_limpio)
+
+
+
 
 Leer diccionario keys, values, items
 

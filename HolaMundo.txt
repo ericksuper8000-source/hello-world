@@ -1,6 +1,6 @@
-Durazno
-Manzana
-Uvas
+Hiena
+Salamandra
+Tortuga
 Fresa Sabrosa
 Fresa Sabrosa
 Fresa Sabrosa
@@ -8,4 +8,4 @@ Pikachu
 Graveler
 Vaporeon
 Pikachu - Graveler - Vaporeon
-Su contrasena temporal es bdi105
+Su contrasena temporal es gid704
