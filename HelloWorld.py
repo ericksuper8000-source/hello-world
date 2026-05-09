@@ -1,7 +1,3 @@
-import awscli.customizations.cloudformation.artifact_exporter
-import numpy.ma.core
-import pandas.conftest
-
 Texto1 = "   Hola!!!   mundo@@   123   "
 
 print (f'{Texto1}')
@@ -3689,3 +3685,81 @@ else:
     Grupo15 = Encontrado4['FINALITO'].sum()
 
     print (f'En esta fecha {Fech4_Formateada} vendimos un total de ${Grupo15}')
+
+import re
+
+Texto14 = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
+
+Pattern13 = r'\d{2}\/[0-9]{2}\/\d{2,}'
+
+Replacement7 = 'XX/XX/XXXX'
+
+Buscar26 = re.sub(Pattern13, Replacement7, Texto14)
+
+print (f'{Buscar26}')
+
+Pattern14 = r'\+\d{1}\-[0-9]{3}\-[0-9]{3}\-\d{2,4}'
+
+Replacement8 = '*-***-***-****'
+
+Buscar27 = re.sub(Pattern14, Replacement8, Buscar26)
+
+print (f'{Buscar27}')
+
+Texto15 = """
+Hola!!! Mi nombre es Erick123...
+Mi correo es: erick.perez@gmail.com!!!
+Mi número es: 8888-7777???
+Gracias!!!
+"""
+
+Pattern15 = r'[a-zA-Z0-9\.\/\*\-\+\_]+\@(?:gmail|hotmail|yahoo)\.(?:com|org|net)'
+
+Correos1 = re.findall(Pattern15, Texto15)
+
+Texto15_temp = Texto15
+
+for i, email in enumerate(Correos1, start=1):
+    Texto15_temp = Texto15_temp.replace(email, f'SAMPLE{i}')
+
+print (f'{Texto15_temp}')
+
+Texto15_temp_Version1 = Texto15_temp.lower()
+
+print (f'{Texto15_temp_Version1}')
+
+Texto15_temp_Version2 = re.sub(r'\!|\?|\.{2,}', '', Texto15_temp_Version1)
+
+print (f'{Texto15_temp_Version2}')
+
+Texto15_temp_Version3 = re.sub(r'\d+', '', Texto15_temp_Version2)
+
+print (f'{Texto15_temp_Version3}')
+
+for i, email in enumerate(Correos1, start=1):
+    Texto15_temp_Version2 = Texto15_temp_Version2.replace(f'SAMPLE{i}', email)
+
+print (f'{Texto15_temp_Version2}')
+
+personas = [
+    ["Ana", 17, True],
+    ["Carlos", 25, True],
+    ["Luis", 19, False],
+    ["Elena", 30, True],
+    ["Mario", 15, False]
+]
+
+
+def Ejemplo3(elemento):
+    
+    Lista_resultado = []
+
+    for elemento1 in elemento:
+        if (elemento1[1] >= 18 and elemento1[2] == True):
+            Lista_resultado.append(elemento1[0])
+        else:
+            continue
+
+    return Lista_resultado
+
+print (f'Las personas que cumplen ambas condiciones son {Ejemplo3(personas)}')
