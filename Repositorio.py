@@ -75,7 +75,7 @@ collections
 
 
 # Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
-# En caso de que de error, entonces con except mostraremos un mensaje de error
+# En caso de que de error, entonces con except mostraremos un mensaje de error... OJO RECUERDA DECLARAR LA VARIABLE PEPE = None
 
 # Abrir e importar el modulo Modulo_Propio “import”
 # Abrir e importar el modulo Modulo_Propio “import”
@@ -966,7 +966,11 @@ Ahora vamos a hacer un ejercicio de Composicion, el metod de la primera clase se
 
 
 
-[COMPOSICION VS INYECCION DE DEPENDENCIAS]
+[COMPOSICION VS INYECCION DE DEPENDENCIAS]  
+
+QUE ES DUCK TYPING? - Es una filosofia
+"No me importa qué eres.
+Me importa si puedes hacer lo que necesito."
 
 
 
