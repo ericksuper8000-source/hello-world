@@ -2361,7 +2361,7 @@ Diccionario2 = {
     'Votante' : [True, not False, False]
 }
 
-Diccionario3 = dict({'Ingresos' : 500, 'Gatos' : 200, 'Vacio' : ""})
+Diccionario3 = dict({'Ingresos' : 500, 'Gastos' : 200, 'Vacio' : "q"})
 
 print (f'{Diccionario1}')
 print (f'{Diccionario1.keys()}')
@@ -2500,274 +2500,551 @@ print (f'{type(Array4_Sorted)}')
 print (f'{type(PEPE)}')
 print (f'{type(Objeto14)}')
 
-# Crea una llave condicional con if simple - Contar la cantidad de caracteres de una cadena de texto con len, haga un if condition
-# Crea una llave condicional con if y else simple
-# Ahora crea un condicional con if, elif y else
-# Ahora crea un condicional con multiples elif
-# Ahora un ejercicio con varios if anidados - declaras dos variables, ingresos y gastos, si los ingresos son mayores a x y los gastos menores a x, entonces estas bien, etc
-# Ahora vamos a hacer un if con un and
-# Ahora vamos a hacer un if con un or
-
-# ***********************  Metodos / Funciones mas utilizadas   **********************
-
-# Declare una variable string, con un print y dir muestre todos los métodos y atributos disponibles para una variable u objeto
-# use help para ver que hace un metodo
-
-#**********
-
-# Declare una clase Persona, cree un objeto y defina un metodo
-# Metodos magicos vs metodos normales
-# dunder methods porque empiezan y terminan con __)
-# x = 'Ejemplo'
-# len(x) o tambien
-# x.__len__()
-# Metodos normales x.upper()
-
-#**********
-
-# abs(x) → Escribe un programa que reciba un número negativo y devuelva su valor absoluto.
-# any(iterable) → Comprueba si al menos un número de una lista es par.
-# bin(x) → Convierte un número entero dado por el usuario a binario.
-# bool(x) → Determina si una cadena ingresada por el usuario está vacía o no.
-# divmod(a, b) → Pide dos números y muestra el cociente y el residuo de su división.
-# Haz un ciclo for enumerate con un unico elemento, ese unico elemento mostrara el indice con elemento[0] y el valor con elemento[1]
-# enumerate(iterable) → Crea una lista de frutas y muestra cada una con su posición en la lista.
-# Haga el texto de una variable todo minuscula con el metodo lower
-# Haga el texto de una variable todo mayuscula con el metodo upper
-# Haga la primera letra de una variable mayuscula con el metodo capitalize
-# Busque una letra en especifico en una cadena de texto con el metodo find e index
-# Cuantas veces esta la letra a en una cadena con el metodo count
-# Verifiquemos si una cadena comienza con x letra con el metodo startswith
-# Verifiquemos si una cadena termina con x letra con el metodo endswith
-# Reemplace una parte de una cadena con el metodo replace(Este tiene dos parametros, lo que se quiere cambiar y lo nuevo)
-# Tome una variable de texto y separe cada elemento de la variable en una lista separada por ',' utilizando el metodo split()
-
-
-'''
-| Método        | Descripción                            |
-| ------------- | -------------------------------------- |
-| `isalpha()`   | Solo letras                            |
-| `isinstance()`| Solo dígitos decimales                 |  mas util
-| `isnumeric()` | Cualquier carácter numérico            |
-| `isalnum()`   | Letras y números                       |
-| `isspace()`   | Solo espacios                          |
-| `islower()`   | Letras en minúsculas                   |
-| `isupper()`   | Letras en mayúsculas                   |
-'''
-
-variable13 = 4.3
-
-if (isinstance(variable13, float)):
-    print (f'El numero es decimal')
+if (Diccionario3['Ingresos'] > 500): #type: ignore
+    if (Diccionario3['Gastos'] < 200): #type: ignore
+        print (f'Ingresos Altos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Altos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200): #type: ignore
+        print (f'Ingresos Altos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] == 500):
+    if (Diccionario3['Gastos'] < 200): #type: ignore
+        print (f'Ingresos Minimos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Minimos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200): #type: ignore
+        print (f'Ingresos Minimos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
+elif (Diccionario3['Ingresos'] < 500): #type: ignore
+    if (Diccionario3['Gastos'] < 200): #type: ignore
+        print (f'Ingresos Bajos, Gastos Bajos')
+    elif (Diccionario3['Gastos'] == 200):
+        print (f'Ingresos Bajos, Gastos Al Limite')
+    elif (Diccionario3['Gastos'] > 200): #type: ignore
+        print (f'Ingresos Bajos, Gastos Altos')
+    else:
+        print (f'Error de codigo')
 else:
-    print (f'Error, no es decimal')
+    print (f'Error de codigo')
+    
+variable8 = 'Erick'
+variable9 = 27
 
+if (variable8 == 'Erick' and variable9 > 30):
+    print (f'Ambas condiciones se cumplen')
+else:
+    print (f'Error, al menos una condicion no se cumple')
+    
+if (variable8 == 'Josue' or variable9 > 30):
+    print (f'Al menos una de las condiciones se cumple')
+else:
+    print (f'Error, ninguna de las condiciones se cumplen')
+    
+print (f'{dir(variable1)}')
 
-# Busque un elemento en una lista o tupla con index, ojo find no es un metodo para listas
-# Declare una variable y asignele una copia de una lista con el metodo copy()
-# Borrar todos los elementos de un diccionario con clear()
-# Eliminar un elemento del diccinario con pop()
-# Recorra todos los elementos de un diccionario con un ciclo for normal
-# Recorramos tdos los elementos de un diccionario con la funcio .items()
+class Entrenador():
+    def __init__(self, Trainer, City, Favorite):
+        self.Trainer = Trainer
+        self.City = City
+        self.Favorite = Favorite
+        self.Pokedex = 6
+        self.Classified = True
 
-#### VARIABLES 2.0
+    def Desplegar(self):
+        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
+        
+Objeto37 = Entrenador(PEPE.Tupla_Poke[0], 'Kanto', Objeto5.Nombre)
+Objeto38 = Entrenador(PEPE.Tupla_Poke[1], 'Alolah', Objeto6.Nombre)
+Objeto39 = Entrenador(PEPE.Tupla_Poke[2], 'Paldea', Objeto7.Nombre)
 
-# Vamos a usar la tecnica de desempaquetado de variables creando una tupla de 3 elementos y agregando cada elemento de la tupla a 3 variables, ojo, no usar indices
+Objeto37.Desplegar()
+Objeto38.Desplegar()
+Objeto39.Desplegar()
 
-### CICLOS WHILE
+print (f'-' * 20)
 
-# Creamos una lista con los numeros 1, 2, 3, 4, 5, hagamos un ciclo for que multiple cada uno de estos numeros y los muestre en consola
-# Creamos ahora una lista con 3 animales, los recorremos con un ciclo for, inmediatamente se evalua con un if si la variable es igual al segundo animal, lo muestra y se detiene el ciclo. Ojo, usar el break y el continue
-# Hagamos un for anidado con la funcion zip(), creamos dos listas del mismo tamaño
-# Hagamos un ciclo for con la funcion range de 0 a 5 con un unico parametro
-# Hagamos un ciclo for con la funcion range de 1 a 10 con dos parametros
-# Creamos una lista con 4 numeros, ahora creamos otra listsa Lista_Multiplicado y agregamos cada numero de la primera lista a la segunda x 10
+Negativo = -5
 
-#### Ciclo WHILE
-# Creamo un ciclo while simple con un contador que se ejecutara mientras contador sea menor a 10
+print (f'{int(abs(Negativo))}')
 
+Any_Impar = any(num % 2 != 0 for num in PEPE.Lista_Numeros)
+Lista_Impar = [num for num in PEPE.Lista_Numeros if num % 2 != 0]
+Anonima4 = filter(lambda Num : Num % 2 != 0, PEPE.Lista_Numeros)
 
-#### Funciones creadas directamente por python (Funciones Build-In)
+print (f'{Any_Impar}')
+print (f'{Lista_Impar}')
+print (f'{list(Anonima4)}')
 
-# Encontrar el numero mayor de una lista con la funcion max()
-# Encontrar el numero menor de una lista con la funcion min()
-# Redondear el numero 14.458795 a dos decimales con la funcion round() con dos parametros
-# Retornemos False con la funcion bool() usando False, 0, "", None
-# Retornemos un False agregando varios elementos a una variable con la funcion all() pero al menos uno debe ser False, 0, "", None
-# Cree una variable y sumele todos los elementos de una Tupla, Lista, Set con la funcion sum()
+print (f'-' * 20)
 
-# Imprime en pantalla    print()    
-# Solicita datos al usuario     input()
-# Devuelve la longitud de una secuencia    len()
-# Devuelve el tipo de un objeto    type()
-# Convierte un número a texto y viceversa  str(), int(), float()
-# Despliegue los numeros de 90 a 100 con range()
-# Imprime los elementos de una lista con su posición.     enumerate()
-# Combina dos listas y muéstralas juntas    zip()
-# Ordena una lista de números con sort, sort(reverse = True) reverse()
+print (f'El binario del numero {Variable_Sumatoria} es {bin(Variable_Sumatoria)}')
 
-# Verifique si un elemento de una tupla es par con any()
-# Cree una list(), tuple(), set(), dict()
-# Cree una lista de 4 palabras por ejemplo mi nombre completo y unalas con la funcion print ("-".join(Lista))
+if (bool(Diccionario3['Vacio']) == True):
+    print (f'Gracias por la informacion')
+else:
+    print (f'Error, ingrese una cadena de texto')
+    
+for elemento in Lista_Uno_Copia:
+    print (f'{elemento}')
+    
+print (f'-' * 20)
 
-# Divide un texto por espacios con split()
+for elemento in enumerate(Lista_Uno_Copia):
+    print (f'{elemento[0]} -- {elemento[1]}')
+    
+print (f'-' * 20)
 
-# ***********************  Data Inputs   **********************
+for indice, elemento in enumerate(Lista_Uno_Copia, start=1):
+    print (f'{indice} -- {elemento}')
+    
+print (f'-' * 20)
 
-# Input lo que nos devuelve siempre es texto, aunque se ingresen numeros
-# Declare una variable y asignele un input, pida que ingrese un numero
-# Esa variable debe convertirse en integer con la funcion int
-# Haga una operacion matematica con esta variable y muestrela
+variable10 = 'eSteBAN'
+variable10_letra = variable10[0]
 
-# eval(expression) → Permite al usuario ingresar una operación matemática como texto y muestra el resultado.
+print (f'{variable10}')
+print (f'{variable10.lower()}')
+print (f'{variable10.upper()}')
+print (f'{variable10.capitalize()}')
 
-# Haga un input que pida su nombre y valide si lo que se ingreso es un texto o algo mas
-# (Nombre.replace(" ", "").isalpha()):
+print (f'{variable10.lower().find("t")}')
+print (f'{variable10.lower().index("b")}')
 
-# Vamos a crear un programa en el que por medio de un input le pidamos a un usuario ingresar una cadena de texto
-# Esta cadena de texto sera guardada en una variable matriz con la funcion split separando cada palabra por un espacio
-# Ahora vamos a usar la funcion dunder len para contar cuantas palabras ingreso el usuario
+print (f'{variable10.lower().startswith(variable10_letra)}')
+print (f'{variable10.lower().endswith("n")}')
 
-# Creamos una lista vacia, Ahora creamos un programa que pida la cantidad de alumnos
-# Luego con un for range, se recorre el ciclo y se pide el nombre de la cantidad de alumnos
-# Por medio de un append agregamos cada nombre a la lista vacia
-# Mostramos los elementos del filtro, cada nombre digitado
+print (f'La letra {variable10_letra} aparece un total de {variable10.lower().count(variable10_letra)} veces')
 
-# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
-# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+print (f'{variable10.lower().replace("ban", "POPOTAMO")}')
 
-# Usemos elementos de un modulo por medio de un import
-# Renombremos un modulo con la instrucion "as" Saludar as OtroNombre
+variable11 = 'este es un texto cualquiera para ver si la cosa sirve o no'
 
+variable11_list = variable11.split(' ')
 
+for elemento in variable11_list:
+    print (f'{elemento}')
+    
+print (f'La lista tiene un total de {len(variable11_list)} palabras')
 
-##############################     ENRUTAMIENTO DE MODULOS     ######################################
+variable12 = '39'
 
-''' Hay un modulo llamado Modulo_Propio2 dentro de una carpeta alternativa, importemos esta carpeta alternativa
-por medio del nombre de la carpeta Nueva.Modulo_Propio2, y despleguemos algun elemento de Modulo Propio2,
-Como el nombre del import se vuelve grandisimo, usemos "as" para renombrarlo y que sea mas facil manejarlo'''
+if (isinstance(variable12, (str))):
+    print (f'Lo ingresado es texto')
+else:
+    print (f'Lo ingresado no es texto')
+    
+if (variable12.isalpha()):
+    print (f'Lo ingresado es texto')
+else:
+    print (f'Lo ingresado no es texto')
+    
+print (f'-' * 20)
+    
+variable13 = '3.4'
 
+try:
+    variable14 = float(variable13)
+    if (variable14.is_integer()):
+        print (f'El numero ingresado es entero')
+    else:
+        print (f'Lo ingresado es un numero decimal')
+except ValueError:
+    print (f'Error, lo ingresado no es un numero')
+    
+variable15 = 'hola'
 
-##############################     PAQUETES (Es una carpeta con muchos archivos python)     ######################################
+try:
+    variable16 = float(variable15)
+    if (variable16.is_integer()):
+        print (f'Numero entero')
+    else:
+        print (f'Numero decimal')
+except ValueError:
+    print (f'Error, lo ingresado no es un numero')
+    
+variable17 = 3.6
 
-''''''Un paquete es una carpeta con muchos archivos, lo mas importante es que esta carpeta para ser
-Considerara un paquete debe tener un archivo llamado __init__.py, esto lo convierte en paquete
-Si dentro de esta carpeta paquete agregamos una sub carpeta con __init__.py, esto se vuelve un sub paquete.'''
+if (isinstance(variable17, (int, float))):
+    print (f'Lo ingresado es un numero entero o decimal')
+else:
+    print (f'Error, lo ingresado no es un numero')
+    
+variable18 = 'erick123'
 
+if (variable18.isalpha()):
+    print (f'Esto tiene solo letras')
+else:
+    print (f'Error, esto tiene numeros')
+    
+if (variable18.isalnum()):
+    print (f'Esto tiene letras o numeros')
+else:
+    print (f'Error')
+    
+variable19 = ''
 
+if (variable19.isspace()):
+    print (f'Solo espacios')
+else:
+    print (f'Error, esto tiene mas que espacios')
+    
+variable20 = 'TEXTO'.lower()
+variable21 = 'teXto'.upper()
 
+if (variable20.islower()):
+    print (f'Lo ingresado esta todo en minuscula')
+else:
+    print (f'Lo ingresado no esta todo en minuscula')
+    
+if (variable21.isupper() == True):
+    print (f'Lo ingresado esta todo en mayuscula')
+else:
+    print (f'Lo ingresado no esta todo en mayuscula')
+    
+print (f'{PEPE.Tupla_Poke[2]} se encuentra en la posicion {PEPE.Tupla_Poke.index("Misty")}')
 
-Alumnos = []
+for elemento in Diccionario5.keys():
+    print (f'{elemento}')
+    
+print (f'-' * 20)
 
-Cantidad = int(input(f'Ingrese la cantidad de alumnos: '))
+for elemento in Diccionario5.values():
+    print (f'{elemento}')
+    
+print (f'-' * 20)
+
+for elemento in Diccionario5.items():
+    print (f'{elemento[0]} -- {elemento[1]}')
+    
+print (f'-' * 20)
+
+for elemento in Diccionario5:
+    print (f'{Diccionario5[elemento]}')
+    
+print (f'-' * 20)
+
+'''Lista_Numeros = list([])
+
+Contador = 0
+
+while (Contador < 3):
+    Num2 = input(f'Ingrese el numero {Contador + 1}')
+    try:
+        Num3 = float(Num2)
+        if (Num3.is_integer()):
+            Lista_Numeros.append(Num3)
+            Contador += 1
+        else:
+            Lista_Numeros.append(Num3)
+            Contador += 1
+    except ValueError:
+        print (f'Error, lo ingresado no es un numero')
+        
+Promedio = sum(Lista_Numeros) / len(Lista_Numeros)
+
+print (f'El promedio del estudiante es {round(Promedio, 2)}')'''
+
+Contador = 0
+
+while (Contador < len(PEPE.Lista_Numeros)):
+    print (f'{PEPE.Lista_Numeros[Contador] * 100}')
+    Contador+= 1
+    
+print (f'-' * 20)
+
+Contador = 0
+
+Lista_Animales = []
+Lista_Animales.append('Jirafa')
+Lista_Animales.insert(1, PEPE.Lista2[PEPE.Lista2.index("Koala")])
+Lista_Animales.extend(['Camello', 'Gorila'])
+
+print (f'{Lista_Animales}')
+
+while (Contador < len(Lista_Animales)):
+    if (Lista_Animales[Contador] == 'Camello'):
+        print (f'This Camel animal lives in the desert')
+        break
+    else:
+        Contador+= 1
+        continue
+    
+print (f'-' * 20)
+
+for elemento in range(5):
+    print (f'El elemento es {elemento}')
+    
+print (f'-' * 20)
+
+for elemento in range(995, 1000):
+    print (f'El elemento es {elemento}')
+    
+print (f'-' * 20)
+
+for elemento1, elemento2 in zip(Lista_Animales, Set_Conjunto_Menu1):
+    print (f'{elemento1} -- {elemento2}')
+    
+print (f'-' * 20)
+    
+for elemento1, elemento2, elemento3, elemento4 in zip(Lista_Animales, Set_Conjunto_Menu1, Set_Conjunto1, Lista_Uno_Copia):
+    print (f'{elemento1} -- {elemento2} -- {elemento3} -- {elemento4}')
+    
+print (f'-' * 20)
+
+Lista_Numeros_Mult = [num * 100 for num in PEPE.Lista_Numeros]
+
+print (f'{Lista_Numeros_Mult}')
+
+Contador = 0
+
+while (Contador <= 5):
+    print (f'El contador es {Contador}')
+    Contador+= 1
+    
+print (f'-' * 20)
+
+Menor = min(Lista_Numeros_Mult)
+Mayor = max(Lista_Numeros_Mult)
+Redondeo = round(14.458795, 2)
+Sumatoria4 = sum(Lista_Numeros_Mult)
+
+print (f'{bool("")}')
+print (f'{bool(None)}')
+print (f'{bool(0)}')
+print (f'{bool(False)}')
+print (f'{bool(not True)}')
+
+print (f'-' * 20)
+
+Todo_All = all([Lista_Uno_Copia, Set_Conjunto_Menu1, Tupla1, None])
+
+print (f'{Todo_All}')
+
+print (f'El menor es {Menor} y el mayor es {Mayor}')
+print (f'El numero 14.458795 redondeado es {Redondeo}')
+print (f'El resultado de la sumatoria es {Sumatoria4}')
+
+Uno = int('500')
+Dos = str(500)
+Tres = float(Dos)
+
+print (f'{type(Uno)}')
+print (f'{type(Dos)}')
+print (f'{type(Tres)}')
+
+print (f'-' * 20)
+
+Any_Iterable = any(num % 2 == 0 for num in PEPE.Lista_Numeros)
+Lista_Iterable = [num for num in PEPE.Lista_Numeros if num % 2 == 0]
+Anonima5 = filter(lambda Num : Num % 2 == 0, PEPE.Lista_Numeros)
+
+print (f'{Any_Iterable}')
+print (f'{Lista_Iterable}')
+print (f'{list(Anonima5)}')
+
+print (f' - '.join(PEPE.Set_Conjunto_Poke))
+
+import Nueva.Nueva2.Nueva3.Modulo_Propio2 as PEPE2
+
+PEPE2.Saludar5()
+
+import Paquete.Sub_Paquete.Segundo as PEPE3
+
+Variable_PEPE3 = PEPE3
+
+'''def Floating1(Elemento):
+    try:
+        Elementico = float(Elemento)
+        if (Elementico.is_integer()):
+            Resultado1 = Variable_Sumatoria * Elementico + Sumatoria2(1, 2, 3, 4)
+            return f'El resultado de la operacion es {Resultado1}'
+        else:
+            Resultado1 = Variable_Sumatoria * Elementico + Sumatoria2(1, 2, 3, 4)
+            return f'El resultado de la operacion es {round(Resultado1, 2)}'
+    except ValueError:
+        return f'Lo ingresado no es un numero'
+
+print (f'{Floating1(PEPE.Flotante1)}')
+
+Resultado2 = eval(PEPE.Flotante2)
+
+print (f'El resultado de la segunda operacion es {Resultado2}')
+
+def Floating3(Elemento):
+    if (Elemento.replace(' ', '').isalpha()):
+        return f'Gracias, el texto ingresado es {Elemento}'
+    elif (Elemento.isspace()):
+        return f'Error, no ingresaste nada'
+    else:
+        return f'Error, lo ingresado no es un texto'
+    
+print (f'{Floating3(PEPE.Flotante3)}')
+
+def Floating4(Cadena):
+    Lista_Cadena = Cadena.split(' ')
+    print (f'La cantidad de palabras digitadas son {len(Lista_Cadena)}')
+    
+    for elemento in enumerate(Lista_Cadena):
+        print (f'{elemento[0]} -- {elemento[1]}')
+        
+Floating4(PEPE.Flotante4)'''
+
+'''Lista_Alumnos = list([])
+
+Contador = int(input(f'Ingrese la cantidad de alumnos: '))
 
 def Colegio(Lista):
-    for elemento in range(Cantidad):
+    for elemento in range(Contador):
         Alumno = input(f'Ingrese el nombre del alumno {elemento}: ')
-        Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
-        Estudiante = [Alumno, Edad]
+        Lista.append(Alumno)
+        
+    return Lista
+
+with open (Ruta_Txt, 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nLa lista de estudiantes es {Colegio(Lista_Alumnos)}'])
+    Docu.close()
+    
+with open (Ruta_Txt, encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()'''
+    
+'''Lista_Alumnos = []
+
+Contador = int(input(f'Ingrese el numero de alumnos: '))
+
+def Colegio(Lista):
+    for elemento in range(Contador):
+        Alumno_Nombre = input(f'Ingrese el nombre del alumno {elemento}: ')
+        Alumno_Edad = int(input(f'Ingrese la edad del alumno {elemento}: '))
+        Estudiante = [Alumno_Nombre, Alumno_Edad]
         Lista.append(Estudiante)
-        Lista.sort(key = lambda Num : Num[1])
+        
+    Lista.sort(key = lambda Num : Num[1])
+    Menore = Lista[0][0]
+    Mayore = Lista[-1][0]
+    
+    print (f'El estudiante menor de la lista es {Menore} y su edad es {Lista[0][1]} años')
+    print (f'El estudiante menor de la lista es {Mayore} y su edad es {Lista[-1][1]} años')
+    
+Colegio(Lista_Alumnos)'''
 
-    Estudiante = Lista[0][0]
-    Profesor = Lista[-1][0]
+'''Lista_Numeros = []
 
-    print (f'El profesor es {Profesor} y el estudiante menor es {Estudiante}')
+Contador = 0
 
+while (Contador < 3):
+    Numerito = input(f'Ingrese el numero {Contador + 1} ')
+    try:
+        Numerito2 = float(Numerito)
+        if (Numerito2.is_integer()):
+            Lista_Numeros.append(Numerito2)
+            Contador+= 1
+        else:
+            Lista_Numeros.append(Numerito2)
+            Contador+= 1
+    except ValueError:
+        print (f'Error, lo ingresado no es un numero')
+        
+print (f'La lista de numeros es {Lista_Numeros}')'''
 
-Colegio(Alumnos)
-
-
----------------------------
-
-
-
-
-[Excepciones]
-Una excepcion es un bloque de codigo que se mostrara en caso de que el codigo se rompa. Por ejemplo digamos que tenemos un codigo que pide un numero pero ingresamos una cadena de texto. Entonces el codigo se detendra y mostrara un mensaje de error hasta que agreguemos el numero.
-
-def Ejemplo():
+'''def Ciclonazo():
     while True:
-        Numero1 = input(f'Ingrese un numero: ')
+        Numerito = input(f'Ingrese un numero entero: ')
         try:
-            Numerito = int(Numero1)
+            Numerito2 = int(Numerito)
             break
         except:
-            print (f'Error, eso no es un numero')
-
-    return Numerito
-
-print (f'{Ejemplo()}')
-
-
-
-[LEER UNA PAGINA WEB]
+            print (f'Error, lo ingresado no es un numero entero')
+    return Numerito2
+    
+print (f'Gracias, el numero ingresado es {Ciclonazo()}')'''
 
 import pandas as pd
 import requests
-import io # Esto viene incluido en Python, no hay que instalar nada
+import io
 
-Ruta_Html = 'https://en.wikipedia.org/wiki/Louisiana'
 headers = {'User-Agent' : 'Mozilla/5.0'}
 
-# 1. Obtenemos la respuesta
 Response = requests.get(Ruta_Html, headers=headers)
 
-# 2. Envolvemos el texto en StringIO (esto suele quitar el 99% de los errores)
-texto_html = io.StringIO(Response.text)
+Leer_Html2 = io.StringIO(Response.text)
 
-# 3. Leemos las tablas
-Cargar_Html = pd.read_html(texto_html)
+Cargar_Html2 = pd.read_html(Leer_Html2)
 
-# 4. Mostramos la primera tabla encontrada
-print(Cargar_Html[0].head())
+print (f'{Cargar_Html2[2].head()}')
 
-
-# Validar si el correo electronico tiene el formato correcto por medio de expresiones regulares
-# Ojo hagamos un ejemplo de validacion de correo electronico que pida explicitamente hotmail, gmail, yahoo o .com, .net .org  pattern1 = r'^[a-zA-Z0-9./*-+=_/?]+\@(hotmail|gmail|yahoo)\.(com|net|org)$'
-
-# Busque un numero que debe estar explicitamente entre 01 y 31. pattern1 = r'(0[0-9]|[12][0-9]|3[01])'
-
-'''
+print (f'-' * 20)
 
 import re
 
-email = 'example@example.com'
+Texto10 = 'example@example.com'
 
-pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+Pattern8 = r'^[a-zA-Z0-9\.\/\*\-\+\_]+\@[a-zA-Z]+\.(?:com|net|org)$'
 
-result = re.match(pattern, email)
+Buscar18 = bool(re.fullmatch(Pattern8, Texto10))
 
-if result:
-	print (f'Valido')
+if (Buscar18):
+    print (f'Formato de correo valido')
 else:
-	print (f'Invalido')
+    print (f'Error, formato de correo invalido')
+    
+Numero4 = '32'
 
-'''
+Buscar19 = bool(re.match(r'(0[0-9]|[12][0-9]|3[01])', Numero4))
 
-
-
-
-Esto es un programa que solicita una fecha y la compara con una entrada de un documento csv. Si no la encuentra mostrara un mensaje de error, si el formato es incorrecto mostrara un mensaje de error, si la encuentra mostrara el mensaje que la fecha se encontro x numero de veces.
-
-Importar pandas
+if (Buscar19 == True):
+    print (f'El numero esta entre 01 y 31')
+else:
+    print (f'Error, el numero esta fuera de rango')
+    
+print (f'-' * 20)
+    
+import pandas as pd
 from datetime import datetime
-Crear la ruta del csv
-Cargar el archivo csv
-Pedir la fecha por medio de un input
-hacer un try except valueerror
-en el try primero vamos a asegurarnos co datetime.strptime que el formato es el correcto
-en el try luego hay que asegurarnos que la fecha esta formateda to_datetime
-en el try despues hay que asegurarse que la fecha del csv esta formateada to_datetime
-si no, el excep muestra un error ojo necesita un exit()
-Hacemos una variable encontrado, igualamos == entrada del csv .dt.date contra la fecha ingresada date()
-if encontrado.empty
-else
-exito
 
+Ruta_Csv4 = 'C:\\Repo\\Store.csv'
 
-Quiero crear una columna nueva agregada sobre el mismo csv con el total en precio multiplicando cantidad x price
+Cargar_Csv4 = pd.read_csv(Ruta_Csv4)
 
-Cargar_Csv5['Total'] = Cargar_Csv5['quantity'] * Cargar_Csv5['price']
+print (f'{Cargar_Csv4}')
 
-print (f'{Cargar_Csv5}')
+print (f'-' * 20)
+
+Fecha4 = '2026-04-05'
+
+try:
+    Fech4 = datetime.strptime(Fecha4, '%Y-%m-%d').date()
+    Fech4_Formateada = pd.to_datetime(Fech4)
+    Cargar_Csv4['date'] = pd.to_datetime(Cargar_Csv4['date'])
+except ValueError:
+    print (f'Error, formato de fecha invalido')
+    exit()
+    
+Cargar_Csv4['TOTALITO'] = Cargar_Csv4['quantity'] * Cargar_Csv4['price']
+    
+Encontrada4 = Cargar_Csv4[Cargar_Csv4['date'].dt.date == Fech4_Formateada.date()]
+
+if (Encontrada4.empty):
+    print (f'No hay ventas en esta fecha')
+else:
+    print (f'Genial! hemos encontrado ventas')
+    
+    Grupo4 = Encontrada4.groupby('product')['quantity'].sum()
+    Grupo4_Min = Grupo4.idxmin()
+    Grupo4_Max = Grupo4.idxmax()
+    Grupo4_Min_Cant = Grupo4.min()
+    Grupo4_May_Cant = Grupo4.max()
+    
+    print (f'En la fecha {Fech4_Formateada} el producto {Grupo4_Min} vendio un total de {Grupo4_Min_Cant} unidades')
+    print (f'En la fecha {Fech4_Formateada} el producto {Grupo4_Max} vendio un total de {Grupo4_May_Cant} unidades')
+    
+    print (f'La cantidad de clientes que compraron en esta fecha fue de {Grupo4.count()}')
+    print (f'La cantidad de productos individuales que se compraron fue {Grupo4.sum()} unidades')
+    
+    Grupo5 = Encontrada4.groupby('product')['TOTALITO'].sum()
+    
+    print (f'El total de dinero vendido en esta fecha fue de {Grupo5.sum()}')

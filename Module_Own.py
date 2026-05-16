@@ -138,3 +138,10 @@ class Pokemon2():
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
         
+'''Flotante1 = input(f'Ingrese un numero entero: ')
+
+Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
+
+Flotante3 = input(f'Ingrese su nombre: ')
+
+Flotante4 = input(f'Ingrese una cadena de texto: ')'''
