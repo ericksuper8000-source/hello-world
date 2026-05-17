@@ -1,4 +1,5 @@
 '''
+# type: ignore
 veamos si un numero es entero isinstance(xxx, int)
 veamos si un numero es flotante isinstance(xxx, int)
 validemos que un elemento puede ser un numero entero OOOO un numero flotante     isinstance(resultado, (int, float))
@@ -75,7 +76,8 @@ collections
 
 
 # Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
-# En caso de que de error, entonces con except mostraremos un mensaje de error... OJO RECUERDA DECLARAR LA VARIABLE PEPE = None
+# En caso de que de error, entonces con except mostraremos un mensaje de error...
+# ojo usemos raise al final para que no marque nada en rojo
 
 # Abrir e importar el modulo Modulo_Propio “import”
 # Abrir e importar el modulo Modulo_Propio “import”
