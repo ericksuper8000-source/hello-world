@@ -1,11 +1,11 @@
 Hiena
-Salamandra
-Tortuga
-Fresa Sabrosa
-Fresa Sabrosa
-Fresa Sabrosa
+Cocodrilo
+Koala
+Fresas Sabrosas
+Fresas Sabrosas
+Fresas Sabrosas
 Pikachu
 Graveler
 Vaporeon
-Pikachu - Graveler - Vaporeon
+Vaporeon - Graveler - Pikachu
 Su contrasena temporal es gid704
