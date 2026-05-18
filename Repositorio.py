@@ -60,6 +60,11 @@ print(texto_limpio)
 
 Leer diccionario keys, values, items
 
+Hacer un ejercicio sacar el promedio, se debe solicitar 3 numeros, agregarlos a una lista, sacar la suma y luego el promedio
+Necesitamos una lista vacia, un contador, si el numero es entero, se guarda en la lista, si el numero es decimal, se guarda en la lista.
+
+Clases Especiales Dunder Class __str__() Mostrar el nombre
+
 ''' *******************************************************************
 
 '''
