@@ -698,21 +698,31 @@ if (Buscar14):
 else:
     print (f'Error, el numero esta fuera de rango')
     
-Reemplace la fecha con XX/XX/XXXX
-text = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
-pattern = r'\d{2}/\d{2}/\d{4}'
-replacement = 'Fecha Oculta'
-New_Text = re.sub(pattern, replacement, text)
-print (f'Texto modificado: {New_Text}')
+import re
+    
+Texto10 = 'La fecha es 23/06/2021 y el telefono es +1-555-555-5555'
 
+Pattern7 = r'\d{2}\/[0-9]{2}\/\d{2,4}'
 
+Replacement1 = 'XX/XX/XXXX'
 
+Buscar15 = re.sub(Pattern7, Replacement1, Texto10)
 
+print (f'{Buscar15}')
 
+Pattern8 = r'\+\d{1}\-[0-9]{3}\-\d{3}\-[0-9]{3,4}'
 
-De este texto ubique los correos electronicos con formato correcto  # usuario@dominio.extension y devuelvalos en un ciclo for each.
+Replacement2 = '+*-***-***-****'
 
-Texto9 = """
+Buscar16 = re.sub(Pattern8, Replacement2, Buscar15)
+
+print (f'{Buscar16}')
+
+import re
+
+# usuario@dominio.extension
+
+Texto11 = """
 Contactos:
 - juan.perez@gmail.com
 - maria_123@hotmail.net
@@ -722,626 +732,1232 @@ Contactos:
 - ana+test@gmail.com
 """
 
-findall() devuelve SOLO lo que está dentro de los paréntesis
-❌ No devuelve el correo completo
-✔ Solo devuelve los grupos
+Pattern9 = r'[a-zA-Z0-9\.\/\*\-\+\_]+\@(?:gmail|hotmail|yahoo)\.(?:com|org|net)'
 
-Si usas (?: )
-findall() devuelve el match completo
+Buscar17 = re.findall(Pattern9, Texto11)
 
+print (f'{Buscar17}')
 
+print (f'-' * 20)
 
+Contador = 0
 
+while (Contador < len(Buscar17)):
+    print (f'{Buscar17[Contador]}')
+    Contador+= 1
+    
+print (f'-' * 20)
 
+import re
 
-De este texto elimine los simbolos especiales y los 3 puntos, pero mantenga los puntos individuales
-
-texto = """
+Texto12 = """
 Hola!!! Mi nombre es Erick123...
 Mi correo es: erick.perez@gmail.com!!!
 Mi número es: 8888-7777???
 Gracias!!!
 """
 
-# Paso 1: eliminar símbolos ! ? .
-texto_limpio = re.sub(r'\!|\?|\.{2,}', '', texto)
+Buscar18 = re.sub(r'\!|\?|\.{2,}', '', Texto12)
 
-# Paso 2: eliminar números
-texto_limpio = re.sub(r'\d+', '', texto_limpio)
+print (f'{Buscar18}')
 
-print(texto_limpio)
+Pattern10 = r'[0-9]{4}\-\d{3,4}'
 
+Buscar19 = re.sub(Pattern10, '', Buscar18)
 
-#*******************************************************************************************
+print (f'{Buscar19}')
 
-Con exceptions vamos a asegurarnos que lo que se ingreso es un numero decimal
-
-try:
-    float(variable13)
-    print('Correcto')
-except ValueError:
-    print('Incorrecto')
-    
-Con exceptions vamos a asegurarnos que lo que se ingreso es un numero entero
-
-variable14 = 35
-
-try:
-    int(variable14)
-    print (f'Correcto, es un numero entero')
-except ValueError:
-    print (f'Incorrecto, necesito que ingreses un numero entero')
-    
-    
-# Limpiar Una cadena de caracteres (Purificacion o Saneamiento)
-
-texto = "   Hola!!!   mundo@@   123   "
-
-strip() → limpia bordes
-lower() → normaliza
-re.sub() → limpia caracteres
-split() + join() → arregla espacios
-
+print (f'-' * 20)
 
 import re
 
-texto = "   Hola!!!   mundo@@   123   "
+Texto13 = """
+Hola!!! Mi nombre es Erick123...
+Mi correo es: erick.perez@gmail.com!!!
+Mi número es: 8888-7777???
+Gracias!!!
+"""
 
-# 1. Quitar espacios de los bordes
-texto = texto.strip()
+Correos3 = re.findall(r'[a-zA-Z0-9\.\/\*\-\+\_]+\@(?:gmail|hotmail|yahoo)\.(?:com|org|net)', Texto13)
 
-# 2. Pasar todo a minúsculas
-texto = texto.lower()
+print (f'{Correos3}')
 
-# 3. Eliminar caracteres especiales (dejamos letras, números y espacios)
-texto = re.sub(r'[^a-z0-9\s]', '', texto)
+Texto13_temp = Texto13
 
-# 4. Arreglar espacios múltiples
-texto = " ".join(texto.split())
+for i, email in enumerate(Correos3, start=1):
+    Texto13_temp = Texto13_temp.replace(email, f'TEMPLATE{i}')
+    
+print (f'{Texto13_temp}')
 
-print(texto)
+Texto13_temp2 = re.sub(r'\!|\?|\.{2,}', '', Texto13_temp)
 
-#*******************************************************************************************
-#*******************************************************************************************
-#*******************************************************************************************
+print (f'{Texto13_temp2}')
 
-# Hagamos una exception ValueError, sera una funcio con un input que pida ingresar un numero, try int(Numero) si no entonces except mostrar mensaje de error.
+Texto13_temp3 = re.sub(r'\d{4}\-[0-9]{4}', '', Texto13_temp2)
 
-# Hagamos una exception TypeError, sera una funcion que reciba como parametro 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
+print (f'{Texto13_temp3}')
 
-# Hagamos una exception ZeroDivisionError, sera una funcion que reciba como parametros 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
+for i, email in enumerate(Correos3, start=1):
+    Texto13_temp3 =  Texto13_temp3.replace(f'TEMPLATE{i}', email)
+    
+print (f'{Texto13_temp3}')
 
-# Hagamos una exception IndexError, primero haremos una lista con 3 elementos, luego una funcion que pida como parametro el indice, try mostrar un mensaje el elemento en el indice x es x
-# Si no es posible except mostrar un mensaje de error, indice fuera de rango
+print (f'-' * 20)
 
-# Hagamos una exception KeyError, haremos un diccionario con dos elementos nombre y edad, luego una funcion que recibe como parametro el key, en try mostrar un mensaje el elemento en la llave x es x
-# Si no se puede except mostrar mensaje de error, esa llave no es parte del diccionario.
+Texto14 = 'hola'
 
-# Hagamos una exception FileNotFoundError, aqui no usaremos funciones, solo hacer un try y dentro del try hacemos un with open para mostrar con un read el archivo txt HolaMundo.txt
-# Si no es posible mostrarlo con un except mostrar un mensaje de error
+try:
+    Numerito1 = float(Texto14)
+    if (Numerito1.is_integer()):
+        print (f'Lo ingresado es un numero entero')
+    else:
+        print (f'Lo ingresado es un numero decimal')
+except ValueError:
+    print (f'Error, lo ingresado no es un numero')
+    
+Texto15 = '80'
 
+if (isinstance(Texto15, (int, float))):
+    print (f'Lo ingresado es un numero entero o decimal')
+else:
+    print (f'Error lo ingresado no es un numero')
+    
+Texto16 = '3.6'
 
-# Sobreescribir el txt y mostrar un readline
-# Agregar un texto al txt y mostrar todo con un readlines
-# Agregar una tercera linea al txt y mostrar todo con read
-# Agregar varias 'Fresa Sabrosa' "con writelines y mostrar todo con read   .writelines(["xxx\n", "xxx\n", "xxx\n"])
-# Agregar 3 bloques de lineas pero como instrucciones separadas con write y mostrar todo con readlines    
-# Vamos a crear un set conjunto menu 1 con los sabores chocolate, vainilla y fresa y con un .join agregarlos al txt doc
+try:
+    Numerito2 = float(Texto16)
+    if (Numerito2.is_integer()):
+        print (f'Lo ingresado es un numero entero')
+    else:
+        print (f'Lo ingresado es un numero decimal')
+except ValueError:
+    print (f'Lo ingresado no es un numero')
+    
+import re
+    
+Texto17 = "   Hola!!!   mundo@@   123   "
 
+print (f'{Texto17}')
 
-***********************************************[PANDAS]
+Texto17_Version1 = Texto17.strip()
 
+print (f'{Texto17_Version1}')
 
-# importemos pandas
-# cambiemosle el nombre a pd
-# Creemos una variable DataFrame con pd.Dataframe y asignemosle 3 valores tipo diccionario
-# Ahora por medio de un key, seleccionemos toda una columna Data_Frame['Nombre']
-# Ahora vamos a buscar la edad minima print (f'La edad minima es {Data_Frame1['Edad'].min()}')
-# Ahora vamos a buscar la edad maxima print (f'La edad maxima es {Data_Frame1['Edad'].max()}')
-# Finalmente vamos a aplicar la instruccion Data_Frame.info() para saber el tipo de datos que estan almacenados
+Texto17_Version2 = ' '.join(Texto17_Version1.split())
 
+print (f'{Texto17_Version2}')
 
-Hagamos dos Dataframes, Data_Frame1, Data_Frame2 y con la funcion pd.concat([Data_Frame1, Data_Frame2]) concatenemos ambos
+Texto17_Version3 = Texto17_Version2.lower()
 
-Recorramos el dataframe concatenate con un for indice, elemento y iterrows() y muestre los nombres
+print (f'{Texto17_Version3}')
 
-# Ahora vamos a jugar con groupby y con pandas
-----------------------------------------------------------------------------------------
+Texto17_Version4 = re.sub(r'\!|\@', '', Texto17_Version3)
 
-# Hagamos un grafico solamente con matplotlip 
+print (f'{Texto17_Version4}')
 
-import matplotlib.pyplot as plt
+def Exception1(Elemento):
+    try:
+        Numerito3 = float(Elemento)
+        if (Numerito3.is_integer()):
+            return f'El numero ingresado es un entero'
+        else:
+            return f'El numero ingresado es un decimal'
+    except ValueError:
+        return f'Error, lo ingresado no es un numero'
 
-x = [1, 2, 3, 4]
-y = [10, 20, 15, 25]
+print (f'{Exception1("hola")}')
 
-plt.figure(figsize=(4, 3))
-plt.plot(x, y)
+def Exception2(Num1, Num2):
+    try:
+        Sum1 = Num1 + Num2
+        return f'El resultado de la sumatoria es {Sum1}'
+    except TypeError:
+        return f'Error, necesito que ambos elementos sean numeros'
+    
+print (f'{Exception2(12, "hola")}')
 
-plt.title("Ventas")
-plt.xlabel("Día")
-plt.ylabel("Cantidad")
+def Exception3(Num1, Num2):
+    try:
+        Divi = Num1 / Num2
+        return f'El resultado de la division es {round(Divi, 2)}'
+    except ZeroDivisionError:
+        return f'Error, el divisor no puede ser cero'
+    
+print (f'{Exception3(12, 0)}')
 
-plt.show()
+Lista_Exception4 = []
+Lista_Exception4.append('Erick')
+Lista_Exception4.insert(1, 'Josue')
+Lista_Exception4.extend(['Karlita'])
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+def Exception4(Indice):
+    try:
+        return f'El elemento en la posicion {Indice} es {Lista_Exception4[Indice]}'
+    except IndexError:
+        return f'Error, el indice esta fuera de rango'
+    
+print (f'{Exception4(2)}')
 
-# Hacer un grafico lineal con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
+Diccionario_Exception5 = {
+    'Nombre' : "Erick",
+    'Edad' : 37
+}
+
+def Exception5(Llalve):
+    try:
+        return f'El elemento en la llave {Llalve} es {Diccionario_Exception5[Llalve]}'
+    except KeyError:
+        return f'Error, la llave esta fuera de rango'
+    
+print (f'{Exception5("Votante")}')
+
+try:
+    with open ('C:\\Repo\\HolaMundo.txt', 'w', encoding='UTF-8') as Docu:
+        Documento_SobreEscribir = Docu.write(f'Durazno')
+        Docu.close()
+except FileNotFoundError:
+    print (f'Error, el archivo no existe')
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Linea = Docu.readline()
+    print (f'{Documento_Linea}')
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nManzana'])
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nUvas')
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.writelines([f'\nFresas Sabrosas', '\nFresas Sabrosas', '\nFresas Sabrosas'])
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.readline()
+    print (f'{Documento_Leer}')
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke1"]}')
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke2"]}')
+    Documento_Agregar = Docu.write(f'\n{PEPE.Diccionario_Poke["Poke3"]}\n')
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f' - '.join(PEPE.Set_Conjunto_Poke))
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Leer = Docu.read()
+    print (f'{Documento_Leer}')
+    Docu.close()
+    
+import pandas as pd
+
+Data_Frame1 = pd.DataFrame({
+    'Nombre' : ["Erick", "Josue", "Karlita"],
+    'Edad' : [37, 20, 6],
+    'Votante' : [True, True, not True]
+})
+
+Data_Frame2 = pd.DataFrame({
+    'Nombre' : ["Carmelo", "Susanita", "Roxana"],
+    'Edad' : [55, 14, 26],
+    'Votante' : [True, not True, True]
+})
+
+print (f'-' * 20)
+
+Data_Frame_Concatenate = pd.concat([Data_Frame1, Data_Frame2])
+
+Data_Frame_Concatenate_Age = Data_Frame_Concatenate['Edad']
+
+print (f'{Data_Frame1}')
+
+print (f'-' * 20)
+
+print (f'{Data_Frame_Concatenate_Age}')
+
+print (f'-' * 20)
+
+print (f'La sumatoria total de edad es es {Data_Frame_Concatenate_Age.sum()}')
+print (f'Tambien la cantidad de usuarios en el dataframe es {Data_Frame_Concatenate_Age.count()}')
+
+print (f'Finalmente la media del numero de edades es {Data_Frame_Concatenate_Age.sum().mean()}')
+
+print (f'{Data_Frame_Concatenate.info()}')
+
+print (f'-' * 20)
+
+Grupo3 = Data_Frame_Concatenate.groupby('Nombre')['Edad'].sum()
+Grupo3_May = Grupo3.idxmax()
+Grupo3_Min = Grupo3.idxmin()
+Grupo3_May_Cant = Grupo3.max()
+Grupo3_Min_Cant = Grupo3.min()
+
+print (f'El menor del dataframe es {Grupo3_Min} y su edad es {Grupo3_Min_Cant} años')
+print (f'El mayor del dataframe es {Grupo3_May} y su edad es {Grupo3_May_Cant} años')
+
+for indice, elemento in Data_Frame_Concatenate.iterrows():
+    volador = elemento['Nombre']
+    volador2 = elemento['Edad']
+    
+    print (f'Mi nombre es {volador} y mi edad es {volador2} años')
+    
+'''print (f'-' * 20) # LINEPLOT
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
-Cargar_Csv = pd.read_csv(Ruta_Csv)
-print (f'{Cargar_Csv}')
-sns.lineplot(x='Nombre', y='Edad', data=Cargar_Csv)
+
+sns.lineplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
 plt.show()
 
-
-# Hacer un grafico de barras con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
+print (f'-' * 20) # BARPLOT
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
-Cargar_Csv = pd.read_csv(Ruta_Csv)
-print (f'{Cargar_Csv}')
-sns.barplot(x='Nombre', y='Edad', data=Cargar_Csv)
+
+sns.barplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
+
 plt.show()
 
+print (f'-' * 20) # SCATTERPLOT
 
-# Hacer un grafico de dispersion con los datos del csv Base de datos, lo que haremos es importar las librerias matplotlib.pyplot y seaborn
-
-import pandas as pd
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-Ruta_Csv = 'C:\\Repo\\Base_Datos.csv'
-Cargar_Csv = pd.read_csv(Ruta_Csv)
-print (f'{Cargar_Csv}')
-sns.scatterplot(x='Nombre', y='Edad', data=Cargar_Csv)
-plt.show()
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+sns.scatterplot(x = 'Nombre', y = 'Edad', data=Data_Frame_Concatenate)
 
+plt.show()'''
 
-Como acceder a la primera fila del dataframe? DataFrame1.head(1)  solo muestra la primera fila
+print (f'{Data_Frame_Concatenate.head(3)}')
 
-Como acceder a las primeras 3 filas del dataframe? DataFrame1.head(3)
+print (f'-' * 20)
 
-Como acceder a las ultimas 3 filas del Dataframe? DataFrame1.tail(3)
+print (f'{Data_Frame_Concatenate.head(1)}')
 
---------
+print (f'-' * 20)
 
-Como saber cuantas filas y cuantas columnas tiene un DataFrame?
-Con desempaquetado de variables
+print (f'{Data_Frame_Concatenate.tail(1)}')
 
-Filas_Totales, Columnas_Totales = DataFrame1.shape
+print (f'-' * 20)
 
-print (f'Las columnnas totales son: {Filas_Totales}')
-print (f'Las filas totales son: {Columnas_Totales}')
+Filas, Columnas = Data_Frame_Concatenate.shape
 
+print (f'El numero de Filas es de {Filas}')
+print (f'El numero de Columnas es de {Columnas}')
 
----------
+Elemento1 = Data_Frame1.loc[0, 'Nombre']
+Elemento2 = Data_Frame1.loc[1, 'Edad']
+Elemento3 = Data_Frame1.loc[2, 'Votante']
+Elemento4 = Data_Frame1.loc[:, 'Nombre']
+Elemento5 = Data_Frame1.loc[2, :]
 
-Como acceder a un elemento especifico del DataFrame?
+print (f'{Elemento1}')
+print (f'{Elemento2}')
+print (f'{Elemento3}')
+print (f'{Elemento4}')
+print (f'{Elemento5}')
 
-Elemento_Especifico_loc = DataFrame1.loc[3, "edad"]  '''Aqui mostramos la edad de la fila 3 nada mas'''
+print (f'-' * 20)
 
-Busque el nombre de la fila 0
-Busque la cabina de la fila 1
-Busque la clase de la fila 2
+Elemento6 = Data_Frame2.iloc[0, 0]
+Elemento7 = Data_Frame2.iloc[1, 1]
+Elemento8 = Data_Frame2.iloc[2, 2]
+Elemento9 = Data_Frame2.iloc[0, :]
+Elemento10 = Data_Frame2.iloc[:, 1]
 
+print (f'{Elemento6}')
+print (f'{Elemento7}')
+print (f'{Elemento8}')
+print (f'{Elemento9}')
+print (f'{Elemento10}')
 
-Ahora vamos a ingresar a los mismos valores pero con la funcion iloc
+import pandas as pd
+import openpyxl
 
-Elemento_Especifico_loc = DataFrame1.iloc[3, 5]  // el primero es la fila, el segundo es la columna numerica no por nombre
+Ruta_Excel = 'C:\\Repo\\Book.xlsx'
 
-Busque el nombre de la fila 0
-Busque la cabina de la fila 1
-Busque la clase de la fila 2
+Cargar_Excel = pd.read_excel(Ruta_Excel, engine='openpyxl')
 
+print (f'{Cargar_Excel.head()}')
 
+print (f'-' * 20)
 
-Como acceder a todas las filas de una unica columna con iloc ?
+Cargar_Excel1 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=1)
+Cargar_Excel2 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0)
+Cargar_Excel3 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, names=['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'])
+Cargar_Excel4 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, index_col='sexo')
+Cargar_Excel5 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, usecols='E:J')
+Cargar_Excel6 = pd.read_excel(Ruta_Excel, engine='openpyxl', sheet_name=0, header=0, usecols='E:J', nrows=1)
 
-DataFrame1.iloc[:, 2]  // Esto tomara todas las filas unicamente de la columna 2
+print (f'{Cargar_Excel1.head()}')
 
+print (f'-' * 20)
 
+print (f'{Cargar_Excel2.head()}')
 
-Como acceder a todas las columnas de una unica fila con iloc ?
+print (f'-' * 20)
 
-DataFrame1.iloc[3, :]  // Esto tomara todas las columnas unicamente de la fila 3
+print (f'{Cargar_Excel3.head()}')
 
+print (f'-' * 20)
 
----------
+print (f'{Cargar_Excel4.head()}')
 
+print (f'-' * 20)
 
+print (f'{Cargar_Excel5.head()}')
 
+print (f'-' * 20)
 
-Vamos a exportar un documento excel para mostrarlo en consola
-1 - Primero creemos un excel doc con extension .xlsx
-1 - Segundo importamos en pycharm import openpyxl
-2 - Tercero creemos la ruta del archivo
-3 - Cuarto carguemos el documento en una variable
-Excel_Doc = pd.read(Ruta, engine='openpyxl')
-4 - Ahora imprimamos el doc con print Excel_Doc.head()
+print (f'{Cargar_Excel6.head()}')
 
+print (f'-' * 20)
 
-Trabajemos con index_col, sheet_name, nrow, etc....
+Cargar_Excel3_Sorted = Cargar_Excel3.sort_values(by='cinco', ascending=True)
 
-******************** OJO, vamos a usar la funcion .sort_value() aplicada al Cargar_Excel creamos una nueva variable, para acomodar una columna numericamente hablando
-Cargar_Excel_Sorted = Cargar_Excel.sort_values(by='clase')
-******************** Ahora vamos a acomodarlos al revez, de mayor a menor con Cargar_Excel2 = Cargar_Excel.sort_value('tarifa', ascending=False)
-******************** Agarremos ahora solamente los valores de una unica columna ----- print (f'{Cargar_Excel['nombre']}')
+print (f'{Cargar_Excel3_Sorted}')
 
+print (f'-' * 20)
 
-Vamos a exportar un documento txt para mostrarlo en consola
-1 - Primero creemos un txt doc
-2 - Tercero creemos la ruta del archivo
-3 - Cuarto carguemos el documento en una variable pd.read_csv
-Txt_Doc = pd.read_csv(Ruta)
-4 - Ahora imprimamos el doc con print Txt_Doc.head()
+Cargar_Excel3_Sorted_Descending = Cargar_Excel3.sort_values(by='cinco', ascending=False)
 
-Vamos a exportar un documento csv para mostrarlo en consola
-1 - Primero creemos un csv doc con extension .csv
-2 - Segundo creemos la ruta del archivo
-3 - Tercero carguemos el documento en una variable
-Cargar_csv = pd.read_csv(Ruta)
-4 - Ahora imprimamos el doc con print Cargar_csv
+print (f'{Cargar_Excel3_Sorted_Descending}')
 
+Grupo4 = Cargar_Excel3_Sorted.groupby('tres')['cinco'].sum()
 
+print (f'La cantidad de bichillos en este excel es {Grupo4.count()}')
+print (f'La suma de las edades es de {Grupo4.sum()}')
+print (f'La suma media de las edades es de {Grupo4.sum().mean()}')
 
-Ahora vamos a leer una pagina web **********
+print (f'-' * 20)
+
+import pandas as pd
+
+Ruta_Txt = 'C:\\Repo\\HolaMundo.txt'
+
+Cargar_Csv2 = pd.read_csv(Ruta_Txt)
+
+print (f'{Cargar_Csv2}')
+
+print (f'-' * 20)
+
+print (f'{Cargar_Csv2.head()}')
+
+print (f'-' * 20)
+
+import pandas as pd
+
+Ruta_Csv3 = 'C:\\Repo\\Base_Datos.csv'
+
+Cargar_Csv3 = pd.read_csv(Ruta_Csv3)
+
+print (f'{Cargar_Csv3}')
+
+print (f'-' * 20)
+
+Grupo5 = Cargar_Csv3.groupby('Nombre')['Edad'].sum()
+
+print (f'La menor de las edades del csv es {Grupo5.min()} y la edad mayor es {Grupo5.max()}')
+
+print (f'-' * 20)
+
 import pandas as pd
 import requests
-Ruta_HTML = 'https://en.wikipedia.org/wiki/Louisiana'
+import io
+
+Ruta_Html = 'https://en.wikipedia.org/wiki/Louisiana'
+
 headers = {'User-Agent' : 'Mozilla/5.0'}
-Response = requests.get(Ruta_HTML, headers=headers)
-Cargar_HTML = pd.read_html(Response.text)
-print (f'{Cargar_HTML[2].head()}')
 
-'''
+Response = requests.get(Ruta_Html, headers=headers)
 
+Leer_Html = io.StringIO(Response.text)
 
-'''
-*********************************************** [NUMPY]
+Cargar_Html = pd.read_html(Leer_Html)
 
-Vamos  a hacer una matriz simple con Listas antes de comenzar con numpy.
+print (f'{Cargar_Html[2].head()}')
 
-Lista_Matriz = [[1, 2, 3], [4, 5, 6]]
+print (f'-' * 20)
 
-print (f'{Lista_Matriz[0][1]}')
-
-
-
-# Como iteramos una matriz ------------
-
-matriz = [
+Array0 = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]
 
-for i in range(len(matriz)):
-    for j in range(len(matriz[i])):
-        print (f'{matriz[i][j]}')
+print (f'{Array0}')
+print (f'{Array0[2][:2]}')
+print (f'{Array0[2][2:]}')
+print (f'{Array0[0][::2]}')
+print (f'{Array0[1][::3]}')
+print (f'{Array0[2][2:3]}')
+print (f'{Array0[0][0:None]}')
+print (f'{Array0[1][:]}')
 
----------------------------------------------------------
----------------------------------------------------------
----------------------------------------------------------
+print (f'-' * 20)
 
-Importemos la libreria numpy
-Con as llamenos a la libreria np
+for i in range(len(Array0)):
+    for j in range(len(Array0[i])):
+        print (f'{Array0[i][j]}')
+        
+print (f'-' * 20)
+    
+import numpy as np
 
+Array1 = np.array([1, 2, 3])
 
-Cree un arreglo basico de 1 dimension con la funcion np.array([])
-Con un print muestre un elemento del array de una dimension
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
+print (f'{Array1}')
+print (f'{Array1.ndim}') # 1
+print (f'{Array1.shape}') # 1x3
+print (f'{Array1.size}') # 3
+print (f'{Array1.dtype}') # int64
+print (f'{Array1}')
 
+print (f'{Array1[::2]}')
+print (f'{Array1[::3]}')
+print (f'{Array1[:2]}')
+print (f'{Array1[2:]}')
+print (f'{Array1[2:3]}')
+print (f'{Array1[0:None]}')
+print (f'{Array1[:]}')
+print (f'{Array1[Array1 <= 2]}')
 
-Cree un arreglo basico de 2 dimensiones con la funcion np.array([])
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
-Acomodome los numeros con sort()
-Saque la media con mean
-Sume los elementos con sum
-Sume los elementos con axis Sumita
+print (f'-' * 20)
 
-# Haga una lista de 10 numeros consecutivos y con np.min() nuestre el mas pequeno
-# Haga una lista de 10 numeros consecutivos y con np.max() nuestre el mas grande
-# Hagamos una tabla de 5x5 y por medio de np.min(axis = 0) buscar el minimo de cada columna
-# Por medio de np.max(axis = 1) buscar el maximo de cada fila
-# axis = 0 son columnas
-# axis = 1 son filas
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
+Array2 = np.array([[1, 2, 3], [4, 5, 6]])
 
-Cree un arreglo basico de 3 dimensiones pero con letras con la funcion np.array([])
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
+print (f'{Array2}')
+print (f'{Array2.ndim}') # 2
+print (f'{Array2.shape}') # 2x3
+print (f'{Array2.size}') # 6
+print (f'{Array2.dtype}') # int64
+print (f'{Array2}')
 
-Cree un arreglo basico de 4 dimensiones con la funcion np.array([])
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-# array[:3] // Imprimiremos todos los elemenstos desde el inicio hasta chocar con 3
-# array[3:] // Imprimiremos desde el 3 hasta el final
-# Array5[::2] se vuela todos los multiplos de 2 y muestra solo los que no lo son
-# Array5[::3] se vuela todos los multiplos de 3 y muestra solo los que no lo son
-# Array5[0, None] esto me va a mostrar en un array bi dimensional, solamente el row 0
-# [1, :, 2] = 500  de un array de 3 dimensiones, seleccione la segunda matriz, de todo ese row, tome todos los elementos de la columna 2 y cambielos por 500
-# Ejemplo[Ejemplo < 12] esto imprime los elementos de la matriz que sean menores a 12
-Acomodome los numeros con sort()
-Saque la media con mean
-Sume los elementos con sum
-Sume los elementos con axis Sumita
+print (f'{Array2[1, ::2]}')
+print (f'{Array2[0, ::3]}')
+print (f'{Array2[1, :2]}')
+print (f'{Array2[1, 2:]}')
+print (f'{Array2[:, 1]}')
+print (f'{Array2[1, 2:3]}')
+print (f'{Array2[0, 0:None]}')
+print (f'{Array2[0, :]}')
+print (f'{Array2[Array2 <= 2]}')
 
+Array2_Sorted = np.sort(Array2)
+Array2_Sorted_Mean = np.mean(Array2_Sorted)
+Array2_Sorted_Sum = np.sum(Array2_Sorted)
 
-# Vamos a hacer un arreglo vacio de zeros de 2 x 3 con .zeros
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
+print (f'Acomodados: {Array2_Sorted}')
+print (f'Media: {round(Array2_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array2_Sorted_Sum}')
 
+Sumita1 = np.sum(Array2_Sorted, axis=0)
+Sumita2 = np.sum(Array2_Sorted, axis=1)
+Sumita3 = np.sum(Array2_Sorted[1, 0:None])
+Sumita4 = np.sum(Array2_Sorted[1, :])
 
-# Vamos a hacer un arreglo vacio de unos de 2 x 3 con .ones
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
-Ahora muestre el tipo de dato con .dtype
+print (f'El resultado de la sumita es {Sumita1}')
+print (f'El resultado de la sumita es {Sumita2}')
+print (f'El resultado de la sumita es {Sumita3}')
+print (f'El resultado de la sumita es {Sumita4}')
 
+print (f'-' * 20)
 
-# Ahora vamos a crear un arreglo de 3,5 en donde cada posicion tenga el mismo texto .full
-Con un print muestre un elemento del array
-Muestre la cantidad de dimensiones del array con la funcion .ndim
-Ahora muestre la forma del array con .shape
-Ahora veamos la cantidad de elementos del array con .size
+Array3 = np.array([[['e', 'r', 'p'], ['a', 'b', 'c']],     [['w', 'x', 'f'], ['s', 'k', 'l']]])
 
+print (f'{Array3}')
+print (f'{Array3.ndim}') # 3
+print (f'{Array3.shape}') # 2x2x3
+print (f'{Array3.size}') # 12
+print (f'{Array3.dtype}') # <U1
+print (f'{Array3[1, 0, 2]}')
 
-# Creamos un Array Generico de una dimension con 5 elementos aleatorios. Por medio de un ciclo for vamos a agregarlos a una Tupla_Array
+print (f'{Array3[1, 0, ::2]}')
+print (f'{Array3[1, 0, ::3]}')
+print (f'{Array3[0, 1, :2]}')
+print (f'{Array3[0, 1, 2:]}')
+print (f'{Array3[0, :, 0]}')
+print (f'{Array3[1, 0, 2:3]}')
+print (f'{Array3[0, 1, 0:None]}')
+print (f'{Array3[0, 1, :]}')
+print (f'{Array3[Array3 == "f"]}')
 
+print (f'-' * 20)
 
+Array4 = np.array([[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [0, 5, 7]]],     [[[3, 2, 1], [6, 5, 4]], [[9, 8, 7], [3, 0, 1]]]])
 
-# Array_Generico = np.full(shape=(3, 5), fill_value='Fuecoco')
-# Crear una tabla de 2x3 con el número 7 en cada espacio
-# Usar una tupla como fill_value, ojo el tamaño de la tupla debe ser mismo tamano de las columnas  mi_tupla = (1, 2)
-# Diccionario como fill_value   ---   mi_diccionario = {"a": 1, "b": 2}
-# Con un print muestre un elemento del array
-# Muestre la cantidad de dimensiones del array con la funcion .ndim
-# Ahora muestre la forma del array con .shape
-# Ahora veamos la cantidad de elementos del array con .size
+print (f'{Array4}')
+print (f'{Array4.ndim}') # 4
+print (f'{Array4.shape}') # 2x2x2x3
+print (f'{Array4.size}') # 24
+print (f'{Array4.dtype}') # int64
+print (f'{Array4[1, 0, 1, 2]}')
 
-# Haz un arreglo 4x1 lleno de la palabra "hola".
-# Haz un arreglo 2x2 lleno de un set como {10, 20, 30}
+print (f'{Array4[1, 1, 0, ::2]}')
+print (f'{Array4[1, 1, 0, ::3]}')
+print (f'{Array4[0, 1, 0, :2]}')
+print (f'{Array4[0, 1, 0, 2:]}')
+print (f'{Array4[1, 1, :, 1]}')
+print (f'{Array4[1, 0, 0, 2:3]}')
+print (f'{Array4[0, 0, 1, 0:None]}')
+print (f'{Array4[0, 0, 1, :]}')
+print (f'{Array4[Array4 <= 2]}')
 
+Array4_Sorted = np.sort(Array4)
+Array4_Sorted_Mean = np.mean(Array4_Sorted)
+Array4_Sorted_Sum = np.sum(Array4_Sorted)
 
+print (f'Acomodado: {Array4_Sorted}')
+print (f'Media: {round(Array4_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array4_Sorted_Sum}')
 
+Sumita5 = np.sum(Array4_Sorted, axis=0)
+Sumita6 = np.sum(Array4_Sorted, axis=1)
+Sumita7 = np.sum(Array4_Sorted[1, 0, 1, 0:None])
+Sumita8 = np.sum(Array4_Sorted[1, 0, 1, :])
 
-# Ahora vamos a crear un arreglo que contenga numeros del 1 al 5 con np.arange(start=1, stop=6, step=1)
-# Solo números pares del 2 al 10   pares = np.arange(2, 11, 2)
-# Crea un arreglo con los números del 10 al 20 de 2 en 2
-# Crea un arreglo con los múltiplos de 3 desde 3 hasta 30
-# Ahora creamos un arreglo que vaya de 1 a 10 con np.arrange(10)
+print (f'{Sumita5}')
+print (f'{Sumita6}')
+print (f'{Sumita7}')
+print (f'{Sumita8}')
 
-# Creamos un array con random.randint() de una unica dimensional
-# # Creamos un array con random.randint() de 2 x 3
-# Crea un arreglo de números aleatorios y ordénalo con np.sort()
-# Ahora a ese mismo arreglo saquele la media con .mean()
-# Ahora haga la sumatoria de todos los elementos del arreglo con .sum()
+print (f'-' * 20)
 
-# Sume dos matrices de 2, 3 igual tamano
-# Reste dos matrices de 2, 3 igual tamano
-# Multiplique dos matrices de 2, 3 igual tamano
-# Divida dos matrices de 2, 3 igual tamano
-# Sumele 5 a cada numero de un arreglo de una unica vez
+Array_Num1 = np.arange(start=1, stop=11, step=1) #type: ignore
 
-# Ahora tome un arreglo de un unico axis o dimension de 20 numeros y haga un reshape con una matriz de 4 x 5  np.reshape(array, shape=(2, 3))
-# Ahora creemos una lista con 10 elementos, luego creemos un arreglo y llenemoslo con los elementos de la lista
-# Ahora el array que fue reshape vamos a desenvolverlo con .ravel()
-# Ahora creemos dos arrays de 1x3 cada uno y concatenemoslos con np.concatenate       -----  np.concatenate([arr1, arr2], axis = 1)
-# Tomemos un array de 6 elementos y dividamoslo en 3 arrays  de 2 elementos cada uno con np.split(Array, 3)
-# Ahora hagamos un array de 10 elementos, con la instruccion np.where(Array == 3) me creara un array que muestra todas las posiciones donde haya un 3
+print (f'{Array_Num1}')
 
-# con un ciclo for y una matriz de 2x3 recorra cada una de las filas
-# Con un ciclo for y una matriz de 2x2x3 recorra cada matriz y luego otro for para recorrer cada fila
+Array_Num1_May = np.max(Array_Num1)
+Array_Num1_Min = np.min(Array_Num1)
 
+print (f'El menor de los numeros es {Array_Num1_Min} y el mayor es {Array_Num1_May}')
 
-# vamos a hacer una matriz de 2x2x3 y con axis, vamos a sumar solo los elementos de la segunda fila np.sum(array1, axis=0)
+print (f'-' * 20)
 
-# Vertical (por columnas)	           axis=0	Baja por las filas ↓
-# Horizontal (por filas)	           axis=1	Cruza las columnas →
-# Todo	                               Ninguno	Hace todo junto
+Array_Num2 = np.arange(start=1, stop=26, step=1) #type: ignore
 
-'''
-[Mini programa ganador del sorteo]
-Creemos una lista con 6 nombres
-Ganador = random.choise(Lista_Nombres)
-Ahora elija 3 ganadores  Ganador = random.choise(Lista_Nombres, size=(3))
-Finalmente elija una matriz de ganadores de 2x3     random.choise(Lista_Nombres, size=(2, 3))
-Con la instruccion replace = False, vamos a asegurarnos que ningun numero del resultado se repita
+print (f'{Array_Num2}')
 
+Array_Num2_Reshape = np.reshape(Array_Num2, shape=(5, 5))
 
-Busque 3 numeros entre el 1 y el 10 con Array_Linspace = np.linspace(start=1, stop=10, num=3)
-'''
+print (f'{Array_Num2_Reshape}')
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+Array_Num2_Reshape_Column_Min = np.min(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Column_Max = np.max(Array_Num2_Reshape, axis=0)
+Array_Num2_Reshape_Row_Min = np.min(Array_Num2_Reshape, axis=1)
+Array_Num2_Reshape_Row_Max = np.max(Array_Num2_Reshape, axis=1)
 
-Hagamos una funcion Generadora.
-Las funciones generadoras me permiten ejecutar un codigo de manera pausada y controlada para ver el comportamiento.
+print (f'Los menores de las columnas son {Array_Num2_Reshape_Column_Min}')
+print (f'Los mayores de las columnas son {Array_Num2_Reshape_Column_Max}')
+print (f'Los menores de las filas son {Array_Num2_Reshape_Row_Min}')
+print (f'Los mayores de las filas son {Array_Num2_Reshape_Row_Max}')
 
-Hagamos una funcion generadora, donde por medio de un range se muestren 10 numeros, pero con los parametros de la funcion generadora, ir de uno en uno para analizar su ejecucion.
+print (f'-' * 20)
 
-def Ejemplo():
-    for elemento in range(0, 10):
-        yield elemento
+Array_Zero = np.zeros(shape=(2, 3))
 
-Rango = Ejemplo()
+print (f'{Array_Zero}')
+print (f'{Array_Zero.ndim}')
+print (f'{Array_Zero.shape}')
+print (f'{Array_Zero.size}')
+print (f'{Array_Zero.dtype}')
+print (f'{Array_Zero[1, 2:3]}')
 
-print (f'{next(Rango)}')
+print (f'-' * 20)
 
+Array_Ones = np.ones(shape=(2, 3))
 
-Ahora hagamos una funcion donde por medio de un range se evalue si el elemento es un numero par o impar, vamos a ir evaluando cada uno con un if % 2 == 0 y yield, quiero que me muestre cada resultado de manera individual. La idea es con el next mostrar par, impar, par, etc….
+print (f'{Array_Ones}')
+print (f'{Array_Ones.ndim}')
+print (f'{Array_Ones.shape}')
+print (f'{Array_Ones.size}')
+print (f'{Array_Ones.dtype}')
+print (f'{Array_Ones[0, 2]}')
 
-def Ejemplo2():
+print (f'-' * 20)
+
+Array_Gen1 = np.full(shape=(2, 3), fill_value = f'{PEPE.Diccionario_Poke["Poke2"]}')
+
+print (f'{Array_Gen1}')
+print (f'{Array_Gen1.ndim}')
+print (f'{Array_Gen1.shape}')
+print (f'{Array_Gen1.size}')
+print (f'{Array_Gen1.dtype}')
+print (f'{Array_Gen1[1, 1]}')
+
+print (f'-' * 20)
+
+Array_Gen2 = np.full(shape=(5), fill_value = f'Fuecoco')
+
+print (f'{Array_Gen2}')
+print (f'{Array_Gen2.ndim}')
+print (f'{Array_Gen2.shape}')
+print (f'{Array_Gen2.size}')
+print (f'{Array_Gen2.dtype}')
+print (f'{Array_Gen2[3]}')
+
+print (f'-' * 20)
+
+Array_Gen3 = np.full(shape=(2, 3), fill_value = Array4[1, 0, 0, 2:3])
+
+print (f'{Array_Gen3}')
+print (f'{Array_Gen3.ndim}')
+print (f'{Array_Gen3.shape}')
+print (f'{Array_Gen3.size}')
+print (f'{Array_Gen3.dtype}')
+print (f'{Array_Gen3[1, 1]}')
+
+print (f'-' * 20)
+
+Tupla_Array = tuple(('Rojo', 'Verde'))
+Set_Conjunto_Array1 = {1, 2, 3, 4}
+Set_Conjunto_Array2 = set({5})
+Set_Conjunto_Array1.update(Set_Conjunto_Array2)
+
+Diccionario_Array = dict({'Nombre' : ["Erick", "Josue", "Karlita"]})
+
+Array_Gen4 = np.full(shape=(3, 2), fill_value=Tupla_Array)
+Array_Gen5 = np.full(shape=(2, 1), fill_value=Set_Conjunto_Array1)
+Array_Gen6 = np.full(shape=(4, 1), fill_value=Diccionario_Array['Nombre'][1])
+
+print (f'-' * 20)
+
+print (f'{Array_Gen4}')
+print (f'{Array_Gen5}')
+print (f'{Array_Gen6}')
+
+print (f'-' * 20)
+
+print (f'{Array_Gen6[3]}')
+
+print (f'-' * 20)
+
+Array_Num3 = np.arange(start=1, stop=6, step=1) #type: ignore
+
+print (f'{Array_Num3}')
+
+Lista_Array1 = list([])
+
+for elemento in Array_Num3:
+    Lista_Array1.extend([str(elemento)])
+
+print (f'{Lista_Array1}')
+print (f'{type(Lista_Array1)}')
+
+print (f'-' * 20)
+
+Array_Num4 = np.arange(start=1, stop=6, step=1) #type: ignore
+Array_Num5 = np.arange(start=2, stop=11, step=2) #type: ignore
+Array_Num6 = np.arange(start=3, stop=31, step=3) #type: ignore
+Array_Num7 = np.arange(start=2, stop=21, step=2) #type: ignore
+Array_Num8 = np.arange(10) #type: ignore
+
+print (f'{Array_Num4}')
+print (f'{Array_Num5}')
+print (f'{Array_Num6}')
+print (f'{Array_Num7}')
+print (f'{Array_Num8}')
+
+print (f'-' * 20)
+
+Array_Random1 = np.random.randint(low=1, high=10, size=(10))
+
+print (f'{Array_Random1}')
+
+print (f'-' * 20)
+
+Array_Random2 = np.random.randint(low=1, high=10, size=(2, 3))
+
+print (f'{Array_Random2}')
+
+Array_Random2_Sorted = np.sort(Array_Random2)
+Array_Random2_Sorted_Mean = np.mean(Array_Random2_Sorted)
+Array_Random2_Sorted_Sum = np.sum(Array_Random2_Sorted)
+
+print (f'Acomodado: {Array_Random2_Sorted}')
+print (f'Media: {round(Array_Random2_Sorted_Mean, 2)}')
+print (f'Sumatoria: {Array_Random2_Sorted_Sum}')
+
+Sumita9 = np.sum(Array_Random2_Sorted, axis=0)
+Sumita10 = np.sum(Array_Random2_Sorted, axis=1)
+Sumita11 = np.sum(Array_Random2_Sorted[1, 0:None])
+Sumita12 = np.sum(Array_Random2_Sorted[1, :])
+
+print (f'El resultado de la sumita es {Sumita9}')
+print (f'El resultado de la sumita es {Sumita10}')
+print (f'El resultado de la sumita es {Sumita11}')
+print (f'El resultado de la sumita es {Sumita12}')
+
+print (f'-' * 20)
+
+Arr1 = np.array([8, 9, 14])
+Arr2 = np.array([2, 4, 7])
+
+Sum = Arr1 + Arr2
+Rest = Arr1 - Arr2
+Mult = Arr1 * Arr2
+Div = Arr1 / Arr2
+
+Array_Random1_Cien = Array_Random1 + 100
+
+print (f'El resultado de la operacion es {Sum}')
+print (f'El resultado de la operacion es {Rest}')
+print (f'El resultado de la operacion es {Mult}')
+print (f'El resultado de la operacion es {Div}')
+print (f'El resultado de la operacion es {Array_Random1_Cien}')
+
+print (f'-' * 20)
+
+Array_Random3 = np.random.randint(low=1, high=10, size=(20))
+
+print (f'{Array_Random3}')
+
+Array_Random3_Shape = np.reshape(Array_Random3, shape=(4, 5))
+
+print (f'{Array_Random3_Shape}')
+
+Array_Random3_Shape_Ravel = np.ravel(Array_Random3_Shape)
+
+print (f'{Array_Random3_Shape_Ravel}')
+
+print (f'-' * 20)
+
+Lista_Array2 = []
+Lista_Array2.append('Erick')
+Lista_Array2.insert(1, 'Josue')
+Lista_Array2.extend(['Karlita'])
+
+Array5 = np.array(Lista_Array2)
+
+print (f'{Array5}')
+print (f'{type(Array5)}')
+
+print (f'-' * 20)
+
+Array6 = np.array([1, 2, 3])
+Array7 = np.arange(start=4, stop=7, step=1) #type: ignore
+
+Array_Concatenate = np.concat([Array6, Array7])
+
+print (f'{Array_Concatenate}')
+
+print (f'-' * 20)
+
+Array_Concatenate_Split = np.split(Array_Concatenate, 3)
+
+print (f'{Array_Concatenate_Split[0]}')
+print (f'{Array_Concatenate_Split[1]}')
+print (f'{Array_Concatenate_Split[2]}')
+
+print (f'-' * 20)
+
+Array_Concatenate_Where = np.where(Array_Concatenate == 3)
+
+print (f'{Array_Concatenate_Where}')
+
+print (f'-' * 20)
+
+for Matriz2 in Array4:
+    for Matriz1 in Matriz2:
+        for Fila in Matriz1:
+            print (f'{Fila}')
+
+print (f'-' * 20)
+
+for Matriz1 in Array3:
+    for Fila in Matriz1:
+        for Elemento in Fila:
+            print (f'{Elemento}')
+
+print (f'-' * 20)
+
+Array_Random4 = np.random.randint(low=1, high=10, size=(2, 2, 3))
+
+print (f'{Array_Random4}')
+
+print (f'-' * 20)
+
+Array_Random4_Column_May = np.max(Array_Random4, axis=0)
+Array_Random4_Column_Min = np.min(Array_Random4, axis=0)
+Array_Random4_Row_May = np.max(Array_Random4, axis=1)
+Array_Random4_Row_Min = np.min(Array_Random4, axis=1)
+
+print (f'Los menores de las columnas son {Array_Random4_Column_Min}')
+print (f'Los mayores de las columnas son {Array_Random4_Column_May}')
+print (f'Los menores de las filas son {Array_Random4_Row_Min}')
+print (f'Los mayores de las filas son {Array_Random4_Row_May}')
+
+print (f'-' * 20)
+
+Lista_Array3 = ['Erick', 'Josue', 'Karlita']
+Lista_Array3.append('Carmelo')
+Lista_Array3.insert(2, 'Susanita')
+Lista_Array3.extend(['Roxana'])
+
+Ganador1 = np.random.choice(Lista_Array3, size=(1), replace=False)
+Ganador2 = np.random.choice(Lista_Array3, size=(2), replace=False)
+Ganador3 = np.random.choice(Lista_Array3, size=(2, 3), replace=False)
+
+print (f'El ganador del sorteo es {Ganador1}')
+print (f'El ganador del sorteo es {Ganador2}')
+print (f'El ganador del sorteo es {Ganador3}')
+
+print (f'-' * 20)
+
+Array_Linspace = np.linspace(start=1, stop=10, num=3)
+
+print (f'{Array_Linspace}')
+
+print (f'-' * 20)
+
+def Generadora1():
     for elemento in range(5):
-        if (elemento % 2 == 0):
-            yield f'par'
-        else:
-            yield f'impar'
-
-Rango2 = Ejemplo2()
-
-print (f'{next(Rango2)}')
-
-
-
-# Ahora vamos a hacer un ejercicio mas donde por medio de una funcion que recorra un ciclo range, con yield y next se muestre cada uno por separado
-# Pero en este caso cuando lleguemos al final mostraremos un mensaje El ejercicio termino. Esto lo manejaremos con una exception StopIteration
-def Ejemplo():
-    for elemento in range(3):
-        yield elemento
-
-Rango = Ejemplo()
+        yield f'{elemento}'
+        
+Gen1 = Generadora1()
 
 try:
-    print (f'{next(Rango)}')
-    print(f'{next(Rango)}')
-    print(f'{next(Rango)}')
-    print(f'{next(Rango)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
+    print (f'{next(Gen1)}')
 except StopIteration:
-    print (f'El ejercicio termino')
-'''
+    print (f'El experimento termina aqui')
+    
+print (f'-' * 20)
 
+def Generadora2():
+    for elemento in range(1, 5):
+        if (elemento % 2 == 0):
+            yield f'EVEN'
+        else:
+            yield f'ODD'
+            
+Gen2 = Generadora2()
 
-####### CREANDO MIS PROPIAS FUNCIONES
+try:
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+    print (f'{next(Gen2)}')
+except StopIteration:
+    print (f'El experimento termina aqui')
 
-# Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los
-# valores y los devuelva return como una lista.
+print (f'-' * 20)
 
-# Creamos una funcion simple propia que diga hola mundo  en  Modulo_Propio
-# Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio
-# Creamos una funcion que tenga un parametro nombre agregado por el usuario en  Modulo_Propio, ojo hagamos la funcion type hint mostrando el tipo de dato
-# Creamos una funcion que recibe dos numeros, retorne (return) la suma del num1 y el num2 en  Modulo_Propio
-# Ahora haremos la misma sumatoria pero con funciones anidadas
-# Crear una función que devuelva True si un número es par
-# Creamos ahora una funcion con dos parametros, nombre y sexo, si el sexo es femenimo muestra chica, si el sexo es masculino muestra chico con un condicional.
-# Ahora haremos la misma funcion pero con funciones anidadas
-# Creamos una funcion que solicite un numero para hacer una contrasena random, se devuelve un valor con return
-# *args devuelve una tupla
-# Con un subindice, muestre un solo elemento de la tupla resultado
-# **kwargs devuelve un diccionario
-# Ahora vamos a usar el argumento *args para empaquetar varios argumentos en una unica variable, hacemos una funcion que reciba muchos argumentos, los sume todos y despliegue el resultado
-# Ahora vamos a hacer una funcion que diga, variable nombre Erick, la sumatoria de todos tus numeros es xxx, usando dos parametros, nombre y *args
-# Ahora vamos a crear una tupla con *args
-# Creamos un diccionario con **kwargs
-# Creamos una funcion anonima lambda basica
-# Crear una lambda que calcule el doble de un número. y lo imprima
-# Creamos una lista de numeros y una funcion lambda con un filter que saque solo los pares
+def Generadora3():
+    for elemento in range(5):
+        if (elemento == 0):
+            yield f'NUMBER ZERO'
+        elif (elemento == 1):
+            yield f'NUMBER ONE'
+        elif (elemento == 2):
+            yield f'NUMBER TWO'
+        elif (elemento == 3):
+            yield f'NUMBER THREE'
+        elif (elemento == 4):
+            yield f'NUMBER FOUR'
+        else:
+            yield f'CODING ERROR'
+            
+Gen3 = Generadora3()
 
-'''
-Declarar una variable GLOBAL externa integer, ojo recuerda que las variables globales se declaran totalmente en mayuscula
-Ahora declaramos una funcion con una variable local interna integer
-Hacemos una suma en la funcion de la variable global mas la variable local
+try:
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+    print (f'{next(Gen3)}')
+except StopIteration:
+    print (f'El experimento termina aqui')
+    
+print (f'-' * 20)
 
-Hagamos una funcion anidada
-funcion externa con una variable nombre
-indentamos una funcion interna con un apellido
-imprimimos el nombre completo en la funcion interna
+Lista_Numbers = [1, 2, 3, 4, 5]
 
-'''
+print (f'El resultado es {PEPE.Calculo(Lista_Numbers)}')
 
-# Esto es una funcion closure anidada que agrega numeros a una lista
+PEPE.Saludar1()
 
-def Agregue_Numero_Externa():
-    Lista = []
-   
-    def Agregue_Numero_Interna(x):
-        Lista.append(x)
-        print (f'{Lista}')
-       
-    return Agregue_Numero_Interna
+from Module_Own import Saludar2 as Saludar_Dos
 
-variable = Agregue_Numero_Externa()
+print (f'Hola {Saludar_Dos()}')
 
-variable(1)
-variable(2)
-variable(3)
+print (f'Hola nuevamente {PEPE.Saludar3(Saludar_Dos())}')
 
-# Ahora vamos a crear un closure con dos funciones crear_multiplicador y multiplicar que recibe dos parametros x y n, la idea es crear dos variables que multpliquen 10 * 2 y 10 * 3
+print (f'El resultado de la sumatoria es {PEPE.Sumatoria1(12, 7)}')
 
-def crear_Multiplicador(x):
-    def Multiplicar(n):
-        return x * n
-   
-    return Multiplicar
+def Sumatoria_Externa(Num1):
+    def Sumatoria_Interna(Num2:int) -> int:
+        return Num1 + Num2
+    
+    return Sumatoria_Interna(4)
 
-num1 = crear_Multiplicador(2)
-num2 = crear_Multiplicador(3)
+Variable_Sumatoria = Sumatoria_Externa(3)
 
-print (f'El primer resultado es {num1(10)}')
-print (f'El primer resultado es {num2(10)}')
+print (f'El resultado de la sumatoria es {Variable_Sumatoria}')
 
-# Creamos una funcion que reciba un set o tupla de numeros y filtre para mostrar unicamente los numeros pares
-Pares = [num for num in Lista if num % 2 == 0]
+if (PEPE.Par(Variable_Sumatoria) == True):
+    print (f'El numero es par')
+else:
+    print (f'El numero es impar')
+    
+PEPE.Usuario(Saludar_Dos(), 'MASCULINO')
 
-'''
-************************* DECORADORES   *************************
+def Usuario_Externa():
+    def Usuario_Interna(Sexo):
+        Genero = Sexo.lower()
+        if (Genero == 'masculino'):
+            return True
+        else:
+            return False
+        
+    return Usuario_Interna('MASCULINO')
 
-1 - Primero vamos a crear un decorador que afecta a una funcion saludar hola mundo. La idea es agregar el texto "Esto va antes" a la funcion saludar hola mundo original por medio de un decorador
+Variable_Usuario = Usuario_Externa()
 
-2 - Ahora vamos a crear una funcion que suma dos numeros, por medio de otro decorador, vamos a alterar el resultado de la sumatoria de la funcion y le sumaremos 100 mas
+if (Variable_Usuario == True):
+    print (f'YOU ARE A MAN')
+else:
+    print (f'YOU ARE A WOMAN')
+    
+with open ('C:\\Repo\\HolaMundo.txt', 'a', encoding='UTF-8') as Docu:
+    Documento_Agregar = Docu.write(f'\nSu contrasena temporal es {PEPE.Contrasena(44)}')
+    Docu.close()
+    
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    print (f'{Documento_Lineas}')
+    Docu.close()
+    
+print (f'-' * 20)
+    
+def Funcion_Tupla(*args):
+    return args
 
-3 - Ahora vamos a crear una funcion que muestre un nombre y un apellido y por medio de un decorador vamos a cambiar el nombre de Erick a Carmelo
+Variable_Funcion_Tupla = Funcion_Tupla("Perro", 3.5, 200, True)
 
-'''
+print (f'{Funcion_Tupla("Perro", 3.5, 200, True)}')
+print (f'{Funcion_Tupla("Perro", 3.5, 200, True)[2]}')
+print (f'{Variable_Funcion_Tupla[3]}')
+print (f'{type(Funcion_Tupla("Perro", 3.5, 200, True))}')
+    
+print (f'-' * 20)
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+def Funcion_Diccionario(**kwargs):
+    for elemento in kwargs.items():
+        print (f'{elemento[0]} -- {elemento[1]}')
+        
+    print (f'-' * 20)
+        
+    for elemento in kwargs.keys():
+        print (f'{elemento}')
+        
+    print (f'-' * 20)
+        
+    for elemento in kwargs.values():
+        print (f'{elemento}')
+        
+    print (f'-' * 20)
+        
+    for elemento in kwargs:
+        print (f'{kwargs[elemento]}')
+        
+Funcion_Diccionario(Nombre = Saludar_Dos(), Edad = 37, Votante = not True)
 
+print (f'-' * 20)
 
-# Crea una clase pokemon con tipo, nombre, ataque y una variable capturado en el  Modulo_Propio
+def Sumatoria2(*args):
+    return sum(args)
 
-# Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Diccionario_Poke", ya no se necesita usar Saludar
+print (f'El resultado de la sumatoria es {Sumatoria2(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
 
-# Creemos una clase hija que herede todas las caracteristicas de la clase pokemon
+def Sumatoria_Dos(Nombre, *args):
+    return f'{Nombre}, tu numero favorito es {sum(args)}'
+
+print (f'{Sumatoria_Dos("Erick", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+from Module_Own import Variable_Funcion_Anonima1 as Anonima1, Variable_Funcion_Anonima2 as Anonima2, Variable_Funcion_Anonima3 as Anonima3
+
+print (f'El resultado de la multiplicacion es {Anonima1(150, 3)}')
+print (f'El doble del numero {Variable_Sumatoria} es {Anonima2(Variable_Sumatoria)}')
+print (f'Los numeros pares de la lista son {list(Anonima3)} o incluso puede ser {PEPE.Lista_Par}')
+
+def Primera(Segunda): #type: ignore
+    def Tercera(*args):
+        return Segunda(*args) - 42
+        
+    return Tercera
+
+@Primera
+def Operacion(Numero:int) -> int:
+    Local = Numero
+    return PEPE.GLOBAL + Local
+
+print (f'El resultado de la operacion es {Operacion(12)}')
+
+def Externa(Nombre):
+    def Interna(Apellido):
+        print (f'Mi nombre es {Nombre} {Apellido}')
+        
+    return Interna('PEREZ GUTIERREZ')
+
+Externa('ERICK JOSUE')
+
+def Closure_Externo():
+    Lista_Closure = []
+    def Closure_Interno(x):
+        Lista_Closure.append(x)
+        
+        return Lista_Closure
+    
+    return Closure_Interno
+
+Variable_Closure = Closure_Externo()
+
+print (f'{Variable_Closure(12)}')
+print (f'{Variable_Closure(23)}')
+print (f'{Variable_Closure(36)}')
+
+def Closure_Crear_Multiplicador(x):
+    def Closure_Multiplicador(y):
+        return x * y
+    
+    return Closure_Multiplicador
+
+Mult1 = Closure_Crear_Multiplicador(2)
+Mult2 = Closure_Crear_Multiplicador(3)
+
+print (f'El multiplicador es {Mult1(10)}')
+print (f'El multiplicador es {Mult2(10)}')
+
+def Filtrador(Lista):
+    Any_Impar = any(num % 2 != 0 for num in Lista)
+    if (Any_Impar == True):
+        Anonima4 = filter(lambda Num : Num % 2 != 0, Lista)
+        Lista_Impares = [num for num in Lista if num % 2 != 0]
+        
+        print (f'Los numeros impares de la lista son {list(Anonima4)} o incluso podrian ser {Lista_Impares}')
+    else:
+        print (f'Error, no hay elementos impares en la lista')
+        
+Filtrador(PEPE.Lista_Numeros)
+
+def Primera(Segunda): #type: ignore
+    def Tercera():
+        print (f'ZZZZZZ')
+        Segunda()
+        print (f'XXXXXX')
+        
+    return Tercera
+
+@Primera
+def Saludar4():
+    print (f'Hola Mundo')
+    
+Saludar4()
+
+def Primera(Segunda): #type: ignore
+    def Tercera(*args, **kwargs):
+        return Segunda(*args, **kwargs) - 7
+        
+    return Tercera
+
+@Primera
+def Sumatoria3(Num1:int, Num2:int) -> int:
+    return Num1 + Num2
+
+print (f'El resultado de la sumatoria es {Sumatoria3(4, 3)}')
+
+def Primera(Segunda):
+    def Tercera(*args, **kwargs):
+        Nombre = 'Jonathan'
+        Apellido = 'Smith'
+        return Segunda(Nombre, Apellido)
+        
+    return Tercera
+
+@Primera
+def Usuario2(Nombre, Apellido):
+    print (f'Mi nombre es {Nombre} {Apellido}')
+    
+Usuario2('Erick', 'Perez')
+
+print (f'-' * 20)
+
+from Module_Own import Pokemon2 as Poke2
+
+Objeto20 = Poke2(PEPE.Diccionario_Poke["Poke1"], 'Electrico', 'Impact Trueno')
+Objeto21 = Poke2(PEPE.Diccionario_Poke["Poke2"], 'Roca', 'Sismo')
+
+Objeto21.Mostrar()
+
+print (f'-' * 20)
+
+class Persona2():
+    def __init__(self, Nombre):
+        self.Nombre = Nombre
+        
+    def __str__(self):
+        return self.Nombre
+    
+Objeto22 = Persona2('Erick')
+
+print (f'Hola {Objeto22}')
+
+print (f'-' * 20)
+
+class Poke_Kid2(Poke2):
+    def __init__(self, Nombre, Tipo, Ataque, Sub_Tipo):
+        super().__init__(Nombre, Tipo, Ataque)
+        self.Sub_Tipo = Sub_Tipo
+        
+    def Mostrar(self):
+        print (f'Sub_Tipo: {self.Sub_Tipo}')
+        
+Objeto23 = Poke_Kid2(PEPE.Diccionario_Poke['Poke3'], 'Agua', 'Hidro-Chorro', 'Acero')
+
+Poke2.Mostrar(Objeto23)
+Objeto23.Mostrar()
+
+print (f'-' * 20)
+
+Subclase1 = issubclass(Poke_Kid2, Poke2)
+
+print (f'{Subclase1}')
+
+Instancia1 = isinstance(Objeto23, Poke_Kid2)
+
+print (f'{Instancia1}')
 
 # Ahora vamos a hacer un ejercicio de herencia multiple con 3 clases, una clase camara, otra reproductor musica y otra clase smartphone, smartphone hereda de las clases padre. Solamente tendra un metodo accion cada una
 
