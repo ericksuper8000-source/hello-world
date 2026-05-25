@@ -1345,7 +1345,7 @@ else:
 # Solicita datos al usuario     input()
 # Devuelve la longitud de una secuencia    len()
 # Devuelve el tipo de un objeto    type()
-# Convierte un número a texto y viceversa  str(), int(), float()
+# Convierte un número a texto y viceversa  str(), int(), float(), tambien convierta un set en una lista, una lista en un set, y un set en una tupla
 # Despliegue los numeros de 90 a 100 con range()
 # Imprime los elementos de una lista con su posición.     enumerate()
 # Combina dos listas y muéstralas juntas    zip()

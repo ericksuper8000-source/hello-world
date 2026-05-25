@@ -36,7 +36,7 @@ def Calculo(Lista):
     Lista_Nuevos = [Elemento_Menor, Elemento_Mayor]
     return Lista_Nuevos
 
-def Primera(Segunda):
+def Primera(Segunda): #type: ignore
     def Tercera():
         print (f'ZZZZZZ')
         Segunda()
@@ -47,7 +47,7 @@ def Primera(Segunda):
 def Saludar1():
     print (f'Hola Mundo')
     
-def Primera(Segunda):
+def Primera(Segunda): #type: ignore
     def Tercera(*args):
         return Segunda('Carmelo')
         
@@ -60,7 +60,7 @@ def Saludar2(Nombre = 'Juana La Cubana'):
 def Saludar3(Nombre:str) -> str:
     return Nombre
 
-def Primera(Segunda):
+def Primera(Segunda): #type: ignore
     def Tercera(*args, **kwargs):
         return Segunda(*args, **kwargs) + 1
         
@@ -70,7 +70,7 @@ def Primera(Segunda):
 def Sumatoria1(Num1:int, Num2:int) -> int:
     return Num1 + Num2
 
-def Primera(Segunda):
+def Primera(Segunda): #type: ignore
     def Tercera(*args):
         return Segunda(2)
         
@@ -83,7 +83,7 @@ def Par(Num):
     else:
         return False
     
-def Primera(Segunda):
+def Primera(Segunda): #type: ignore
     def Tercera(*args, **kwargs):
         Nombre = 'Susanita'
         Sexo = 'FEMENINO'
@@ -139,3 +139,20 @@ class Pokemon2():
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
+        
+Division_Flotante = 14/7
+        
+Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
+Lista2 = [Division_Flotante, 200, 'Koala', not True]
+Lista3 = list([1, 2, 3, 4])
+Lista3.extend([5])
+Lista4 = [4000, 97, 15, 300]
+
+Tupla_Poke = 'Ash', 'Brooke', 'Misty',
+
+'''Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')'''
+
+'''Flotante3 = input(f'Ingrese su nombre: ')'''
+
+'''Flotante4 = input(f'Ingrese un texto: ')'''
+
