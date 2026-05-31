@@ -1079,7 +1079,7 @@ mi_pastel_fresa.hornear()
 # Imprima todos los elemento de alguna de las tres listas
 # Cambie el valor de un elemento de una lista
 # Ahora muestre todos los elementos de la lista incluyendo el que cambio
-# Borre un valor de una lista usando del
+# Borre un valor de una lista Uno usando del
 # Borra otro elemento usando .remove(elemento textual) y muestra la lista
 # Borre 1 elemento de la lista utilizando el metodo pop('Indice')
 # Borre 1 elemento de la lista utilizando el metodo pop('Indice negativo para borrar el ultimo elemento')
