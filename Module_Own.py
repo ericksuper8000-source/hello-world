@@ -2,7 +2,8 @@ Diccionario_Poke = dict.fromkeys(['Poke1', 'Poke2', 'Poke3'])
 
 Set_Conjunto_Poke1 = {'Pikachu'}
 Set_Conjunto_Poke2 = set({'Graveler'})
-Set_Conjunto_Poke1.add('Vaporeon')
+Set_Conjunto_Poke3 = frozenset({'Vaporeon'})
+Set_Conjunto_Poke2.update(Set_Conjunto_Poke3)
 
 Set_Conjunto_Poke1.update(Set_Conjunto_Poke2)
 
@@ -23,7 +24,7 @@ class Pokemon1():
         self.Ataque = Ataque
         self.Cantidad = 18 * 2
         self.Catched = not True
-        
+
     def Mostrar(self):
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
@@ -33,10 +34,11 @@ def Primera(Segunda): #type: ignore
     def Tercera():
         print (f'ANTES')
         Segunda()
+        print (f'DESPUES')
         
     return Tercera
-
-@Primera        
+   
+@Primera     
 def Saludar1():
     print (f'Hola Mundo')
     
@@ -54,8 +56,8 @@ def Saludar3(Nombre:str) -> str:
     return Nombre
 
 def Primera(Segunda): #type: ignore
-    def Tercera(*args, **kwargs):
-        return Segunda(*args, **kwargs) + 1
+    def Tercera(*args):
+        return Segunda(*args) + 1
         
     return Tercera
 
@@ -65,7 +67,7 @@ def Sumatoria1(Num1:int, Num2:int) -> int:
 
 def Primera(Segunda): #type: ignore
     def Tercera(*args):
-        return Segunda(2)
+        return Segunda(4)
         
     return Tercera
 
@@ -76,7 +78,7 @@ def Par(Numero):
     else:
         return False
     
-def Primera(Segunda):
+def Primera(Segunda): #type: ignore
     def Tercera(*args, **kwargs):
         Nombre = 'Juana La Cubana'
         Sexo = 'FEMENINO'
@@ -84,8 +86,8 @@ def Primera(Segunda):
         
     return Tercera
     
-@Primera    
-def Usuario1(Nombre, Sexo):
+@Primera
+def Usuario(Nombre, Sexo):
     Genero = Sexo.lower()
     if (Genero == 'masculino'):
         print (f'{Nombre}, eres un hombre')
@@ -94,55 +96,34 @@ def Usuario1(Nombre, Sexo):
         
 def Primera(Segunda):
     def Tercera(*args):
-        return Segunda(99)
+        return Segunda(77)
         
     return Tercera
-
-@Primera        
+        
+@Primera
 def Contrasena(Numero):
     chars = 'abcdefghij'
-    Numero_Str = str(Numero)
-    Numero_Int = int(Numero_Str[0])
-    c1 = Numero_Int - 2
-    c2 = Numero_Int
-    c3 = Numero_Int - 5
+    Numero_str = str(Numero)
+    Numero_int = int(Numero_str[0])
+    c1 = Numero_int - 2
+    c2 = Numero_int
+    c3 = Numero_int - 5
     Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
-    return Password
+    return
 
-Lista_Numeros = list([])
+Lista_Numeros = [1, 2, 3, 4, 5]
 
-Lista_Numeros.append(1)
-Lista_Numeros.insert(1, 2)
-Lista_Numeros.extend([3, 4, 5])
+Tupla_Poke = ('Ash', 'Brooke', 'Misty')
 
 Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
 Variable_Funcion_Anonima2 = lambda Num : Num * 2
 Variable_Funcion_Anonima3 = filter(lambda Num : Num % 2 == 0, Lista_Numeros)
 
+Any_Pares = any(num % 2 == 0 for num in Lista_Numeros)
+Lista_Pares = [num for num in Lista_Numeros if num % 2 == 0]
+
 GLOBAL = 30
 
-def Primera(Segunda):
-    def Tercera(*args, **kwargs):
-        return Segunda(*args, **kwargs) - 7
-        
-    return Tercera
-
-@Primera
-def Sumatoria3(Num1, Num2):
-    return Num1 + Num2
-
-def Primera(Segunda):
-    def Tercera(*args, **kwargs):
-        Nombre = 'JONATHAN'
-        Apellido = 'SMITH'
-        return Segunda(Nombre, Apellido)
-        
-    return Tercera
-
-@Primera
-def Usuario2(Nombre, Apellido):
-    print (f'Mi nombre es {Nombre} {Apellido}')
-    
 class Pokemon2():
     def __init__(self, Nombre, Tipo, Ataque):
         self.Nombre = Nombre
@@ -156,29 +137,17 @@ class Pokemon2():
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
         
-Division_Flotante = 14/7
+Division_Flotante = 14 / 7
         
 Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
-Lista2 = [Division_Flotante, 200, 'Koala', not True]
+Lista2 = [Division_Flotante, 200, 'Koala', True]
 Lista3 = list([1, 2, 3, 4, 5])
-Lista4 = [4000, 97, 15, 300]
+Lista4 = [4000, 15, 97, 300]
 
-Tupla_Poke = 'Ash', 'Brooke', 'Misty',
+'''Flotante1 = int(input(f'Ingrese un numero: '))
 
-class Entrenador():
-    def __init__(self, Trainer, City, Favorite):
-        self.Trainer = Trainer
-        self.City = City
-        self.Favorite = Favorite
-        
-    def Desplegar(self):
-        print (f'{self.Trainer} just catched a {self.Favorite} while visiting {self.City}')
-        
-'''Flotante1 = input(f'Ingrese un numero: ')
-
-Flotante2 = input(f'Agregue una operacion tipo 4*3: ')
+Flotante2 = input(f'Ingrese una operacion tipo 4 * 3: ')
 
 Flotante3 = input(f'Ingrese su nombre: ')
 
 Flotante4 = input(f'Ingrese una cadena de texto: ')'''
-
