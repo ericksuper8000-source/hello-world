@@ -1,11 +1,11 @@
-Hiena
-Cocodrilo
-Salamandra
+Durazno
+Manzana
+Uvas
 Fresa Sabrosa
 Fresa Sabrosa
 Fresa Sabrosa
 Pikachu
 Graveler
 Vaporeon
-Vaporeon - Graveler - Pikachu
-Su contrasena temporal es hje891
+Pikachu - Vaporeon - Graveler
+Tu contrasena temporal es None
