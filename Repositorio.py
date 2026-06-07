@@ -60,6 +60,11 @@ print(texto_limpio)
 
 Leer diccionario keys, values, items
 
+Hacer un ejercicio sacar el promedio, se debe solicitar 3 numeros, agregarlos a una lista, sacar la suma y luego el promedio
+Necesitamos una lista vacia, un contador, si el numero es entero, se guarda en la lista, si el numero es decimal, se guarda en la lista.
+
+Clases Especiales Dunder Class __str__() Mostrar el nombre
+
 ''' *******************************************************************
 
 '''
@@ -269,7 +274,7 @@ print(texto)
 
 # Hagamos una exception ValueError, sera una funcio con un input que pida ingresar un numero, try int(Numero) si no entonces except mostrar mensaje de error.
 
-# Hagamos una exception TypeError, sera una funcion que reciba como parametro 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
+# Hagamos una exception TypeError, sera una funcion que reciba como parametro 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error. OJO USEMOS DOS EXCEPT except TypeError, ValueError
 
 # Hagamos una exception ZeroDivisionError, sera una funcion que reciba como parametros 2 elementos, con try haremos la operacion y mostraremos resultado, sino except, mostrar mensaje de error
 
@@ -1074,7 +1079,7 @@ mi_pastel_fresa.hornear()
 # Imprima todos los elemento de alguna de las tres listas
 # Cambie el valor de un elemento de una lista
 # Ahora muestre todos los elementos de la lista incluyendo el que cambio
-# Borre un valor de una lista usando del
+# Borre un valor de una lista Uno usando del
 # Borra otro elemento usando .remove(elemento textual) y muestra la lista
 # Borre 1 elemento de la lista utilizando el metodo pop('Indice')
 # Borre 1 elemento de la lista utilizando el metodo pop('Indice negativo para borrar el ultimo elemento')
@@ -1340,7 +1345,7 @@ else:
 # Solicita datos al usuario     input()
 # Devuelve la longitud de una secuencia    len()
 # Devuelve el tipo de un objeto    type()
-# Convierte un número a texto y viceversa  str(), int(), float()
+# Convierte un número a texto y viceversa  str(), int(), float(), tambien convierta un set en una lista, una lista en un set, y un set en una tupla
 # Despliegue los numeros de 90 a 100 con range()
 # Imprime los elementos de una lista con su posición.     enumerate()
 # Combina dos listas y muéstralas juntas    zip()
