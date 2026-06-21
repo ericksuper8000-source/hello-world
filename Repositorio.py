@@ -719,6 +719,15 @@ except StopIteration:
 
 ####### CREANDO MIS PROPIAS FUNCIONES
 
+1 - Hagamos una funcion que recorra una la lista con funcion y sume en un contador cada eleemnto y los muestre al final.
+
+2 - Hagamos una funcion que recorra una lista con funcion, evalue que numeros son pares y sume los pares en un contador y los muestre.
+
+3 - Sumar todos los números de una lista, pero no usemos sum(), hagamoslo con un contador autoincremental.
+
+4 - Ahora buscar algo dentro de una lista. Buscar un número en una lista. La función debe recibir: Una lista de números. Un número que quieres buscar. 
+La idea es recorrer toda la lista y si el numero se encuentra o no, se muestra un unico resultado, ocuparemos una variable binaria que cambiara entre False y True dependiendo si el numero es igual o no.
+
 # Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los
 # valores y los devuelva return como una lista.
 
@@ -1547,3 +1556,94 @@ Condicionales
 Ciclo For
 Ciclo While
 Data inputs
+
+
+class Inventario:
+    def __init__(self):
+        self.productos = []
+
+    def __len__(self):
+        return len(self.productos)
+
+inventario = Inventario()
+
+inventario.productos.append("Laptop")
+inventario.productos.append("Mouse")
+
+print(len(inventario))
+
+------------------------
+
+class Usuario:
+    def __init__(self, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
+
+usuario = Usuario("Erick", "erick@gmail.com")
+
+print(usuario)
+
+Salida:
+
+<__main__.Usuario object at 0x00000123456789>
+
+------------------------
+
+Con __str__:
+
+class Usuario:
+    def __init__(self, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
+
+    def __str__(self):
+        return self.nombre
+
+usuario = Usuario("Erick", "erick@gmail.com")
+
+print(usuario)
+
+Salida:
+
+Erick
+
+------------------------
+
+class Persona4:
+    def __init__(self, Nombre):
+        self.Nombre = Nombre
+        
+    def __eq__(self, Otro):
+        return self.Nombre == Otro.Nombre
+        
+Objeto49 = Persona4('Erick')
+Objeto50 = Persona4('Erick')
+
+print (f'{Objeto49 == Objeto50}')
+
+----------------------------
+
+
+class Persona7():
+    def __init__(self, Nombre):
+        self.Nombre = Nombre
+        
+    def __repr__(self):
+        return self.Nombre
+
+Objeto65 = Persona7('Carmen')
+
+Lista_Persona7 = [
+    Persona7('Julian'),
+    Persona7('Roberta'),
+    Persona7('Ana')
+]
+
+print (f'{Lista_Persona7}')
+
+------------------------
+
+Hay un Api.py que tiene un mini programa, por medio de request quiero que llames esa api tomes el nombre y hagas algun tipo de operacion con este API
+Recuerda encender la API antes de consumirla
+
+------------------------
