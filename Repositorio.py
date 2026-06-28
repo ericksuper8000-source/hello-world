@@ -1,5 +1,37 @@
 '''
 # type: ignore
+raise
+
+
+
+1 - Hagamos una funcion que recorra una la lista con funcion y sume en un contador cada eleemnto, ojo digamos que si la lista tiene 10 elementos, debe mostrar cuantos elementos tiene la lista
+
+2 - Hagamos una funcion que recorra una lista con funcion, evalue que numeros son pares y sume los pares en un contador y los muestre.
+
+3 - Sumar todos los números de una lista, pero no usemos sum(), hagamoslo con un contador autoincremental.
+
+4 - Ahora buscar algo dentro de una lista. Buscar un número en una lista. La función debe recibir: Una lista de números. Un número que quieres buscar. 
+La idea es recorrer toda la lista y si el numero se encuentra o no, se muestra un unico resultado, ocuparemos una variable binaria que cambiara entre False y True dependiendo si el numero es igual o no. USAR BREAK Y CONTINUE
+
+5 Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los valores y los devuelva return como una lista.
+
+6 Contar números mayores que un valor. La funcion recibe una lista y un numero. Se debe evaluar la lista y buscar aquellos numeros mayores al numero. Si el numero es mayor, entonces se contabiliza 1, sino, continua buscando, al final muestra el total de numeros contados.
+
+7 Crear una nueva lista. Hasta ahora todas tus funciones devolvían: un número (3), un booleano (True o False). Ahora quiero que una función devuelva una lista. Creamos una funcion que reciba una lista de 5 numeros, evaluaremos si el numero es par, si es asi, se agrega a una nueva_lista, sino sigue recorriendo, al final muestra la lista nueva con los numeros pares.
+
+8 Recorrer → Modificar los datos → Devolver una nueva lista
+Duplicar cada número de una lista: Creamos una funcion que debe recibir una lista de números. Se debe recorrer la lista, cada numero debera multiplicarse X2 y agregarse a una nueva lista de resultado. Luego mostrarla.
+
+9 Hacer un ejercicio sacar el promedio, se debe solicitar 3 numeros, agregarlos a una lista, sacar la suma y luego el promedio
+Necesitamos una lista vacia, un contador, si el numero es entero, se guarda en la lista, si el numero es decimal, se guarda en la lista.
+Importante, validaremos si lo ingresado es un numero valido, si no entonces mostrara un error infinito hasta que se arregle el valor.
+
+Hagamos los 4 dunder methods, Persona, Colores, Inventario, Igualdad
+
+Jugar con APIs
+
+
+
 veamos si un numero es entero isinstance(xxx, int)
 veamos si un numero es flotante isinstance(xxx, int)
 validemos que un elemento puede ser un numero entero OOOO un numero flotante     isinstance(resultado, (int, float))
@@ -719,17 +751,23 @@ except StopIteration:
 
 ####### CREANDO MIS PROPIAS FUNCIONES
 
-1 - Hagamos una funcion que recorra una la lista con funcion y sume en un contador cada eleemnto y los muestre al final.
+1 - Hagamos una funcion que recorra una la lista con funcion y sume en un contador cada eleemnto, ojo digamos que si la lista tiene 10 elementos, debe mostrar cuantos elementos tiene la lista
 
 2 - Hagamos una funcion que recorra una lista con funcion, evalue que numeros son pares y sume los pares en un contador y los muestre.
 
 3 - Sumar todos los números de una lista, pero no usemos sum(), hagamoslo con un contador autoincremental.
 
 4 - Ahora buscar algo dentro de una lista. Buscar un número en una lista. La función debe recibir: Una lista de números. Un número que quieres buscar. 
-La idea es recorrer toda la lista y si el numero se encuentra o no, se muestra un unico resultado, ocuparemos una variable binaria que cambiara entre False y True dependiendo si el numero es igual o no.
+La idea es recorrer toda la lista y si el numero se encuentra o no, se muestra un unico resultado, ocuparemos una variable binaria que cambiara entre False y True dependiendo si el numero es igual o no. USAR BREAK Y CONTINUE
 
-# Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los
-# valores y los devuelva return como una lista.
+5 Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los valores y los devuelva return como una lista.
+
+6 Contar números mayores que un valor. La funcion recibe una lista y un numero. Se debe evaluar la lista y buscar aquellos numeros mayores al numero. Si el numero es mayor, entonces se contabiliza 1, sino, continua buscando, al final muestra el total de numeros contados.
+
+7 Crear una nueva lista. Hasta ahora todas tus funciones devolvían: un número (3), un booleano (True o False). Ahora quiero que una función devuelva una lista. Creamos una funcion que reciba una lista de 5 numeros, evaluaremos si el numero es par, si es asi, se agrega a una nueva_lista, sino sigue recorriendo, al final muestra la lista nueva con los numeros pares.
+
+8 Recorrer → Modificar los datos → Devolver una nueva lista
+Duplicar cada número de una lista: Creamos una funcion que debe recibir una lista de números. Se debe recorrer la lista, cada numero debera multiplicarse X2 y agregarse a una nueva lista de resultado. Luego mostrarla.
 
 # Creamos una funcion simple propia que diga hola mundo  en  Modulo_Propio
 # Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio
@@ -1641,9 +1679,45 @@ Lista_Persona7 = [
 
 print (f'{Lista_Persona7}')
 
+
+
+class Caja():
+    def __init__(self, Peso):
+        self.Peso = Peso
+        
+    def __add__(self, Otro):
+        return self.Peso + Otro.Peso
+
+Objeto70 = Caja(5)
+Objeto71 = Caja(4)
+
+print (f'El resultado de la suma es {Objeto70 + Objeto71}')
+
 ------------------------
 
 Hay un Api.py que tiene un mini programa, por medio de request quiero que llames esa api tomes el nombre y hagas algun tipo de operacion con este API
 Recuerda encender la API antes de consumirla
 
 ------------------------
+
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+Lista_Elementos = list([])
+
+@app.get('/ejemplo')
+def Primera():
+    return {
+        'Resultado' : Lista_Elementos
+    }
+
+@app.post('/ejemplo')
+def Segunda(
+        Elemento : dict
+):
+    Lista_Elementos.append(Elemento)
+    return {
+        'Agregado' : Lista_Elementos
+    }
