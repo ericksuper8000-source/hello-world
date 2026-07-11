@@ -26,7 +26,82 @@ Duplicar cada número de una lista: Creamos una funcion que debe recibir una lis
 Necesitamos una lista vacia, un contador, si el numero es entero, se guarda en la lista, si el numero es decimal, se guarda en la lista.
 Importante, validaremos si lo ingresado es un numero valido, si no entonces mostrara un error infinito hasta que se arregle el valor.
 
-Hagamos los 4 dunder methods, Persona, Colores, Inventario, Igualdad
+
+10 - Recorrer → Tomar una decisión → Construir un resultado
+Separar números pares e impares
+Creamos una funcion La función debe recibir una lista de números.
+Debe recorrer la lista y crear dos listas nuevas:
+una con los números pares
+otra con los números impares
+Al final debe devolver ambas listas, y mostrar al usuario la lista de pares e impares
+
+
+11 - Ejercicio — Contar números positivos, negativos y ceros
+La función debe recibir una lista de números entre positivos y negativos [5, -6, 0, 8, -3, 0]
+Debemos recorrer la lista, crear 3 variables Positivos, Negativos, Ceros e ir evaluando si el elemento es mayor, menor o igual a cero. E ir contabilizando cada uno. Al final creamos una lista con los resultados, 
+guardamos cada grupo en una variable externa y mostramos los resultados. PARA EL RESULTADO USEMOS DESEMPAQUETADO DE VARIABLES
+
+
+12 - Ejercicio — Filtrar correos electrónicos válidos
+Haremos una funcion que reciba una lista de correos electronicos validos e invalidos
+[
+    "juan@gmail.com",
+    "hola",
+    "maria@hotmail.net",
+    "python.org",
+    "ana+test@yahoo.org",
+    "correo@empresa",
+    "pedro123@gmail.com"
+]
+
+Lo que queremos es recorrer la lista de correos, crearemos un pattern de como deberia de verse un correo electronico sample@gmail.com, tendremos dos listas, una para correos validos y otra para correos invalidos, 
+evaluaremos la regex Buscar = bool(re.fullmatch(Pattern, elemento). Luego le aplicaremos un if, si esto es True se agrega .append a la lista de correos validos, si no a la lista de correos invalidos, al final se devuelven ambas listas con un return. 
+Se guardaran en variables externas desempaquetadas y mostraremos la lista de correos validos e invalidos.
+
+
+13 - Recorrer una colección y mantener un "mejor candidato" encontrado hasta el momento.
+Ejercicio — Encontrar el número mayor
+La función debe recibir una lista de números. Debe devolver el número más grande de la lista. Osea lo que haremos es crear una funcion interna
+Temporal igual al primer valor de la lista Lista[0] y recorreremos la lista, si el elemento es mayor a Temporal, entonces se reemplaza el valor de Temporal. Al final mostramos el numero. Importante, si la lista esta vacia, devolvera return None. 
+Y con una condicional externa, if funcion == None, muestra mensaje error, else muestra el numero mayor
+
+14 - Ejercicio — Encontrar el número menor
+La función debe recibir una lista de números. Debe devolver el número más pequeño de la lista. Osea lo que haremos es crear una funcion interna
+Temporal igual al primer valor de la lista Lista[0] y recorreremos la lista, si el elemento es menor a Temporal, entonces se reemplaza el valor de Temporal. Al final mostramos el numero. 
+Importante, si la lista esta vacia, devolvera return None. Y con una condicional externa, if funcion == None, muestra mensaje error, else muestra el numero menor
+
+
+15 - 🧩 Ejercicio — Contar y sumar los números positivos
+La función recibe una lista de números. Debe devolver dos resultados:
+La cantidad de números positivos.
+La suma de esos números positivos. Mostrar el resultado de ambos acumuladores
+
+
+
+16 - 🧩 Ejercicio — Analizar las calificaciones de un grupo
+Un profesor tiene una lista con las calificaciones de sus estudiantes.  [65, 70, 54, 80, 69, 66]
+Necesita un pequeño programa que le ayude a analizarlas.
+La función debe recibir una lista de calificaciones.
+Debe devolver tres resultados:
+¿Cuántos estudiantes aprobaron?
+¿Cuántos reprobaron?
+¿Cuál es la suma de las notas aprobadas?
+Considera que una nota mayor o igual a 70 significa que el estudiante aprobó.
+
+
+17 - 🧩 Ejercicio  — Analizar las ventas de una tienda
+Una tienda registró las ventas del día. Cada número representa el monto de una venta. [120, 0, 350, 80, 0, 40, 600]
+Las ventas con valor 0 significan que un cliente entró a la tienda, pero no compró nada.
+El dueño quiere obtener un pequeño resumen del día.
+
+La función debe recibir la lista de ventas y devolver la información necesaria para responder estas preguntas:
+¿Cuántas ventas reales hubo?
+¿Cuántos clientes no compraron nada?
+¿Cuál fue el monto total vendido?
+
+
+
+Hagamos los 4 dunder methods, Persona (str), Colores (repr), Inventario (len), Igualdad (eq), (Caja, Peso) (add)
 
 Jugar con APIs
 
