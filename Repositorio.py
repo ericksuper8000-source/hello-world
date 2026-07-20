@@ -75,7 +75,7 @@ Importante, si la lista esta vacia, devolvera return None. Y con una condicional
 La función recibe una lista de números. Debe devolver dos resultados:
 La cantidad de números positivos.
 La suma de esos números positivos. Mostrar el resultado de ambos acumuladores
-
+[-15.5, -8, -3.2, -1, 0, 4, 7.5, 12, 19.1, 25]
 
 
 16 - 🧩 Ejercicio — Analizar las calificaciones de un grupo
@@ -101,10 +101,114 @@ La función debe recibir la lista de ventas y devolver la información necesaria
 
 
 
+18 - 🧩 Ejercicio — Analizar temperaturas
+Una estación meteorológica registró las temperaturas máximas de una semana. Ejemplo [28, 31, 26, 35, 30, 29, 33]
+Debe devolver tres resultados:
+
+¿Cuántos días tuvieron una temperatura mayor o igual a 30°C?
+¿Cuál es la suma de esas temperaturas?
+Un mensaje que indique:
+"Semana calurosa" si hubo 4 o más días con temperatura mayor o igual a 30°C.
+"Semana normal" en cualquier otro caso.
+
+Debería obtenerse algo equivalente a:
+Días calurosos: 4
+Suma temperaturas: 129
+Estado: Semana calurosa
+
+
+-------------------
+
+19 - 🧩 Ejercicio — Analizar inventario
+Dos condiciones diferentes al mismo tiempo. Una pequeña tienda tiene registrado el inventario de algunos productos.
+Cada número representa la cantidad de unidades disponibles de un producto. [15, 0, 8, 2, 0, 25, 4]
+Debe devolver tres resultados:
+
+¿Cuántos productos están agotados? (cantidad igual a 0)
+¿Cuántos productos tienen stock bajo? (cantidad entre 1 y 5, inclusive)
+¿Cuántos productos tienen stock alto? (cantidad mayor a 5)
+Sumatoria de los productos stock bajo
+Sumatoria de los productos stock alto
+¿Cuál es la suma de las unidades de los productos que sí tienen stock? (es decir, mayores que 0)
+
+-------------------
+
+20 - 🧩 Ejercicio — Analizar salarios
+Una empresa registró los salarios de varios empleados.
+Cada número representa el salario mensual de un empleado. [1200, 800, 1500, 950, 2000, 700]
+
+La función debe devolver tres resultados:
+
+¿Cuántos empleados ganan 1000 o más?
+¿Cuántos empleados ganan menos de 1000?
+¿Cuál es la suma de los salarios de los empleados que ganan 1000 o más?
+
+
+--------------------------------------
+
+21 - Buscar un elemento que cumple una condición.
+🧩 Ejercicio — Encontrar el primer producto agotado. Una tienda tiene el siguiente inventario: [12, 8, 5, 0, 7, 0, 10]
+Cada número representa la cantidad de unidades disponibles de un producto.
+La función debe recibir la lista y devolver:
+
+La posición (índice) donde aparece el primer producto agotado (0).
+
+Si no existe ningún producto agotado, debe devolver None. AQUI CAMBIAN LAS COSAS, YA QUE EL CONDICION PARA SABER SI HAY O NO ELEMENTOS EN LA LISTA
+SE DEBERA HACER AFUERA DE LA FUNCION, SOLO PUEDO USAR UN return None dentro de la funcion.
+
+
+-----------------------------------------
+
+
+
+# ***********************  Data Inputs   **********************
+
+# Input lo que nos devuelve siempre es texto, aunque se ingresen numeros
+# Declare una variable y asignele un input, pida que ingrese un numero
+# Esa variable debe convertirse en integer con la funcion int
+# Haga una operacion matematica con esta variable y muestrela
+
+# eval(expression) → Permite al usuario ingresar una operación matemática como texto y muestra el resultado.
+
+# Haga un input que pida su nombre y valide si lo que se ingreso es un texto o algo mas
+# (Nombre.replace(" ", "").isalpha()):
+
+# Vamos a crear un programa en el que por medio de un input le pidamos a un usuario ingresar una cadena de texto
+# Esta cadena de texto sera guardada en una variable matriz con la funcion split separando cada palabra por un espacio
+# Ahora vamos a usar la funcion dunder len para contar cuantas palabras ingreso el usuario
+
+# Creamos una lista vacia, Ahora creamos un programa que pida la cantidad de alumnos
+# Luego con un for range, se recorre el ciclo y se pide el nombre de la cantidad de alumnos
+# Por medio de un append agregamos cada nombre a la lista vacia
+# Mostramos los elementos del filtro, cada nombre digitado
+
+# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
+# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+
+
 Hagamos los 4 dunder methods, Persona (str), Colores (repr), Inventario (len), Igualdad (eq), (Caja, Peso) (add)
 
 Jugar con APIs
+En un GET, FastAPI convierte dict → JSON y requests hace JSON → dict.
+En un POST, requests hace dict → JSON y FastAPI hará JSON → dict.
 
+
+Unidad1 = requests.get('http://127.0.0.1:8002/grupo1/')
+
+Agregado1 = requests.post(URL, params={'Elemento' : Nuevo_Sabor})   "Ojo esto se usa si usamos Query"
+Agregado1 = requests.post(URL, json=Nuevo_Sabor)   "Esto se usa si usamos Body"
+
+Reemplazado1 = requests.put(URL2, params={"Indice": Indice}, json=Nuevo_Saborcito)
+
+Indice = 1
+URL_DELETE = 'http://127.0.0.1:8002/grupo1/'
+
+Eliminado1 = requests.delete(
+    URL_DELETE,
+    params={
+        "Indice": Indice
+    }
+)
 
 
 veamos si un numero es entero isinstance(xxx, int)
@@ -1479,29 +1583,7 @@ else:
 
 # Divide un texto por espacios con split()
 
-# ***********************  Data Inputs   **********************
 
-# Input lo que nos devuelve siempre es texto, aunque se ingresen numeros
-# Declare una variable y asignele un input, pida que ingrese un numero
-# Esa variable debe convertirse en integer con la funcion int
-# Haga una operacion matematica con esta variable y muestrela
-
-# eval(expression) → Permite al usuario ingresar una operación matemática como texto y muestra el resultado.
-
-# Haga un input que pida su nombre y valide si lo que se ingreso es un texto o algo mas
-# (Nombre.replace(" ", "").isalpha()):
-
-# Vamos a crear un programa en el que por medio de un input le pidamos a un usuario ingresar una cadena de texto
-# Esta cadena de texto sera guardada en una variable matriz con la funcion split separando cada palabra por un espacio
-# Ahora vamos a usar la funcion dunder len para contar cuantas palabras ingreso el usuario
-
-# Creamos una lista vacia, Ahora creamos un programa que pida la cantidad de alumnos
-# Luego con un for range, se recorre el ciclo y se pide el nombre de la cantidad de alumnos
-# Por medio de un append agregamos cada nombre a la lista vacia
-# Mostramos los elementos del filtro, cada nombre digitado
-
-# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
-# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
 
 # Usemos elementos de un modulo por medio de un import
 # Renombremos un modulo con la instrucion "as" Saludar as OtroNombre
