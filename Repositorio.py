@@ -88,35 +88,6 @@ Debe devolver tres resultados:
 ¿Cuál es la suma de las notas aprobadas?
 Considera que una nota mayor o igual a 70 significa que el estudiante aprobó.
 
-
-17 - 🧩 Ejercicio  — Analizar las ventas de una tienda
-Una tienda registró las ventas del día. Cada número representa el monto de una venta. [120, 0, 350, 80, 0, 40, 600]
-Las ventas con valor 0 significan que un cliente entró a la tienda, pero no compró nada.
-El dueño quiere obtener un pequeño resumen del día.
-
-La función debe recibir la lista de ventas y devolver la información necesaria para responder estas preguntas:
-¿Cuántas ventas reales hubo?
-¿Cuántos clientes no compraron nada?
-¿Cuál fue el monto total vendido?
-
-
-
-18 - 🧩 Ejercicio — Analizar temperaturas
-Una estación meteorológica registró las temperaturas máximas de una semana. Ejemplo [28, 31, 26, 35, 30, 29, 33]
-Debe devolver tres resultados:
-
-¿Cuántos días tuvieron una temperatura mayor o igual a 30°C?
-¿Cuál es la suma de esas temperaturas?
-Un mensaje que indique:
-"Semana calurosa" si hubo 4 o más días con temperatura mayor o igual a 30°C.
-"Semana normal" en cualquier otro caso.
-
-Debería obtenerse algo equivalente a:
-Días calurosos: 4
-Suma temperaturas: 129
-Estado: Semana calurosa
-
-
 -------------------
 
 19 - 🧩 Ejercicio — Analizar inventario
@@ -130,18 +101,6 @@ Debe devolver tres resultados:
 Sumatoria de los productos stock bajo
 Sumatoria de los productos stock alto
 ¿Cuál es la suma de las unidades de los productos que sí tienen stock? (es decir, mayores que 0)
-
--------------------
-
-20 - 🧩 Ejercicio — Analizar salarios
-Una empresa registró los salarios de varios empleados.
-Cada número representa el salario mensual de un empleado. [1200, 800, 1500, 950, 2000, 700]
-
-La función debe devolver tres resultados:
-
-¿Cuántos empleados ganan 1000 o más?
-¿Cuántos empleados ganan menos de 1000?
-¿Cuál es la suma de los salarios de los empleados que ganan 1000 o más?
 
 
 --------------------------------------
@@ -158,6 +117,112 @@ SE DEBERA HACER AFUERA DE LA FUNCION, SOLO PUEDO USAR UN return None dentro de l
 
 
 -----------------------------------------
+
+
+22 - Ejercicio — Buscar el primer número mayor que un límite
+
+Una empresa está revisando una lista de ventas diarias: [120, 350, 80, 600, 150, 700]
+
+Hay que saber la posición en la que aparece la primera venta que supera un monto Ingresado por el usuario
+
+La funcion debe recibir una lista de ventas, un monto límite. La función debe devolver la posición (índice) donde aparece la primera venta mayor que el monto límite.
+
+Si ninguna venta supera ese monto, debe devolver None.
+
+Variables iniciales: Posicion = 0, Contador = 0, Encontrador = False.
+Bucle: while (Contador < len(Lista)):
+
+Condición de éxito:
+
+if (Lista[Contador] > Monto):
+Actualizar Posicion = Contador
+Activar Encontrador = True
+break (importante para detener la búsqueda).
+Incremento: Contador += 1
+Retorno: if (Encontrador == True): return Posicion / else: return None
+
+Flujo de Validación (Lógica externa)
+Para replicar el ejercicio completo, sigue este orden obligatorio de if al llamar la función:
+
+Llamar a la función: Indice = buscar_primera_venta_mayor(Lista_Elemento19, 500)
+Validar lista vacía: if (len(Lista_Elemento19) == 0):
+Validar si se encontró algo (None): if (Indice is None):
+Imprimir resultado: else: (aquí accedes al valor usando Lista_Elemento19[Indice]).
+
+
+Lista_Elemento19 = [120, 350, 80, 600, 150, 700]
+
+def buscar_primera_venta_mayor(Lista, Monto):
+    Posicion = 0
+    Contador = 0
+    Encontrador = False
+    
+    while (Contador < len(Lista)):
+        if (Lista[Contador] > Monto):
+            Posicion = Contador
+            Encontrador = True
+            break
+        Contador+= 1
+        
+    if (Encontrador == True):
+        return Posicion
+    else:
+        return None
+        
+Indice = buscar_primera_venta_mayor(Lista_Elemento19, 500)
+
+if (len(Lista_Elemento19) == 0):
+    print (f'Error, la lista esta vacia')
+else:
+    if (Indice is None):
+        print (f'No se ha encontrado una venta mayor al monto ingresado')
+    else:
+        print (f'La posicion en la que se encuentra la venta mayor al monton ingresado es {Indice} y el monto encontrado es {Lista_Elemento19[Indice]}')
+
+
+
+
+
+-------------------------------------------------
+
+
+23 - Ejercicio — Buscar el primer número repetido
+Una lista puede contener números repetidos. Queremos encontrar el primer número que aparece por segunda vez mientras recorremos la lista de izquierda a derecha.
+
+[ESTA SOLUCION CONTIENE SETS]
+
+def encontrar_primer_repetido(lista):
+    vistos = set()
+    
+    for numero in lista:
+        if numero in vistos:
+            return numero
+        vistos.add(numero)
+        
+    return None  # Retorna None si no hay repetidos
+
+# Ejemplo de uso:
+numeros = [10, 5, 3, 4, 3, 5, 6]
+resultado = encontrar_primer_repetido(numeros)
+
+print(f"El primer número repetido es: {resultado}")
+
+[ESTA SOLUCION CONTIENE dos ciclos for]
+
+
+# Iteramos sobre cada elemento de la lista
+for i in range(len(Lista_Elemento20)):
+    # Comparamos con los elementos que están DESPUÉS de la posición i
+    for j in range(i + 1, len(Lista_Elemento20)):
+        if Lista_Elemento20[i] == Lista_Elemento20[j]:
+            Igualdad2 = Lista_Elemento20[i]
+            break # Rompe el bucle interno si encuentra la coincidencia
+    
+    # Si ya encontramos un duplicado, rompemos el bucle externo
+    if Igualdad2 != 0:
+        break
+
+print(f'Elemento encontrado: {Igualdad2}')
 
 
 
@@ -186,7 +251,42 @@ SE DEBERA HACER AFUERA DE LA FUNCION, SOLO PUEDO USAR UN return None dentro de l
 # Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
 
 
-Hagamos los 4 dunder methods, Persona (str), Colores (repr), Inventario (len), Igualdad (eq), (Caja, Peso) (add)
+📌 Dunder Methods (Práctica)
+
+✅ __str__
+• Clase: Persona
+• Objetivo: Mostrar un texto amigable con print(objeto).
+
+✅ __repr__
+• Clase: Colores
+• Objetivo: Mostrar la representación oficial del objeto.
+
+✅ __len__
+• Clase: Inventario
+• Objetivo: Devolver la cantidad de elementos.
+
+✅ __eq__
+• Clase: Igualdad
+• Objetivo: Comparar si dos objetos son iguales.
+
+✅ __add__
+• Clases: Caja + Peso
+• Objetivo: Sumar dos objetos con el operador +.
+
+✅ __getitem__
+• Clase: Caja
+• Objetivo: Acceder a un elemento usando índices.
+• Ejemplo: caja[0]
+
+✅ __iter__
+• Clase: Panaderia
+• Panes = ["Baguette", "Croissant", "Pan dulce"]
+• return iter(self.panes)
+• Uso:
+    for pan in panaderia:
+        print(pan)
+        
+
 
 Jugar con APIs
 En un GET, FastAPI convierte dict → JSON y requests hace JSON → dict.
@@ -1520,10 +1620,12 @@ print(A)  # {1, 2, 3, 4}
 | `isalpha()`   | Solo letras                            |
 | `isinstance()`| Solo dígitos decimales                 |  mas util
 | `isnumeric()` | Cualquier carácter numérico            |
+| `isnumeric()` | Entero o decimal    (int, float)       |
 | `isalnum()`   | Letras y números                       |
 | `isspace()`   | Solo espacios                          |
 | `islower()`   | Letras en minúsculas                   |
 | `isupper()`   | Letras en mayúsculas                   |
+| `bool()`   | Vacio                 |
 '''
 
 variable13 = 4.3
@@ -1850,7 +1952,39 @@ Objeto71 = Caja(4)
 
 print (f'El resultado de la suma es {Objeto70 + Objeto71}')
 
+
+
+
+class Inventario2():
+    def __init__(self):
+        self.Productos = ['Laptop', 'Parlante', 'Celular']
+        
+    def __getitem__(self, indice):
+        return self.Productos[indice]
+    
+Objeto45 = Inventario2()
+
+print (f'{Objeto45[0]}')
+print (f'{Objeto45[1]}')
+print (f'{Objeto45[2]}')
+
 ------------------------
+
+
+class Panaderia():
+    def __init__(self):
+        self.Panes = ['Baguette', 'Croissant', 'Pan Dulce']
+        
+    def __iter__(self):
+        return iter(self.Panes)
+        
+Objeto59 = Panaderia()
+
+for elemento in Objeto59:
+    print (f'{elemento}')
+    
+    
+-------------------------
 
 Hay un Api.py que tiene un mini programa, por medio de request quiero que llames esa api tomes el nombre y hagas algun tipo de operacion con este API
 Recuerda encender la API antes de consumirla
