@@ -1,6 +1,6 @@
 '''Flotante1 = int(input(f'Ingrese un numero: '))'''
 
-'''Flotante2 = input(f'Ingrese una operacion tipo 4 * 3: ')'''
+'''Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')'''
 
 '''Flotante3 = input(f'Ingrese su nombre: ')'''
 
@@ -10,7 +10,6 @@ Diccionario_Poke = dict.fromkeys(['Poke1', 'Poke2', 'Poke3'])
 
 Set_Conjunto_Poke1 = {'Pikachu'}
 Set_Conjunto_Poke1.add('Graveler')
-
 Set_Conjunto_Poke2 = set({'Vaporeon'})
 
 Set_Conjunto_Poke1.update(Set_Conjunto_Poke2)
@@ -40,7 +39,7 @@ class Pokemon1():
         
 def Primera(Segunda): #type: ignore
     def Tercera():
-        print (f'ANTES DEL SALUDO')
+        print (f'ANTES')
         Segunda()
         
     return Tercera
@@ -59,13 +58,6 @@ def Primera(Segunda): #type: ignore
 def Saludar2(Nombre = 'Juana La Cubana'):
     return Nombre
 
-def Primera(Segunda): #type: ignore
-    def Tercera(*args):
-        return Segunda('Carmel')
-        
-    return Tercera
-
-@Primera
 def Saludar3(Nombre:str) -> str:
     return Nombre
 
@@ -95,22 +87,22 @@ def Par(Numero):
 def Primera(Segunda): #type: ignore
     def Tercera(*args, **kwargs):
         Nombre = 'Juana La Cubana'
-        Sexo = 'FeMENIno'
+        Sexo = 'FEMENINO'
         return Segunda(Nombre, Sexo)
         
     return Tercera
     
 @Primera
-def Usuario1(Nombre, Sexo):
+def Usuario(Nombre, Sexo):
     Genero = Sexo.lower()
     if (Genero == 'masculino'):
         print (f'{Nombre}, eres un hombre')
     else:
         print (f'{Nombre}, eres una mujer')
         
-def Primera(Segunda):
+def Primera(Segunda): #type: ignore
     def Tercera(*args):
-        return Segunda(87)
+        return Segunda(57)
         
     return Tercera
         
@@ -122,13 +114,10 @@ def Contrasena(Numero):
     c1 = Numero_Int - 2
     c2 = Numero_Int
     c3 = Numero_Int - 5
-    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(c2 * Numero))}'
+    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero))}'
     return Password
 
-Lista_Numeros = [1, 2]
-Lista_Numeros.append(3)
-Lista_Numeros.insert(4, 4)
-Lista_Numeros.extend([5])
+Lista_Numeros = [1, 2, 3, 4, 5]
 
 Tupla_Poke = tuple(('Ash', 'Brooke', 'Misty'))
 
@@ -146,15 +135,20 @@ class Pokemon2():
         self.Nombre = Nombre
         self.Tipo = Tipo
         self.Ataque = Ataque
-        
+        self.Cantidad = 18 * 2
+        self.Catched = not True
+
     def Mostrar(self):
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
         
-Division_Flotante = 14/ 7 
-  
-Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
-Lista2 = [Division_Flotante, 200, 'Koala', not True]
+Division_Flotante = 14 / 7
+        
+Lista1 = ['Erick']
+Lista1.append('Josue')
+Lista1.insert(2, 'Perez')
+Lista1.extend(['Gutierrez'])
+Lista2 = [Division_Flotante, 200, 'Koala', True]
 Lista3 = list([1, 2, 3, 4, 5])
-Lista4 = [4000, 15, 97, 300]
+Lista4 = [4000, 97, 15, 300]
