@@ -224,6 +224,224 @@ for i in range(len(Lista_Elemento20)):
 
 print(f'Elemento encontrado: {Igualdad2}')
 
+-----------------------------
+
+
+24 - Ejercicio — Buscar el primer aumento consecutivo
+Una empresa registra las ventas de cada día en una lista.
+El gerente quiere saber en qué posición ocurre el primer aumento de ventas respecto al día anterior.
+[90, 80, 79, 82]
+
+Día 0 → 120
+Día 1 → 110 (bajó)
+Día 2 → 130 (subió respecto a 110)
+La respuesta sería la posición 2, tambien puedes mostrar el numero
+
+Hasta ahora comparábamos un elemento con un valor fijo (0, 500, etc.) o con otros elementos de la lista.
+Ahora, ¿Cómo comparo un elemento con el que está inmediatamente antes?
+
+    for i in range(0 + 1, len(Lista)):
+        if (Lista[i - 1] < Lista[i]):
+		return Lista[i], i
+  
+  
+  
+------------------------------
+
+
+25 - Ejercicio — Buscar la primera caída consecutiva mayor a un valor
+
+Una empresa registra la temperatura de una máquina cada hora. En ocasiones, una caída muy brusca puede indicar una avería.
+Queremos encontrar la primera posición donde la temperatura disminuye más de un valor determinado respecto a la medición anterior.
+[100, 97, 95, 80, 78]
+
+Observamos:
+
+100 → 97 (bajó 3)
+97 → 95 (bajó 2)
+95 → 80 (bajó 15 ✅)
+
+La funcin debe devolver la posicion donde sucede este cambio brusco. En este caso donde esta el 80 porque el 80 está en la posición 3.
+
+La funcion debe recibir 
+una lista de números
+un valor límite (El límite es: 10)
+
+
+
+************************************************************
+
+
+
+
+Ejercicio - Del pico, busque en la lista un numero que sea mayor que el que esta antes y mayor que el que esta despues
+
+Lista_Elemento45 = [1, 1, 2, 8, 3]
+
+def Ejercicio68(Lista):
+    for i in range(0 + 2, len(Lista)):
+        if (Lista[i - 2] < Lista[i - 1] and Lista[i - 1] > Lista[i]):
+            return Lista[i - 1]
+        else:
+            continue
+        
+    return None
+
+
+
+
+************************************************************
+
+
+
+
+Crear diccionarios
+Consultar valores ✅ Consultar.
+Agregar elementos ✅ Agregar.
+Actualizar elementos ✅ Actualizar.
+Eliminar elementos ✅ Eliminar.
+
+
+Los diccionarios responden a: ¿Cuál es el valor asociado a esta clave?
+Ejemplo los contactos telefonicos, buscamos el numero telefonico asociado a x nombre en mis contactos.
+
+Para que sirve exactamente .get() ?
+
+Ejercicio — Buscar una ciudad
+
+Capitales = {"Costa Rica": "San José", "México": "Ciudad de México", "Argentina": "Buenos Aires", "España": "Madrid"}
+
+Intenta imprimir la capital de: Italia
+¿Qué pasa si busco algo que no está? ¿Cómo puedo manejar esa situación sin que mi programa falle?
+
+Capital = Capitales.get("Italia")
+
+if Capital is None:
+    print("No tenemos registrada la capital de ese país.")
+else:
+    print(Capital)
+
+-------------------
+
+Ejercicio — Buscar el precio de un producto
+Una tienda tiene registrado este inventario:
+
+Productos = {"Laptop": 1200, "Mouse": 25, "Teclado": 45, "Monitor": 300}
+
+Escribe una función
+Recibe un diccionario y el nombre de un producto como parametros
+
+La función debe:
+devolver el precio si el producto existe.
+devolver None si el producto no existe. Y hacer un condional afuera
+
+
+---------------------
+
+
+Ejercicio — Actualizar el precio de un producto
+Productos = {
+    "Laptop": 1200,
+    "Mouse": 25,
+    "Teclado": 45,
+    "Monitor": 300
+}
+
+La tienda decidió aumentar el precio del Teclado. El nuevo precio sera 55. 
+La función debe recibir:
+el diccionario,
+el nombre del producto,
+el nuevo precio.
+La función debe comportarse así:
+Si el producto existe, actualiza el precio y devuelve True. Diccionario.get(Nombre) is None
+Si el producto no existe, no modifica el diccionario y devuelve False.
+
+
+----------------------------
+
+
+Ejercicio — Agregar un producto solo si no existe
+Imagina que estás desarrollando un sistema de inventario. Llega un empleado e intenta registrar un producto llamado: Monitor ... cuando ya existe un monitor en el sistema. ¿Qué debería pasar?
+No queremos sobrescribir accidentalmente el precio.
+Queremos decir: "Ese producto ya existe. No lo agregues."
+
+Productos = {
+    "Laptop": 1200,
+    "Mouse": 25,
+    "Teclado": 45
+}
+
+Recibimos, Diccionario, Nombre del producto, Precio
+
+Si el producto ya existe, no hace ningún cambio y devuelve False.
+Si el producto no existe, lo agrega al diccionario y devuelve True.
+
+
+------------------------------
+
+
+Ejercicio — Eliminar un producto solo si existe
+Imagina que estás desarrollando un sistema de inventario. Llega un empleado e intenta eliminar un producto llamado: Monitor, si no existe debera mostrar un mensaje de error, si existe lo elimina y muestra mensaje de exito
+No queremos sobrescribir accidentalmente el precio.
+Queremos decir: "Ese producto ya existe. No lo agregues."
+
+Productos = {
+    "Laptop": 1200,
+    "Mouse": 25,
+    "Teclado": 45
+}
+
+Recibimos, Diccionario, Nombre del producto
+
+Si el producto  existe, lo elimina y devuelve True
+Si el producto no existe, devuelve False
+
+
+------------------------------
+
+
+Ejercicio — Buscar el producto más caro. Encontrar el mejor candidato mientras recorres una colección.
+Crear una funcion, Debe recibir el diccionario. Devolvemos Nombre, Precio
+Si el diccionario está vacío devuelve None
+
+# Obtener la primera clave
+primera_clave = next(iter(mi_diccionario))
+
+# Obtener el primer valor
+primer_valor = mi_diccionario[primera_clave]
+
+
+Productos7 = {
+    "Laptop": 1200,
+    "Mouse": 25,
+    "Teclado": 45,
+    "Monitor": 300,
+    "Impresora": 180
+}
+
+def buscar_producto_mas_caro(Diccionario):
+    if (len(Diccionario) == 0):
+        return None
+    else:
+        Temporal = next(iter(Diccionario))
+        Precio = Diccionario[Temporal]
+        Nombre = Temporal
+        
+        for indice, elemento in Diccionario.items():
+            if (elemento > Precio):
+                Nombre = indice
+                Precio = elemento
+            
+        return Nombre, Precio
+
+Resultado82 = buscar_producto_mas_caro(Productos7)
+
+if (Resultado82 is None):
+    print (f'Error, el diccionario esta vacio')
+else:
+    Unidad1, Unidad2 = Resultado82
+    print (f'{Unidad1}')
+    print (f'{Unidad2}')
 
 
 # ***********************  Data Inputs   **********************
@@ -274,9 +492,9 @@ print(f'Elemento encontrado: {Igualdad2}')
 • Objetivo: Sumar dos objetos con el operador +.
 
 ✅ __getitem__
-• Clase: Caja
+• Clase: Armario
 • Objetivo: Acceder a un elemento usando índices.
-• Ejemplo: caja[0]
+• Ejemplo: Armario[0]
 
 ✅ __iter__
 • Clase: Panaderia
@@ -1030,24 +1248,6 @@ except StopIteration:
 
 ####### CREANDO MIS PROPIAS FUNCIONES
 
-1 - Hagamos una funcion que recorra una la lista con funcion y sume en un contador cada eleemnto, ojo digamos que si la lista tiene 10 elementos, debe mostrar cuantos elementos tiene la lista
-
-2 - Hagamos una funcion que recorra una lista con funcion, evalue que numeros son pares y sume los pares en un contador y los muestre.
-
-3 - Sumar todos los números de una lista, pero no usemos sum(), hagamoslo con un contador autoincremental.
-
-4 - Ahora buscar algo dentro de una lista. Buscar un número en una lista. La función debe recibir: Una lista de números. Un número que quieres buscar. 
-La idea es recorrer toda la lista y si el numero se encuentra o no, se muestra un unico resultado, ocuparemos una variable binaria que cambiara entre False y True dependiendo si el numero es igual o no. USAR BREAK Y CONTINUE
-
-5 Retornar return mas de un valor desde el interior de una funcion. Vamos a hacer una funcion que tome como parametro una lista de numeros de 1 al 10, evalue el menor y el mayor de los valores y los devuelva return como una lista.
-
-6 Contar números mayores que un valor. La funcion recibe una lista y un numero. Se debe evaluar la lista y buscar aquellos numeros mayores al numero. Si el numero es mayor, entonces se contabiliza 1, sino, continua buscando, al final muestra el total de numeros contados.
-
-7 Crear una nueva lista. Hasta ahora todas tus funciones devolvían: un número (3), un booleano (True o False). Ahora quiero que una función devuelva una lista. Creamos una funcion que reciba una lista de 5 numeros, evaluaremos si el numero es par, si es asi, se agrega a una nueva_lista, sino sigue recorriendo, al final muestra la lista nueva con los numeros pares.
-
-8 Recorrer → Modificar los datos → Devolver una nueva lista
-Duplicar cada número de una lista: Creamos una funcion que debe recibir una lista de números. Se debe recorrer la lista, cada numero debera multiplicarse X2 y agregarse a una nueva lista de resultado. Luego mostrarla.
-
 # Creamos una funcion simple propia que diga hola mundo  en  Modulo_Propio
 # Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio
 # Creamos una funcion que tenga un parametro nombre agregado por el usuario en  Modulo_Propio, ojo hagamos la funcion type hint mostrando el tipo de dato
@@ -1560,7 +1760,9 @@ print(A)  # {1, 2, 3, 4}
 # A partir de los elementos del csv file, vamos a crear primero una lista de llaves, luego vamos a tomar los nombres y agregarlos a una lista
 # finalmente vamos a crear un diccionario y emparejar las llaves creadas y los nombres y mostramos el nuevo diccionario creado
 
+--------------------------------------------
 
+---------------------------------------------
 
 # Declare una variable y asignele una division flotante
 # Declare una variable y asignele una potenciacion o exponente **
@@ -1640,6 +1842,9 @@ else:
 # Declare una variable y asignele una copia de una lista con el metodo copy()
 # Borrar todos los elementos de un diccionario con clear()
 # Eliminar un elemento del diccinario con pop()
+    Precio = Productos5.pop("Mouse")
+    Elimina esta clave -- Devuelve el valor que tenía.
+    
 # Recorra todos los elementos de un diccionario con un ciclo for normal
 # Recorramos tdos los elementos de un diccionario con la funcio .items()
 
