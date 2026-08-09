@@ -1,6 +1,111 @@
 '''
+
+# Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
+# En caso de que de error, entonces con except mostraremos un mensaje de error...
+# ojo usemos raise al final para que no marque nada en rojo
+
 # type: ignore
 raise
+
+
+Que significa None?
+None no significa "cero" ni "vacío". Significa: "Aquí todavía no hay ningún objeto o valor asignado."
+
+
+
+# Casting Conversion implicita, explicita
+Cast o Casting significa convertir un tipo de dato a otro
+
+# El tipo de dato cambio, lo hizo python, esto es inmplicito
+
+num1 = 1
+print (f'{type(num1)}')
+num2 = 2.5
+num1 += num2
+print (f'{type(num1)}')
+
+print (f'-' * 20)
+
+# El tipo de dato cambio, lo hice yo, esto es explicito
+
+num1 = 10.5
+print (f'{type(num1)}')
+num1 = (int(num1))
+print (f'{type(num1)}')
+
+
+una tupla al sumar dos tuplas las concatena
+una lista al sumar dos listas las concatena
+
+Lista_Primera = ['Erick', 'Josue']
+Lista_Segunda = list(['Karlita'])
+
+print (f'{Lista_Primera + Lista_Segunda}')
+
+Tupla_Primera = ('Erick', 'Josue')
+Tupla_Segunda = ('Karlita',)
+
+print (f'{Tupla_Primera + Tupla_Segunda}')
+
+
+---------------------------------------------------------------
+
+
+valor de verdad (truthiness).
+
+if algo:
+"¿Esto tiene contenido o está vacío?"
+
+Ejemplo 1: Números
+
+numero = 5, -1, 3.5 me daria verdadero, 0 no
+
+if numero:
+    print("Verdadero")
+
+----------
+
+
+Ejemplo 2: Cadenas
+
+nombre = "Erick" me daria Hay texto, "" no
+
+if nombre:
+    print("Hay texto")
+
+
+---------
+
+Ejemplo 3: Lista
+
+frutas = ["Manzana", "Pera"] mostrara Hay frutas... frutas = [] no
+
+if frutas:
+    print("Hay frutas")
+
+
+---------
+
+
+Ejemplo 4: Diccionario
+
+persona = {"nombre": "Ana"} si funciona....  persona = {} no
+
+if persona:
+    print("Tiene información")
+
+
+--------
+
+Ejemplo 5: None (None, no hay objeto, entonces es False)
+
+usuario = None
+
+if usuario:
+    print("Existe")
+    
+
+----------------------------------------------------------------
 
 
 
@@ -9,6 +114,8 @@ raise
 2 - Hagamos una funcion que recorra una lista con funcion, evalue que numeros son pares y sume los pares en un contador y los muestre.
 
 3 - Sumar todos los números de una lista, pero no usemos sum(), hagamoslo con un contador autoincremental.
+
+3 - Sumar todos los números de una lista, menos el ultimo de los numeros de la lista for Lista[:-1]
 
 4 - Ahora buscar algo dentro de una lista. Buscar un número en una lista. La función debe recibir: Una lista de números. Un número que quieres buscar. 
 La idea es recorrer toda la lista y si el numero se encuentra o no, se muestra un unico resultado, ocuparemos una variable binaria que cambiara entre False y True dependiendo si el numero es igual o no. USAR BREAK Y CONTINUE
@@ -297,8 +404,8 @@ def Ejercicio68(Lista):
 
 Crear diccionarios
 Consultar valores ✅ Consultar.
-Agregar elementos ✅ Agregar.
 Actualizar elementos ✅ Actualizar.
+Agregar elementos ✅ Agregar.
 Eliminar elementos ✅ Eliminar.
 
 
@@ -442,6 +549,38 @@ else:
     Unidad1, Unidad2 = Resultado82
     print (f'{Unidad1}')
     print (f'{Unidad2}')
+    
+    
+----------------------------------------------------
+
+
+
+Ejercicio — Primera coincidencia en un diccionario
+La función debe recorrer el diccionario y encontrar la primera venta cuyo valor sea mayor que el límite. La funcion recibe el diccionario y el limite. Si ninguna venta supera el límite None, Si el diccionario está vacío se muestra un mensaje de error, debe devolver articulo y precio que supera el limite.
+
+Ventas = {
+    "Lunes": 120,
+    "Martes": 450,
+    "Miércoles": 80,
+    "Jueves": 600,
+    "Viernes": 300
+}
+
+--------------------------
+
+Ejercicio — Contar productos que superan un precio
+contar_productos_mayores(Diccionario, Limite) Recibe Dict y Limite
+
+Productos = {
+    "Laptop": 1200,
+    "Mouse": 25,
+    "Teclado": 45,
+    "Monitor": 300,
+    "Impresora": 180
+}
+
+La función debe recorrer el diccionario y contar cuántos productos tienen un precio mayor que el límite. Si el diccionario está vacío deberia devolver None
+Recorrer → evaluar condición → incrementar contador → devolver contador.
 
 
 # ***********************  Data Inputs   **********************
@@ -607,11 +746,6 @@ datetime
 collections
 
 '''
-
-
-# Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
-# En caso de que de error, entonces con except mostraremos un mensaje de error...
-# ojo usemos raise al final para que no marque nada en rojo
 
 # Abrir e importar el modulo Modulo_Propio “import”
 # Abrir e importar el modulo Modulo_Propio “import”
@@ -1565,6 +1699,15 @@ mi_pastel_fresa.hornear()
 ---------------------------------------------------------
 ---------------------------------------------------------
 
+ += Sumar al mismo y otro
+ -= Restar al mismo y otro
+ *= Mult al mismo y otro
+ /= Div Float al mismo y otro
+ %= Modulo al mismo y otro
+ //= Div Baja al mismo y otro
+ **= Exponente al mismo y otro
+ 
+ Hacer una declaracion Operador de Walrus :=   print(dato:="Hola")
 
 # Como declarar dos variables string?
 # Como declarar una variable long string?
@@ -1859,6 +2002,7 @@ else:
 # Hagamos un for anidado con la funcion zip(), creamos dos listas del mismo tamaño
 # Hagamos un ciclo for con la funcion range de 0 a 5 con un unico parametro
 # Hagamos un ciclo for con la funcion range de 1 a 10 con dos parametros
+# Hagamos un ciclo for con la funcion range range(0 + 2, len(Lista_Animales)
 # Creamos una lista con 4 numeros, ahora creamos otra listsa Lista_Multiplicado y agregamos cada numero de la primera lista a la segunda x 10
 
 #### Ciclo WHILE
