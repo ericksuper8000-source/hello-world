@@ -1,11 +1,11 @@
-Hiena
-Salamandra
-Panda Rojo
-Pato Amarilo
-Pato Rojo
-Pato Verde
+Durazno
+Manzana
+Uvas
+Fesa Pequeña
+Fesa Mediana
+Fesa Grande
 Pikachu
 Graveler
 Vaporeon
-Vaporeon - Graveler - Pikachu
- Tu contrasena temporal es fhc76
+Graveler - Pikachu - Vaporeon
+Su contrasena temporal es fhc546
