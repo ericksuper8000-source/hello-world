@@ -4410,3 +4410,16 @@ else:
         print (f'No se encontraron articulos mas caros que el limite')
     else:
         print (f'La cantidad de articulos mas caros que ${Limite2} es {Sample30}')
+        
+        
+class Ejemplo():
+    def __init__(self, Nombre):
+        self.Nombre = Nombre
+    
+    @property    
+    def Mostrar(self):
+        return self.Nombre
+    
+Objeto46 = Ejemplo('Erick')
+
+print (f'Mi nombre es {Objeto46.Mostrar}')

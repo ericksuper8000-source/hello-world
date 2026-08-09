@@ -766,6 +766,7 @@ Polimorfismo
 Encapsulamiento
 Abstraccion
 Composicion
+@property
 
 '''
 
@@ -1692,6 +1693,33 @@ ingrediente2 = Fresa()
 mi_pastel_fresa = Pastel(ingrediente2) # Inyectamos fresa
 mi_pastel_fresa.hornear()
 mi_pastel_fresa.hornear()
+
+
+
+------------------
+
+
+
+
+Python POO @property
+
+El decorador @property hace que un método parezca un atributo normal.
+Sin @property: Para obtener el dato tendrías que llamar a un método con paréntesis: persona.obtener_edad().
+
+Con @property: Puedes llamarlo directamente como una variable, sin paréntesis: persona.edad.
+
+class Persona:
+    def __init__(self):
+        self._edad = 25  # Atributo interno
+
+    @property
+    def edad(self):
+        return self._edad  # Parece una variable, pero es un método
+
+
+# Uso:
+p = Persona()
+print(p.edad) 
 
 
 
