@@ -1,11 +1,171 @@
 '''
-
-# Hagamos una exception ImportError, aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
+# Hagamos una exception (ImportError / ModuleNotFoundError), aqui no usaremos funciones, solo usamos try y hacemos import del Module_Own
 # En caso de que de error, entonces con except mostraremos un mensaje de error...
 # ojo usemos raise al final para que no marque nada en rojo
 
+# Abrir e importar el modulo Modulo_Propio “import”
+# Abrir e importar el modulo Modulo_Propio “import”
+# Vamos a cambiarle el nombre al modulo que vamos a usar a PEPE con “as”
+
 # type: ignore
 raise
+
+
+
+
+[FUNCIONES DE ORDEN SUPERIOR]
+
+Una función puede recibir otra función como argumento.
+Para este ejemplo haremos una funcion sumar que suma un numero + 10 y otra mulpliciar que le suma a un numero * 10, La tercera funcion usa como argumento las dos primeras funciones.
+
+def sumar_10(numero):
+    return numero + 10
+
+def multiplicar_10(numero):
+    return numero * 10
+
+def hacer_operacion(operacion, numero):
+    return operacion(numero)
+
+
+
+
+Una función puede recibir otra función como argumento.
+Para este ejemplo crearemos dos funciones que recorren una Lista_Nombres, la primera lista tiene 3 nombres la segunda tambien, creamos dos funciones que recorren las listas, luego La tercera funcion usa como argumento las dos primeras funciones.
+
+def Mostrar_Lista1(Lista):
+def Mostrar_Lista2(Lista):
+def Elegir_Lista(Mostrar, Lista):
+
+
+
+Una función puede recibir otra función como argumento.
+Ahora vamos a hacer un ejemplo en el que se reciba mas de dos argumentos
+def aplicar_operacion(operacion, num1, num2):
+    return (operacion(num1, num2))
+
+def sumar(numero1, numero2):
+    return numero1 + numero2
+
+def multiplicar(numero1, numero2):
+    return numero1 * numero2
+
+
+
+
+Una función puede recibir otra función como argumento.
+Finalmente hagamos un Diccionario con num1 : 4, num2 : 7, etc, la idea es crear dos funciones una que tome el argumento Diccionario, clave y valor, los valores que sean pares y los ingrese en una lista y lo muestre, tambien otra funcion que haga lo mismo pero para los impares, y una tercera lista que tome funcion y diccionario
+
+def Dict_Pares(Diccionario)
+Dict_Impares(Diccionario)
+Elegir_Diccinario(Funcion, DICT)
+
+
+
+
+
+
+Hagamos una funcion que reciba como argumento una lista de animales, 5 animales. La idea es que por medio de un ciclo while Lista_Animales: osea mientras la lista no este vacia, muestre el animal y seguidamente elimine al animal, al final la lista debe quedar vacia
+
+Hagamos una funcion con variables hint :float, :int, -> str, etc que ademas tenga un dot string, comentario largo dentro, la idea es crear la variable y luego por medio de help() ver los tipos de argumentos que recibe y el comentario descriptivo, esto es una buena practica. Comentarios en funciones para que help funcione Es únicamente al principio no en otro lado.
+
+Hagamos una funcion simple con un Argumentos con valores por defecto, por ejemplo el argumento se declara en la funcion mensaje = 'Nada para mostrar' mostrar_mensaje(mensaje = "Nada para mostrar")
+
+Ahora hagamos una funcion simple con 3 argumentos con valores por defecto num1=100, num2=50, num3=40, pero que reciba en la declaracion de la funcion dos numeros sumar3(20, 8), la idea es que el numero del argumento se reeplaza, en este ejemplo los numeros num1 y num2 se reemplazan, num3 se mantiene con el numero original   --- suma2(num1=100, num2=50, num3=40)
+
+Hagamos una funcion que recibe 3 argumentos y solo el ultimo es un argumento con valor por defecto sumar3(num1, num2, num3=40)
+sumar3(20, 8)
+Los argumentos con valores por defecto siempre deben ir al final de la función
+
+
+# Funciones con argumentos de longitud variable
+# Asterisco seguido de un nombre, por convencion usamos args pero puede ser cualquier cosa
+# args se usa para argumentos comunes
+En este ejercicio vamos a sacar el promedio de un grupo de argumentos indefinido 
+
+def Promedio(*args):
+    return round(sum(args) / len(args), 1)
+
+print (f'El promedio es {Promedio(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)}')
+
+
+
+# Funciones kwargs arguments
+# Es para definir una fucion con argumentos con nombre
+# kwargs es una palabra que se usa por convencion, podria ser cualquier cosa
+# Esto recibe claves y valores, vamos a hacer una funcion que sume todos los valores y los muestre en consola, la clave no se va a necesitar
+
+def sumar5(**kwargs):
+    print (f'{kwargs}')
+    total = 0
+    
+    for _, valor in kwargs.items():  # Usar el guion bajo es una buena practica cuando un argumento no se va a usar
+        total += valor
+        
+    return total
+
+print (f'El resultado es {sumar5(num1=5, num2=8, num3=10)}')
+
+
+------------------
+
+Orden para usar los argumentos 
+argumentos posicionales (argumentos comunes)
+argumentos arbitrarios posicionales (*args)
+argumentos keywords arguments (*kwargs)
+def funcion(a,b,*args,c=100,**kwargs):
+
+Hagamos una funcion que registra un evento, recibe participantes y detalles del evento como argumentos, osea vamos a usar *args y **kwargs
+
+def registrar_evento(*participantes, **detalles):
+    print (f'Participantes:')
+    for p in participantes:
+        print (f' - ', p)
+    
+    print (f'\nDetalles del evento:')
+    for clave, valor in detalles.items():
+        print (f'{clave} : {valor}')
+        
+registrar_evento(
+    'Ana', 'Rodolfo', 'Luis', 'Sofia',
+    fecha=12/8/2026,
+    lugar='Aula 3',
+    tema='Curso de python avanzado'
+)
+
+
+------------------
+
+Hagamos una funcion Fibonacci, la idea es que recibe como parametro un numero que representa el total de resultados que debe mostrar y debe crear una lista con valores Fibonacci
+
+def fibonacci(numero):
+    if (numero <= 2):
+        return f'Error, la cantidad debe ser mayor que 2'
+    else:
+        Lista_Fibonacci = [0, 1]
+        
+        while (len(Lista_Fibonacci) < numero):
+            elemento = Lista_Fibonacci[-1] + Lista_Fibonacci[-2]
+            Lista_Fibonacci.append(elemento)
+            
+        return Lista_Fibonacci
+
+print (f'{fibonacci(10)}')
+
+
+
+
+
+primera = [7, 5, 10, 9, 8, 1, 3, 5, 6, 3, 8, 0, 10, 9, 2]
+segunda = [6, 9, 3, 7, 9, 10, 5, 10, 7, 4, 5, 3, 2, 10, 2]
+
+Dada 2 listas con números enteros, crear una tercera con los
+números que pertenecen a ambas. Pero con la salvedad que
+en esta tercera no debe tener elementos repetidos.
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
 
 
 Que significa None?
@@ -608,6 +768,49 @@ Recorrer → evaluar condición → incrementar contador → devolver contador.
 # Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
 
 
+
+
+
+Crear un script que solicite al usuario el código de un país e imprima su nombre, de acuerdo con el siguiente diccionario: # Diccionario código: país.
+paises = {
+ "ar": "Argentina",
+ "es": "España",
+ "us": "Estados Unidos",
+ "fr": "Francia"
+}
+Si el código ingresado no se encuentra en el diccionario, debe imprimir un mensaje en pantalla y volver a preguntar. Si el usuario escribe “salir”, el programa debe terminar.
+
+Paises1 = {
+ "ar": "Argentina",
+ "es": "España",
+ "us": "Estados Unidos",
+ "fr": "Francia"
+}
+
+def Ejercicio52(Diccionario):
+    while (True):
+        Texto = input(f'Ingrese el codigo de un pais: ')
+        Texto_Formateado = Texto.lower()
+        try:
+            Ubicado = Diccionario.get(Texto_Formateado)
+            
+            if (Ubicado):
+                print (f'El codigo ingresado pertenece a {Ubicado}')
+                break
+            elif (Texto_Formateado == 'salir'):
+                print (f'Gracias por usar nuestros servicios, que tenga un lindo dia!')
+                break
+            else:
+                print (f'El codigo que ingresaste no es correcto, intente nuevamente')
+        except ValueError:
+            print (f'Error, el valor es incorrecto')
+
+Ejercicio52(Paises1)
+
+
+
+
+
 📌 Dunder Methods (Práctica)
 
 ✅ __str__
@@ -680,8 +883,6 @@ Vamos a hacer el ejercicio de busqueda de ventas en una fecha con groupby
 4 - Cuantos productos se vendieron en total en esta fecha --- NO USA GROUPBY
 5 - Cuanto dinero se vendio en esta fecha en total --- NO USA GROUPBY
 
-Vamos a hacer operaciones con Sets
-Composicion vs Inyeccion de Dependencias, elegir tu pokemon inicial
 De una cadena multiple ubique los correos electronicos con formato correcto  # usuario@dominio.extension y devuelvalos en un ciclo for each.
 Recuerde que findall() devuelve SOLO lo que está dentro de los paréntesis
 ❌ No devuelve el correo completo
@@ -725,13 +926,12 @@ print(texto_limpio)
 
 
 
-
+Hacer el diccionario Poke y llenarlo con elementos de los Set_Conjunto_Poke1 y 2
 Leer diccionario keys, values, items
 
 Hacer un ejercicio sacar el promedio, se debe solicitar 3 numeros, agregarlos a una lista, sacar la suma y luego el promedio
 Necesitamos una lista vacia, un contador, si el numero es entero, se guarda en la lista, si el numero es decimal, se guarda en la lista.
 
-Clases Especiales Dunder Class __str__() Mostrar el nombre
 
 ''' *******************************************************************
 
@@ -747,28 +947,10 @@ collections
 
 '''
 
-# Abrir e importar el modulo Modulo_Propio “import”
-# Abrir e importar el modulo Modulo_Propio “import”
-# Vamos a cambiarle el nombre al modulo que vamos a usar a PEPE con “as”
-
 ARCHIVOS .TXT  \\
 Creamos un archivo txt en el folder donde estan los archivos python
 
 C:\\Users\\XPC\\Desktop\\'''
-
-'''
-Clase normal
-Herencia simple
-Herencia Jerarquica
-Herencia Multiple
-MRO
-Polimorfismo
-Encapsulamiento
-Abstraccion
-Composicion
-@property
-
-'''
 
 '''Expresiones regulares en Python
 Son un buscador con superpoderes para texto. Siempre hay que comenzar exportando import re
@@ -935,6 +1117,95 @@ print(texto)
 #*******************************************************************************************
 #*******************************************************************************************
 #*******************************************************************************************
+
+
+'''[Esto es el tipo]
+5                → int
+"hola"           → str
+15.5             → float
+[1, 2, 3]        → list
+{"a": 1}         → dict
+
+
+TypeError
+int + str     
+"Tipos de datos incorrectos"
+
+ValueError
+"Tipo correcto, valor incorrecto"
+
+
+
+try:
+    numero = 10 + "5"
+except TypeError:
+    print("Error: no se pueden sumar un número y un texto")
+
+try:
+    resultado = "Hola" * "3"
+
+except TypeError:
+    print("No puedo multiplicar un texto por otro texto")
+
+try:
+    numero = int("hola")
+except ValueError:
+    print("Error: 'hola' no se puede convertir a número")
+
+try:
+    numeros = [10, 20, 30]
+    posicion = numeros.index(50)
+
+except ValueError:
+    print("La lista es correcta y 50 también es un valor válido para buscar. Pero no existe en la lista, el error es el valor")
+
+
+
+Except Comoding
+ESTA ES LA MANERA DE USAR EL COMODIN, ABARCA CUALQUIER exception
+try:
+    total = int([5, 8])
+except Exception:  
+    print (f'Error, no se pudo ejecutar la operacion')
+
+
+
+CON ESTO CAPTURO EL ERROR Y LO PUEDO MOSTRAR AL USUARIO
+try:
+    total = int('a')
+except Exception as e:  
+    print (f'Error, no se pudo realizar la operacion, detalles: {str(e)}')
+
+
+    
+MOSTRANDO DIFERENTES MENSAJES DEPENDIENDO DEL TIPO DE EXCEPT
+
+try:
+    Resultado1 = var15.index(0) + int(var14) / 0
+
+    print(f'El resultado de la operación es {Resultado1}')
+
+except ValueError:
+    print('Error: el valor no es válido.')
+
+except TypeError:
+    print('Error: el tipo de dato no es correcto.')
+
+except ZeroDivisionError as Zero2:
+    print(f'Error: no se puede dividir por cero. {str(Zero2)}')
+    
+    
+
+    
+Hagamos un exception de tipo, donde el usuario esta esperando recibir un texto, pero lo que se ingresa es un numero.
+
+texto = 2
+
+try:
+    resultado = 'Programando con ' + texto
+    print (resultado)
+except TypeError:
+    print (f'Debe ingresar un texto')'''
 
 # Hagamos una exception ValueError, sera una funcio con un input que pida ingresar un numero, try int(Numero) si no entonces except mostrar mensaje de error.
 
@@ -1384,7 +1655,7 @@ except StopIteration:
 ####### CREANDO MIS PROPIAS FUNCIONES
 
 # Creamos una funcion simple propia que diga hola mundo  en  Modulo_Propio
-# Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio
+# Creamos una funcion que tenga un parametro nombre = (argumento) declarado en la misma funcion. En  Modulo_Propio (Usar from Module_Own import Saludar2 as Saludar_Dos)
 # Creamos una funcion que tenga un parametro nombre agregado por el usuario en  Modulo_Propio, ojo hagamos la funcion type hint mostrando el tipo de dato
 # Creamos una funcion que recibe dos numeros, retorne (return) la suma del num1 y el num2 en  Modulo_Propio
 # Ahora haremos la misma sumatoria pero con funciones anidadas
@@ -1477,16 +1748,18 @@ Pares = [num for num in Lista if num % 2 == 0]
 '''
 
 Tipos de Herencia
-Hacer un ejemplo de herencia Simple
-Pokemon y poke hija
+Clase normal Pokemon
+Hacer un ejemplo de herencia Simple - Herencia simple Pokemon y poke hija
 
-Hacer un ejemplo de herencia Herarquica (Veterinaria)
+Hacer un ejemplo de herencia Jerarquica (Veterinaria)
 clase padre Mascota (nombre, edad, peso)
 Clases hijas (Perro, Gato, Pajaro) 
 Perro (Raza, Padecimiento, N_Visitas)
 Gato (Raza, Color, Paciente_Activo)
 Pajaro (Especie, Habla)
 
+
+Hacer un ejemplo de herencia Multiple (Camara, Reproductor Musica, Smartphone)
 
 Hacer un ejemplo de herencia Multiple (Personaje VideoJuego)
 
@@ -1552,7 +1825,9 @@ mi_cuenta = Cuenta(100)
 mi_cuenta.depositar(50)
 mi_cuenta.ver_saldo()
 
-Encapsulamiento: El saldo está protegido, no se puede alterar.
+
+[Encapsulamiento]: 
+El saldo está protegido, no se puede alterar.
 
 Getter → sirve para LEER un dato
 Setter → sirve para CAMBIAR un dato
@@ -1635,6 +1910,9 @@ Ahora vamos a hacer un ejercicio de Composicion, el metod de la primera clase se
 
 
 [COMPOSICION VS INYECCION DE DEPENDENCIAS]  
+Hagmos el ejemplo de los pokemones Batallando Bulbasaur, Treekoo, Chikorita
+
+Hagamos el ejemplo de los pasteles
 
 QUE ES DUCK TYPING? - Es una filosofia
 "No me importa qué eres.
@@ -1736,6 +2014,20 @@ print(p.edad)
  **= Exponente al mismo y otro
  
  Hacer una declaracion Operador de Walrus :=   print(dato:="Hola")
+ 
+ # Hagamos un range donde declaremos el limite en una variable walrus
+ for elemento in range(Limite4:= 5):
+    print (f'{elemento}')
+    
+ # Hagamos un hola Erick pero la variable se declara como variable walrus, ojo debe ir dentro de un parentesis para que el f string no joda
+print (f'Mi nombre es {(Nombre := "Erick")}')
+
+# Haga un ciclo while con una lista declarada con walrus
+Contador = 0
+
+while (Contador < len(Lista_Walrus := ['Erick', 'Josue', 'Karlita'])):
+    print (f'El elemento en la posicion {Contador} es {Lista_Walrus[Contador]}')
+    Contador += 1
 
 # Como declarar dos variables string?
 # Como declarar una variable long string?
@@ -1744,7 +2036,7 @@ print(p.edad)
 # Como declarar dos variables booleanas?
 # Declare dos variables en la misma linea
 # Agrega un comentario simple
-# Agregue un comentario compuesto
+# Agregue un comentario compuesto o docstring
 # Imprime un texto con una variable string
 # Imprime dos varibles string concatenadas
 # Imprime una concatenacion de una varible texto y un integer
