@@ -67,7 +67,7 @@ Elegir_Diccinario(Funcion, DICT)
 
 Hagamos una funcion que reciba como argumento una lista de animales, 5 animales. La idea es que por medio de un ciclo while Lista_Animales: osea mientras la lista no este vacia, muestre el animal y seguidamente elimine al animal, al final la lista debe quedar vacia
 
-Hagamos una funcion con variables hint :float, :int, -> str, etc que ademas tenga un dot string, comentario largo dentro, la idea es crear la variable y luego por medio de help() ver los tipos de argumentos que recibe y el comentario descriptivo, esto es una buena practica. Comentarios en funciones para que help funcione Es únicamente al principio no en otro lado.
+Hagamos una funcion con variables hint :float, :int, -> str, etc que ademas tenga un docstring, comentario largo dentro, la idea es crear la variable y luego por medio de help() ver los tipos de argumentos que recibe y el comentario descriptivo, esto es una buena practica. Comentarios en funciones para que help funcione Es únicamente al principio no en otro lado.
 
 Hagamos una funcion simple con un Argumentos con valores por defecto, por ejemplo el argumento se declara en la funcion mensaje = 'Nada para mostrar' mostrar_mensaje(mensaje = "Nada para mostrar")
 
@@ -743,6 +743,107 @@ La función debe recorrer el diccionario y contar cuántos productos tienen un p
 Recorrer → evaluar condición → incrementar contador → devolver contador.
 
 
+--------------------------
+
+
+Ejercicio — Acumulador en un diccionario
+Ventas = {
+    "Lunes": 120,
+    "Martes": 450,
+    "Miércoles": 80,
+    "Jueves": 600,
+    "Viernes": 300
+}
+Crea una función: La función debe recorrer el diccionario y calcular la suma total de todas las ventas.
+
+
+
+--------------------------
+
+
+Ejercicio — Total de ventas que superan un límite
+
+Ventas3 = {
+    "Lunes": 120,
+    "Martes": 450,
+    "Miércoles": 80,
+    "Jueves": 600,
+    "Viernes": 300
+}
+La función debe sumar únicamente las ventas que sean mayores que el límite. Debemmos crear una funcion que reciba el diccinario y un valor limite ingresado por el usuario.
+
+
+--------------------------
+
+
+
+Ejercicio — Contador + acumulador
+
+Productos7 = {
+    "Laptop": 1200,
+    "Mouse": 25,
+    "Teclado": 45,
+    "Monitor": 300,
+    "Impresora": 180
+}
+
+La función debe encontrar dos cosas al mismo tiempo:
+
+Cuántos productos tienen un precio mayor que Limite. El limite lo ingresa el usuario
+La suma de los precios de esos productos.
+
+Debería producir:
+Cantidad → xxx
+Total    → xxx
+
+
+----------------------------------------
+
+
+Ejercicio — Primer producto que supera el límite y su precio
+
+Productos8 = {
+    "Laptop": 1200,
+    "Mouse": 25,
+    "Teclado": 45,
+    "Monitor": 300,
+    "Impresora": 180
+}
+
+Creamos una funcion
+Tenemos que crear un Limite manual
+Recorrer el diccionario y encontrar el primer producto cuyo precio sea mayor que el límite.
+el primero según el orden en que aparece en el diccionario que cumple la condición. Para este ejercicio deberemos ordenar los elementos del diccionario de menor a mayor antes de recorrerlo.
+
+La función debe devolver:
+Nombre del producto
+Precio
+
+
+def buscar_primer_producto_mayor(Diccionario, Num):
+    Diccionario_Sorted = dict(sorted(Diccionario.items(), key=lambda item: item[1]))
+    
+    for Clave, Valor in Diccionario_Sorted.items():
+        if (Valor > Num):
+            return Clave, Valor
+        
+    return None
+
+Limite8 = 200
+
+Sample47 = buscar_primer_producto_mayor(Productos8, Limite8)
+
+if (len(Productos8) == 0):
+    print (f'Error, el diccionario esta vacio')
+else:
+    if (Sample47 is None):
+        print (f'No se encontro ningun articulo cuyo precio super el limite ${Limite8}')
+    else:
+        Clave2, Valor2 = Sample47
+        print (f'Nombre Producto: {Clave2}')
+        print (f'Precio Producto: ${Valor2}')
+
+
 # ***********************  Data Inputs   **********************
 
 # Input lo que nos devuelve siempre es texto, aunque se ingresen numeros
@@ -1110,7 +1211,7 @@ texto = texto.lower()
 texto = re.sub(r'[^a-z0-9\s]', '', texto)
 
 # 4. Arreglar espacios múltiples
-texto = " ".join(texto.split())
+texto = " ".join(texto.split())  # ojo si a un split no se le pone nada dentro usa el espacio simple como separador por defecto
 
 print(texto)
 
@@ -1134,7 +1235,11 @@ int + str
 ValueError
 "Tipo correcto, valor incorrecto"
 
-
+[Cuando usar ValueError]
+]Si intentas eliminar un elemento de una lista usando .remove(), pero ese elemento no existe
+Desempaquetado de variables, la cantidad de variables no coincide
+Conversión de fechas con datetime
+int('hola') el tipo es correcto, se puede convertir un string a entero, pero hola especificamente no
 
 try:
     numero = 10 + "5"
@@ -1179,20 +1284,20 @@ except Exception as e:
 
     
 MOSTRANDO DIFERENTES MENSAJES DEPENDIENDO DEL TIPO DE EXCEPT
+IMPORTANTISIMO, EL EXCEPT GENERICO COMODIN SIEMPRE DEBE IR AL FINAL
+
+Lista_ValueError = list(['Erick', 'Josue', 'Karlita'])
 
 try:
-    Resultado1 = var15.index(0) + int(var14) / 0
-
-    print(f'El resultado de la operación es {Resultado1}')
-
+    Resultado1 = 4 / Lista_ValueError.index("Carmelo")  # type: ignore
 except ValueError:
-    print('Error: el valor no es válido.')
-
-except TypeError:
-    print('Error: el tipo de dato no es correcto.')
-
-except ZeroDivisionError as Zero2:
-    print(f'Error: no se puede dividir por cero. {str(Zero2)}')
+    print(f'Error, Carmelo no existe en la lista')
+except ZeroDivisionError:
+    print(f'Error, el divisor no puede ser cero')
+except IndexError:
+    print(f'Error, el índice es incorrecto')
+except Exception:
+    print(f'Error genérico, los valores no pueden sumarse')
     
     
 
@@ -1221,14 +1326,59 @@ except TypeError:
 
 # Hagamos una exception FileNotFoundError, aqui no usaremos funciones, solo hacer un try y dentro del try hacemos un with open para mostrar con un read el archivo txt HolaMundo.txt
 # Si no es posible mostrarlo con un except mostrar un mensaje de error
+# Ojo el FileNotFoundError solo sirve con el modo de lectura 'r' con w y a lo crea
+
+
+
+
+
+# Metodo open toma dos argumentos, archivo indicando la ruta y el modo de apertura
+# <archivo> el metodo open puede abrir cualquier archivo que contenga texto 
+# <archivo> : ruta relativa es cuando el archivo se encuentra en el mismo directorio 'config.txt'  HolaMundo.txt
+# <archivo> : ruta absoluta ubicacion desde el directorio raiz C:\\Repo\\HolaMundo.txt
+# Ojo el FileNotFoundError solo sirve con el modo de lectura 'r' con w y a lo crea
+
+# [Modo de apertura]
+'''
+'r' es el modo lectura, si no lo pongo se agrega por defecto
+'w' modo de escritura reemplaza lo que hay en el archivo
+'a' modo escritura agrega a lo que ya tenemos
+'''
+
+
+# Existen dos maneras de trabajar sobre txt, open y with open, hagamos un ejemplo con open nada mas
+'''f = open('C:\\Repo\\HolaMundo.txt', 'r', encoding='UTF-8')
+print (f'{f.read()}')
+f.close()'''
 
 
 # Sobreescribir el txt y mostrar un readline
 # Agregar un texto al txt y mostrar todo con un readlines
 # Agregar una tercera linea al txt y mostrar todo con read
 # Agregar varias 'Fresa Sabrosa' "con writelines y mostrar todo con read   .writelines(["xxx\n", "xxx\n", "xxx\n"])
-# Agregar 3 bloques de lineas pero como instrucciones separadas con write y mostrar todo con readlines    
+# Agregar 3 bloques de lineas pero como instrucciones separadas con write y mostrar todo con readlines
+'''--- Para este ejercicio lo que vamos a hacer es 
+with open ('C:\\Repo\\personas.txt', 'a', encoding='UTF-8') as Docu:
+    for clave, valor in personas.items():
+        Documento_Agregar = Docu.write(f'{clave.lower()} - {valor}\n')'''
+    
 # Vamos a crear un set conjunto menu 1 con los sabores chocolate, vainilla y fresa y con un .join agregarlos al txt doc
+
+
+
+# Aqui vamos a realizar operaciones sobre los elementos del txt, recuerde que para esto usamos readlines y se necesita .strip para limpiar los \n
+
+with open ('C:\\Repo\\HolaMundo.txt', encoding='UTF-8') as Docu:
+    Documento_Lineas = Docu.readlines()
+    
+    Lista_Txt = Documento_Lineas
+
+for elemento in Lista_Txt[:]:
+    if (elemento.strip() == 'Vaporeon'):
+        print (f'Correcto, este poke es de agua')
+        break
+    else:
+        continue
 
 
 ***********************************************[PANDAS]
@@ -2223,6 +2373,9 @@ print(A)  # {1, 2, 3, 4}
 # A partir de los elementos del csv file, vamos a crear primero una lista de llaves, luego vamos a tomar los nombres y agregarlos a una lista
 # finalmente vamos a crear un diccionario y emparejar las llaves creadas y los nombres y mostramos el nuevo diccionario creado
 
+# Haga un diccionario con Claves tres, uno, cuatro... y valores 3, 1, 4... y ordene los valores para que se muestren en orden 
+Diccionario4_Sorted = dict(sorted(Diccionario4.items(), key=lambda item : item[1]))
+
 --------------------------------------------
 
 ---------------------------------------------
@@ -2271,11 +2424,26 @@ print(A)  # {1, 2, 3, 4}
 # Haga el texto de una variable todo minuscula con el metodo lower
 # Haga el texto de una variable todo mayuscula con el metodo upper
 # Haga la primera letra de una variable mayuscula con el metodo capitalize
+# Haga la primera letra de cada una de las palabras de una cadena con title
+
+# En este ejercicio se solicita que cada una de las palabras de la lista comiencen con letra mayuscula. 
+Lista_Nombres2 = ['juan salvo', 'henry courtney', 'elizabeth bennet', 'marge simpson']
+Recorra la lista con for, use el metodo .title() para que tanto nombre como apellido comiencen con Mayuscula y el resultado agreguelo a una lista actualizada.
+
 # Busque una letra en especifico en una cadena de texto con el metodo find e index
 # Cuantas veces esta la letra a en una cadena con el metodo count
 # Verifiquemos si una cadena comienza con x letra con el metodo startswith
 # Verifiquemos si una cadena termina con x letra con el metodo endswith
 # Reemplace una parte de una cadena con el metodo replace(Este tiene dos parametros, lo que se quiere cambiar y lo nuevo)
+
+Strip lo que hace es eliminar espacios
+nombre = '          Lautaro'
+print (f'{nombre.strip()}')
+
+# que pasa cuando a strip le pasamos argumentos? Elimina ese argumento de la cadena
+Textico3 = '----hola mundo***'
+print (f'{Textico3.strip("-*")}')
+
 # Tome una variable de texto y separe cada elemento de la variable en una lista separada por ',' utilizando el metodo split()
 
 
@@ -2284,12 +2452,13 @@ print(A)  # {1, 2, 3, 4}
 | ------------- | -------------------------------------- |
 | `isalpha()`   | Solo letras                            |
 | `isinstance()`| Solo dígitos decimales                 |  mas util
-| `isnumeric()` | Cualquier carácter numérico            |
+| `isnumeric()` | Cualquier carácter numérico            | # Si vas a usar int() para convertir el texto a número, usa siempre isdecimal().
 | `isnumeric()` | Entero o decimal    (int, float)       |
 | `isalnum()`   | Letras y números                       |
 | `isspace()`   | Solo espacios                          |
 | `islower()`   | Letras en minúsculas                   |
 | `isupper()`   | Letras en mayúsculas                   |
+| `istitle()`   | Cada palab comienza mayuscula          |
 | `bool()`   | Vacio                 |
 '''
 
@@ -2681,3 +2850,64 @@ def Segunda(
     return {
         'Agregado' : Lista_Elementos
     }
+    
+------------------------------------------
+
+
+# POO
+class Automovil:
+    
+    ''' Clase que identifica un automóvil '''
+
+    # Visibilidad (públicos / privados)
+    # __ -> atr. privado
+    # Encapsulamiento
+    
+    # Constructor
+    def __init__(self, marca, modelo, velocidad_maxima):
+        self.__marca = marca
+        self.__modelo = modelo
+        self.__velocidad = 0
+        self.__velocidad_max = velocidad_maxima
+
+    # Métodos
+    def acelerar(self, kms_h):
+        if kms_h >= 0:
+            velocidad_aux = self.__velocidad + kms_h
+            if velocidad_aux <= self.__velocidad_max:
+                self.__velocidad = velocidad_aux
+            else:
+                self.__velocidad = self.__velocidad_max
+
+    # get / set
+    def get_velocidad(self):
+        return self.__velocidad
+    
+    def get_marca(self):
+        return self.__marca
+    
+    def get_modelo(self):
+        return self.__modelo
+    
+    def set_color(self, color):
+        self.__color = color
+
+class Persona():
+    
+    def __init__(self, nombre, apellido):
+        self.__nombre = nombre
+        self.__appellido = apellido
+
+
+auto_01 = Automovil('Ford', 'Ka', 170)
+auto_02 = Automovil('Jeep', 'Renegade', 190)
+print(auto_01.get_velocidad())
+auto_01.acelerar(50)
+print(auto_01.get_velocidad())
+auto_01.acelerar(100)
+print(auto_01.get_velocidad())
+auto_01.acelerar(130)
+print(auto_01.get_velocidad())
+auto_01.acelerar(45651655450)
+print(auto_01.get_velocidad())
+cliente_a = Persona('Sofía', 'Prida')
