@@ -7,5 +7,5 @@ Gato Grande
 Pikachu
 Vaporeon
 Graveler
-Graveler - Pikachu - Vaporeon
+Pikachu - Vaporeon - Graveler
 Su contrasena temporal es gid712

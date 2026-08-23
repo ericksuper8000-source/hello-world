@@ -5037,3 +5037,4 @@ Primera1 = requests.get('http://127.0.0.1:8002/grupo7/')
 Primera2 = Primera1.json()
 
 print (f'La lista de helados es {Primera2["Helados"]}')'''
+
