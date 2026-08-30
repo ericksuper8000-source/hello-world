@@ -842,6 +842,32 @@ else:
         Clave2, Valor2 = Sample47
         print (f'Nombre Producto: {Clave2}')
         print (f'Precio Producto: ${Valor2}')
+        
+        
+---------------------------------------------------
+
+
+
+ Escribe una funcion contar_terminos(lista) que reciba una lista
+#   de palabras y DEVUELVA un diccionario con el conteo de cada palabra.
+#
+# Reglas de entrada/salida:
+#   - Entrada: lista de strings.
+#       Ej: ["python", "java", "python", "c++", "java", "python", "go", "c++", "python"]
+#   - Salida: dict {palabra: cantidad}.
+#   - Si la lista esta vacia, devuelve {}.
+#   - La funcion debe RETORNAR el dict (puedes imprimirlo al probar).
+#
+# Ejemplo:
+#   Entrada:  ["python", "java", "python", "c++", "java", "python", "go", "c++", "python"]
+#   Salida:   {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   (el orden de las claves no importa)
+#
+# Criterio de solucion correcta:
+#   1. Devuelve un dict.
+#   2. Conteos correctos en el ejemplo.
+#   3. No se rompe con lista vacia.
+#   4. Se resuelve recorriendo y acumulando en el dict (sin collections.Counter).
 
 
 # ***********************  Data Inputs   **********************
@@ -2375,6 +2401,8 @@ print(A)  # {1, 2, 3, 4}
 
 # Haga un diccionario con Claves tres, uno, cuatro... y valores 3, 1, 4... y ordene los valores para que se muestren en orden 
 Diccionario4_Sorted = dict(sorted(Diccionario4.items(), key=lambda item : item[1]))
+Ahora con ese mismo diccionario saquemos el menor de todas las tuplas
+Ahora con ese mismo diccionario saquemos el mayor de todas las tuplas
 
 --------------------------------------------
 
@@ -2530,7 +2558,31 @@ else:
 
 
 
+
 ##############################     ENRUTAMIENTO DE MODULOS     ######################################
+# Digamos que tengamos varios modulos que son de una misma categoria, por ejemplo un modulo aritmetica y un modulo algebra, estos se pueden
+# organizar bajo una misma categoria matematica, ambos modulos se pueden guardar bajo el mismo modulo
+# Un paquete es un conjunto de modulos, cuyos modulos solucionan problemas similares
+# Se debe agregar ambos archivos en un folder, dentro de este folder se debe agregar un archivo __init__.py. al agregar esto, se convierte en un paquete
+
+from Paquete.Sub_Paquete import Segundo as PEPE3
+
+variable_PEPE3 = PEPE3
+
+# Frameworks son paquetes, uso de Paquetes de terceros
+# pip install seguido del nombre directamente en la terminal
+
+import openpyxl
+import requests
+import psutil
+import tabulate
+import pymysql
+import flask
+import django
+
+
+
+
 
 ''' Hay un modulo llamado Modulo_Propio2 dentro de una carpeta alternativa, importemos esta carpeta alternativa
 por medio del nombre de la carpeta Nueva.Modulo_Propio2, y despleguemos algun elemento de Modulo Propio2,
@@ -2911,3 +2963,41 @@ print(auto_01.get_velocidad())
 auto_01.acelerar(45651655450)
 print(auto_01.get_velocidad())
 cliente_a = Persona('Sofía', 'Prida')
+
+
+-------------------------------------
+
+
+
+Escribe una funcion moda_terminos(diccionario) que reciba el dict
+#   de conteos {palabra: cantidad} y DEVUELVA la palabra más frecuente.
+#
+# Reglas de entrada/salida:
+#   - Entrada: dict con strings como claves y enteros como valores.
+#       Ej: {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   - Salida: el string de la clave con el valor más alto.
+#   - Si el dict esta vacio, devuelve None (o ""), pero NO te rompas.
+#   - Si HAY EMPATE (dos palabras con la misma cantidad máxima),
+#     devuelve una lista con TODAS las empatadas, en cualquier orden.
+#       Ej empate: {"a":2, "b":2, "c":1} -> ["a", "b"]
+#   - La funcion debe RETORNAR el resultado (puedes imprimirlo al probar).
+#
+# Ejemplo:
+#   Entrada:  {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   Salida:   "python"
+#   (la clave con valor 4 es la mayor)
+#
+# Criterio de solucion correcta:
+#   1. Devuelve la clave con el valor máximo.
+#   2. Maneja dict vacío sin romperse.
+#   3. Maneja empate devolviendo TODAS las empatadas (lista).
+#   4. Se resuelve recorriendo el dict y comparando/acumulando
+#      (patron "mejor candidato", SIN usar max() con truco ni librerías).
+#      Puedes USAR max() si primero explicas por qué es la mejor herramienta.
+#
+# Pista de enfoque (NO es la respuesta):
+#   Recorre los items (clave, valor). Lleva registro del "mejor visto"
+#   hasta ahora (su clave y su valor). Si el actual es MAYOR que el mejor,
+#   lo reemplazas. Si es IGUAL al mejor, lo agregas a la lista de empatados.
+#   Al final: si la lista de empatados tiene mas de 1, devuélvela; si no,
+#   devuelve al mejor. Ese es el patron "mejor candidato sobre dict".
