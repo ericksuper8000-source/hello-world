@@ -1,11 +1,14 @@
-Leon
-Camaleon
-Lobo
-Gato Pequeño
-Gato Mediano
-Gato Grande
+Calabaza
+Manzana
+Naranja
+Fresa Pequeña
+Fresa Mediana
+Fresa Grande
 Pikachu
-Vaporeon
 Graveler
-Pikachu - Vaporeon - Graveler
-Su contrasena temporal es gid712
+Vaporeon
+Guanabana
+Durazno
+Uvas
+Vaporeon - Pikachu - Graveler
+Su contrasena temporal es dfa295
