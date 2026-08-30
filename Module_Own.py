@@ -1,27 +1,35 @@
-'''Flotante1 = int(input(f'Ingrese un numero: '))
+'''Flotante1 = int(input(f'Ingrese un numero cualquiera: '))
 
 Flotante2 = input(f'Ingrese una operacion tipo 4*3: ')
 
-Flotante3 = input(f'Ingrese su nombre completo: ')
+Floating3 = input(f'Ingrese su nombre completo: ')
 
-Flotante4 = input(f'Ingrese una cadena de texto: ')'''
+Floating4 = input(f'Ingrese una cadena de texto: ')'''
+
+def sumar(num1, num2):
+    return num1 + num2
+
+def restar(num1, num2):
+    return num1 - num2
+
+def multiplicar(num1, num2):
+    return num1 * num2
 
 Diccionario_Poke = dict.fromkeys(['Poke1', 'Poke2', 'Poke3'])
 
 Set_Conjunto_Poke1 = {'Pikachu'}
-Set_Conjunto_Poke1.add('Vaporeon')
-
-Set_Conjunto_Poke2 = set({'Graveler'})
+Set_Conjunto_Poke1.add('Graveler')
+Set_Conjunto_Poke2 = set({'Vaporeon'})
 
 Set_Conjunto_Poke1.update(Set_Conjunto_Poke2)
 
-for elemento in enumerate(Set_Conjunto_Poke1):
-    if (elemento[1] == 'Pikachu'):
-        Diccionario_Poke['Poke1'] = elemento[1]
-    elif (elemento[1] == 'Vaporeon'):
-        Diccionario_Poke['Poke2'] = elemento[1]
-    elif (elemento[1] == 'Graveler'):
-        Diccionario_Poke['Poke3'] = elemento[1]
+for elemento in Set_Conjunto_Poke1:
+    if (elemento == 'Pikachu'):
+        Diccionario_Poke['Poke1'] = elemento
+    elif (elemento == 'Graveler'):
+        Diccionario_Poke['Poke2'] = elemento
+    elif (elemento == 'Vaporeon'):
+        Diccionario_Poke['Poke3'] = elemento
     else:
         continue
     
@@ -35,21 +43,17 @@ def Primera(Segunda): #type: ignore
     return Tercera
     
 @Primera
-def Saludar2(Nombre = 'Juana La Cubana'):
+def Saludar2(Nombre = 'Juanita La Cubanita'):
     return Nombre
 
 def Primera(Segunda): #type: ignore
     def Tercera(*args):
-        return Segunda("Carmelox")
+        return Segunda('Roxana Patricia')
         
     return Tercera
 
 @Primera
 def Saludar3(Nombre:str) -> str:
-    '''
-    Esta es una funcion hint que muestra el nombre de un usuario
-    '''
-    
     return Nombre
 
 def Primera(Segunda): #type: ignore
@@ -60,7 +64,6 @@ def Primera(Segunda): #type: ignore
 
 @Primera
 def Sumatoria1(Num1:int, Num2:int) -> int:
-    '''Esto es una funcion que suma dos argumentos y retorna el resultado'''
     return Num1 + Num2
 
 def Primera(Segunda): #type: ignore
@@ -70,7 +73,7 @@ def Primera(Segunda): #type: ignore
     return Tercera
 
 @Primera
-def Par(Numero:int) -> int:
+def Par(Numero):
     if (Numero % 2 == 0):
         return True
     else:
@@ -79,7 +82,7 @@ def Par(Numero:int) -> int:
 def Primera(Segunda): #type: ignore
     def Tercera(*args, **kwargs):
         Nombre = 'Juana La Cubana'
-        Sexo = 'FeMENIno'
+        Sexo = 'FEMENINO'
         return Segunda(Nombre, Sexo)
         
     return Tercera
@@ -94,7 +97,7 @@ def Usuario(Nombre, Sexo):
         
 def Primera(Segunda):
     def Tercera(*args):
-        return Segunda(89)
+        return Segunda(59)
         
     return Tercera
         
@@ -106,13 +109,10 @@ def Contrasena(Numero):
     c1 = Numero_Int - 2
     c2 = Numero_Int
     c3 = Numero_Int - 5
-    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(c2 * Numero))}'
+    Password = f'{chars[c1]}{chars[c2]}{chars[c3]}{int(abs(Numero * c2))}'
     return Password
 
-Lista_Numeros = list([1, 2])
-Lista_Numeros.append(3)
-Lista_Numeros.insert(4, 4)
-Lista_Numeros.extend([5])
+Lista_Numeros = [1, 2, 3, 4, 5]
 
 Variable_Funcion_Anonima1 = lambda Num1, Num2 : Num1 * Num2
 Variable_Funcion_Anonima2 = lambda Num : Num * 2
@@ -135,18 +135,19 @@ class Pokemon():
         print (f'Nombre: {self.Nombre}')
         print (f'Tipo: {self.Tipo}')
         print (f'Ataque: {self.Ataque}')
-        print (f'Cantidad: {self.Cantidad}')
-        print (f'Atrapado?: {self.Catched}')
+        print (f'Pokedex: {self.Cantidad}')
+        print (f'Capturado: {self.Catched}')
         
-Tupla_Poke = ('Ash', 'Brooke', 'Misty',)
+Poke_Tupla = ('Ash', 'Brooke', 'Misty',)
 
-Division_Flotante = 3.5
-        
-Lista1 = ['Erick']
-Lista1.append('Josue')
-Lista1.insert(2, 'Perez')
-Lista1.extend(['Gutierrez'])
+Division_Flotante = 14 / 7
 
-Lista2 = [Division_Flotante, 300, 'Koala', True]
-Lista3 = list([1, 2, 3, 4, 5])
+Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
+Lista2 = list([Division_Flotante, 300, 'Koala', not False])
+Lista3 = [1, 2]
+Lista3.append(3)
+Lista3.insert(4, 4)
+Lista3.extend([5])
+
 Lista4 = [4000, 15, 97, 300]
+
