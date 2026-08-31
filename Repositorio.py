@@ -3001,3 +3001,61 @@ Escribe una funcion moda_terminos(diccionario) que reciba el dict
 #   lo reemplazas. Si es IGUAL al mejor, lo agregas a la lista de empatados.
 #   Al final: si la lista de empatados tiene mas de 1, devuélvela; si no,
 #   devuelve al mejor. Ese es el patron "mejor candidato sobre dict".
+
+
+--------------------------
+
+
+Esta es una funcion que recibe una lista de productos y un diccionario como argumentos, el dict esta vacio, la idea es crear una funcion que recibe estos argumentos y evalue 2 listas una lista de frutas y otra de verdura, si el elemento de la lista externa esta en la categoria fruta entonces se guarda en el diccionario en la lista frutas, si no en verduras u otros. El resultado muestralo 
+
+lista_productos = ["manzana", "zanahoria", "kiwi", "pera", "tomate"]
+        
+canastas = {
+    "frutas": [],     # se llenará con frutas
+    "verduras": [],   # se llenará con verduras
+    "otros": []       # se llenará con lo que no sea fruta ni verdura
+}
+
+def clasificar(diccionario, lista):
+    fruta = ["manzana","banana","pera"]
+    verdura = ["zanahoria","lechuga","tomate"]
+
+Recorremos la lista externa, se evalua a que categoria pertenece, se actualiza el diccionario.
+
+
+
+--------------------------
+
+
+
+Agrupar por categoría
+
+Escribe una función agrupar(lista_pares) que:
+
+Reciba una lista de tuplas (categoria, valor).
+Cree un diccionario vacío.
+Recorra todas las tuplas.
+Si una categoría no existe, créala con una lista vacía [].
+Agregue (append) el valor a la lista de esa categoría.
+Devuelva el diccionario resultante.
+
+Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), ("fruta","pera"), ("fruta","banana"), ("verdura","tomate")]
+
+Diccionario_Agrupar = dict({})
+
+def agrupar(Lista, Diccionario):
+    for clave, valor in Lista:
+        if (clave not in Diccionario):
+            Diccionario[clave] = []
+            
+        Diccionario[clave].append(valor)
+            
+    return Diccionario
+        
+
+Sample50 = agrupar(Lista_Agrupar, Diccionario_Agrupar)
+
+if (len(Lista_Agrupar) == 0):
+    print (f'{Diccionario_Agrupar}')
+else:
+    print (f'{Sample50}')

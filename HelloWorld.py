@@ -5229,3 +5229,80 @@ if (len(Diccionario_Lenguaje3) == 0):
     print (f'Error, el diccionario esta vacio')
 else:
     print (f'{Sample53}')
+    
+print (f'-' * 20)
+
+Diccionario_Lenguaje = {"a":5, "b":3, "c":1}
+
+def buscar_por_frecuencia(Diccionario, Numero):
+    Lista_Coincidencias = list([])
+    
+    for Clave, Valor in Diccionario.items():
+        if (Valor == Numero):
+            Lista_Coincidencias.append(Clave)
+        
+    return Lista_Coincidencias
+
+Objetivo1 = 10
+
+Sample48 = buscar_por_frecuencia(Diccionario_Lenguaje, Objetivo1)
+
+if (len(Diccionario_Lenguaje) == 0):
+    print (f'Error, el diccionario esta vacio')
+else:
+    if (Sample48):
+        print (f'Lista: {Sample48}')
+    else:
+        print (f'Lista: {Sample48}')
+        
+print (f'-' * 20)
+
+lista_productos = ["manzana", "zanahoria", "kiwi", "pera", "tomate"]
+        
+canastas = {
+    "frutas": [],     # se llenará con frutas
+    "verduras": [],   # se llenará con verduras
+    "otros": []       # se llenará con lo que no sea fruta ni verdura
+}
+
+def clasificar(diccionario, lista):
+    fruta = ["manzana","banana","pera"]
+    verdura = ["zanahoria","lechuga","tomate"]
+    
+    for elemento in lista:
+        if (elemento in fruta):
+            diccionario['frutas'].append(elemento)
+        elif (elemento in verdura):
+            diccionario['verduras'].append(elemento)
+        else:
+            diccionario['otros'].append(elemento)
+            
+    return diccionario
+
+Sample49 = clasificar(canastas, lista_productos)
+
+if (len(canastas) == 0):
+    print (f'La lista esta vacia')
+    
+print (f'-' * 20)
+
+Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), ("fruta","pera"), ("fruta","banana"), ("verdura","tomate")]
+
+Diccionario_Agrupar = dict({})
+
+def agrupar(Lista, Diccionario):
+    for clave, valor in Lista:
+        if (clave not in Diccionario):
+            Diccionario[clave] = []
+            
+        Diccionario[clave].append(valor)
+            
+    return Diccionario
+        
+
+Sample50 = agrupar(Lista_Agrupar, Diccionario_Agrupar)
+
+if (len(Lista_Agrupar) == 0):
+    print (f'{Diccionario_Agrupar}')
+else:
+    print (f'{Sample50}')
