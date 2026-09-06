@@ -1849,6 +1849,10 @@ except StopIteration:
 # Creamos una funcion anonima lambda basica
 # Crear una lambda que calcule el doble de un número. y lo imprima
 # Creamos una lista de numeros y una funcion lambda con un filter que saque solo los pares
+# Ahora hagamos un diccionario Diccionario_Numeral con 4 numeros aleatorios, hagamos una nueva lambda para acomodar los elementos del diccionario dict(sorted(etc))
+# De este resultado saquemos el valor mas menor 
+# De este resultado saquemos el valor mas menor
+# Ahora from xxx import las variables anonimas del 1 al 4 al archivo principal 
 
 '''
 Declarar una variable GLOBAL externa integer, ojo recuerda que las variables globales se declaran totalmente en mayuscula
@@ -2386,6 +2390,7 @@ print(A)  # {1, 2, 3, 4}
 # Concatene un elemento de una lista con el diccionario
 # Creamos un diccionario vacio, solo con los keys pero sin valores por medio de la funcion dict.fromkeys([])
 # Ahora creamos un diccionario en el que todos los keys tengan el mismo valor Diccionario_Vacio = dict.fromkeys('ABCD', "Carmelo")
+# Ahora hagamos un diccinario completamente vacio dict({}) y vamos a meterle elementos a un diciconario que no tiene claves ni valores
 
 # Hagamos un diccionario vacio con fromkeys, luego una lista de elementos y agregue los elementos de la lista al diccionario con un ciclo    i=0
 
@@ -3001,3 +3006,61 @@ Escribe una funcion moda_terminos(diccionario) que reciba el dict
 #   lo reemplazas. Si es IGUAL al mejor, lo agregas a la lista de empatados.
 #   Al final: si la lista de empatados tiene mas de 1, devuélvela; si no,
 #   devuelve al mejor. Ese es el patron "mejor candidato sobre dict".
+
+
+--------------------------
+
+
+Esta es una funcion que recibe una lista de productos y un diccionario como argumentos, el dict esta vacio, la idea es crear una funcion que recibe estos argumentos y evalue 2 listas una lista de frutas y otra de verdura, si el elemento de la lista externa esta en la categoria fruta entonces se guarda en el diccionario en la lista frutas, si no en verduras u otros. El resultado muestralo 
+
+lista_productos = ["manzana", "zanahoria", "kiwi", "pera", "tomate"]
+        
+canastas = {
+    "frutas": [],     # se llenará con frutas
+    "verduras": [],   # se llenará con verduras
+    "otros": []       # se llenará con lo que no sea fruta ni verdura
+}
+
+def clasificar(diccionario, lista):
+    fruta = ["manzana","banana","pera"]
+    verdura = ["zanahoria","lechuga","tomate"]
+
+Recorremos la lista externa, se evalua a que categoria pertenece, se actualiza el diccionario.
+
+
+
+--------------------------
+
+
+
+Agrupar por categoría
+
+Escribe una función agrupar(lista_pares) que:
+
+Reciba una lista de tuplas (categoria, valor).
+Cree un diccionario vacío.
+Recorra todas las tuplas.
+Si una categoría no existe, créala con una lista vacía [].
+Agregue (append) el valor a la lista de esa categoría.
+Devuelva el diccionario resultante.
+
+Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), ("fruta","pera"), ("fruta","banana"), ("verdura","tomate")]
+
+Diccionario_Agrupar = dict({})
+
+def agrupar(Lista, Diccionario):
+    for clave, valor in Lista:
+        if (clave not in Diccionario):
+            Diccionario[clave] = []
+            
+        Diccionario[clave].append(valor)
+            
+    return Diccionario
+        
+
+Sample50 = agrupar(Lista_Agrupar, Diccionario_Agrupar)
+
+if (len(Lista_Agrupar) == 0):
+    print (f'{Diccionario_Agrupar}')
+else:
+    print (f'{Sample50}')

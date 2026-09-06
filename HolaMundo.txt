@@ -1,14 +1,15 @@
-Calabaza
-Manzana
-Naranja
-Fresa Pequeña
-Fresa Mediana
-Fresa Grande
+Lobo
+Lagartija
+Pez Globo
+Hiena Pequeña
+Hiena Mediana
+Hiena Grande
 Pikachu
 Graveler
 Vaporeon
-Guanabana
-Durazno
-Uvas
-Vaporeon - Pikachu - Graveler
-Su contrasena temporal es dfa295
+python : 2
+java : 2
+c++ : 2
+go : 1
+Vaporeon - Graveler - Pikachu
+Su contrasena temporal es fhc504
