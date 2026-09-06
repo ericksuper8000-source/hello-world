@@ -1849,6 +1849,10 @@ except StopIteration:
 # Creamos una funcion anonima lambda basica
 # Crear una lambda que calcule el doble de un número. y lo imprima
 # Creamos una lista de numeros y una funcion lambda con un filter que saque solo los pares
+# Ahora hagamos un diccionario Diccionario_Numeral con 4 numeros aleatorios, hagamos una nueva lambda para acomodar los elementos del diccionario dict(sorted(etc))
+# De este resultado saquemos el valor mas menor 
+# De este resultado saquemos el valor mas menor
+# Ahora from xxx import las variables anonimas del 1 al 4 al archivo principal 
 
 '''
 Declarar una variable GLOBAL externa integer, ojo recuerda que las variables globales se declaran totalmente en mayuscula
@@ -2386,6 +2390,7 @@ print(A)  # {1, 2, 3, 4}
 # Concatene un elemento de una lista con el diccionario
 # Creamos un diccionario vacio, solo con los keys pero sin valores por medio de la funcion dict.fromkeys([])
 # Ahora creamos un diccionario en el que todos los keys tengan el mismo valor Diccionario_Vacio = dict.fromkeys('ABCD', "Carmelo")
+# Ahora hagamos un diccinario completamente vacio dict({}) y vamos a meterle elementos a un diciconario que no tiene claves ni valores
 
 # Hagamos un diccionario vacio con fromkeys, luego una lista de elementos y agregue los elementos de la lista al diccionario con un ciclo    i=0
 
