@@ -1,4 +1,4 @@
-print ('Hola Python esto es un sub paquete')
+print ('Hola Python Este es mi subpaquete 2')
 a = 1
 b = 9
 c = a + b

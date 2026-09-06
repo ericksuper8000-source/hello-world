@@ -1,0 +1,5 @@
+{
+    "python.defaultInterpreterPath": "C:\\Users\\XPC\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "python.analysis.extraPaths": ["C:\\Repo"],
+    "python.analysis.typeCheckingMode": "basic"
+}
