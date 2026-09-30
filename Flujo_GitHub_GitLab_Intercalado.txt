@@ -1,0 +1,77 @@
+FLUJO GITHUB <-> GITLAB INTERCALADO
+
+================================================================
+COMMIT 1 - TOCA PRACTICAR GITHUB
+================================================================
+1. Crear commit en Develop y subir solo a GitHub:
+   git checkout Develop
+   # editas archivos, haces tu commit 1
+   git add .
+   git commit -m "commit 1: descripcion"
+   git push origin Develop
+
+2. En la web de GitHub: Pull Request Develop -> Master -> Merge
+
+3. Traer ese sello a tu PC:
+   git checkout Master
+   git pull origin Master
+
+4. COPIAR ese mismo sello a GitLab (NO hagas MR en GitLab):
+   git push gitlab Master
+
+5. Sincronizar el borrador Develop para la proxima:
+   git checkout Develop
+   git merge Master
+   git push origin Develop
+   git push gitlab Develop
+
+Resultado: origin/Master == gitlab/Master == Master local. git status limpio.
+
+================================================================
+COMMIT 2 - TOCA PRACTICAR GITLAB (intercalado)
+================================================================
+1. Crear commit en Develop y subir solo a GitLab:
+   git checkout Develop
+   # editas archivos, haces tu commit 2
+   git add .
+   git commit -m "commit 2: descripcion"
+   git push gitlab Develop
+
+2. En la web de GitLab: Merge Request Develop -> Master -> Merge
+
+3. Traer ese sello a tu PC:
+   git checkout Master
+   git pull gitlab Master
+
+4. COPIAR ese mismo sello a GitHub (NO hagas PR en GitHub):
+   git push origin Master
+
+5. Sincronizar el borrador Develop para la proxima:
+   git checkout Develop
+   git merge Master
+   git push origin Develop
+   git push gitlab Develop
+
+Resultado: otra vez los 3 Masters iguales.
+
+================================================================
+Y ASI SIGUES INTERCALANDO
+================================================================
+- Commit 3 -> toca GitHub otra vez (repite bloque COMMIT 1)
+- Commit 4 -> toca GitLab otra vez (repite bloque COMMIT 2)
+
+REGLA DE ORO:
+NUNCA hagas PR + MR para la MISMA feature. Si lo haces, volveras a quedar "ahead"
+y tendras que arreglarlo con: git checkout Master; git pull origin Master; git pull gitlab Master; git push origin Master; git push gitlab Master
+
+COMO VERIFICAR QUE ESTA LIMPIO:
+git fetch --all
+git status                    # debe decir "Your branch is up to date"
+git log --oneline --graph --all --decorate -10  # origin/Master y gitlab/Master en el mismo commit que Master
+
+ARREGLAR EL "AHEAD 33" ACTUAL (opcional, cuando quieras):
+git checkout Master
+git fetch --all
+git push origin Master
+git push gitlab Master
+# Si quieres historial limpio en vez de enredado, avisa antes de hacerlo.

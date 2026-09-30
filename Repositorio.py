@@ -13,6 +13,158 @@ raise
 
 
 
+Para este ejercicio vamos a trabajar nuevamente con diccionarios anidados, la idea es tener un diccionario que va a tener usuarios y campos, la idea es crear una funcion que reciba (Diccionario, User, Field, New_Value), Si el usuario no existe creamos el usuario y le asignamos su informacion
+
+        Diccionario[User] = {}
+        Diccionario[User][Field] = New_Value
+        return (True, "creado")
+
+Si por otro lado el usuario existe pero el campo no existe, entonces se crea el campo y se le asigna el valor 
+
+         Diccionario[User][Field] = New_Value
+         return (True, "campo nuevo")
+
+Finalmente si el usuario existe y tambien el campo, entonces se actualiza el campo
+
+         Diccionario[User][Field] = New_Value
+         return (True, "actualizado")
+
+-----
+
+Datos5 = {"ana": {"edad": 25, "ciudad": "Quito"}}
+
+def Ejercicio75(Diccionario, User, Field, New_Value):
+    Ubicado1 = Diccionario.get(User)
+    if (Ubicado1 is None):
+        Diccionario[User] = {}
+        Diccionario[User][Field] = New_Value
+        return (True, "creado")
+    else:
+        Ubicado2 = Ubicado1.get(Field)
+        if (Ubicado2 is None):
+            Diccionario[User][Field] = New_Value
+            return (True, "campo nuevo")
+        else:
+            Diccionario[User][Field] = New_Value
+            return (True, "actualizado")
+
+Usuaria4 = 'ana'
+Campo8 = 'telefono'
+Nuevo_Valor8 = 999
+
+Sample75 = Ejercicio75(Datos5, Usuaria4, Campo8, Nuevo_Valor8)
+
+print (f'{Sample75}')
+
+
+------------------------------------------------
+
+
+Vamos a hacer un diccionario anidado y vamos a recorrerlo completamente
+Diccionario1X = {
+    'Nombre' : "Erick"
+}
+
+Diccionario2X = {
+    'Nombre' : ["Erick", "Josue"]
+}
+
+Diccionario3X = {
+    "ana": {"edad": 25, "ciudad": "Quito"}, 
+    "luis": {"edad": 30, "ciudad": "Guayaquil"}
+    }
+    
+
+Vamos a hacer un ejercicio que recorre un diccionario anidado, busca dos elementos, si el primeor no se encuentra se muestra un mensaje de error, si el segundo no se encuentra entonces
+Muestra otro mensaje de error, pongamos atencion a la manera de recorrer y validar si una clave o valor pertenecen al diccionario
+
+Diccionario4X = {
+    "ana": {"edad": 25, "ciudad": "Quito"},
+    "luis": {"edad": 30, "ciudad": "Guayaquil"}
+}
+
+def Ejercicio1(Diccionario, Persona, Elemento):
+    Ubicado1 = Diccionario.get(Persona)
+    if (Ubicado1 is None):
+        return (False, 'Error, el Usuario2 es incorrecto')
+    else:
+        Ubicado2 = Ubicado1.get(Elemento)
+        if (Ubicado2 is None):
+            return (False, 'Error, el Campo2 es incorrecto')
+        else:
+            return (True, 'Ambos Usuario2 y Campo2 son correctos')
+
+Usuario2 = 'ana'
+Campo2 = 'profesion'
+
+if (Diccionario4X):
+    Sample1 = Ejercicio1(Diccionario4X, Usuario2, Campo2)
+    if (Sample1 == True):
+        print (f'{Sample1}')
+    else:
+        print (f'{Sample1}')
+else:
+    print (f'Error, el diccionario esta vacio')
+    
+print (f'-' * 20)
+        
+        
+--------------------------------------------------
+
+
+
+
+Actualizar un campo
+
+Crea una función actualizar(datos, usuario, campo, nuevo_valor) para modificar un valor dentro de un diccionario anidado.
+
+datos = {
+    "ana":  {"edad": 25, "ciudad": "Quito"},
+    "luis": {"edad": 30, "ciudad": "Guayaquil"}
+    }
+
+usuario = 'luis'
+campo = 'edad'
+nuevo_valor = '35'
+
+La función debe:
+
+Comprobar si el diccionario está vacío.
+Comprobar si existe el usuario.
+Comprobar si existe el campo dentro de ese usuario.
+Si todo existe, actualizar el valor.
+Devolver (True, "ok") si se actualizó correctamente.
+Si algo falla, devolver (False, mensaje) indicando si fue por diccionario vacío, usuario inexistente o campo inexistente.
+
+
+def actualizar(nested, user, field, new_value):
+    if (len(nested) == 0):
+        return (False, "diccionario vacío")
+    
+    Ubicado1 = nested.get(user)
+    if (Ubicado1 is None):
+        return (False, "usuario no existe")
+    else:
+        Ubicado2 = Ubicado1.get(field)
+        if (Ubicado2 is None):
+            return (False, "campo no existe")
+        else:
+            nested[user][field] = new_value
+            return (True, "ok")
+
+usuario = 'luis'
+campo = 'edad'
+nuevo_valor = '35'
+
+Sample = actualizar(datos, usuario, campo, nuevo_valor)
+
+print (f'{Sample}')
+
+
+----------------------------------------------
+
+
+
 [FUNCIONES DE ORDEN SUPERIOR]
 
 Una función puede recibir otra función como argumento.
@@ -73,8 +225,26 @@ Hagamos una funcion simple con un Argumentos con valores por defecto, por ejempl
 
 Ahora hagamos una funcion simple con 3 argumentos con valores por defecto num1=100, num2=50, num3=40, pero que reciba en la declaracion de la funcion dos numeros sumar3(20, 8), la idea es que el numero del argumento se reeplaza, en este ejemplo los numeros num1 y num2 se reemplazan, num3 se mantiene con el numero original   --- suma2(num1=100, num2=50, num3=40)
 
-Hagamos una funcion que recibe 3 argumentos y solo el ultimo es un argumento con valor por defecto sumar3(num1, num2, num3=40)
-sumar3(20, 8)
+def Ejercicio6(Num1, Num2, Num3):
+Sample6 = Ejercicio6(1, 2, 3)
+
+-----
+
+def Ejercicio7(Num1=100, Num2=200, Num3=300):
+Sample7 = Ejercicio7(5, 5, 5)
+
+-----
+
+def Ejercicio8(Num1, Num2, Num3=100):
+Sample8 = Ejercicio8(5, 6)
+
+-----
+
+def Ejercicio9(Num1=6, Num2=7, Num3=0):
+Sample9 = Ejercicio9()
+
+-----
+
 Los argumentos con valores por defecto siempre deben ir al final de la función
 
 
@@ -717,6 +887,7 @@ else:
 
 Ejercicio — Primera coincidencia en un diccionario
 La función debe recorrer el diccionario y encontrar la primera venta cuyo valor sea mayor que el límite. La funcion recibe el diccionario y el limite. Si ninguna venta supera el límite None, Si el diccionario está vacío se muestra un mensaje de error, debe devolver articulo y precio que supera el limite.
+OJO MUY IMPORTANTE ACOMODAR EL DICCIONARIO ANTES DE BUSCAR  dict(sorted(Diccinario.items(), key=lambda item : item[1]))
 
 Ventas = {
     "Lunes": 120,
@@ -1078,6 +1249,27 @@ ARCHIVOS .TXT  \\
 Creamos un archivo txt en el folder donde estan los archivos python
 
 C:\\Users\\XPC\\Desktop\\'''
+
+
+
+'''
+Esto Es un docstring
+\D esto toma todos los elementos que no sean numeros
+\d esto toma todos los numeros nada mas
+\w esto toma todo menos los caracteres especiales
+\W esto toma solo los caracteres especiales
+\s esto toma solo espacios
+\S esto toma todo menos los espacios
+[0-9] esto toma numeros del 0 al 9
+[a-zA-Z] solo letra mayusculas o minusculas
+? 0 o 1
+* 0 o mas
++ 1 o mas
+^ comienza con - se puede usar search o findall 
+[^] todo menos lo que aparece en el parentesis
+$ termina con - se puede usar solo search
+h.la el punto puede ser cualquier cosa
+'''
 
 '''Expresiones regulares en Python
 Son un buscador con superpoderes para texto. Siempre hay que comenzar exportando import re
@@ -1745,7 +1937,10 @@ Ahora veamos la cantidad de elementos del array con .size
 # Sume dos matrices de 2, 3 igual tamano
 # Reste dos matrices de 2, 3 igual tamano
 # Multiplique dos matrices de 2, 3 igual tamano
-# Divida dos matrices de 2, 3 igual tamano
+# Division baja de dos matrices de 2, 3 igual tamano
+# Division flotante de dos matrices de 2, 3 igual tamano
+# Exponente de dos matrices
+# Modulo de dos matrices
 # Sumele 5 a cada numero de un arreglo de una unica vez
 
 # Ahora tome un arreglo de un unico axis o dimension de 20 numeros y haga un reshape con una matriz de 4 x 5  np.reshape(array, shape=(2, 3))
