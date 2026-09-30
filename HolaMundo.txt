@@ -1,15 +1,14 @@
-Lobo
-Lagartija
-Pez Globo
+Oso
+Salamandra
+Avestruz
 Hiena Pequeña
 Hiena Mediana
 Hiena Grande
 Pikachu
 Graveler
 Vaporeon
-python : 2
-java : 2
-c++ : 2
-go : 1
-Vaporeon - Graveler - Pikachu
-Su contrasena temporal es fhc504
+HORMIGA
+PEZ VELA
+DELFIN
+Vaporeon - Pikachu - Graveler
+Su contrasena temporal es gid704
