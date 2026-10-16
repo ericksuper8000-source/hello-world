@@ -12,6 +12,373 @@ raise
 
 
 
+-----------------------------------------
+
+
+
+
+📌 Dunder Methods (Práctica)
+
+✅ __str__
+• Clase: Persona
+• Objetivo: Mostrar un texto amigable con print(objeto).
+
+✅ __repr__
+• Clase: Colores
+• Objetivo: Mostrar la representación oficial del objeto.
+
+✅ __len__
+• Clase: Inventario
+• Objetivo: Devolver la cantidad de elementos.
+
+✅ __eq__
+• Clase: Igualdad
+• Objetivo: Comparar si dos objetos son iguales.
+
+✅ __add__
+• Clases: Caja + Peso
+• Objetivo: Sumar dos objetos con el operador +.
+
+✅ __getitem__
+• Clase: Armario
+• Objetivo: Acceder a un elemento usando índices.
+• Ejemplo: Armario[0]
+
+✅ __iter__
+• Clase: Panaderia
+• Panes = ["Baguette", "Croissant", "Pan dulce"]
+• return iter(self.panes)
+• Uso:
+    for pan in panaderia:
+        print(pan)
+        
+
+
+-------------------------------------------------------
+
+
+# Crea una clase pokemon con tipo, nombre, ataque y una variable capturado en el  Modulo_Propio
+
+# Usemos un unico elemento del modulo saludar con la instruccion "from Saludar import Diccionario_Poke", ya no se necesita usar Saludar
+
+# Creemos una clase hija que herede todas las caracteristicas de la clase pokemon
+
+# Ahora vamos a hacer un ejercicio de herencia multiple con 3 clases, una clase camara, otra reproductor musica y otra clase smartphone, smartphone hereda de las clases padre. Solamente tendra un metodo accion cada una
+
+
+'''
+
+Tipos de Herencia
+Clase normal Pokemon
+Hacer un ejemplo de herencia Simple - Herencia simple Pokemon y poke hija
+
+Hacer un ejemplo de herencia Jerarquica (Veterinaria)
+clase padre Mascota (nombre, edad, peso)
+Clases hijas (Perro, Gato, Pajaro) 
+Perro (Raza, Padecimiento, N_Visitas)
+Gato (Raza, Color, Paciente_Activo)
+Pajaro (Especie, Habla)
+
+
+Hacer un ejemplo de herencia Multiple (Camara, Reproductor Musica, Smartphone)
+
+Hacer un ejemplo de herencia Multiple (Personaje VideoJuego)
+
+Atacante
+daño base
+método para atacar
+energía de ataque
+
+Curador
+puntos de curación
+método para curar
+regeneración de vida
+
+Paladin
+
+Hereda de atacante y curador y tiene un nombre. Mostrar ficha de personaje
+
+
+
+Como saber si una clase hija hereda de una clase padre?
+Herencia = issubclass(Poke_Hija, Poke) # Esto debe darme true como resultado
+
+Como saber si una variable es un objeto de una clase?
+Instancia = isinstance(Objeto1, Poke) # Esto debe darme true como resultado
+
+
+
+MRO  (Que pasa si varias clases tienen el mismo metodo?)
+Vamos a hacer un ejemplo de herencia con MRO, lo que haremos es crear 5 clases, A,F,B,C,D,F, donde cada una tendra un metodo llamado Mostrar() y un texto hola "letra". 
+B heredara de A, C heredara de F, D heredara de B y C. Con esto veremos el flujo y como mostraria el mensaje del metodo si tengo un objeto Objeto1.Mostrar() Cual mensaje mostrara primero? 
+Vamos quitando bloques con pass
+Que deberia hacer ahora que entiendo el orden del MRO si quisiera explicitamente llamar el metodo de la clase B desde D?
+
+B.Mostrar(Objeto1)
+F.Mostrar(Objeto1)
+A.Mostrar(Objeto1)
+
+
+
+
+[Polimorfismo]
+Un cliente puede pagar con:
+Tarjeta
+PayPal
+Criptomonedas
+Todos comparten el mismo metodo pagar() que cambia dependiendo del metodo de pago
+
+
+[Encapsulamiento] __privada
+Cuenta bancaria encapsulada:
+class Cuenta:
+
+    def __init__(self, saldo):
+        self.__saldo = saldo
+
+    def depositar(self, dinero):
+        self.__saldo += dinero
+
+    def ver_saldo(self):
+        print(self.__saldo)
+
+mi_cuenta = Cuenta(100)
+mi_cuenta.depositar(50)
+mi_cuenta.ver_saldo()
+
+
+[Encapsulamiento]: 
+El saldo está protegido, no se puede alterar.
+
+Getter → sirve para LEER un dato
+Setter → sirve para CAMBIAR un dato
+
+Muestre el valor de __Saldo con un getter
+Cambie el valor de __Saldo con un setter
+
+Hagamos una clase protegida que reciba un 
+nombre __privado y mostrarlo afuera de la 
+clase por medio de un @property
+
+
+
+class Protegido:
+    def __init__(self, Nombre):
+        self.__Nombre = Nombre
+
+    def Mostrar(self):
+        print (f'Tu nombre es {self.__Nombre}')
+
+    @property
+    def nombre(self):
+        return self.__Nombre
+
+    @nombre.setter
+    def nombre(self, Nuevo_Nombre):
+        self.__Nombre = Nuevo_Nombre
+
+Objeto1 = Protegido('Erick')
+
+Objeto1.Mostrar()
+
+Objeto1.nombre = 'Hola'   # setter
+
+print(Objeto1.nombre)     # getter
+
+--------------------------------------------------------------------
+
+
+
+
+
+
+Abstraccion
+
+Clases Abstractas
+
+Las clases abstractas son plantillas que generan reglas que se deben seguir a la hora de crear clases en proyectos grandes. 
+En otras palabras, si hay 100 programadores, todos deben crear las reglas definidas en la plantilla. Normalmente son metodos. 
+Pero yo puedo crear todos los metodos que quiera en mis clases, la clase abstracta me dice nada mas que a fuerza la clase nueva debe tener ese metodo definido y todo lo demas que quiera.
+
+from abc import ABC, abstractclassmethod
+
+class Comida(ABC):
+
+    @abstractclassmethod
+    def Cocinar(self):
+        pass
+
+class Pizza(Comida):
+        def Cocinar(self):
+            print (f'Horneando La Pizza')
+
+        def Mostrar(self):
+            print (f'Hola Mundo')
+
+Objeto1 = Pizza()
+
+Objeto1.Cocinar()
+Objeto1.Mostrar()
+
+
+
+
+Ahora vamos a hacer un ejercicio de Composicion, el metod de la primera clase se debe mostrar en la segunda sin usar herencia
+
+'''
+
+
+
+
+[COMPOSICION VS INYECCION DE DEPENDENCIAS]  
+Hagmos el ejemplo de los pokemones Batallando Bulbasaur, Treekoo, Chikorita
+
+Hagamos el ejemplo de los pasteles
+
+QUE ES DUCK TYPING? - Es una filosofia
+"No me importa qué eres.
+Me importa si puedes hacer lo que necesito."
+
+
+
+Ejercicio horneando un paste. En el caso de la composicion, el pastel "nace" condenado a ser de chocolate porque él mismo crea el ingrediente.
+
+class Ingredientes():
+    def Sabor(self):
+        return f'Chocolate'
+
+class Pastel:
+    def __init__(self):
+        self.Agregado = Ingredientes()
+
+    def Hornear(self):
+        print (f'Horneaste un pastel de {self.Agregado.Sabor()}')
+
+Objeto33 = Pastel()
+
+Objeto33.Hornear()
+
+[Inyeccion de dependencias]
+
+# 1. Definimos los posibles sabores por separado
+class Chocolate:
+    def sabor(self):
+        return "Chocolate suizo 🍫"
+
+class Fresa:
+    def sabor(self):
+        return "Fresas naturales 🍓"
+
+# 2. La clase Pastel ahora es "Abierta"
+class Pastel:
+    def __init__(self, ingrediente):
+        # INYECCIÓN: El pastel recibe el ingrediente por el constructor.
+        # Ya no hace: self.Agregado = Chocolate()
+        self.ingrediente = ingrediente
+
+    def hornear(self):
+        # El pastel simplemente usa el sabor del objeto que le pasaron
+        print(f"Horneaste un pastel de {self.ingrediente.sabor()}")
+
+# --- MOMENTO DE LA INYECCIÓN (Fuera de las clases) ---
+
+# Queremos un pastel de Chocolate:
+ingrediente1 = Chocolate()
+mi_pastel_choc = Pastel(ingrediente1) # Inyectamos chocolate
+mi_pastel_choc.hornear()
+
+# Queremos un pastel de Fresa:
+ingrediente2 = Fresa()
+mi_pastel_fresa = Pastel(ingrediente2) # Inyectamos fresa
+mi_pastel_fresa.hornear()
+mi_pastel_fresa.hornear()
+
+
+
+------------------
+
+
+
+
+Python POO @property
+
+El decorador @property hace que un método parezca un atributo normal.
+Sin @property: Para obtener el dato tendrías que llamar a un método con paréntesis: persona.obtener_edad().
+
+Con @property: Puedes llamarlo directamente como una variable, sin paréntesis: persona.edad.
+
+class Persona:
+    def __init__(self):
+        self._edad = 25  # Atributo interno
+
+    @property
+    def edad(self):
+        return self._edad  # Parece una variable, pero es un método
+
+
+# Uso:
+p = Persona()
+print(p.edad) 
+
+
+
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
+
+
+
+
+
+-----------------------------------------
+
+
+
+# EJERCICIO ACTUAL: DIC-09-1 — LITE: quién vendió X (dict de listas, sin set)
+En este ejercicio vamos a recorrer una lista dentro de un diccionario, buscaremos un articulo externo, si se encuentra en la lista, se muestra el usuario al que pertenece este articulo.
+
+#   ventas = {"ana": ["manzana", "pera"], "luis": ["zanahoria", "manzana"]}
+
+#   Escribe UNA función:
+#     quien_vendio(ventas, producto) -> (True/False, mensaje)
+#
+# Reglas de entrada/salida:
+#   - ventas: dict {str: lista}. Puede ser {} vacío.
+#   - producto: str
+#   - Si producto está en alguna lista -> return (True, vendedor)
+#     (si varios lo vendieron, devuelve el primero que encuentres)
+#   - Si no está en ninguna o ventas es {} -> return (False, "no vendido")
+
+
+Ventas4 = {"ana": ["manzana", "pera"], "luis": ["zanahoria", "manzana"]}
+
+def Ejercicio61(Diccionario, Prod):
+    for indice, elemento in Diccionario.items():
+        for finale in elemento[:]:
+            if (finale == Prod):
+                return (True, indice)
+            else:
+                continue
+            
+    return (False, "no vendido")
+
+Articulo5 = 'tomate'
+
+if (len(Ventas4) == 0):
+    print (f'Error, el diccionario esta vacio')
+else:
+    Sample61 = Ejercicio61(Ventas4, Articulo5)
+    if (Sample61[0] == True):
+        print (f'El articulo {Articulo5} aparece en la lista del vendedor {Sample61[1]}')
+    else:
+        print (f'Articulo {Articulo5} {Sample61[1]}')
+        
+        
+        
+--------------------------------------------
+
+
+
 
 Para este ejercicio vamos a trabajar nuevamente con diccionarios anidados, la idea es tener un diccionario que va a tener usuarios y campos, la idea es crear una funcion que reciba (Diccionario, User, Field, New_Value), Si el usuario no existe creamos el usuario y le asignamos su informacion
 
@@ -110,6 +477,103 @@ print (f'-' * 20)
         
         
 --------------------------------------------------
+
+
+
+Escribe una funcion moda_terminos(diccionario) que reciba el dict
+#   de conteos {palabra: cantidad} y DEVUELVA la palabra más frecuente.
+#
+# Reglas de entrada/salida:
+#   - Entrada: dict con strings como claves y enteros como valores.
+#       Ej: {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   - Salida: el string de la clave con el valor más alto.
+#   - Si el dict esta vacio, devuelve None (o ""), pero NO te rompas.
+#   - Si HAY EMPATE (dos palabras con la misma cantidad máxima),
+#     devuelve una lista con TODAS las empatadas, en cualquier orden.
+#       Ej empate: {"a":2, "b":2, "c":1} -> ["a", "b"]
+#   - La funcion debe RETORNAR el resultado (puedes imprimirlo al probar).
+#
+# Ejemplo:
+#   Entrada:  {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   Salida:   "python"
+#   (la clave con valor 4 es la mayor)
+#
+# Criterio de solucion correcta:
+#   1. Devuelve la clave con el valor máximo.
+#   2. Maneja dict vacío sin romperse.
+#   3. Maneja empate devolviendo TODAS las empatadas (lista).
+#   4. Se resuelve recorriendo el dict y comparando/acumulando
+#      (patron "mejor candidato", SIN usar max() con truco ni librerías).
+#      Puedes USAR max() si primero explicas por qué es la mejor herramienta.
+#
+# Pista de enfoque (NO es la respuesta):
+#   Recorre los items (clave, valor). Lleva registro del "mejor visto"
+#   hasta ahora (su clave y su valor). Si el actual es MAYOR que el mejor,
+#   lo reemplazas. Si es IGUAL al mejor, lo agregas a la lista de empatados.
+#   Al final: si la lista de empatados tiene mas de 1, devuélvela; si no,
+#   devuelve al mejor. Ese es el patron "mejor candidato sobre dict".
+
+
+--------------------------
+
+
+Esta es una funcion que recibe una lista de productos y un diccionario como argumentos, el dict esta vacio, la idea es crear una funcion que recibe estos argumentos y evalue 2 listas una lista de frutas y otra de verdura, si el elemento de la lista externa esta en la categoria fruta entonces se guarda en el diccionario en la lista frutas, si no en verduras u otros. El resultado muestralo 
+
+lista_productos = ["manzana", "zanahoria", "kiwi", "pera", "tomate"]
+        
+canastas = {
+    "frutas": [],     # se llenará con frutas
+    "verduras": [],   # se llenará con verduras
+    "otros": []       # se llenará con lo que no sea fruta ni verdura
+}
+
+def clasificar(diccionario, lista):
+    fruta = ["manzana","banana","pera"]
+    verdura = ["zanahoria","lechuga","tomate"]
+
+Recorremos la lista externa, se evalua a que categoria pertenece, se actualiza el diccionario.
+
+
+
+--------------------------
+
+
+
+Agrupar por categoría
+
+Escribe una función agrupar(lista_pares) que:
+
+Reciba una lista de tuplas (categoria, valor).
+Cree un diccionario vacío.
+Recorra todas las tuplas.
+Si una categoría no existe, créala con una lista vacía [].
+Agregue (append) el valor a la lista de esa categoría.
+Devuelva el diccionario resultante.
+
+Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), ("fruta","pera"), ("fruta","banana"), ("verdura","tomate")]
+
+Diccionario_Agrupar = dict({})
+
+def agrupar(Lista, Diccionario):
+    for clave, valor in Lista:
+        if (clave not in Diccionario):
+            Diccionario[clave] = []
+            
+        Diccionario[clave].append(valor)
+            
+    return Diccionario
+        
+
+Sample50 = agrupar(Lista_Agrupar, Diccionario_Agrupar)
+
+if (len(Lista_Agrupar) == 0):
+    print (f'{Diccionario_Agrupar}')
+else:
+    print (f'{Sample50}')
+    
+    
+    
+--------------------------
 
 
 
@@ -3166,96 +3630,3 @@ cliente_a = Persona('Sofía', 'Prida')
 
 
 -------------------------------------
-
-
-
-Escribe una funcion moda_terminos(diccionario) que reciba el dict
-#   de conteos {palabra: cantidad} y DEVUELVA la palabra más frecuente.
-#
-# Reglas de entrada/salida:
-#   - Entrada: dict con strings como claves y enteros como valores.
-#       Ej: {"python": 4, "java": 2, "c++": 2, "go": 1}
-#   - Salida: el string de la clave con el valor más alto.
-#   - Si el dict esta vacio, devuelve None (o ""), pero NO te rompas.
-#   - Si HAY EMPATE (dos palabras con la misma cantidad máxima),
-#     devuelve una lista con TODAS las empatadas, en cualquier orden.
-#       Ej empate: {"a":2, "b":2, "c":1} -> ["a", "b"]
-#   - La funcion debe RETORNAR el resultado (puedes imprimirlo al probar).
-#
-# Ejemplo:
-#   Entrada:  {"python": 4, "java": 2, "c++": 2, "go": 1}
-#   Salida:   "python"
-#   (la clave con valor 4 es la mayor)
-#
-# Criterio de solucion correcta:
-#   1. Devuelve la clave con el valor máximo.
-#   2. Maneja dict vacío sin romperse.
-#   3. Maneja empate devolviendo TODAS las empatadas (lista).
-#   4. Se resuelve recorriendo el dict y comparando/acumulando
-#      (patron "mejor candidato", SIN usar max() con truco ni librerías).
-#      Puedes USAR max() si primero explicas por qué es la mejor herramienta.
-#
-# Pista de enfoque (NO es la respuesta):
-#   Recorre los items (clave, valor). Lleva registro del "mejor visto"
-#   hasta ahora (su clave y su valor). Si el actual es MAYOR que el mejor,
-#   lo reemplazas. Si es IGUAL al mejor, lo agregas a la lista de empatados.
-#   Al final: si la lista de empatados tiene mas de 1, devuélvela; si no,
-#   devuelve al mejor. Ese es el patron "mejor candidato sobre dict".
-
-
---------------------------
-
-
-Esta es una funcion que recibe una lista de productos y un diccionario como argumentos, el dict esta vacio, la idea es crear una funcion que recibe estos argumentos y evalue 2 listas una lista de frutas y otra de verdura, si el elemento de la lista externa esta en la categoria fruta entonces se guarda en el diccionario en la lista frutas, si no en verduras u otros. El resultado muestralo 
-
-lista_productos = ["manzana", "zanahoria", "kiwi", "pera", "tomate"]
-        
-canastas = {
-    "frutas": [],     # se llenará con frutas
-    "verduras": [],   # se llenará con verduras
-    "otros": []       # se llenará con lo que no sea fruta ni verdura
-}
-
-def clasificar(diccionario, lista):
-    fruta = ["manzana","banana","pera"]
-    verdura = ["zanahoria","lechuga","tomate"]
-
-Recorremos la lista externa, se evalua a que categoria pertenece, se actualiza el diccionario.
-
-
-
---------------------------
-
-
-
-Agrupar por categoría
-
-Escribe una función agrupar(lista_pares) que:
-
-Reciba una lista de tuplas (categoria, valor).
-Cree un diccionario vacío.
-Recorra todas las tuplas.
-Si una categoría no existe, créala con una lista vacía [].
-Agregue (append) el valor a la lista de esa categoría.
-Devuelva el diccionario resultante.
-
-Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), Lista_Agrupar = [("fruta","manzana"), ("verdura","zanahoria"), ("fruta","pera"), ("fruta","banana"), ("verdura","tomate")]
-
-Diccionario_Agrupar = dict({})
-
-def agrupar(Lista, Diccionario):
-    for clave, valor in Lista:
-        if (clave not in Diccionario):
-            Diccionario[clave] = []
-            
-        Diccionario[clave].append(valor)
-            
-    return Diccionario
-        
-
-Sample50 = agrupar(Lista_Agrupar, Diccionario_Agrupar)
-
-if (len(Lista_Agrupar) == 0):
-    print (f'{Diccionario_Agrupar}')
-else:
-    print (f'{Sample50}')
