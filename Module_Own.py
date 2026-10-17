@@ -122,7 +122,7 @@ Lista_Par = [num for num in Lista_Numeros1 if num % 2 == 0]
 
 GLOBAL = 30
 
-Division_Flotante = 14 // 7
+Division_Flotante = 14 / 7
 
 Lista1 = ['Erick', 'Josue', 'Perez', 'Gutierrez']
 Lista2 = [Division_Flotante, 300, 'Koala', not False]
