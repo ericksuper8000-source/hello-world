@@ -16,6 +16,29 @@ raise
 
 
 
+Acomodar un diccionario dict(sorted)
+Ejercicio del csv fechas
+Ejercicio diccionario completo, 
+diccionario con listas como elementos (Recorramos un diccionario con listas)
+diccionario con diccionario como elementos (Recorramos un diccionario con diccionario)
+diccionario con diccionario y dentro del diccionario listas como elementos
+Recorramos un diccionario con diccionario y dentro del diccionario listas como elementos
+
+Ejercicio diccionario a base de un csv
+Ruta csv, Cargar csv
+Vamos a crear una lista con una columna del csv
+Ahora una lista de llaves que se crean de la lista anterior
+Ahora vamos a hacer un diccionario con las llaves y la lista dict(zip())
+
+# Ahora hagamos un diccinario completamente vacio dict({}) y vamos a meterle elementos a un diciconario que no tiene claves ni valores
+
+Hagamos un dataframe concatenado
+
+
+-----------------------------------------
+
+
+
 
 📌 Dunder Methods (Práctica)
 
@@ -3132,7 +3155,7 @@ Strip lo que hace es eliminar espacios
 nombre = '          Lautaro'
 print (f'{nombre.strip()}')
 
-# que pasa cuando a strip le pasamos argumentos? Elimina ese argumento de la cadena
+# que pasa cuando a strip le pasamos argumentos? Elimina ese argumento de la cadena !!!!OJO IMPORTANTISIMO, SOLO ELIMINA ESTOS DE LOS EXTREMOS, SI EL - O EL * ESTAN EN OTRA POSICION, NO LOS ELIMINA
 Textico3 = '----hola mundo***'
 print (f'{Textico3.strip("-*")}')
 
