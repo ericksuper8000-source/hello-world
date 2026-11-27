@@ -1,11 +1,14 @@
-Hiena
-Tortuga
-Cerdo
-Catarina Pequeña
-Catarina Mediana
-Catarina Grande
-Serpiente
-Caballo
-Pez Globo
-Pikachu - Vaporeon - Graveler
-Su contrasena temporal es hje837
+Elefante
+Lagartija
+Escarabajo
+Erick
+Josue
+Pikachu
+Pikachu
+Graveler
+Vaporeon
+Poke1 : Pikachu
+Poke2 : Graveler
+Poke3 : Vaporeon
+Pikachu - Graveler - Vaporeon
+Su contrasena temporal es hje891

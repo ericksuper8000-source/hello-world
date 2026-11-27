@@ -17,7 +17,7 @@ raise
 
 
 Acomodar un diccionario dict(sorted)
-Ejercicio del csv fechas
+Ejercicio del csv fechas  C:\\Repo\\
 Ejercicio diccionario completo, 
 diccionario con listas como elementos (Recorramos un diccionario con listas)
 diccionario con diccionario como elementos (Recorramos un diccionario con diccionario)
@@ -31,8 +31,169 @@ Ahora una lista de llaves que se crean de la lista anterior
 Ahora vamos a hacer un diccionario con las llaves y la lista dict(zip())
 
 # Ahora hagamos un diccinario completamente vacio dict({}) y vamos a meterle elementos a un diciconario que no tiene claves ni valores
+OJO ESTE EJERCICIO DEBE HACERSE CON DOS LISTAS Y UN DICCIONARIO VACIO, SE RECORRE CON UN FOR Y DOS CONDICIONES IF
 
 Hagamos un dataframe concatenado
+
+
+
+Vamos a hacer un ejercicio con un diccionario anidado
+Ejercicio: Actualizar datos de usuarios
+Objetivo
+Crear una función llamada Actualizar_Datos() que reciba cuatro parámetros:
+1. Diccionario: diccionario de usuarios.
+2. Usuario: usuario que queremos buscar.
+3. Campo: dato que queremos agregar o modificar.
+4. Nuevo_Valor: nuevo valor que queremos almacenar.
+Requisitos
+La función debe contemplar tres situaciones:
+1. El usuario no existe: crearlo, crear su diccionario interno y agregar el campo con su valor. Devolver False y un mensaje.
+2. El usuario existe, pero el campo no: crear el campo sin modificar los demás datos. Devolver False y un mensaje.
+3. El usuario y el campo existen: actualizar su valor sin modificar los demás datos. Devolver True y un mensaje.
+Condiciones
+- Utilizar diccionarios anidados.
+- Utilizar .get() para las búsquedas.
+- Utilizar condicionales if / else.
+- No eliminar información existente.
+- Devolver una tupla: (Booleano, Mensaje).
+- No utilizar librerías externas.
+
+
+Datos1 = {"ana": {"edad": 25, "ciudad": "Quito"}}
+
+def Ejercicio2(Diccionario, User, Field, New_Value):
+    Ubicado1 = Diccionario.get(User)
+    if (Ubicado1 is None):
+        Diccionario[User] = {}
+        Diccionario[User][Field] = New_Value
+        return (False, f'El usuario no existe, por lo que primero creamos el usuario: {Diccionario}')
+    else:
+        Ubicado2 = Ubicado1.get(Field)
+        if (Ubicado2 is None):
+            Diccionario[User][Field] = New_Value
+            return (False, f'El usuario si existe, pero el campo no, por lo que primero creamos el campo y luego actualizamos: {Diccionario}')
+        else:
+            Diccionario[User][Field] = New_Value
+            return (True, f'Tanto el usuario como el campo eran correctos, se actualizo su contenido exitosamente: {Diccionario}')
+
+
+Usuario1 = 'ana'
+Campo1 = 'ciudad'
+Nuevo_Valor1 = 'Perejil'
+
+if (Datos1):
+    Sample2 = Ejercicio2(Datos1, Usuario1, Campo1, Nuevo_Valor1)
+    if (Sample2[0] == True):
+        print (f'{Sample2[1]}')
+    else:
+        print (f'{Sample2[1]}')
+else:
+    print (f'Error, el diccionario esta vacio')
+    
+    
+
+****************************
+
+
+Encontrar la moda en un diccionario usando iter() y next()
+
+Crear una función llamada Encontrar_Moda() que reciba un diccionario y determine qué clave o claves tienen el valor numérico más alto.
+
+Condiciones
+- Utilizar iter() y next() para obtener el primer elemento del diccionario.
+- Utilizar .items() para recorrer las claves y valores.
+- Utilizar ciclos y condicionales.
+- Crear una lista para almacenar las claves que comparten el valor máximo.
+- Si el diccionario está vacío, no intentar buscar la moda.
+
+Diccionario = {
+    "python": 2,
+    "java": 2,
+    "c++": 2,
+    "go": 1
+}
+
+Diccionario_Lenguaje1 = {"python": 2, "java": 2, "c++": 2, "go": 1}
+
+def Ejercicio4(Diccionario):
+    
+    Lista_Repetidos = []
+    
+    Clave = iter(Diccionario)
+    Clave = next(Clave)
+
+    Valor = Diccionario[Clave]
+    
+    for indice, elemento in Diccionario.items():
+        if (elemento > Valor):
+            Clave = indice
+            Valor = elemento
+        else:
+            continue
+        
+    for indice, elemento in Diccionario.items():
+        if (elemento == Valor):
+            Lista_Repetidos.append(indice)
+        else:
+            continue
+        
+    if (len(Lista_Repetidos) > 1):
+        return Lista_Repetidos
+    else:
+        return Clave
+
+Sample4 = Ejercicio4(Diccionario_Lenguaje1)
+
+if (Diccionario_Lenguaje1):
+    if (Sample4):
+        print (f'Moda mayor: {Sample4}')
+    else:
+        print (f'Error de moda')
+else:
+    print (f'Error, el diccionario esta vacio')
+    
+    
+    
+# Ahora realicemos la clasica funcion Fibonacci
+
+
+
+# Ejercicio — Buscar el primer número repetido
+# Una lista puede contener números repetidos. Queremos encontrar el primer número que aparece por segunda vez mientras recorremos la lista de izquierda a derecha.
+# [ESTA SOLUCION CONTIENE SETS]
+# [ESTA SOLUCION CONTIENE dos ciclos for]
+# Lista [10, 5, 3, 4, 3, 5, 6]
+
+
+Ejercicio — Buscar el primer aumento consecutivo
+Una empresa registra las ventas de cada día en una lista.
+El gerente quiere saber en qué posición ocurre el primer aumento de ventas respecto al día anterior.
+[90, 80, 79, 82]
+
+
+Ejercicio — Buscar la primera caída consecutiva mayor a un valor
+Una empresa registra la temperatura de una máquina cada hora. En ocasiones, una caída muy brusca puede indicar una avería.
+Queremos encontrar la primera posición donde la temperatura disminuye más de un valor determinado respecto a la medición anterior.
+[100, 97, 95, 80, 78]
+
+
+Ejercicio - Del pico, busque en la lista un numero que sea mayor que el que esta antes y mayor que el que esta despues
+Lista_Elemento45 = [1, 1, 2, 8, 3]
+
+
+ Escribe una funcion que reciba una lista de palabras y DEVUELVA un diccionario con el conteo de cada palabra.
+#
+# Reglas de entrada/salida:
+#   - Entrada: lista de strings.
+#       Ej: ["python", "java", "python", "c++", "java", "python", "go", "c++", "python"]
+#   - Salida: dict {palabra : cantidad} - {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   - Si la lista esta vacia, devuelve {}.
+#   - La funcion debe RETORNAR el dict (puedes imprimirlo al probar).
+
+
+
+# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
+# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
 
 
 -----------------------------------------
@@ -1631,6 +1792,192 @@ Ejercicio52(Paises1)
     for pan in panaderia:
         print(pan)
         
+        
+-----------------------------------------
+
+
+
+Acomodar un diccionario dict(sorted)
+Ejercicio del csv fechas  C:\\Repo\\
+Ejercicio diccionario completo, 
+diccionario con listas como elementos (Recorramos un diccionario con listas)
+diccionario con diccionario como elementos (Recorramos un diccionario con diccionario)
+diccionario con diccionario y dentro del diccionario listas como elementos
+Recorramos un diccionario con diccionario y dentro del diccionario listas como elementos
+
+Ejercicio diccionario a base de un csv
+Ruta csv, Cargar csv
+Vamos a crear una lista con una columna del csv
+Ahora una lista de llaves que se crean de la lista anterior
+Ahora vamos a hacer un diccionario con las llaves y la lista dict(zip())
+
+# Ahora hagamos un diccinario completamente vacio dict({}) y vamos a meterle elementos a un diciconario que no tiene claves ni valores
+
+Hagamos un dataframe concatenado
+
+
+
+Vamos a hacer un ejercicio con un diccionario anidado
+Ejercicio: Actualizar datos de usuarios
+Objetivo
+Crear una función llamada Actualizar_Datos() que reciba cuatro parámetros:
+1. Diccionario: diccionario de usuarios.
+2. Usuario: usuario que queremos buscar.
+3. Campo: dato que queremos agregar o modificar.
+4. Nuevo_Valor: nuevo valor que queremos almacenar.
+Requisitos
+La función debe contemplar tres situaciones:
+1. El usuario no existe: crearlo, crear su diccionario interno y agregar el campo con su valor. Devolver False y un mensaje.
+2. El usuario existe, pero el campo no: crear el campo sin modificar los demás datos. Devolver False y un mensaje.
+3. El usuario y el campo existen: actualizar su valor sin modificar los demás datos. Devolver True y un mensaje.
+Condiciones
+- Utilizar diccionarios anidados.
+- Utilizar .get() para las búsquedas.
+- Utilizar condicionales if / else.
+- No eliminar información existente.
+- Devolver una tupla: (Booleano, Mensaje).
+- No utilizar librerías externas.
+
+
+Datos1 = {"ana": {"edad": 25, "ciudad": "Quito"}}
+
+def Ejercicio2(Diccionario, User, Field, New_Value):
+    Ubicado1 = Diccionario.get(User)
+    if (Ubicado1 is None):
+        Diccionario[User] = {}
+        Diccionario[User][Field] = New_Value
+        return (False, f'El usuario no existe, por lo que primero creamos el usuario: {Diccionario}')
+    else:
+        Ubicado2 = Ubicado1.get(Field)
+        if (Ubicado2 is None):
+            Diccionario[User][Field] = New_Value
+            return (False, f'El usuario si existe, pero el campo no, por lo que primero creamos el campo y luego actualizamos: {Diccionario}')
+        else:
+            Diccionario[User][Field] = New_Value
+            return (True, f'Tanto el usuario como el campo eran correctos, se actualizo su contenido exitosamente: {Diccionario}')
+
+
+Usuario1 = 'ana'
+Campo1 = 'ciudad'
+Nuevo_Valor1 = 'Perejil'
+
+if (Datos1):
+    Sample2 = Ejercicio2(Datos1, Usuario1, Campo1, Nuevo_Valor1)
+    if (Sample2[0] == True):
+        print (f'{Sample2[1]}')
+    else:
+        print (f'{Sample2[1]}')
+else:
+    print (f'Error, el diccionario esta vacio')
+    
+    
+
+****************************
+
+
+Encontrar la moda en un diccionario usando iter() y next()
+
+Crear una función llamada Encontrar_Moda() que reciba un diccionario y determine qué clave o claves tienen el valor numérico más alto.
+
+Condiciones
+- Utilizar iter() y next() para obtener el primer elemento del diccionario.
+- Utilizar .items() para recorrer las claves y valores.
+- Utilizar ciclos y condicionales.
+- Crear una lista para almacenar las claves que comparten el valor máximo.
+- Si el diccionario está vacío, no intentar buscar la moda.
+
+Diccionario = {
+    "python": 2,
+    "java": 2,
+    "c++": 2,
+    "go": 1
+}
+
+Diccionario_Lenguaje1 = {"python": 2, "java": 2, "c++": 2, "go": 1}
+
+def Ejercicio4(Diccionario):
+    
+    Lista_Repetidos = []
+    
+    Clave = iter(Diccionario)
+    Clave = next(Clave)
+
+    Valor = Diccionario[Clave]
+    
+    for indice, elemento in Diccionario.items():
+        if (elemento > Valor):
+            Clave = indice
+            Valor = elemento
+        else:
+            continue
+        
+    for indice, elemento in Diccionario.items():
+        if (elemento == Valor):
+            Lista_Repetidos.append(indice)
+        else:
+            continue
+        
+    if (len(Lista_Repetidos) > 1):
+        return Lista_Repetidos
+    else:
+        return Clave
+
+Sample4 = Ejercicio4(Diccionario_Lenguaje1)
+
+if (Diccionario_Lenguaje1):
+    if (Sample4):
+        print (f'Moda mayor: {Sample4}')
+    else:
+        print (f'Error de moda')
+else:
+    print (f'Error, el diccionario esta vacio')
+    
+    
+    
+# Ahora realicemos la clasica funcion Fibonacci
+
+
+
+# Ejercicio — Buscar el primer número repetido
+# Una lista puede contener números repetidos. Queremos encontrar el primer número que aparece por segunda vez mientras recorremos la lista de izquierda a derecha.
+# [ESTA SOLUCION CONTIENE SETS]
+# [ESTA SOLUCION CONTIENE dos ciclos for]
+# Lista [10, 5, 3, 4, 3, 5, 6]
+
+
+Ejercicio — Buscar el primer aumento consecutivo
+Una empresa registra las ventas de cada día en una lista.
+El gerente quiere saber en qué posición ocurre el primer aumento de ventas respecto al día anterior.
+[90, 80, 79, 82]
+
+
+Ejercicio — Buscar la primera caída consecutiva mayor a un valor
+Una empresa registra la temperatura de una máquina cada hora. En ocasiones, una caída muy brusca puede indicar una avería.
+Queremos encontrar la primera posición donde la temperatura disminuye más de un valor determinado respecto a la medición anterior.
+[100, 97, 95, 80, 78]
+
+
+Ejercicio - Del pico, busque en la lista un numero que sea mayor que el que esta antes y mayor que el que esta despues
+Lista_Elemento45 = [1, 1, 2, 8, 3]
+
+
+ Escribe una funcion que reciba una lista de palabras y DEVUELVA un diccionario con el conteo de cada palabra.
+#
+# Reglas de entrada/salida:
+#   - Entrada: lista de strings.
+#       Ej: ["python", "java", "python", "c++", "java", "python", "go", "c++", "python"]
+#   - Salida: dict {palabra : cantidad} - {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   - Si la lista esta vacia, devuelve {}.
+#   - La funcion debe RETORNAR el dict (puedes imprimirlo al probar).
+
+
+
+# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
+# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+
+
+-----------------------------------------
+        
 
 
 Jugar con APIs
@@ -2216,6 +2563,11 @@ DataFrame1.iloc[3, :]  // Esto tomara todas las columnas unicamente de la fila 3
 
 
 ---------
+
+
+-----------------------------------------
+
+-----------------------------------------
 
 
 
@@ -2864,6 +3216,195 @@ print(p.edad)
 
 
 ---------------------------------------------------------
+
+
+
+
+
+
+Acomodar un diccionario dict(sorted)
+Ejercicio del csv fechas  C:\\Repo\\
+Ejercicio diccionario completo, 
+diccionario con listas como elementos (Recorramos un diccionario con listas)
+diccionario con diccionario como elementos (Recorramos un diccionario con diccionario)
+diccionario con diccionario y dentro del diccionario listas como elementos
+Recorramos un diccionario con diccionario y dentro del diccionario listas como elementos
+
+Ejercicio diccionario a base de un csv
+Ruta csv, Cargar csv
+Vamos a crear una lista con una columna del csv
+Ahora una lista de llaves que se crean de la lista anterior
+Ahora vamos a hacer un diccionario con las llaves y la lista dict(zip())
+
+# Ahora hagamos un diccinario completamente vacio dict({}) y vamos a meterle elementos a un diciconario que no tiene claves ni valores
+
+Hagamos un dataframe concatenado
+
+
+
+Vamos a hacer un ejercicio con un diccionario anidado
+Ejercicio: Actualizar datos de usuarios
+Objetivo
+Crear una función llamada Actualizar_Datos() que reciba cuatro parámetros:
+1. Diccionario: diccionario de usuarios.
+2. Usuario: usuario que queremos buscar.
+3. Campo: dato que queremos agregar o modificar.
+4. Nuevo_Valor: nuevo valor que queremos almacenar.
+Requisitos
+La función debe contemplar tres situaciones:
+1. El usuario no existe: crearlo, crear su diccionario interno y agregar el campo con su valor. Devolver False y un mensaje.
+2. El usuario existe, pero el campo no: crear el campo sin modificar los demás datos. Devolver False y un mensaje.
+3. El usuario y el campo existen: actualizar su valor sin modificar los demás datos. Devolver True y un mensaje.
+Condiciones
+- Utilizar diccionarios anidados.
+- Utilizar .get() para las búsquedas.
+- Utilizar condicionales if / else.
+- No eliminar información existente.
+- Devolver una tupla: (Booleano, Mensaje).
+- No utilizar librerías externas.
+
+
+Datos1 = {"ana": {"edad": 25, "ciudad": "Quito"}}
+
+def Ejercicio2(Diccionario, User, Field, New_Value):
+    Ubicado1 = Diccionario.get(User)
+    if (Ubicado1 is None):
+        Diccionario[User] = {}
+        Diccionario[User][Field] = New_Value
+        return (False, f'El usuario no existe, por lo que primero creamos el usuario: {Diccionario}')
+    else:
+        Ubicado2 = Ubicado1.get(Field)
+        if (Ubicado2 is None):
+            Diccionario[User][Field] = New_Value
+            return (False, f'El usuario si existe, pero el campo no, por lo que primero creamos el campo y luego actualizamos: {Diccionario}')
+        else:
+            Diccionario[User][Field] = New_Value
+            return (True, f'Tanto el usuario como el campo eran correctos, se actualizo su contenido exitosamente: {Diccionario}')
+
+
+Usuario1 = 'ana'
+Campo1 = 'ciudad'
+Nuevo_Valor1 = 'Perejil'
+
+if (Datos1):
+    Sample2 = Ejercicio2(Datos1, Usuario1, Campo1, Nuevo_Valor1)
+    if (Sample2[0] == True):
+        print (f'{Sample2[1]}')
+    else:
+        print (f'{Sample2[1]}')
+else:
+    print (f'Error, el diccionario esta vacio')
+    
+    
+
+****************************
+
+
+Encontrar la moda en un diccionario usando iter() y next()
+
+Crear una función llamada Encontrar_Moda() que reciba un diccionario y determine qué clave o claves tienen el valor numérico más alto.
+
+Condiciones
+- Utilizar iter() y next() para obtener el primer elemento del diccionario.
+- Utilizar .items() para recorrer las claves y valores.
+- Utilizar ciclos y condicionales.
+- Crear una lista para almacenar las claves que comparten el valor máximo.
+- Si el diccionario está vacío, no intentar buscar la moda.
+
+Diccionario = {
+    "python": 2,
+    "java": 2,
+    "c++": 2,
+    "go": 1
+}
+
+Diccionario_Lenguaje1 = {"python": 2, "java": 2, "c++": 2, "go": 1}
+
+def Ejercicio4(Diccionario):
+    
+    Lista_Repetidos = []
+    
+    Clave = iter(Diccionario)
+    Clave = next(Clave)
+
+    Valor = Diccionario[Clave]
+    
+    for indice, elemento in Diccionario.items():
+        if (elemento > Valor):
+            Clave = indice
+            Valor = elemento
+        else:
+            continue
+        
+    for indice, elemento in Diccionario.items():
+        if (elemento == Valor):
+            Lista_Repetidos.append(indice)
+        else:
+            continue
+        
+    if (len(Lista_Repetidos) > 1):
+        return Lista_Repetidos
+    else:
+        return Clave
+
+Sample4 = Ejercicio4(Diccionario_Lenguaje1)
+
+if (Diccionario_Lenguaje1):
+    if (Sample4):
+        print (f'Moda mayor: {Sample4}')
+    else:
+        print (f'Error de moda')
+else:
+    print (f'Error, el diccionario esta vacio')
+    
+    
+    
+# Ahora realicemos la clasica funcion Fibonacci
+
+
+
+# Ejercicio — Buscar el primer número repetido
+# Una lista puede contener números repetidos. Queremos encontrar el primer número que aparece por segunda vez mientras recorremos la lista de izquierda a derecha.
+# [ESTA SOLUCION CONTIENE SETS]
+# [ESTA SOLUCION CONTIENE dos ciclos for]
+# Lista [10, 5, 3, 4, 3, 5, 6]
+
+
+Ejercicio — Buscar el primer aumento consecutivo
+Una empresa registra las ventas de cada día en una lista.
+El gerente quiere saber en qué posición ocurre el primer aumento de ventas respecto al día anterior.
+[90, 80, 79, 82]
+
+
+Ejercicio — Buscar la primera caída consecutiva mayor a un valor
+Una empresa registra la temperatura de una máquina cada hora. En ocasiones, una caída muy brusca puede indicar una avería.
+Queremos encontrar la primera posición donde la temperatura disminuye más de un valor determinado respecto a la medición anterior.
+[100, 97, 95, 80, 78]
+
+
+Ejercicio - Del pico, busque en la lista un numero que sea mayor que el que esta antes y mayor que el que esta despues
+Lista_Elemento45 = [1, 1, 2, 8, 3]
+
+
+ Escribe una funcion que reciba una lista de palabras y DEVUELVA un diccionario con el conteo de cada palabra.
+#
+# Reglas de entrada/salida:
+#   - Entrada: lista de strings.
+#       Ej: ["python", "java", "python", "c++", "java", "python", "go", "c++", "python"]
+#   - Salida: dict {palabra : cantidad} - {"python": 4, "java": 2, "c++": 2, "go": 1}
+#   - Si la lista esta vacia, devuelve {}.
+#   - La funcion debe RETORNAR el dict (puedes imprimirlo al probar).
+
+
+
+# Ahora vamos a hacer un programa que pida nombres y edades, vamos a evaluar cual es el mayor y cual es el menor
+# Y vamos a desplegar que el mayor es el profesor y el menor es el alumno menor
+
+
+
+
+
+
 ---------------------------------------------------------
 ---------------------------------------------------------
 
